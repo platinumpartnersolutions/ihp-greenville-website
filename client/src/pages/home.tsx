@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, MapPin, Star, ChevronLeft, ChevronRight, Leaf, Heart, Zap, Droplets, Flame, Sparkles } from "lucide-react";
 import heroVideo from "@assets/Untitled_design_1768148669244.mp4";
-import doctorImage from "@assets/stock_images/professional_male_do_d0ce075a.jpg";
+import doctorImage from "@assets/take_this_small_blurry_photograph_and_create_1768153917878.jpg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
