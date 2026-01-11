@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, MapPin, Star, ChevronLeft, ChevronRight, Leaf, Heart, Zap, Droplets, Flame, Sparkles } from "lucide-react";
-import heroImage from "@assets/generated_images/serene_wellness_clinic_interior.png";
+import heroVideo from "@assets/Untitled_design_1768148669244.mp4";
 import doctorImage from "@assets/stock_images/professional_male_do_d0ce075a.jpg";
 
 const fadeInUp = {
@@ -152,9 +152,12 @@ export default function Home() {
           style={{ y: heroY }}
           className="absolute inset-0 z-0"
         >
-          <img
-            src={heroImage}
-            alt="Wellness clinic interior"
+          <video
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
