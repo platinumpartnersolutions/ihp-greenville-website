@@ -1,0 +1,82 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Montserrat",
+      "count": 65
+    },
+    {
+      "family": "Montserrat Fallback",
+      "count": 65
+    },
+    {
+      "family": "Source Sans Pro",
+      "count": 7
+    }
+  ],
+  "colors": {
+    "primary": "#2F814A",
+    "accent": "#68CCD1",
+    "background": "#EEEEEE",
+    "textPrimary": "#463939",
+    "link": "#68CCD1"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Source Sans Pro",
+      "heading": "Montserrat"
+    },
+    "fontStacks": {
+      "body": [
+        "Source Sans Pro"
+      ],
+      "heading": [
+        "Montserrat",
+        "Montserrat Fallback"
+      ],
+      "paragraph": [
+        "Montserrat",
+        "Montserrat Fallback"
+      ]
+    },
+    "fontSizes": {
+      "h1": "78px",
+      "h2": "36px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "6px"
+  },
+  "components": {},
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "File saved at: attached_assets/favicon.png",
+    "ogImage": "File saved at: attached_assets/ogImage.png"
+  },
+  "__framework_hints": [],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 1,
+    "reasoning": "Heuristic fallback: Moderate indicators: variant bonus (+8), in header, no link (brand logos usually link to homepage, penalty), header location, visible, reasonable size, SVG format. Score: 61. May benefit from LLM validation.",
+    "confidence": 0.5
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "confidence": 0
+  },
+  "confidence": {
+    "buttons": 0,
+    "colors": 0,
+    "overall": 0
+  }
+}
