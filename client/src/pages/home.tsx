@@ -150,7 +150,7 @@ export default function Home() {
       <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
         <motion.div
           style={{ y: heroY }}
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 will-change-transform"
         >
           <video
             src={heroVideo}
