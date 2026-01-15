@@ -101,7 +101,7 @@ export default function Home() {
               className="font-heading text-white text-lg md:text-xl tracking-wide"
               itemProp="name"
             >
-              Acupuncturist in Greenville, SC
+              Acupuncturist serving Greenville, SC and the Upstate
             </motion.h1>
 
             <motion.h2
