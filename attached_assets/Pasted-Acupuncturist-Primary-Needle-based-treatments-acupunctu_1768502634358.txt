@@ -1,0 +1,159 @@
+Acupuncturist (Primary)
+Needle-based treatments, acupuncture techniques and modalities
+
+Acupuncture therapy
+Acupuncture treatment
+Traditional Chinese acupuncture
+Medical acupuncture
+Auricular acupuncture
+Ear acupuncture
+Electroacupuncture
+Electrical stimulation acupuncture
+Scalp acupuncture
+Cosmetic acupuncture
+Facial rejuvenation acupuncture
+Fertility acupuncture
+Prenatal acupuncture
+Pregnancy acupuncture
+Acupuncture for anxiety
+Acupuncture for stress relief
+Acupuncture for insomnia
+Acupuncture for migraines
+Acupuncture for headaches
+Non-needle acupuncture
+Laser acupuncture
+Acupressure therapy
+Dry needling therapy
+Trigger point dry needling
+Intramuscular stimulation
+Biopuncture therapy
+Biopuncture injections
+
+Total: 27 services
+
+Acupuncture Clinic (Secondary)
+Pain conditions, injuries, and musculoskeletal treatments
+
+Back pain treatment
+Lower back pain treatment
+Upper back pain treatment
+Chronic back pain treatment
+Sciatica treatment
+Sciatic nerve pain treatment
+Neck pain treatment
+Shoulder pain treatment
+Frozen shoulder treatment
+Knee pain treatment
+Hip pain treatment
+Joint pain treatment
+Arthritis pain treatment
+Fibromyalgia treatment
+Chronic pain management
+Neuropathy treatment
+Peripheral neuropathy treatment
+Plantar fasciitis treatment
+Carpal tunnel treatment
+TMJ treatment
+TMJ pain relief
+Sports injury treatment
+Muscle pain treatment
+Trigger point therapy
+
+Total: 24 services
+
+Chinese Medicine Clinic (Secondary)
+Traditional Chinese medicine modalities, herbal medicine, and TCM-treated conditions
+
+Cupping therapy
+Chinese cupping
+Fire cupping
+Gua sha treatment
+Gua sha therapy
+Moxibustion therapy
+Moxa treatment
+Chinese herbal medicine
+Chinese herbal formulas
+Custom herbal formulations
+Herbal consultation
+Herbal supplements
+Natural medicine consultation
+Herb-drug interaction consultation
+Menstrual pain treatment
+PMS treatment
+Menopause treatment
+Hot flash treatment
+Fertility treatment
+Infertility treatment
+Digestive issues treatment
+IBS treatment
+Acid reflux treatment
+Allergy treatment
+Sinus treatment
+Insomnia treatment
+Sleep disorder treatment
+Natural anxiety treatment
+Natural depression treatment
+Stress management
+Fatigue treatment
+Chronic fatigue treatment
+Immune system support
+
+Total: 33 services
+
+Alternative Medicine Practitioner (Secondary)
+Functional medicine, diagnostics, detox therapies, and nutritional support
+
+Functional medicine consultation
+Functional medicine testing
+Functional blood chemistry analysis
+Comprehensive blood panel
+Hormone testing
+Hormonal imbalance treatment
+Thyroid testing
+Thyroid disorder treatment
+Adrenal fatigue treatment
+Adrenal testing
+Inflammatory marker testing
+Food sensitivity testing
+Nutritional deficiency testing
+Gut health testing
+Leaky gut treatment
+Digestive health treatment
+Autoimmune disease treatment
+Root cause analysis
+Integrative medicine consultation
+Holistic health assessment
+Brain fog treatment
+Weight loss support
+Metabolism support
+High blood pressure support
+Blood sugar support
+Natural diabetes support
+Long COVID treatment
+Post-COVID recovery
+Ozone therapy
+Ozone steam sauna
+Ozone sauna therapy
+Medical ozone therapy
+Ozone detoxification
+Infrared sauna therapy
+Detoxification therapy
+Heavy metal detox
+Vitamin therapy
+Vitamin supplementation
+Mineral supplementation
+Supplement recommendations
+Whole food supplements
+Professional-grade vitamins
+Nutritional supplements
+Nutritional counseling
+Nutrition therapy
+Whole food nutrition counseling
+
+Total: 46 services
+
+Summary by Category
+GBP CategoryService Count% of TotalAcupuncturist2721%Acupuncture Clinic2418%Chinese Medicine Clinic3325%Alternative Medicine Practitioner4635%Total130100%
+
+Key Reassignments
+ServicesNow UnderRationaleChinese herbal medicine, Custom herbal formulations, Herbal consultation, Herb-drug interactionChinese Medicine ClinicHerbal medicine is core to Traditional Chinese MedicineVitamin/mineral supplementation, Nutritional counselingAlternative Medicine PractitionerFunctional/integrative medicine encompasses nutritional therapeuticsWomen's health (PMS, menopause, fertility)Chinese Medicine ClinicTCM has strong tradition treating gynecological/hormonal conditionsOzone/detox therapiesAlternative Medicine PractitionerThese are integrative/alternative modalities outside TCM

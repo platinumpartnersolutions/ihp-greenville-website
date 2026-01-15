@@ -1,0 +1,129 @@
+What is Schema?
+
+Schema is a structured data markup language that helps Google and other search engines understand what your content is about. Think of it as providing clear labels and context for your website's information, removing any guesswork for search engines.
+
+
+
+Types of Schema Markup
+
+Let's break down the main types of schema you'll be implementing:
+
+1. Organization Schema
+
+
+
+
+
+Where to use: Every single URL on your domain (in the header)
+
+
+
+Purpose: Provides consistent business information across your entire website
+
+
+
+Why it matters: Ensures search engines understand your business identity throughout your site
+
+2. Local Business Schema
+
+
+
+
+
+Where to use: Only on the URL your Google Business Profile points to
+
+
+
+Purpose: Confirms your landing page matches your GBP information exactly
+
+
+
+Why it matters: Strengthens local SEO signals by linking your website to your GBP
+
+
+
+💡 Note on Location Types: If you have multiple locations, each location page should have schema matching its specific Google Business Profile. For single locations, this typically goes on your homepage.
+
+3. Product Schema
+
+
+
+
+
+Where to use: Individual product pages (mainly e-commerce)
+
+
+
+Purpose: Provides detailed product information including price, availability, and specifications
+
+
+
+Why it matters: While Google can guess product details, schema ensures accuracy
+
+4. Article Schema
+
+
+
+
+
+Where to use: Every blog post and article
+
+
+
+Purpose: Helps your content appear better in search results
+
+
+
+Why it matters: Can improve click-through rates by enhancing how your content displays
+
+5. FAQ Schema
+
+
+
+
+
+Where to use: Any page with frequently asked questions
+
+
+
+Purpose: Allows Google to display Q&As directly in search results
+
+
+
+Why it matters: More SERP real estate = more clicks
+
+
+
+📌 Pro Tip: Following our content structure guidelines means many of your pages should include FAQs, making this schema type especially valuable.
+
+6. Review Schema
+
+
+
+
+
+Where to use: Every page containing customer reviews
+
+
+
+Purpose: Can display review ratings in search results
+
+
+
+Why it matters: Star ratings in SERPs can significantly boost click-through rates (though this is becoming harder to achieve)
+
+7. Breadcrumb Schema
+
+
+
+
+
+Where to use: Pages with hierarchical structure (especially target URLs and supporting content)
+
+
+
+Purpose: Helps Google understand your site structure and content silos
+
+
+
+Why it matters: Reinforces the topical relevance you're building with your content strategy
