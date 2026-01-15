@@ -54,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden" itemScope itemType="https://schema.org/MedicalBusiness">
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
@@ -147,7 +147,7 @@ export default function Home() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden" aria-label="Hero section">
         <motion.div
           style={{ y: heroY }}
           className="absolute inset-0 z-0 will-change-transform"
@@ -180,6 +180,7 @@ export default function Home() {
             <motion.h1
               variants={fadeInUp}
               className="font-display text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] text-balance"
+              itemProp="description"
             >
               Restore Your Body to{" "}
               <span className="italic text-secondary">Optimum</span> Function
@@ -233,7 +234,7 @@ export default function Home() {
       </section>
 
       {/* Approach Section */}
-      <section id="approach" className="py-24 md:py-32 bg-card noise">
+      <section id="approach" className="py-24 md:py-32 bg-card noise" aria-labelledby="approach-heading">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -245,7 +246,7 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="space-y-8">
               <div>
                 <p className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-4">Our Philosophy</p>
-                <h2 className="font-display text-4xl md:text-5xl text-foreground leading-tight">
+                <h2 id="approach-heading" className="font-display text-4xl md:text-5xl text-foreground leading-tight">
                   Medicine Should <span className="italic text-primary">Restore</span>, Not Just Mask
                 </h2>
               </div>
@@ -299,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 md:py-32 bg-background">
+      <section id="services" className="py-24 md:py-32 bg-background" aria-labelledby="services-heading" itemProp="hasOfferCatalog" itemScope itemType="https://schema.org/OfferCatalog">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -311,7 +312,7 @@ export default function Home() {
             <motion.p variants={fadeInUp} className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-4">
               What We Offer
             </motion.p>
-            <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-5xl text-foreground">
+            <motion.h2 id="services-heading" variants={fadeInUp} className="font-display text-4xl md:text-5xl text-foreground" itemProp="name">
               Our Services
             </motion.h2>
           </motion.div>
@@ -347,7 +348,7 @@ export default function Home() {
       </section>
 
       {/* Provider Section */}
-      <section id="provider" className="py-24 md:py-32 bg-card noise">
+      <section id="provider" className="py-24 md:py-32 bg-card noise" aria-labelledby="provider-heading" itemScope itemType="https://schema.org/Physician">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -358,13 +359,13 @@ export default function Home() {
           >
             <motion.div variants={fadeInUp} className="order-2 md:order-1">
               <p className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-4">Meet Your Provider</p>
-              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">
+              <h2 id="provider-heading" className="font-display text-4xl md:text-5xl text-foreground mb-6" itemProp="name">
                 Dr. William Hendry
               </h2>
-              <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
+              <div className="space-y-4 text-muted-foreground text-lg leading-relaxed" itemProp="description">
                 <p>
-                  Dr. William Hendry holds a Doctor of Acupuncture and Oriental Medicine degree, 
-                  is nationally board-certified, and maintains active hospital privileges at Prisma Health.
+                  Dr. William Hendry holds a <span itemProp="qualifications">Doctor of Acupuncture and Oriental Medicine degree</span>, 
+                  is nationally board-certified, and maintains active hospital privileges at <span itemProp="memberOf">Prisma Health</span>.
                 </p>
                 <p>
                   With over 25 years of experience in Chinese medicine and functional medicine training, 
@@ -390,8 +391,9 @@ export default function Home() {
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
                   <img
                     src={doctorImage}
-                    alt="Dr. William Hendry"
+                    alt="Dr. William Hendry, Doctor of Acupuncture and Oriental Medicine at Integrative Health Partners in Greenville, SC"
                     className="w-full h-full object-cover"
+                    itemProp="image"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-primary text-white rounded-2xl p-6 shadow-xl">
@@ -479,7 +481,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 md:py-32 bg-background">
+      <section id="contact" className="py-24 md:py-32 bg-background" aria-labelledby="contact-heading">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -491,7 +493,7 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="space-y-8">
               <div>
                 <p className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-4">Get In Touch</p>
-                <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">
+                <h2 id="contact-heading" className="font-display text-4xl md:text-5xl text-foreground mb-6">
                   Visit Our Greenville Clinic
                 </h2>
                 <p className="font-sans text-muted-foreground text-lg leading-relaxed">
@@ -506,11 +508,11 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
+                  <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                     <p className="font-heading font-semibold text-foreground mb-1">Address</p>
                     <p className="font-sans text-muted-foreground">
-                      319 Wade Hampton Blvd, Suite A<br />
-                      Greenville, SC 29609
+                      <span itemProp="streetAddress">319 Wade Hampton Blvd, Suite A</span><br />
+                      <span itemProp="addressLocality">Greenville</span>, <span itemProp="addressRegion">SC</span> <span itemProp="postalCode">29609</span>
                     </p>
                   </div>
                 </div>
@@ -525,6 +527,7 @@ export default function Home() {
                       href="tel:8643656156"
                       className="font-sans text-primary hover:underline"
                       data-testid="link-phone"
+                      itemProp="telephone"
                     >
                       (864) 365-6156
                     </a>
@@ -541,6 +544,7 @@ export default function Home() {
                       href="mailto:info@ihpgreenville.com"
                       className="font-sans text-primary hover:underline"
                       data-testid="link-email"
+                      itemProp="email"
                     >
                       info@ihpgreenville.com
                     </a>
