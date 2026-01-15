@@ -96,20 +96,20 @@ export default function Home() {
             variants={stagger}
             className="space-y-8"
           >
-            <motion.p
-              variants={fadeInUp}
-              className="font-heading text-secondary text-sm md:text-base tracking-[0.3em] uppercase"
-            >
-              Greenville, South Carolina
-            </motion.p>
-
             <motion.h1
               variants={fadeInUp}
-              className="font-display text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] text-balance"
+              className="font-heading text-white text-lg md:text-xl tracking-wide"
               itemProp="name"
             >
-              Trusted <span className="italic text-secondary">Acupuncturist</span> in Greenville, SC
+              Acupuncturist in Greenville, SC
             </motion.h1>
+
+            <motion.h2
+              variants={fadeInUp}
+              className="font-display text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] text-balance"
+            >
+              Trusted <span className="italic text-secondary">Acupuncturist</span> in Greenville, SC
+            </motion.h2>
 
             <motion.p
               variants={fadeInUp}
