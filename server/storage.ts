@@ -11,6 +11,7 @@ export interface IStorage {
   getBlogPostBySlug(slug: string): Promise<BlogPost | undefined>;
   upsertBlogPost(post: InsertBlogPost): Promise<BlogPost>;
   syncBlogPosts(posts: InsertBlogPost[]): Promise<number>;
+  updateBlogPostContent(slug: string, content: string): Promise<BlogPost | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -68,6 +69,15 @@ export class DatabaseStorage implements IStorage {
       syncedCount++;
     }
     return syncedCount;
+  }
+
+  async updateBlogPostContent(slug: string, content: string): Promise<BlogPost | undefined> {
+    const [updated] = await db
+      .update(blogPosts)
+      .set({ content })
+      .where(eq(blogPosts.slug, slug))
+      .returning();
+    return updated || undefined;
   }
 }
 
