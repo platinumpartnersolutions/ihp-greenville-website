@@ -105,6 +105,13 @@ export function Navigation() {
             Contact
           </Link>
 
+          <Link
+            href="/blog"
+            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary ${textColor}`}
+          >
+            Blog
+          </Link>
+
           <a
             href={`tel:${NAP.phone.replace(/[^0-9]/g, '')}`}
             className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-heading text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow"
@@ -154,6 +161,9 @@ export function Navigation() {
               </Link>
               <Link href="/#contact" className="font-heading text-base font-medium text-foreground py-2 hover:text-primary transition-colors">
                 Contact
+              </Link>
+              <Link href="/blog" className="font-heading text-base font-medium text-foreground py-2 hover:text-primary transition-colors">
+                Blog
               </Link>
 
               <a
