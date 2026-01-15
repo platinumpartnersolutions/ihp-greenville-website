@@ -108,7 +108,7 @@ export default function Home() {
               variants={fadeInUp}
               className="font-display text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] text-balance"
             >
-              Trusted <span className="italic text-secondary">Acupuncturist</span> in Greenville, SC
+              Restore Your Body to <span className="italic text-secondary">Optimum</span> Health
             </motion.h2>
 
             <motion.p
