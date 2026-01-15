@@ -22,7 +22,7 @@ export const blogPosts = pgTable("blog_posts", {
   title: text("title").notNull(),
   slug: text("slug").notNull().unique(),
   link: text("link").notNull(),
-  pubDate: text("pub_date").notNull(),
+  pubDate: timestamp("pub_date", { withTimezone: true }).notNull(),
   creator: text("creator").notNull(),
   excerpt: text("excerpt").notNull(),
   content: text("content").notNull(),

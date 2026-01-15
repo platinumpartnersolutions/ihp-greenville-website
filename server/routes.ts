@@ -26,11 +26,13 @@ async function syncBlogPostsFromRSS(): Promise<number> {
       ? item.link.split('/').filter(Boolean).pop() || ''
       : item.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || '';
     
+    const pubDate = item.pubDate ? new Date(item.pubDate) : new Date();
+    
     return {
       title: item.title || '',
       slug,
       link: item.link || '',
-      pubDate: item.pubDate || '',
+      pubDate,
       creator: item.creator || item['dc:creator'] || 'Integrative Health Partners',
       excerpt: item.contentSnippet || (item.content ? item.content.replace(/<[^>]*>/g, '').substring(0, 200) + '...' : ''),
       content: item.contentEncoded || item['content:encoded'] || item.content || '',
