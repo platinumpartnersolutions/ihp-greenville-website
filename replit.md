@@ -10,6 +10,9 @@ Local SEO-focused website for Integrative Health Partners, a functional medicine
 - Added comprehensive schema markup (Organization, LocalBusiness, Service, Breadcrumb, FAQ)
 - Updated home page H1 to focus on primary category: "Acupuncturist in Greenville, SC"
 - Implemented internal linking with varied, descriptive anchor text
+- Added blog section with database storage for posts imported from WordPress RSS feed
+- Blog posts sync automatically every 30 minutes from WordPress RSS feed
+- Manual sync available via POST /api/blog/sync endpoint
 
 ## Site Architecture
 
