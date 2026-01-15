@@ -27,11 +27,14 @@ Local SEO-focused website for Integrative Health Partners, a functional medicine
 ### Key Files
 - `client/src/data/services.ts` - All 130 services organized by category with slugs, meta info
 - `client/src/pages/home.tsx` - Landing page with LocalBusiness schema
+- `client/src/pages/service-router.tsx` - Route handler that directs to category or service page
 - `client/src/pages/category.tsx` - Category page template
 - `client/src/pages/service.tsx` - Service page template
 - `client/src/components/SchemaMarkup.tsx` - Schema components
 - `client/src/components/Navigation.tsx` - Site navigation with service dropdown
 - `client/src/components/NAPFooter.tsx` - Consistent NAP footer
+- `client/src/components/Breadcrumbs.tsx` - Breadcrumb navigation
+- `client/src/components/SEOHead.tsx` - Dynamic meta tag updates
 
 ## NAP Information
 - Name: Integrative Health Partners
