@@ -44,14 +44,14 @@ const achievements = {
     abbreviation: "AAOT"
   },
   research: {
-    publicationCount: 4,
+    publicationCount: 5,
     citations: 52,
     institution: "Prisma Health System",
     researchGateUrl: "https://www.researchgate.net/profile/William-Hendry-4",
     highlights: [
+      "Acupuncture for Taxane-Induced Peripheral Neuropathy",
       "Symptom Management Among Cancer Survivors (HRV Biofeedback)",
-      "Neurogenesis & Integrative Care of Neurological Conditions",
-      "Alternatives to Opiates study"
+      "Neurogenesis & Integrative Care of Neurological Conditions"
     ]
   }
 };

@@ -72,9 +72,11 @@ Local SEO-focused website for Integrative Health Partners, a functional medicine
 - **Hospital Privileges:** Prisma Health (9 years)
 - **Professional Membership:** American Academy of Ozone Therapy (AAOT)
 - **Research:** Co-author of "Alternatives to Opiates" - 3-year study at Prisma Emergency Department on needling techniques as opioid alternatives
-- **Publications:** 4 peer-reviewed publications, 52 citations
+- **Publications:** 5 research studies/publications, 52 citations
 - **ResearchGate Profile:** https://www.researchgate.net/profile/William-Hendry-4
+- **Prisma Health Research:** https://academics.prismahealth.org/research-and-innovation/research-development/resources/patient-engagement-studio/main-studio
 - **Key Publications:**
+  - Evaluating the Effects of Acupuncture in the Treatment of Taxane Induced Peripheral Neuropathy (Patient Engagement Studio)
   - Symptom Management Among Cancer Survivors: HRV Biofeedback (Jun 2020)
   - Use of HRV biofeedback for symptom management among cancer survivors (May 2017)
   - HRV training for symptom control in cancer survivors (Feb 2017)
