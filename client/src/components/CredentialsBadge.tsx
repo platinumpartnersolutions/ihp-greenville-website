@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Award, Shield, GraduationCap, Building2, Users, BookOpen } from "lucide-react";
+import { ExternalLink, Award, Shield, GraduationCap, Building2, Users, BookOpen, Mic } from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -54,6 +54,13 @@ const achievements = {
   membership: {
     organization: "American Academy of Ozone Therapy",
     abbreviation: "AAOT"
+  },
+  speaking: {
+    title: "Medicating Our Microbes: Herbs, Supplements and the Microbiome",
+    venue: "Acupuncture Today",
+    sponsor: "Biotics Research Corporation",
+    date: "November 2016",
+    url: "https://acupuncturetoday.com/webinars/detail/medicating-our-microbes-herbs-supplements-and-the-microbiome"
   },
   research: {
     publicationCount: 5,
@@ -209,6 +216,33 @@ export function CredentialsBadge() {
               <p className="text-xs text-muted-foreground mt-1">
                 Member of {achievements.membership.abbreviation}
               </p>
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeInUp} className="flex gap-4 items-start">
+            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+              <Mic className="w-6 h-6 text-primary" />
+            </div>
+            <div className="flex-1">
+              <h4 className="font-heading font-semibold text-foreground mb-1">Speaking & Education</h4>
+              <p className="text-sm text-muted-foreground">
+                <span className="font-medium text-foreground">{achievements.speaking.venue}</span> Webinar
+              </p>
+              <p className="text-xs text-muted-foreground mt-1">
+                "{achievements.speaking.title}"
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Sponsored by {achievements.speaking.sponsor} ({achievements.speaking.date})
+              </p>
+              <a
+                href={achievements.speaking.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium mt-2"
+                data-testid="link-webinar"
+              >
+                View Webinar <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
           </motion.div>
 

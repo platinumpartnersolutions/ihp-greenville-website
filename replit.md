@@ -73,6 +73,8 @@ Local SEO-focused website for Integrative Health Partners, a functional medicine
 ## Dr. Hendry Achievements
 - **Hospital Privileges:** Prisma Health (9 years)
 - **Professional Membership:** American Academy of Ozone Therapy (AAOT)
+- **Speaking:** Acupuncture Today webinar "Medicating Our Microbes: Herbs, Supplements and the Microbiome" (Nov 2016), sponsored by Biotics Research Corporation
+- **Acupuncture Today Webinar:** https://acupuncturetoday.com/webinars/detail/medicating-our-microbes-herbs-supplements-and-the-microbiome
 - **Research:** Co-author of "Alternatives to Opiates" - 3-year study at Prisma Emergency Department on needling techniques as opioid alternatives
 - **Publications:** 5 research studies/publications, 52 citations
 - **ResearchGate Profile:** https://www.researchgate.net/profile/William-Hendry-4
