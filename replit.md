@@ -53,6 +53,18 @@ Local SEO-focused website for Integrative Health Partners, a functional medicine
 - **Breadcrumb Schema** - Category and service pages
 - **FAQ Schema** - Category, service, and home pages
 - **Physician Schema** - Home page (Dr. Hendry)
+- **EducationalOccupationalCredential Schema** - Home page (NCCAOM certification)
+
+## Dr. Hendry Credentials
+- **NCCAOM Certification #:** 114498
+- **NCCAOM Designation:** Dipl. O.M. (NCCAOM)®
+- **Certified Since:** August 6, 2009
+- **Certification Valid Through:** August 31, 2029
+- **NCCAOM Badge URL:** https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==
+- **NCCAOM Directory:** https://directory.ncbahm.org/FAP/PractitionerDetail?AgencyClientId=ssLe-Z5Nnck=&d=4.8
+- **State License Verification:** https://llr.sc.gov/med/
+- **DAOM School:** (To be provided)
+- **SC State License #:** (To be provided)
 
 ## Design System
 - **Primary Color:** #2F814A (green)
