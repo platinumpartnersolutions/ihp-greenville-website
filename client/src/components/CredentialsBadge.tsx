@@ -26,9 +26,12 @@ const credentials = {
   education: {
     degree: "DAOM",
     fullDegree: "Doctor of Acupuncture and Oriental Medicine",
-    school: "" // To be updated with school name
+    school: "East West College of Natural Medicine",
+    graduationDate: "December 2008"
   },
-  stateNumber: "" // To be updated with SC license number
+  scLicenseNumber: "141",
+  scLicenseExpiration: "September 30, 2027",
+  specialty: "Injection Therapy Certification"
 };
 
 export function CredentialsBadge() {
@@ -98,9 +101,9 @@ export function CredentialsBadge() {
             <p className="text-sm text-muted-foreground">
               <span className="font-medium text-foreground">{credentials.education.degree}</span> - {credentials.education.fullDegree}
             </p>
-            {credentials.education.school && (
-              <p className="text-xs text-muted-foreground mt-1">{credentials.education.school}</p>
-            )}
+            <p className="text-xs text-muted-foreground mt-1">
+              {credentials.education.school} ({credentials.education.graduationDate})
+            </p>
           </div>
         </motion.div>
 
@@ -110,12 +113,14 @@ export function CredentialsBadge() {
           </div>
           <div className="flex-1">
             <h4 className="font-heading font-semibold text-foreground mb-1">South Carolina State License</h4>
-            <p className="text-sm text-muted-foreground mb-2">
-              Licensed Acupuncturist - State of South Carolina
-              {credentials.stateNumber && (
-                <span className="block mt-1">License #: <span className="font-medium text-foreground">{credentials.stateNumber}</span></span>
-              )}
-            </p>
+            <div className="text-sm text-muted-foreground mb-2">
+              <p>Licensed Acupuncturist - State of South Carolina</p>
+              <div className="text-xs mt-2 space-y-1">
+                <p>License #: <span className="font-medium text-foreground">{credentials.scLicenseNumber}</span></p>
+                <p>Expires: {credentials.scLicenseExpiration}</p>
+                <p>Specialty: {credentials.specialty}</p>
+              </div>
+            </div>
             <a
               href={credentials.scLicense.boardUrl}
               target="_blank"

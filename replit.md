@@ -63,8 +63,10 @@ Local SEO-focused website for Integrative Health Partners, a functional medicine
 - **NCCAOM Badge URL:** https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==
 - **NCCAOM Directory:** https://directory.ncbahm.org/FAP/PractitionerDetail?AgencyClientId=ssLe-Z5Nnck=&d=4.8
 - **State License Verification:** https://llr.sc.gov/med/
-- **DAOM School:** (To be provided)
-- **SC State License #:** (To be provided)
+- **DAOM School:** East West College of Natural Medicine (Graduated December 2008)
+- **SC State License #:** 141
+- **SC License Expiration:** September 30, 2027
+- **Specialty:** Injection Therapy Certification
 
 ## Design System
 - **Primary Color:** #2F814A (green)
