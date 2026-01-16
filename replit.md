@@ -64,8 +64,10 @@ Local SEO-focused website for Integrative Health Partners, a functional medicine
 - **NCCAOM Directory:** https://directory.ncbahm.org/FAP/PractitionerDetail?AgencyClientId=ssLe-Z5Nnck=&d=4.8
 - **State License Verification:** https://llr.sc.gov/med/
 - **DAOM School:** East West College of Natural Medicine (Graduated December 2008)
-- **SC State License #:** 141
-- **SC License Expiration:** September 30, 2027
+- **NPI Number:** 1417184045 (Active since June 22, 2009)
+- **NPI Verification:** https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx
+- **SC Acupuncture License #:** ACUP141 (Expires: September 30, 2027)
+- **FL Acupuncture License #:** AP2646
 - **Specialty:** Injection Therapy Certification
 
 ## Dr. Hendry Achievements

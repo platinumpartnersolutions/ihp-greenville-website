@@ -11,6 +11,12 @@ const stagger = {
 };
 
 const credentials = {
+  npi: {
+    number: "1417184045",
+    status: "Active",
+    enumerationDate: "June 22, 2009",
+    verifyUrl: "https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx"
+  },
   nccaom: {
     certificationNumber: "114498",
     designation: "Dipl. O.M. (NCCAOM)®",
@@ -20,8 +26,14 @@ const credentials = {
     directoryUrl: "https://directory.ncbahm.org/FAP/PractitionerDetail?AgencyClientId=ssLe-Z5Nnck=&d=4.8"
   },
   scLicense: {
+    number: "ACUP141",
     boardUrl: "https://llr.sc.gov/med/",
-    boardName: "SC Board of Medical Examiners"
+    boardName: "SC Board of Medical Examiners",
+    expiration: "September 30, 2027"
+  },
+  flLicense: {
+    number: "AP2646",
+    state: "Florida"
   },
   education: {
     degree: "DAOM",
@@ -135,24 +147,36 @@ export function CredentialsBadge() {
               <Shield className="w-6 h-6 text-primary" />
             </div>
             <div className="flex-1">
-              <h4 className="font-heading font-semibold text-foreground mb-1">South Carolina State License</h4>
+              <h4 className="font-heading font-semibold text-foreground mb-1">NPI & State Licenses</h4>
               <div className="text-sm text-muted-foreground mb-2">
-                <p>Licensed Acupuncturist - State of South Carolina</p>
-                <div className="text-xs mt-2 space-y-1">
-                  <p>License #: <span className="font-medium text-foreground">{credentials.scLicenseNumber}</span></p>
-                  <p>Expires: {credentials.scLicenseExpiration}</p>
+                <div className="text-xs space-y-1">
+                  <p>NPI #: <span className="font-medium text-foreground">{credentials.npi.number}</span> <span className="text-green-600 font-medium">({credentials.npi.status})</span></p>
+                  <p>SC License #: <span className="font-medium text-foreground">{credentials.scLicense.number}</span> (Expires: {credentials.scLicense.expiration})</p>
+                  <p>FL License #: <span className="font-medium text-foreground">{credentials.flLicense.number}</span></p>
                   <p>Specialty: {credentials.specialty}</p>
                 </div>
               </div>
-              <a
-                href={credentials.scLicense.boardUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium"
-                data-testid="link-sc-license-verify"
-              >
-                Verify at {credentials.scLicense.boardName} <ExternalLink className="w-3 h-3" />
-              </a>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href={credentials.npi.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium"
+                  data-testid="link-npi-verify"
+                >
+                  Verify NPI <ExternalLink className="w-3 h-3" />
+                </a>
+                <span className="text-muted-foreground">|</span>
+                <a
+                  href={credentials.scLicense.boardUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium"
+                  data-testid="link-sc-license-verify"
+                >
+                  SC Board <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>
