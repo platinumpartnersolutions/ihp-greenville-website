@@ -72,7 +72,7 @@ export function Navigation() {
                       className="block px-4 py-3 rounded-lg hover:bg-muted transition-colors"
                     >
                       <span className="font-heading text-sm font-medium text-foreground block">
-                        {category.name}
+                        {category.name} Services
                       </span>
                       <span className="text-xs text-muted-foreground">
                         {category.services.length} services
@@ -148,7 +148,7 @@ export function Navigation() {
                     href={`/services/${category.slug}`}
                     className="block font-heading text-sm font-medium text-foreground py-3 hover:text-primary transition-colors min-h-[44px] flex items-center"
                   >
-                    {category.name}
+                    {category.name} Services
                   </Link>
                 ))}
               </div>

@@ -285,7 +285,7 @@ export default function CategoryPage() {
                       className="block bg-card rounded-xl p-6 border border-border hover:border-primary/20 hover:shadow-lg transition-all group"
                     >
                       <h3 className="font-heading font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
-                        {cat.name}
+                        {cat.name} Services
                       </h3>
                       <p className="text-sm text-muted-foreground mb-3">
                         {cat.services.length} services available
