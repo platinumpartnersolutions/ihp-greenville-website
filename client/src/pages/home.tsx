@@ -7,6 +7,7 @@ import doctorImage from "@assets/take_this_small_blurry_photograph_and_create_17
 import { Navigation } from "@/components/Navigation";
 import { NAPFooter } from "@/components/NAPFooter";
 import { LocalBusinessSchema, PhysicianSchema, FAQSchema } from "@/components/SchemaMarkup";
+import { CredentialsBadge, CredentialSchema } from "@/components/CredentialsBadge";
 import { categories, NAP } from "@/data/services";
 
 const fadeInUp = {
@@ -69,6 +70,7 @@ export default function Home() {
       <LocalBusinessSchema aggregateRating={{ ratingValue: "5.0", reviewCount: "100" }} />
       <PhysicianSchema />
       <FAQSchema faqs={homeFaqs} />
+      <CredentialSchema />
 
       <Navigation />
 
@@ -427,6 +429,16 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+            className="mt-16"
+          >
+            <CredentialsBadge />
           </motion.div>
         </div>
       </section>
