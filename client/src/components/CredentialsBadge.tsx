@@ -82,7 +82,7 @@ export function CredentialsBadge() {
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
       variants={stagger}
-      className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border"
+      className="bg-card rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border border-border"
     >
       <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -94,11 +94,11 @@ export function CredentialsBadge() {
         </div>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="space-y-6">
-          <motion.div variants={fadeInUp} className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center">
-              <Award className="w-6 h-6 text-primary" />
+      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="space-y-5 md:space-y-6">
+          <motion.div variants={fadeInUp} className="flex gap-3 sm:gap-4 items-start">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/5 flex items-center justify-center">
+              <Award className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-semibold text-foreground mb-1">NCCAOM Certification</h4>
@@ -115,17 +115,17 @@ export function CredentialsBadge() {
                   href={credentials.nccaom.badgeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium"
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium py-1 min-h-[44px]"
                   data-testid="link-nccaom-badge"
                 >
                   View Digital Badge <ExternalLink className="w-3 h-3" />
                 </a>
-                <span className="text-muted-foreground">|</span>
+                <span className="text-muted-foreground hidden sm:inline">|</span>
                 <a
                   href={credentials.nccaom.directoryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium"
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium py-1 min-h-[44px]"
                   data-testid="link-nccaom-directory"
                 >
                   NCCAOM Directory <ExternalLink className="w-3 h-3" />
@@ -134,9 +134,9 @@ export function CredentialsBadge() {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
-              <GraduationCap className="w-6 h-6 text-secondary" />
+          <motion.div variants={fadeInUp} className="flex gap-3 sm:gap-4 items-start">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+              <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-semibold text-foreground mb-1">Education</h4>
@@ -149,9 +149,9 @@ export function CredentialsBadge() {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center">
-              <Shield className="w-6 h-6 text-primary" />
+          <motion.div variants={fadeInUp} className="flex gap-3 sm:gap-4 items-start">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/5 flex items-center justify-center">
+              <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-semibold text-foreground mb-1">NPI & State Licenses</h4>
@@ -188,10 +188,10 @@ export function CredentialsBadge() {
           </motion.div>
         </div>
 
-        <div className="space-y-6">
-          <motion.div variants={fadeInUp} className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Building2 className="w-6 h-6 text-primary" />
+        <div className="space-y-5 md:space-y-6">
+          <motion.div variants={fadeInUp} className="flex gap-3 sm:gap-4 items-start">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+              <Building2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-semibold text-foreground mb-1">Hospital Privileges</h4>
@@ -204,9 +204,9 @@ export function CredentialsBadge() {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
-              <Users className="w-6 h-6 text-secondary" />
+          <motion.div variants={fadeInUp} className="flex gap-3 sm:gap-4 items-start">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+              <Users className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-semibold text-foreground mb-1">Professional Membership</h4>
@@ -219,9 +219,9 @@ export function CredentialsBadge() {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Mic className="w-6 h-6 text-primary" />
+          <motion.div variants={fadeInUp} className="flex gap-3 sm:gap-4 items-start">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+              <Mic className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-semibold text-foreground mb-1">Speaking & Education</h4>
@@ -246,9 +246,9 @@ export function CredentialsBadge() {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-primary" />
+          <motion.div variants={fadeInUp} className="flex gap-3 sm:gap-4 items-start">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+              <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-semibold text-foreground mb-1">Research & Publications</h4>

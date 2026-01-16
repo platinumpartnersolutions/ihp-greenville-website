@@ -50,7 +50,7 @@ export function Navigation() {
             onMouseLeave={() => setServicesOpen(false)}
           >
             <button
-              className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary flex items-center gap-1 ${textColor}`}
+              className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary flex items-center gap-1 min-h-[44px] px-2 ${textColor}`}
               data-testid="link-services"
             >
               Services
@@ -86,35 +86,35 @@ export function Navigation() {
 
           <Link
             href="/#approach"
-            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary ${textColor}`}
+            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary min-h-[44px] flex items-center px-2 ${textColor}`}
           >
             About
           </Link>
 
           <Link
             href="/#provider"
-            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary ${textColor}`}
+            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary min-h-[44px] flex items-center px-2 ${textColor}`}
           >
             Dr. Hendry
           </Link>
 
           <Link
             href="/#contact"
-            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary ${textColor}`}
+            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary min-h-[44px] flex items-center px-2 ${textColor}`}
           >
             Contact
           </Link>
 
           <Link
             href="/blog"
-            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary ${textColor}`}
+            className={`font-heading text-sm font-medium tracking-wide transition-all hover:text-primary min-h-[44px] flex items-center px-2 ${textColor}`}
           >
             Blog
           </Link>
 
           <a
             href={`tel:${NAP.phone.replace(/[^0-9]/g, '')}`}
-            className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-heading text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow"
+            className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-heading text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow min-h-[44px]"
             data-testid="button-call"
           >
             <Phone className="w-4 h-4" />
@@ -146,29 +146,29 @@ export function Navigation() {
                   <Link
                     key={category.slug}
                     href={`/services/${category.slug}`}
-                    className="block font-heading text-sm font-medium text-foreground py-2 hover:text-primary transition-colors"
+                    className="block font-heading text-sm font-medium text-foreground py-3 hover:text-primary transition-colors min-h-[44px] flex items-center"
                   >
                     {category.name}
                   </Link>
                 ))}
               </div>
 
-              <Link href="/#approach" className="font-heading text-base font-medium text-foreground py-2 hover:text-primary transition-colors">
+              <Link href="/#approach" className="font-heading text-base font-medium text-foreground py-3 hover:text-primary transition-colors min-h-[44px] flex items-center">
                 About
               </Link>
-              <Link href="/#provider" className="font-heading text-base font-medium text-foreground py-2 hover:text-primary transition-colors">
+              <Link href="/#provider" className="font-heading text-base font-medium text-foreground py-3 hover:text-primary transition-colors min-h-[44px] flex items-center">
                 Dr. Hendry
               </Link>
-              <Link href="/#contact" className="font-heading text-base font-medium text-foreground py-2 hover:text-primary transition-colors">
+              <Link href="/#contact" className="font-heading text-base font-medium text-foreground py-3 hover:text-primary transition-colors min-h-[44px] flex items-center">
                 Contact
               </Link>
-              <Link href="/blog" className="font-heading text-base font-medium text-foreground py-2 hover:text-primary transition-colors">
+              <Link href="/blog" className="font-heading text-base font-medium text-foreground py-3 hover:text-primary transition-colors min-h-[44px] flex items-center">
                 Blog
               </Link>
 
               <a
                 href={`tel:${NAP.phone.replace(/[^0-9]/g, '')}`}
-                className="flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-full font-heading text-sm font-semibold justify-center mt-2"
+                className="flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-full font-heading text-sm font-semibold justify-center mt-2 min-h-[48px]"
               >
                 <Phone className="w-4 h-4" />
                 {NAP.phone}

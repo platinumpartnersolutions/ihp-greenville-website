@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Phone, Star, ChevronLeft, ChevronRight, Leaf, Heart, Zap, Droplets, Flame, Sparkles, MapPin, Mail, ArrowRight } from "lucide-react";
+import { Phone, Star, ChevronLeft, ChevronRight, Leaf, Heart, Zap, Droplets, Flame, Sparkles, MapPin, Mail, ArrowRight, Navigation as NavigationIcon } from "lucide-react";
 import heroVideo from "@assets/Untitled_design_1768148669244.mp4";
 import doctorImage from "@assets/take_this_small_blurry_photograph_and_create_1768153917878.jpg";
 import { Navigation } from "@/components/Navigation";
@@ -75,7 +75,7 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden" aria-label="Hero section">
+      <section className="relative h-screen min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden" aria-label="Hero section">
         <motion.div
           style={{ y: heroY }}
           className="absolute inset-0 z-0 will-change-transform"
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
         </motion.div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -108,14 +108,14 @@ export default function Home() {
 
             <motion.h2
               variants={fadeInUp}
-              className="font-display text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] text-balance"
+              className="font-display text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] text-balance"
             >
               Restore Your Body to <span className="italic text-secondary">Optimum</span> Health
             </motion.h2>
 
             <motion.p
               variants={fadeInUp}
-              className="font-sans text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+              className="font-sans text-white/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-2"
               itemProp="description"
             >
               Dr. William Hendry combines 25+ years of acupuncture expertise with functional medicine 
@@ -136,7 +136,7 @@ export default function Home() {
                 href={`tel:${NAP.phone.replace(/[^0-9]/g, '')}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full font-heading font-semibold text-base shadow-2xl hover:shadow-primary/25 transition-all"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full font-heading font-semibold text-sm sm:text-base shadow-2xl hover:shadow-primary/25 transition-all min-h-[48px]"
                 data-testid="button-schedule"
               >
                 <Phone className="w-5 h-5" />
@@ -163,8 +163,8 @@ export default function Home() {
       </section>
 
       {/* Category Links Section - Primary Navigation */}
-      <section className="py-20 bg-card">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-12 md:py-20 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -222,19 +222,19 @@ export default function Home() {
       </section>
 
       {/* Approach Section */}
-      <section id="approach" className="py-24 md:py-32 bg-background" aria-labelledby="approach-heading">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="approach" className="py-16 md:py-24 lg:py-32 bg-background" aria-labelledby="approach-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="grid md:grid-cols-2 gap-16 items-center"
+            className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
           >
-            <motion.div variants={fadeInUp} className="space-y-8">
+            <motion.div variants={fadeInUp} className="space-y-6 md:space-y-8">
               <div>
-                <p className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-4">Our Philosophy</p>
-                <h2 id="approach-heading" className="font-display text-4xl md:text-5xl text-foreground leading-tight">
+                <p className="font-heading text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 md:mb-4">Our Philosophy</p>
+                <h2 id="approach-heading" className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
                   Medicine Should <span className="italic text-primary">Restore</span>, Not Just Mask
                 </h2>
               </div>
@@ -296,8 +296,8 @@ export default function Home() {
       </section>
 
       {/* Services Overview Section */}
-      <section id="services" className="py-24 md:py-32 bg-card" aria-labelledby="services-heading">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="services" className="py-16 md:py-24 lg:py-32 bg-card" aria-labelledby="services-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -308,7 +308,7 @@ export default function Home() {
             <motion.p variants={fadeInUp} className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-4">
               What We Offer
             </motion.p>
-            <motion.h2 id="services-heading" variants={fadeInUp} className="font-display text-4xl md:text-5xl text-foreground">
+            <motion.h2 id="services-heading" variants={fadeInUp} className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground">
               Acupuncture & Wellness Services in Greenville
             </motion.h2>
           </motion.div>
@@ -365,21 +365,21 @@ export default function Home() {
       </section>
 
       {/* Provider Section */}
-      <section id="provider" className="py-24 md:py-32 bg-background" aria-labelledby="provider-heading" itemScope itemType="https://schema.org/Physician">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="provider" className="py-16 md:py-24 lg:py-32 bg-background" aria-labelledby="provider-heading" itemScope itemType="https://schema.org/Physician">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="grid md:grid-cols-2 gap-16 items-center"
+            className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
           >
             <motion.div variants={fadeInUp} className="order-2 md:order-1">
-              <p className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-4">Your Greenville Acupuncturist</p>
-              <h2 id="provider-heading" className="font-display text-4xl md:text-5xl text-foreground mb-6" itemProp="name">
+              <p className="font-heading text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 md:mb-4">Your Greenville Acupuncturist</p>
+              <h2 id="provider-heading" className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground mb-4 md:mb-6" itemProp="name">
                 Dr. William Hendry
               </h2>
-              <div className="space-y-4 text-muted-foreground text-lg leading-relaxed" itemProp="description">
+              <div className="space-y-3 md:space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed" itemProp="description">
                 <p>
                   Dr. William Hendry holds a <span itemProp="qualifications">Doctor of Acupuncture and Oriental Medicine degree</span>, 
                   is nationally board-certified, and maintains active hospital privileges at <span itemProp="memberOf">Prisma Health</span>.
@@ -601,17 +601,29 @@ export default function Home() {
               </motion.a>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="rounded-3xl overflow-hidden shadow-xl h-[400px] lg:h-auto">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.8897307449716!2d-82.38456492408577!3d34.86225437286937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88582ccc33ed5c35%3A0x1b4fdd2a2f7c50e5!2sIntegrative%20Health%20Partners!5e0!3m2!1sen!2sus!4v1704912345678!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: "400px" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Integrative Health Partners Location"
-              />
+            <motion.div variants={fadeInUp} className="flex flex-col">
+              <div className="rounded-3xl overflow-hidden shadow-xl h-[400px] lg:h-auto">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.8897307449716!2d-82.38456492408577!3d34.86225437286937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88582ccc33ed5c35%3A0x1b4fdd2a2f7c50e5!2sIntegrative%20Health%20Partners!5e0!3m2!1sen!2sus!4v1704912345678!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: "400px" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Integrative Health Partners Location"
+                />
+              </div>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=319+Wade+Hampton+Blvd+Suite+A+Greenville+SC+29609"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-heading font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all"
+                data-testid="button-get-directions"
+              >
+                <NavigationIcon className="w-5 h-5" />
+                Get Directions
+              </a>
             </motion.div>
           </motion.div>
         </div>

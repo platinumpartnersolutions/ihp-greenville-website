@@ -82,7 +82,7 @@ export default function BlogPage() {
         <Navigation />
 
         <main className="pt-24">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <Breadcrumbs items={breadcrumbItems} />
 
             <motion.div
@@ -92,7 +92,7 @@ export default function BlogPage() {
               className="py-12"
             >
               <motion.div variants={fadeInUp} className="max-w-3xl mb-12">
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-6">
+                <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground leading-tight mb-4 md:mb-6">
                   Health & Wellness Blog
                 </h1>
                 <p className="font-sans text-lg text-muted-foreground leading-relaxed">
@@ -133,7 +133,7 @@ export default function BlogPage() {
                     >
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="block bg-card rounded-2xl p-6 border border-transparent hover:border-primary/20 hover:shadow-xl transition-all h-full"
+                        className="block bg-card rounded-2xl p-5 sm:p-6 border border-transparent hover:border-primary/20 hover:shadow-xl transition-all h-full"
                         data-testid={`link-blog-post-${index}`}
                       >
                         <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">

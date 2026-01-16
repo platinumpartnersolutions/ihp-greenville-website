@@ -80,7 +80,7 @@ export default function ServicePage() {
         <Navigation />
 
         <main className="pt-24">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <Breadcrumbs items={breadcrumbItems} />
 
             <motion.div
@@ -99,7 +99,7 @@ export default function ServicePage() {
                       <ChevronRight className="w-4 h-4 rotate-180" />
                       Back to {category.name} services
                     </Link>
-                    <h1 className="font-display text-4xl md:text-5xl text-foreground leading-tight mb-6">
+                    <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-4 md:mb-6">
                       {generateNaturalH1()}
                     </h1>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -203,8 +203,8 @@ export default function ServicePage() {
                 </div>
 
                 <div className="lg:col-span-1">
-                  <motion.div variants={fadeInUp} className="sticky top-28 space-y-6">
-                    <div className="bg-primary text-white rounded-2xl p-6">
+                  <motion.div variants={fadeInUp} className="lg:sticky lg:top-28 space-y-4 md:space-y-6">
+                    <div className="bg-primary text-white rounded-2xl p-5 md:p-6">
                       <h3 className="font-heading font-semibold text-xl mb-4">
                         Schedule Your Consultation
                       </h3>
@@ -214,7 +214,7 @@ export default function ServicePage() {
                       </p>
                       <a
                         href={`tel:${NAP.phone.replace(/[^0-9]/g, '')}`}
-                        className="flex items-center justify-center gap-2 bg-white text-primary px-6 py-3 rounded-full font-heading font-semibold w-full hover:bg-white/90 transition-colors"
+                        className="flex items-center justify-center gap-2 bg-white text-primary px-5 sm:px-6 py-3 rounded-full font-heading font-semibold w-full hover:bg-white/90 transition-colors min-h-[48px]"
                       >
                         <Phone className="w-5 h-5" />
                         {NAP.phone}

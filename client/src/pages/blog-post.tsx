@@ -152,7 +152,7 @@ export default function BlogPostPage() {
         <Navigation />
 
         <main className="pt-24">
-          <article className="max-w-4xl mx-auto px-6">
+          <article className="max-w-4xl mx-auto px-4 sm:px-6">
             <Breadcrumbs items={breadcrumbItems} />
 
             <motion.div
@@ -172,7 +172,7 @@ export default function BlogPostPage() {
               </motion.div>
 
               <motion.header variants={fadeInUp} className="mb-8">
-                <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6">
+                <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-4 md:mb-6">
                   {post.title}
                 </h1>
 
@@ -210,7 +210,7 @@ export default function BlogPostPage() {
               />
 
               <motion.div variants={fadeInUp} className="mt-12 pt-8 border-t border-border">
-                <div className="bg-primary/5 rounded-2xl p-8">
+                <div className="bg-primary/5 rounded-2xl p-5 sm:p-8">
                   <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
                     Ready to Take the Next Step?
                   </h3>
@@ -220,7 +220,7 @@ export default function BlogPostPage() {
                   </p>
                   <a
                     href={`tel:${NAP.phone.replace(/[^0-9]/g, '')}`}
-                    className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-heading font-semibold hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center gap-2 bg-primary text-white px-5 sm:px-6 py-3 rounded-full font-heading font-semibold hover:bg-primary/90 transition-colors min-h-[48px] text-sm sm:text-base"
                   >
                     <Phone className="w-5 h-5" />
                     Call {NAP.phone}

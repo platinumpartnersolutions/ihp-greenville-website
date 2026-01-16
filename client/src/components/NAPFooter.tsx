@@ -4,9 +4,9 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 export function NAPFooter() {
   return (
-    <footer className="bg-foreground text-white py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12">
+    <footer className="bg-foreground text-white py-10 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
@@ -48,28 +48,28 @@ export function NAPFooter() {
 
           <div>
             <h3 className="font-heading font-semibold mb-4">Quick Links</h3>
-            <div className="space-y-2 text-white/80 text-sm">
-              <Link href="/services/acupuncturist-greenville-sc" className="block hover:text-white transition-colors">
+            <div className="space-y-1 text-white/80 text-sm">
+              <Link href="/services/acupuncturist-greenville-sc" className="block hover:text-white transition-colors py-1.5 min-h-[44px] flex items-center">
                 Acupuncturist Services
               </Link>
-              <Link href="/services/acupuncture-clinic-greenville-sc" className="block hover:text-white transition-colors">
+              <Link href="/services/acupuncture-clinic-greenville-sc" className="block hover:text-white transition-colors py-1.5 min-h-[44px] flex items-center">
                 Acupuncture Clinic
               </Link>
-              <Link href="/services/chinese-medicine-clinic-greenville-sc" className="block hover:text-white transition-colors">
+              <Link href="/services/chinese-medicine-clinic-greenville-sc" className="block hover:text-white transition-colors py-1.5 min-h-[44px] flex items-center">
                 Chinese Medicine
               </Link>
-              <Link href="/services/alternative-medicine-practitioner-greenville-sc" className="block hover:text-white transition-colors">
+              <Link href="/services/alternative-medicine-practitioner-greenville-sc" className="block hover:text-white transition-colors py-1.5 min-h-[44px] flex items-center">
                 Alternative Medicine
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-sm">
+        <div className="border-t border-white/10 mt-8 md:mt-12 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-sm text-center md:text-left">
           <p>© {new Date().getFullYear()} {NAP.name}. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="https://facebook.com/ihpgreenville" className="hover:text-white transition-colors">Facebook</a>
-            <a href="https://instagram.com/integrativehealthpartners" className="hover:text-white transition-colors">Instagram</a>
+            <a href="https://facebook.com/ihpgreenville" className="hover:text-white transition-colors py-2 min-h-[44px] flex items-center">Facebook</a>
+            <a href="https://instagram.com/integrativehealthpartners" className="hover:text-white transition-colors py-2 min-h-[44px] flex items-center">Instagram</a>
           </div>
         </div>
       </div>
