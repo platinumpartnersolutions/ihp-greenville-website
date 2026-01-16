@@ -44,9 +44,15 @@ const achievements = {
     abbreviation: "AAOT"
   },
   research: {
-    title: "Alternatives to Opiates",
-    description: "3-year study at Prisma Emergency Department helping educate physicians about the use of needling techniques as an effective substitute for opiate prescriptions",
-    role: "Co-author"
+    publicationCount: 4,
+    citations: 52,
+    institution: "Prisma Health System",
+    researchGateUrl: "https://www.researchgate.net/profile/William-Hendry-4",
+    highlights: [
+      "Symptom Management Among Cancer Survivors (HRV Biofeedback)",
+      "Neurogenesis & Integrative Care of Neurological Conditions",
+      "Alternatives to Opiates study"
+    ]
   }
 };
 
@@ -188,12 +194,28 @@ export function CredentialsBadge() {
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-semibold text-foreground mb-1">Research & Publications</h4>
-              <p className="text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">"{achievements.research.title}"</span>
+              <div className="flex gap-4 mb-2">
+                <div className="text-center">
+                  <p className="font-heading font-bold text-lg text-primary">{achievements.research.publicationCount}</p>
+                  <p className="text-xs text-muted-foreground">Publications</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-heading font-bold text-lg text-secondary">{achievements.research.citations}</p>
+                  <p className="text-xs text-muted-foreground">Citations</p>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground mb-2">
+                Research conducted at {achievements.research.institution}
               </p>
-              <p className="text-xs text-muted-foreground mt-1">
-                {achievements.research.role} - {achievements.research.description}
-              </p>
+              <a
+                href={achievements.research.researchGateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium"
+                data-testid="link-researchgate"
+              >
+                View Publications on ResearchGate <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
           </motion.div>
         </div>
