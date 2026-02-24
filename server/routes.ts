@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
+import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, BASE_URL } from "./seo";
 
 interface LinkableItem {
   name: string;
@@ -149,6 +150,50 @@ export async function registerRoutes(
     console.log("Initial blog posts sync completed");
   }).catch(err => {
     console.error("Initial sync failed:", err);
+  });
+
+  app.get("/sitemap.xml", async (_req, res) => {
+    try {
+      const posts = await storage.getAllBlogPosts();
+      const today = new Date().toISOString().split('T')[0];
+      let sitemap = generateSitemapXML();
+      const blogPostUrls = posts.map(post => {
+        const lastmod = post.pubDate ? new Date(post.pubDate).toISOString().split('T')[0] : today;
+        return `\n  <url>\n    <loc>${BASE_URL}/blog/${post.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+      }).join('');
+      sitemap = sitemap.replace('</urlset>', `${blogPostUrls}\n</urlset>`);
+      res.set("Content-Type", "application/xml").send(sitemap);
+    } catch (error) {
+      res.set("Content-Type", "application/xml").send(generateSitemapXML());
+    }
+  });
+
+  app.get("/robots.txt", (_req, res) => {
+    res.set("Content-Type", "text/plain").send(generateRobotsTxt());
+  });
+
+  app.use((req, res, next) => {
+    if (req.path.startsWith("/api") || req.path.startsWith("/vite-hmr") || req.path.includes(".")) {
+      return next();
+    }
+
+    const originalEnd = res.end.bind(res);
+    (res as any).end = function (chunk?: any, encoding?: any, callback?: any) {
+      const contentType = res.getHeader("content-type");
+      if (contentType && typeof contentType === "string" && contentType.includes("text/html") && chunk) {
+        let html = typeof chunk === "string" ? chunk : Buffer.isBuffer(chunk) ? chunk.toString("utf-8") : String(chunk);
+        const seo = getSEOForUrl(req.originalUrl);
+        if (seo) {
+          html = injectSEOIntoHTML(html, seo);
+        }
+        const buffer = Buffer.from(html, "utf-8");
+        res.setHeader("content-length", buffer.length);
+        return originalEnd(buffer, "utf-8", callback);
+      }
+      return originalEnd(chunk, encoding, callback);
+    };
+
+    next();
   });
 
   app.get("/api/blog", async (req, res) => {

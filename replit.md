@@ -3,7 +3,14 @@
 ## Overview
 Local SEO-focused website for Integrative Health Partners, a functional medicine and acupuncture practice in Greenville, SC. The site aligns with their Google Business Profile structure, featuring 4 GBP category pages and 130 individual service pages.
 
-## Recent Changes (January 2026)
+## Recent Changes (February 2026)
+- **Server-side SEO injection**: Express middleware injects page-specific meta tags, canonical URLs, OG tags, and JSON-LD schema into HTML before serving — crawlers see correct data without JavaScript
+- **sitemap.xml**: Server-generated with all 130 service pages, 4 categories, home, blog index, and individual blog posts (213 URLs total)
+- **robots.txt**: Includes sitemap reference and allows GPTBot, Google-Extended, ChatGPT-User crawlers
+- **Server-side schema markup**: MedicalProcedure, BreadcrumbList, FAQPage, MedicalBusiness schemas injected per page type
+- Added "Services" suffix to all secondary category titles throughout navigation and pages
+
+## Previous Changes (January 2026)
 - Implemented complete URL structure: `/services/[service-name]-greenville-sc`
 - Created 4 category pages matching GBP categories
 - Built dynamic routing for 130 service pages
