@@ -3,6 +3,14 @@
 ## Overview
 Local SEO-focused website for Integrative Health Partners, a functional medicine and acupuncture practice in Greenville, SC. The site aligns with their Google Business Profile structure, featuring 4 GBP category pages and 130 individual service pages.
 
+## Recent Changes (March 2026 — SEO Audit)
+- **Schema gaps fixed**: Removed hardcoded aggregateRating, fixed logo URL, added Blog+Article schemas to blog pages, ItemList to conditions hub/category, FAQPage to About and Dr. Hendry pages
+- **Conditions SEO injection**: Conditions hub, category, and individual pages now get proper SEO injection via `getSEOForUrl()` in routes
+- **Blog post SEO**: Blog posts use actual post data (title, excerpt, date) for Article schema instead of stub
+- **FAQs added**: 6 FAQs on About page, 6 FAQs on Dr. Hendry page — with matching FAQPage schema
+- **Sitemap**: 253 URLs total (130 services, 4 service categories, 35 conditions, about, dr-hendry, blog index, blog posts)
+- **All page types have schema**: Home (MedicalBusiness, Physician, FAQPage), Categories (BreadcrumbList, FAQPage, MedicalBusiness), Services (BreadcrumbList, MedicalProcedure, FAQPage), Conditions hub (ItemList), Condition categories (ItemList, BreadcrumbList), Condition pages (MedicalCondition, FAQPage, BreadcrumbList), About (MedicalBusiness, FAQPage, BreadcrumbList), Dr. Hendry (Physician, FAQPage, BreadcrumbList), Blog (Blog, BreadcrumbList), Blog posts (Article, BreadcrumbList)
+
 ## Recent Changes (March 2026 — Task #5)
 - **Homepage restructured**: New H1 "Integrative Functional Medicine & Acupuncture in Greenville, SC", 6-section layout (hero, E-E-A-T credentials, conditions, services, why IHP, NAP/contact), 8-question FAQPage schema, enhanced Physician schema
 - **All 130 service pages now have unique content**: `server/services-content.ts` (2748 lines) contains 9 core money pages (1500-2500 words each with research, cost info, treatment timelines) and 121 standard pages (800+ words each with opening, how-it-works, conditions treated, first appointment, why Dr. Hendry, 5-6 FAQs)

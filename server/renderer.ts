@@ -1525,6 +1525,22 @@ export function renderAbout(): string {
             <p>We see patients Monday through Friday, 9am–5pm. New patients are always welcome. Call us at <a href="tel:+1-864-365-6156" class="internal-link">(864) 365-6156</a> or email <a href="mailto:info@ihpgreenville.com" class="internal-link">info@ihpgreenville.com</a> to schedule your initial consultation.</p>
           </section>
 
+          <section class="content-section">
+            <h2>Frequently Asked Questions About Our Practice</h2>
+            ${[
+              { q: "What types of patients does Integrative Health Partners see?", a: "We see patients of all ages with both acute and chronic conditions. Many of our patients have complex health issues that haven't resolved with conventional care alone — including chronic pain, autoimmune conditions, hormonal imbalances, digestive disorders, and neurological conditions. We also see patients seeking preventive care and health optimization." },
+              { q: "Do I need a referral from my doctor to be seen?", a: "No referral is needed. You can book directly by calling (864) 365-6156. If you have been referred by a physician, we welcome that collaboration and will communicate with your referring provider as appropriate." },
+              { q: "What should I bring to my first appointment?", a: "Bring a list of current medications and supplements, any recent lab work or imaging results, and a brief summary of your health history and current concerns. Wearing loose, comfortable clothing is recommended if acupuncture will be part of your initial visit." },
+              { q: "How long is an initial consultation?", a: "Your first visit typically lasts 60–90 minutes. This allows Dr. Hendry to conduct a thorough health history, perform diagnostic assessments (including tongue and pulse diagnosis), and begin developing your individualized treatment plan." },
+              { q: "Do you accept insurance?", a: "We recommend checking with your insurance provider about acupuncture and integrative medicine benefits. Our staff can help you understand your coverage options. We also offer transparent self-pay rates." },
+              { q: "What makes IHP different from other acupuncture clinics?", a: "Three key differentiators: Dr. Hendry's 9-year hospital privileges at Prisma Health (rare for an acupuncturist), our full in-house herbal pharmacy for same-day dispensing, and Dr. Hendry's published research background (5 publications, 52 citations) ensuring every treatment decision is evidence-informed." },
+            ].map(faq => `
+            <div class="faq-item reveal">
+              <button class="faq-btn" aria-expanded="false">${faq.q}<span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span></button>
+              <div class="faq-body"><div class="faq-content">${faq.a}</div></div>
+            </div>`).join("")}
+          </section>
+
           <div class="cta-box">
             <h3 class="cta-box__title">Ready to Start Your Healing Journey?</h3>
             <p class="cta-box__text">Discover what's really driving your health challenges. Dr. Hendry will conduct a comprehensive evaluation and build a treatment plan designed around your specific needs.</p>
@@ -1708,6 +1724,22 @@ export function renderDrHendry(): string {
             <p>Dr. Hendry's clinical philosophy is built on a foundational belief: the body has an extraordinary capacity to heal itself when given the right conditions. His role — as he sees it — is to remove obstacles, restore balance, and support the body's innate intelligence. That philosophy translates into personalized, whole-person care that respects each patient's unique history, constitution, and goals.</p>
             <p>He is equally at home working with a patient navigating <a href="/conditions/autoimmune-disease" class="internal-link">autoimmune disease</a> as he is treating a high-performance athlete recovering from a <a href="/conditions/sports-injuries" class="internal-link">sports injury</a>. Whether prescribing a classical herbal formula or interpreting functional blood chemistry, Dr. Hendry brings the same rigor, curiosity, and compassion to every patient encounter.</p>
             <p>His membership in the <strong>American Academy of Ozone Therapy (AAOT)</strong> reflects his commitment to staying at the frontier of integrative medicine, including emerging therapies like <a href="/services/ozone-therapy" class="internal-link">medical ozone therapy</a> that are gaining traction in evidence-based circles.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>Frequently Asked Questions About Dr. Hendry</h2>
+            ${[
+              { q: "What is Dr. Hendry's highest academic credential?", a: "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine, which is the highest academic degree available in the acupuncture and oriental medicine field. He graduated in December 2008." },
+              { q: "Is Dr. Hendry board certified?", a: "Yes. Dr. Hendry holds NCCAOM (National Certification Commission for Acupuncture and Oriental Medicine) board certification as a Diplomate of Oriental Medicine — certificate #114498. His certification is valid through August 31, 2029." },
+              { q: "Has Dr. Hendry published research?", a: "Yes. Dr. Hendry has authored or co-authored 5 peer-reviewed research publications with a combined 52 citations. His research includes the Prisma Health opioid alternative study, HRV biofeedback for cancer survivors, and neurogenesis in integrative care." },
+              { q: "What is Dr. Hendry's hospital experience?", a: "Dr. Hendry held hospital privileges at Prisma Health for 9 years — an exceptional distinction for an acupuncturist. During that time, he co-investigated a 3-year study using needling techniques as alternatives to opioid pain management in the Emergency Department." },
+              { q: "Does Dr. Hendry offer injection therapies?", a: "Yes. Dr. Hendry is a certified Injection Therapy practitioner, enabling him to offer biopuncture and nutrient injection therapies. These treatments involve micro-injections of natural substances at specific points to support healing — a service unavailable at most acupuncture clinics." },
+              { q: "How can I verify Dr. Hendry's credentials?", a: "You can verify his NCCAOM certification via the official NCCAOM digital badge, his NPI number (1417184045) through the NPI database, and his South Carolina license (ACUP141) through the SC Department of Labor, Licensing and Regulation website." },
+            ].map(faq => `
+            <div class="faq-item reveal">
+              <button class="faq-btn" aria-expanded="false">${faq.q}<span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span></button>
+              <div class="faq-body"><div class="faq-content">${faq.a}</div></div>
+            </div>`).join("")}
           </section>
 
           <div class="cta-box">

@@ -3,7 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
-import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, BASE_URL } from "./seo";
+import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, getBlogPostSEO, BASE_URL } from "./seo";
 import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry } from "./renderer";
 import { conditions, conditionCategories } from "./conditions";
 
@@ -178,23 +178,30 @@ export async function registerRoutes(
   });
 
   /* ── Conditions Section ── */
-  app.get("/conditions", (_req, res) => {
-    res.set("Content-Type", "text/html; charset=utf-8").send(renderConditionsHub());
+  app.get("/conditions", (req, res) => {
+    let html = renderConditionsHub();
+    const seo = getSEOForUrl(req.originalUrl);
+    if (seo) html = injectSEOIntoHTML(html, seo);
+    res.set("Content-Type", "text/html; charset=utf-8").send(html);
   });
 
   app.get("/conditions/:slug", (req, res, next) => {
     const { slug } = req.params;
 
-    // Try condition category first
     const catHtml = renderConditionCategory(slug);
     if (catHtml) {
-      return res.set("Content-Type", "text/html; charset=utf-8").send(catHtml);
+      const seo = getSEOForUrl(req.originalUrl);
+      let html = catHtml;
+      if (seo) html = injectSEOIntoHTML(html, seo);
+      return res.set("Content-Type", "text/html; charset=utf-8").send(html);
     }
 
-    // Try individual condition
     const condHtml = renderCondition(slug);
     if (condHtml) {
-      return res.set("Content-Type", "text/html; charset=utf-8").send(condHtml);
+      const seo = getSEOForUrl(req.originalUrl);
+      let html = condHtml;
+      if (seo) html = injectSEOIntoHTML(html, seo);
+      return res.set("Content-Type", "text/html; charset=utf-8").send(html);
     }
 
     next();
@@ -537,25 +544,10 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
       const post = await storage.getBlogPostBySlug(req.params.slug);
       if (!post) return res.status(404).set("Content-Type", "text/html").send(render404());
 
-      const cleanExcerpt = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, "").substring(0, 160) : "";
-      const blogSEO = {
-        title: `${post.title} | Integrative Health Partners`,
-        description: cleanExcerpt,
-        canonical: `${BASE_URL}/blog/${post.slug}`,
-        ogType: "article",
-        schemas: [
-          {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-              { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` },
-              { "@type": "ListItem", "position": 3, "name": post.title, "item": `${BASE_URL}/blog/${post.slug}` }
-            ]
-          }
-        ]
-      };
       let html = renderBlogPost(post);
+      const cleanExcerpt = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, "").substring(0, 160) : "";
+      const dateStr = post.pubDate ? (typeof post.pubDate === "string" ? post.pubDate : post.pubDate.toISOString()) : undefined;
+      const blogSEO = getBlogPostSEO(post.title, cleanExcerpt, post.slug, dateStr);
       html = injectSEOIntoHTML(html, blogSEO);
       res.set("Content-Type", "text/html").send(html);
     } catch (error) {

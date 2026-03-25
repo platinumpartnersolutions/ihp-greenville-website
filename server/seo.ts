@@ -1,4 +1,5 @@
 import { serviceContentMap } from "./services-content";
+import { conditions, conditionCategories, conditionCategoryMap } from "./conditions";
 
 const BASE_URL = "https://www.ihpgreenville.com";
 
@@ -158,7 +159,7 @@ function getHomeSEO(): PageSEO {
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
         "name": NAP.name,
-        "image": `${NAP.url}/logo.png`,
+        "image": `${NAP.url}/favicon.png`,
         "description": "Integrative functional medicine and acupuncture practice offering root-cause care, Chinese herbal medicine, ozone therapy, and injection therapy in Greenville, SC.",
         "address": {
           "@type": "PostalAddress",
@@ -174,7 +175,6 @@ function getHomeSEO(): PageSEO {
         "url": NAP.url,
         "priceRange": "$$",
         "hasMap": "https://www.google.com/maps/place/Integrative+Health+Partners",
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "100", "bestRating": "5", "worstRating": "1" },
         "medicalSpecialty": ["Acupuncture","Functional Medicine","Chinese Medicine","Integrative Medicine"],
         "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }],
         "sameAs": ["https://facebook.com/ihpgreenville","https://instagram.com/integrativehealthpartners"]
@@ -238,7 +238,7 @@ function getCategorySEO(slug: string): PageSEO | null {
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
         "name": NAP.name,
-        "image": `${NAP.url}/logo.png`,
+        "image": `${NAP.url}/favicon.png`,
         "description": `${cat.name} services in Greenville, SC.`,
         "address": {
           "@type": "PostalAddress",
@@ -362,11 +362,32 @@ function getBlogSEO(): PageSEO {
     description: "Read the latest health and wellness insights from Integrative Health Partners in Greenville, SC. Expert articles on acupuncture, functional medicine, and holistic health.",
     canonical: `${BASE_URL}/blog`,
     ogType: "website",
-    schemas: []
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Integrative Health Partners Blog",
+        "description": "Expert health and wellness insights on acupuncture, functional medicine, Chinese medicine, and holistic health from Dr. William Hendry in Greenville, SC.",
+        "url": `${BASE_URL}/blog`,
+        "publisher": {
+          "@type": "MedicalBusiness",
+          "name": NAP.name,
+          "url": NAP.url
+        }
+      }
+    ]
   };
 }
 
-function getBlogPostSEO(title: string, excerpt: string, slug: string): PageSEO {
+function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublished?: string): PageSEO {
   return {
     title: `${title} | Integrative Health Partners`,
     description: excerpt.substring(0, 160),
@@ -381,6 +402,28 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string): PageSEO {
           { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` },
           { "@type": "ListItem", "position": 3, "name": title, "item": `${BASE_URL}/blog/${slug}` }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "description": excerpt.substring(0, 160),
+        "url": `${BASE_URL}/blog/${slug}`,
+        ...(datePublished ? { "datePublished": datePublished } : {}),
+        "author": {
+          "@type": "Person",
+          "name": "Dr. William Hendry",
+          "honorificSuffix": "DAOM",
+          "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
+          "url": `${BASE_URL}/dr-hendry`
+        },
+        "publisher": {
+          "@type": "MedicalBusiness",
+          "name": NAP.name,
+          "url": NAP.url,
+          "logo": { "@type": "ImageObject", "url": `${NAP.url}/favicon.png` }
+        },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}` }
       }
     ]
   };
@@ -400,6 +443,17 @@ function getConditionsHubSEO(): PageSEO {
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Conditions Treated at Integrative Health Partners",
+        "itemListElement": conditions.map((c, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": c.name,
+          "url": `${BASE_URL}/conditions/${c.slug}`
+        }))
       }
     ]
   };
@@ -407,6 +461,11 @@ function getConditionsHubSEO(): PageSEO {
 
 function getConditionCategorySEO(slug: string, name: string, desc: string): PageSEO {
   const pageUrl = `${BASE_URL}/conditions/${slug}`;
+  const catData = conditionCategoryMap.get(slug);
+  const catConditions = catData
+    ? catData.conditionSlugs.map(cs => conditions.find(c => c.slug === cs)).filter(Boolean)
+    : [];
+
   return {
     title: `${name} Treatment in Greenville, SC | Integrative Health Partners`,
     description: desc,
@@ -421,6 +480,17 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
           { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` },
           { "@type": "ListItem", "position": 3, "name": name, "item": pageUrl }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": `${name} Conditions Treated in Greenville, SC`,
+        "itemListElement": catConditions.map((c: any, i: number) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": c.name,
+          "url": `${BASE_URL}/conditions/${c.slug}`
+        }))
       }
     ]
   };
@@ -495,6 +565,18 @@ function getAboutSEO(): PageSEO {
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "About", "item": `${BASE_URL}/about` }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What types of patients does Integrative Health Partners see?", "acceptedAnswer": { "@type": "Answer", "text": "We see patients of all ages with both acute and chronic conditions. Many of our patients have complex health issues that haven't resolved with conventional care alone — including chronic pain, autoimmune conditions, hormonal imbalances, digestive disorders, and neurological conditions. We also see patients seeking preventive care and health optimization." } },
+          { "@type": "Question", "name": "Do I need a referral from my doctor to be seen?", "acceptedAnswer": { "@type": "Answer", "text": "No referral is needed. You can book directly by calling (864) 365-6156. If you have been referred by a physician, we welcome that collaboration and will communicate with your referring provider as appropriate." } },
+          { "@type": "Question", "name": "What should I bring to my first appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Bring a list of current medications and supplements, any recent lab work or imaging results, and a brief summary of your health history and current concerns. Wearing loose, comfortable clothing is recommended if acupuncture will be part of your initial visit." } },
+          { "@type": "Question", "name": "How long is an initial consultation?", "acceptedAnswer": { "@type": "Answer", "text": "Your first visit typically lasts 60–90 minutes. This allows Dr. Hendry to conduct a thorough health history, perform diagnostic assessments (including tongue and pulse diagnosis), and begin developing your individualized treatment plan." } },
+          { "@type": "Question", "name": "Do you accept insurance?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend checking with your insurance provider about acupuncture and integrative medicine benefits. Our staff can help you understand your coverage options. We also offer transparent self-pay rates." } },
+          { "@type": "Question", "name": "What makes IHP different from other acupuncture clinics?", "acceptedAnswer": { "@type": "Answer", "text": "Three key differentiators: Dr. Hendry's 9-year hospital privileges at Prisma Health (rare for an acupuncturist), our full in-house herbal pharmacy for same-day dispensing, and Dr. Hendry's published research background (5 publications, 52 citations) ensuring every treatment decision is evidence-informed." } }
+        ]
       }
     ]
   };
@@ -564,6 +646,18 @@ function getDrHendrySEO(): PageSEO {
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Dr. William Hendry", "item": `${BASE_URL}/dr-hendry` }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is Dr. Hendry's highest academic credential?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine, which is the highest academic degree available in the acupuncture and oriental medicine field. He graduated in December 2008." } },
+          { "@type": "Question", "name": "Is Dr. Hendry board certified?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry holds NCCAOM (National Certification Commission for Acupuncture and Oriental Medicine) board certification as a Diplomate of Oriental Medicine — certificate #114498. His certification is valid through August 31, 2029." } },
+          { "@type": "Question", "name": "Has Dr. Hendry published research?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry has authored or co-authored 5 peer-reviewed research publications with a combined 52 citations. His research includes the Prisma Health opioid alternative study, HRV biofeedback for cancer survivors, and neurogenesis in integrative care." } },
+          { "@type": "Question", "name": "What is Dr. Hendry's hospital experience?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry held hospital privileges at Prisma Health for 9 years — an exceptional distinction for an acupuncturist. During that time, he co-investigated a 3-year study using needling techniques as alternatives to opioid pain management in the Emergency Department." } },
+          { "@type": "Question", "name": "Does Dr. Hendry offer injection therapies?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry is a certified Injection Therapy practitioner, enabling him to offer biopuncture and nutrient injection therapies. These treatments involve micro-injections of natural substances at specific points to support healing — a service unavailable at most acupuncture clinics." } },
+          { "@type": "Question", "name": "How can I verify Dr. Hendry's credentials?", "acceptedAnswer": { "@type": "Answer", "text": "You can verify his NCCAOM certification via the official NCCAOM digital badge, his NPI number (1417184045) through the NPI database, and his South Carolina license (ACUP141) through the SC Department of Labor, Licensing and Regulation website." } }
+        ]
       }
     ]
   };
@@ -601,10 +695,24 @@ export function getSEOForUrl(url: string): PageSEO | null {
     return getConditionsHubSEO();
   }
 
+  const condMatch = path.match(/^\/conditions\/(.+)$/);
+  if (condMatch) {
+    const slug = condMatch[1];
+    const catData = conditionCategoryMap.get(slug);
+    if (catData) {
+      return getConditionCategorySEO(slug, catData.name, catData.metaDescription);
+    }
+    const condData = conditions.find(c => c.slug === slug);
+    if (condData) {
+      const parentCat = conditionCategories.find(cc => cc.conditionSlugs.includes(slug));
+      return getConditionPageSEO(slug, condData.name, condData.metaDescription, parentCat?.slug || "", parentCat?.name || "", condData.content.faqs);
+    }
+  }
+
   return null;
 }
 
-export { getConditionCategorySEO, getConditionPageSEO };
+export { getConditionCategorySEO, getConditionPageSEO, getBlogPostSEO };
 
 export function injectSEOIntoHTML(html: string, seo: PageSEO): string {
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(seo.title)}</title>`);
