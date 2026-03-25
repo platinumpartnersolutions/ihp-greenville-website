@@ -837,7 +837,7 @@ export function renderCategory(catSlug: string): string | null {
     },
     {
       q: `Does Dr. Hendry accept insurance for ${cat.name.toLowerCase()} services?`,
-      a: `We recommend checking with your insurance provider about your specific coverage. Our staff is happy to help you understand your benefits. We also offer transparent self-pay rates.`,
+      a: `Integrative Health Partners is a cash-pay practice and does not bill insurance directly. This allows Dr. Hendry to spend more time with each patient and provide genuinely personalized care. We provide itemized superbills you can submit to your insurance for potential out-of-network reimbursement. Call (864) 365-6156 to discuss.`,
     },
   ];
 
@@ -1746,7 +1746,7 @@ export function renderAbout(): string {
               { q: "Do I need a referral from my doctor to be seen?", a: "No referral is needed. You can book directly by calling (864) 365-6156. If you have been referred by a physician, we welcome that collaboration and will communicate with your referring provider as appropriate." },
               { q: "What should I bring to my first appointment?", a: "Bring a list of current medications and supplements, any recent lab work or imaging results, and a brief summary of your health history and current concerns. Wearing loose, comfortable clothing is recommended if acupuncture will be part of your initial visit." },
               { q: "How long is an initial consultation?", a: "Your first visit typically lasts 60–90 minutes. This allows Dr. Hendry to conduct a thorough health history, perform diagnostic assessments (including tongue and pulse diagnosis), and begin developing your individualized treatment plan." },
-              { q: "Do you accept insurance?", a: "We recommend checking with your insurance provider about acupuncture and integrative medicine benefits. Our staff can help you understand your coverage options. We also offer transparent self-pay rates." },
+              { q: "Do you accept insurance?", a: "Integrative Health Partners is a cash-pay practice and does not bill insurance directly. We provide itemized superbills that you can submit to your insurance for potential out-of-network reimbursement. Call (864) 365-6156 to learn more." },
               { q: "What makes IHP different from other acupuncture clinics?", a: "Three key differentiators: Dr. Hendry's 9-year hospital privileges at Prisma Health (rare for an acupuncturist), our full in-house herbal pharmacy for same-day dispensing, and Dr. Hendry's published research background (5 publications, 52 citations) ensuring every treatment decision is evidence-informed." },
             ].map(faq => `
             <div class="faq-item reveal">

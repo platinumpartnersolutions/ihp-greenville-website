@@ -35,6 +35,7 @@ interface CategoryData {
   metaDescription: string;
   isPrimary: boolean;
   serviceNames: string[];
+  carePhrase: string;
 }
 
 const createSlug = (name: string): string => {
@@ -49,6 +50,7 @@ const categoryDefinitions: CategoryData[] = [
     metaTitle: "Acupuncturist Services in Greenville, SC | Integrative Health Partners",
     metaDescription: "Looking for a skilled acupuncturist in Greenville, SC? Dr. William Hendry offers 25+ years of experience in acupuncture therapy and needle-based treatments. Call (864) 365-6156.",
     isPrimary: true,
+    carePhrase: "acupuncture",
     serviceNames: [
       "Acupuncture Therapy","Acupuncture Treatment","Traditional Chinese Acupuncture","Medical Acupuncture",
       "Auricular Acupuncture","Ear Acupuncture","Electroacupuncture","Electrical Stimulation Acupuncture",
@@ -66,6 +68,7 @@ const categoryDefinitions: CategoryData[] = [
     metaTitle: "Acupuncture Clinic Services in Greenville, SC | Pain Treatment & Relief",
     metaDescription: "Visit our acupuncture clinic in Greenville, SC for expert pain treatment. We specialize in back pain, sciatica, neck pain, and sports injuries. Call (864) 365-6156.",
     isPrimary: false,
+    carePhrase: "acupuncture and pain relief",
     serviceNames: [
       "Back Pain Treatment","Lower Back Pain Treatment","Upper Back Pain Treatment","Chronic Back Pain Treatment",
       "Sciatica Treatment","Sciatic Nerve Pain Treatment","Neck Pain Treatment","Shoulder Pain Treatment",
@@ -82,6 +85,7 @@ const categoryDefinitions: CategoryData[] = [
     metaTitle: "Chinese Medicine Clinic Services in Greenville, SC | TCM & Herbal Medicine",
     metaDescription: "Authentic Chinese medicine clinic in Greenville, SC offering cupping, herbal medicine, moxibustion, and traditional TCM treatments. Call (864) 365-6156 to schedule.",
     isPrimary: false,
+    carePhrase: "Chinese herbal medicine and TCM",
     serviceNames: [
       "Cupping Therapy","Chinese Cupping","Fire Cupping","Gua Sha Treatment","Gua Sha Therapy",
       "Moxibustion Therapy","Moxa Treatment","Chinese Herbal Medicine","Chinese Herbal Formulas",
@@ -100,6 +104,7 @@ const categoryDefinitions: CategoryData[] = [
     metaTitle: "Alternative Medicine Practitioner Services in Greenville, SC | Functional Medicine",
     metaDescription: "Trusted alternative medicine practitioner in Greenville, SC. Dr. Hendry offers functional medicine, ozone therapy, detox treatments, and holistic health care. Call (864) 365-6156.",
     isPrimary: false,
+    carePhrase: "functional and integrative medicine",
     serviceNames: [
       "Functional Medicine Consultation","Functional Medicine Testing","Functional Blood Chemistry Analysis",
       "Comprehensive Blood Panel","Hormone Testing","Hormonal Imbalance Treatment","Thyroid Testing",
@@ -130,7 +135,7 @@ for (const cat of categoryDefinitions) {
       slug,
       name,
       metaTitle: `${name} in Greenville, SC | Integrative Health Partners`,
-      metaDescription: `Professional ${name.toLowerCase()} services in Greenville, SC. Dr. William Hendry provides expert ${cat.name.toLowerCase()} care. Call (864) 365-6156 to schedule.`,
+      metaDescription: `Professional ${name.toLowerCase()} in Greenville, SC. Dr. William Hendry, DAOM, delivers expert ${cat.carePhrase} care at Integrative Health Partners. Call (864) 365-6156 to schedule.`,
       category: cat.name,
       categorySlug: cat.slug,
       gbpCategory: cat.gbpCategory
@@ -214,7 +219,7 @@ function getHomeSEO(): PageSEO {
           { "@type": "Question", "name": "Is Dr. Hendry accepting new patients?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we are currently accepting new patients. Call (864) 365-6156 or email info@ihpgreenville.com to schedule your initial consultation with Dr. William Hendry at our Greenville, SC office." } },
           { "@type": "Question", "name": "What makes Integrative Health Partners different?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry holds 9-year hospital privileges at Prisma Health, co-authored a landmark 3-year study on needle-based alternatives to opioids in the Prisma ER, holds a DAOM doctoral degree (highest in the field), and maintains 5 peer-reviewed publications with 52 citations. Our practice also offers an in-house herbal pharmacy and a full range of integrative therapies under one roof." } },
           { "@type": "Question", "name": "Do you offer ozone therapy and injection therapy in Greenville, SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry is certified in Injection Therapy and is a member of the American Academy of Ozone Therapy (AAOT). We offer medical ozone therapy, biopuncture, and nutrient injection therapies that most clinics cannot provide." } },
-          { "@type": "Question", "name": "Do you accept insurance for acupuncture?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend checking with your insurance provider about specific acupuncture benefits. Our staff can help you understand your coverage. We offer transparent self-pay rates and will work with you on a plan." } }
+          { "@type": "Question", "name": "Do you accept insurance for acupuncture?", "acceptedAnswer": { "@type": "Answer", "text": "Integrative Health Partners is a cash-pay practice and does not bill insurance directly. This allows Dr. Hendry to spend more quality time with each patient and deliver genuinely personalized care — free from insurance restrictions. We provide itemized superbills you can submit to your insurance for potential out-of-network reimbursement. Call (864) 365-6156 to discuss your situation." } }
         ]
       }
     ]
@@ -574,7 +579,7 @@ function getAboutSEO(): PageSEO {
           { "@type": "Question", "name": "Do I need a referral from my doctor to be seen?", "acceptedAnswer": { "@type": "Answer", "text": "No referral is needed. You can book directly by calling (864) 365-6156. If you have been referred by a physician, we welcome that collaboration and will communicate with your referring provider as appropriate." } },
           { "@type": "Question", "name": "What should I bring to my first appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Bring a list of current medications and supplements, any recent lab work or imaging results, and a brief summary of your health history and current concerns. Wearing loose, comfortable clothing is recommended if acupuncture will be part of your initial visit." } },
           { "@type": "Question", "name": "How long is an initial consultation?", "acceptedAnswer": { "@type": "Answer", "text": "Your first visit typically lasts 60–90 minutes. This allows Dr. Hendry to conduct a thorough health history, perform diagnostic assessments (including tongue and pulse diagnosis), and begin developing your individualized treatment plan." } },
-          { "@type": "Question", "name": "Do you accept insurance?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend checking with your insurance provider about acupuncture and integrative medicine benefits. Our staff can help you understand your coverage options. We also offer transparent self-pay rates." } },
+          { "@type": "Question", "name": "Do you accept insurance?", "acceptedAnswer": { "@type": "Answer", "text": "Integrative Health Partners is a cash-pay practice and does not bill insurance directly. This model allows Dr. Hendry to provide truly individualized, unhurried care without the constraints of insurance reimbursement schedules. We provide itemized superbills for potential out-of-network reimbursement submission. Call (864) 365-6156 to learn more." } },
           { "@type": "Question", "name": "What makes IHP different from other acupuncture clinics?", "acceptedAnswer": { "@type": "Answer", "text": "Three key differentiators: Dr. Hendry's 9-year hospital privileges at Prisma Health (rare for an acupuncturist), our full in-house herbal pharmacy for same-day dispensing, and Dr. Hendry's published research background (5 publications, 52 citations) ensuring every treatment decision is evidence-informed." } }
         ]
       }
