@@ -1,6 +1,7 @@
 import { categoryDefinitions, allServices, serviceMap, categoryMap, NAP, BASE_URL, getConditionCategorySEO, getConditionPageSEO, injectSEOIntoHTML } from "./seo";
 import { conditions, conditionCategories, conditionMap, conditionCategoryMap } from "./conditions";
 import { serviceContentMap } from "./services-content";
+import { getBlogSiteLinks, getServiceBlogLinks, getConditionBlogLinks } from "./blog-crosslinks";
 import type { BlogPost } from "@shared/schema";
 
 const createSlug = (name: string): string =>
@@ -994,6 +995,23 @@ export function renderService(svcSlug: string): string | null {
               </a>`).join("")}
             </div>
           </div>` : ""}
+
+          ${(() => {
+            const blogLinks = getServiceBlogLinks(baseSlug, 4);
+            if (blogLinks.length === 0) return "";
+            return `
+          <div style="margin-top:3rem" class="reveal">
+            <h2 class="font-heading" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">
+              ${icons.leaf} From the IHP Blog
+            </h2>
+            <div style="display:flex;flex-direction:column;gap:0.625rem">
+              ${blogLinks.map(b => `
+              <a href="/blog/${b.slug}" style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:var(--color-primary);text-decoration:none;padding:0.5rem 0;border-bottom:1px solid var(--color-border)" class="blog-cross-link">
+                ${icons.arrowRight}<span>${b.title}</span>
+              </a>`).join("")}
+            </div>
+          </div>`;
+          })()}
         </article>
 
         <aside class="sidebar">
@@ -1137,6 +1155,33 @@ export function renderBlogPost(post: BlogPost): string {
       <div class="prose blog-post-content">
         ${post.content || `<p>${excerpt}</p>`}
       </div>
+
+      ${(() => {
+        const links = getBlogSiteLinks(post.slug);
+        const svcLinks = links.serviceBaseSlugs
+          .map(bs => {
+            const svc = serviceMap.get(`${bs}-greenville-sc`) ?? serviceMap.get(bs);
+            return svc ? { href: `/services/${svc.slug}`, name: svc.name } : null;
+          })
+          .filter(Boolean) as { href: string; name: string }[];
+        const condLinks = links.conditionSlugs
+          .map(cs => {
+            const cond = conditionMap.get(cs);
+            return cond ? { href: `/conditions/${cs}`, name: cond.name } : null;
+          })
+          .filter(Boolean) as { href: string; name: string }[];
+        if (svcLinks.length === 0 && condLinks.length === 0) return "";
+        return `
+      <div class="highlight-box--compact" style="margin-top:2.5rem;margin-bottom:1rem">
+        <p style="font-family:var(--font-heading);font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary);margin-bottom:0.875rem">
+          Related Services &amp; Conditions at IHP
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+          ${svcLinks.map(l => `<a href="${l.href}" class="tag tag--link">${l.name}</a>`).join("")}
+          ${condLinks.map(l => `<a href="${l.href}" class="tag tag--link tag--teal">${l.name}</a>`).join("")}
+        </div>
+      </div>`;
+      })()}
 
       <hr class="divider" />
 
@@ -1475,6 +1520,23 @@ export function renderCondition(condSlug: string): string | null {
               </a>`).join("")}
             </div>
           </div>` : ""}
+
+          ${(() => {
+            const blogLinks = getConditionBlogLinks(condSlug, 3);
+            if (blogLinks.length === 0) return "";
+            return `
+          <div style="margin-top:3rem" class="reveal">
+            <h2 class="font-heading" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">
+              ${icons.leaf} From the IHP Blog
+            </h2>
+            <div style="display:flex;flex-direction:column;gap:0.625rem">
+              ${blogLinks.map(b => `
+              <a href="/blog/${b.slug}" style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:var(--color-primary);text-decoration:none;padding:0.5rem 0;border-bottom:1px solid var(--color-border)" class="blog-cross-link">
+                ${icons.arrowRight}<span>${b.title}</span>
+              </a>`).join("")}
+            </div>
+          </div>`;
+          })()}
         </article>
 
         <!-- Sidebar -->

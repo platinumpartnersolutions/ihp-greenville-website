@@ -491,6 +491,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* Tag link variant */
 .tag--link { text-decoration: none; transition: background 0.2s, color 0.2s; cursor: pointer; }
 .tag--link:hover { background: var(--color-primary); color: #fff; }
+.tag--teal.tag--link:hover { background: var(--color-secondary); color: #fff; }
+
+/* Blog cross-link rows */
+.blog-cross-link { transition: color 0.2s; }
+.blog-cross-link:hover { color: var(--color-secondary) !important; }
+.blog-cross-link svg { flex-shrink: 0; width: 1rem; height: 1rem; }
 
 /* --- Footer --- */
 footer { background: var(--color-foreground); color: white; padding: 4rem 0 2rem; }
