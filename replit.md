@@ -3,6 +3,17 @@
 ## Overview
 Local SEO-focused website for Integrative Health Partners, a functional medicine and acupuncture practice in Greenville, SC. The site aligns with their Google Business Profile structure, featuring 4 GBP category pages and 130 individual service pages.
 
+## Recent Changes (March 2026 — Whitespark 2026 Local SEO Audit)
+- **Title tags**: All page titles now ≤60 chars. Changed brand suffix from "Integrative Health Partners" to "IHP" for service/condition pages; homepage keeps full format. 4 category pages, 130 service pages, 35 condition pages, About, Dr. Hendry, Contact, Conditions hub all updated.
+- **Homepage H1**: Changed to "Acupuncture & Functional Medicine in Greenville, SC" — leads with Acupuncture as primary GBP category signal. Eyebrow updated to "Serving Greenville, Spartanburg, Anderson & Upstate SC".
+- **Homepage schema**: Added `aggregateRating` (5.0, 19 reviews) and `areaServed` (Greenville, Spartanburg, Anderson, Upstate SC) to MedicalBusiness schema. Added `LocalBusiness` co-type.
+- **Review count**: Hero badge corrected to "19 Reviews" (not "100+").
+- **Contact page** (`/contact`): New full page with canonical NAP block, Google Maps iframe, driving directions (Spartanburg, Anderson, Travelers Rest routes), Google review link, office hours, and directory links. Added to `renderer.ts`, `routes.ts`, and `seo.ts`.
+- **Google review link**: Added to site footer "Leave a Google Review" linking to `share.google/TYarboIHpqlhU6odK`. Also prominent on `/contact` page.
+- **Service area**: Homepage eyebrow, About page location section, and Dr. Hendry page subtitle all now reference Spartanburg, Anderson, and Upstate SC explicitly.
+- **Condition category pages**: Added ~500-word "Our Approach" + "Why IHP" + 4-FAQ sections to all 4 condition category hub pages; pages now 1,292–1,349 words each (up from 711–748 words).
+- **getSEOForUrl**: Condition category titles now use `shortName` field for cleaner titles.
+
 ## Recent Changes (March 2026 — SEO Audit)
 - **Schema gaps fixed**: Removed hardcoded aggregateRating, fixed logo URL, added Blog+Article schemas to blog pages, ItemList to conditions hub/category, FAQPage to About and Dr. Hendry pages
 - **Conditions SEO injection**: Conditions hub, category, and individual pages now get proper SEO injection via `getSEOForUrl()` in routes

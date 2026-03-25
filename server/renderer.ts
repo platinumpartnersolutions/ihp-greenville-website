@@ -356,6 +356,8 @@ function renderFooter(): string {
         <div class="footer__links">
           <a href="/about" class="footer__link">About Our Practice</a>
           <a href="/dr-hendry" class="footer__link">Dr. William Hendry</a>
+          <a href="/contact" class="footer__link">Contact &amp; Directions</a>
+          <a href="https://share.google/TYarboIHpqlhU6odK" target="_blank" rel="noopener noreferrer" class="footer__link">⭐ Leave a Google Review</a>
         </div>
       </div>
 
@@ -432,7 +434,7 @@ export function renderHome(): string {
     { name: "Thyroid Issues", slug: "thyroid-issues", cat: "Digestive & Immune" },
   ];
 
-  return `${renderHead("Integrative Functional Medicine & Acupuncture in Greenville, SC | IHP", "Integrative Health Partners — acupuncture, functional medicine & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges. Call (864) 365-6156.")}
+  return `${renderHead("Acupuncture & Functional Medicine in Greenville, SC | IHP", "Integrative Health Partners — acupuncture, functional medicine & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges. Call (864) 365-6156.")}
 <body data-page="home">
   ${renderNav(true)}
 
@@ -446,16 +448,16 @@ export function renderHome(): string {
         <div class="hero__overlay" aria-hidden="true"></div>
       </div>
       <div class="hero__content">
-        <p class="hero__eyebrow reveal">Greenville, SC's Trusted Integrative Health Practice</p>
+        <p class="hero__eyebrow reveal">Serving Greenville, Spartanburg, Anderson &amp; Upstate SC</p>
         <h1 class="hero__h1 reveal reveal-delay-1 font-display">
-          Integrative Functional Medicine<br>&amp; <em>Acupuncture</em> in Greenville, SC
+          Acupuncture &amp; <em>Functional Medicine</em><br>in Greenville, SC
         </h1>
         <p class="hero__subtitle reveal reveal-delay-2">
-          If you're struggling with chronic pain, digestive problems, or fatigue in Greenville, you're not alone. Greenville's leading evidence-based natural medicine practice — led by Dr. William Hendry, DAOM.
+          Greenville's most credentialed integrative health practice — acupuncture, Chinese herbal medicine, and root-cause functional medicine. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
         </p>
         <div class="hero__stars reveal reveal-delay-3">
           <div class="hero__star-row" aria-label="5 star rating">${starRow()}</div>
-          <span class="hero__rating">5.0 Google Rating &middot; 100+ Reviews</span>
+          <span class="hero__rating">5.0 Google Rating &middot; 19 Reviews</span>
         </div>
         <div class="reveal reveal-delay-3" style="display:flex;justify-content:center;">
           <a href="tel:${NAP.phoneRaw}" class="btn btn-white btn-lg">${icons.phone} Call (864) 365-6156</a>
@@ -1404,6 +1406,61 @@ export function renderConditionsHub(): string {
 /* ============================================================
    CONDITION CATEGORY PAGE  (/conditions/:categorySlug/)
    ============================================================ */
+const conditionCategoryContent: Record<string, { approach: string; whyIHP: string; faqs: { q: string; a: string }[] }> = {
+  "pain-and-musculoskeletal": {
+    approach: `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Chronic and acute musculoskeletal pain conditions require more than anti-inflammatory medications and rest. Dr. Hendry's integrative approach begins with identifying the structural, neurological, and systemic factors that perpetuate each patient's pain — including unresolved myofascial trigger points, central sensitization patterns, nutritional deficiencies that impair tissue repair, inflammatory dysregulation, and biomechanical dysfunction. This root-cause framework allows targeted treatment rather than symptom management alone.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Acupuncture and dry needling address pain through multiple mechanisms simultaneously: peripheral nerve stimulation triggers endorphin and serotonin release, local needling resolves trigger points and myofascial restrictions, and autonomic modulation shifts the nervous system out of the chronic pain sensitization loop. For complex or longstanding pain conditions, Dr. Hendry integrates functional medicine testing — inflammatory markers, nutrient status, gut integrity — to address systemic drivers that local treatments cannot reach.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:0">Dr. Hendry brings a uniquely evidence-based credential to pain treatment: he co-authored a 3-year study at Prisma Health's Emergency Department evaluating needling techniques as non-opioid alternatives for acute pain management. This research context informs every pain treatment protocol at Integrative Health Partners — ensuring that clinical decisions are grounded in real-world outcomes data.</p>`,
+    whyIHP: `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Patients seek out Integrative Health Partners for pain conditions when they've found that conventional approaches — medications, physical therapy, injections — provide incomplete or temporary relief. Dr. Hendry's combination of acupuncture, dry needling, cupping, Chinese herbal medicine, and functional medicine testing provides a multi-mechanism approach that addresses both the local tissue and systemic drivers of pain simultaneously.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:0">Treatment timelines vary: acute injuries typically resolve in 4–8 sessions. Longstanding chronic pain requires 10–14 sessions for significant improvement, with monthly maintenance thereafter. At your first appointment, Dr. Hendry will assess your specific presentation and give you a realistic, personalized treatment timeline.</p>`,
+    faqs: [
+      { q: "Can acupuncture help with chronic pain that hasn't responded to other treatments?", a: "Yes. Many of our pain patients have already tried physical therapy, medications, and injections. Acupuncture works through mechanisms that these approaches don't reach — specifically, it modulates central pain sensitization, resolves deep myofascial restrictions, and addresses systemic inflammatory drivers. Dr. Hendry's multi-modal approach combining acupuncture with dry needling and functional medicine is particularly effective for complex, multi-year pain cases." },
+      { q: "What is dry needling and how does it differ from acupuncture?", a: "Dry needling targets specific myofascial trigger points using solid filiform needles to release muscle knots and restore normal neuromuscular function. Traditional acupuncture uses the same needles at mapped acupoints along meridian pathways to regulate the nervous system, reduce inflammation, and address systemic patterns. Dr. Hendry is trained in both and integrates them based on each patient's presentation — often using both modalities in a single treatment session for pain conditions." },
+      { q: "How long until I see results for my pain condition?", a: "Most patients notice measurable improvement within 3–5 sessions. Acute conditions (recent injuries, post-surgical recovery) often respond more quickly. Chronic conditions — especially those involving central sensitization, fibromyalgia, or longstanding structural damage — typically require 8–12 sessions for significant, lasting improvement. Dr. Hendry will give you a clear, honest timeline at your first visit based on your specific condition history." },
+      { q: "Do you treat sports injuries at Integrative Health Partners?", a: "Yes. We treat a wide range of sports and overuse injuries including rotator cuff issues, IT band syndrome, patellar tendinopathy, shin splints, plantar fasciitis, and muscle strains. Acupuncture and dry needling accelerate healing by improving local circulation, reducing inflammation, and releasing the neuromuscular tension patterns that develop around injury sites." },
+    ],
+  },
+  "neurological-mental-health": {
+    approach: `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Neurological and mental health conditions have clear biological foundations — and Dr. Hendry's integrative approach treats those foundations directly rather than managing symptoms alone. Anxiety, depression, insomnia, PTSD, and cognitive dysfunction all involve measurable dysregulation in the HPA axis, autonomic nervous system, neurotransmitter synthesis, gut-brain axis signaling, and neuroimmune communication. Identifying and correcting these specific drivers is the core of his treatment philosophy.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Acupuncture has well-documented effects on the autonomic nervous system — shifting the nervous system from sympathetic dominance (chronic stress, fight-or-flight) to parasympathetic tone (rest, repair, cognitive clarity). Multiple randomized controlled trials have documented acupuncture's efficacy for generalized anxiety disorder, primary insomnia, PTSD, and major depressive disorder — mechanisms include cortisol regulation, serotonin and GABA modulation, and direct effects on limbic system activity.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:0">Dr. Hendry's published research on heart rate variability (HRV) biofeedback for symptom management in cancer patients reflects his deep understanding of autonomic nervous system regulation — the same principles he applies to anxiety, sleep disorders, and stress-related conditions. This research-informed approach ensures treatment decisions are grounded in measurable physiological outcomes rather than theoretical frameworks alone.</p>`,
+    whyIHP: `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Many of our neurological and mental health patients have tried medications, therapy, or lifestyle changes with incomplete results. Dr. Hendry's integrative approach adds what conventional care often misses: specific testing for nutritional deficiencies (B12, D3, folate, zinc, magnesium) that directly impair neurotransmitter synthesis, gut microbiome evaluation to address gut-brain axis dysfunction, and adrenal/cortisol testing to identify HPA axis dysregulation patterns that drive anxiety, insomnia, and mood instability.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:0">Acupuncture and herbal medicine add non-pharmacological regulation of the nervous system that can work alongside — or provide an alternative to — conventional psychiatric medications. We work collaboratively with mental health providers and always prioritize patient safety and continuity of care.</p>`,
+    faqs: [
+      { q: "Can acupuncture help with anxiety and insomnia without medication?", a: "Acupuncture has strong evidence for both anxiety and insomnia as a standalone or adjunct treatment. It regulates the HPA axis, reduces cortisol, promotes melatonin secretion, and modulates GABA signaling — directly addressing the biological underpinnings of both conditions. Many patients see measurable improvement in sleep quality within 3–5 sessions. We also assess and address nutritional factors (magnesium, B vitamins) and gut-brain axis imbalances that perpetuate anxiety and sleep disruption." },
+      { q: "Is this treatment safe alongside medications for depression or anxiety?", a: "Yes. Acupuncture has an excellent safety profile and does not interact with psychiatric medications. Dr. Hendry communicates with your prescribing provider as appropriate and always prioritizes continuity of care. Herbal medicine requires more careful management alongside pharmaceuticals — Dr. Hendry performs a thorough herb-drug interaction assessment before recommending any herbal formulas." },
+      { q: "What does brain fog treatment look like at IHP?", a: "Brain fog typically involves multiple overlapping factors: sleep dysregulation, HPA axis dysfunction, nutritional deficiencies (particularly B12, D3, and omega-3s), gut microbiome imbalance, thyroid function, and neuroinflammation. Dr. Hendry uses functional medicine testing to identify your specific pattern and creates a targeted protocol — combining acupuncture, targeted supplementation, dietary adjustments, and sleep support — that addresses the root causes of your cognitive symptoms." },
+      { q: "Do you treat PTSD at Integrative Health Partners?", a: "Yes. Acupuncture has emerging clinical evidence for PTSD, particularly in regulating hyperarousal, improving sleep quality, and reducing autonomic nervous system dysregulation. Dr. Hendry's approach complements — and does not replace — trauma-focused psychotherapy. We coordinate with your mental health team and create protocols that support nervous system regulation as part of a comprehensive care plan." },
+    ],
+  },
+  "hormonal-womens-health": {
+    approach: `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Hormonal health is among the most undertreated areas in conventional medicine. Standard annual lab panels frequently miss early hormonal imbalances — TSH alone misses significant thyroid dysfunction, basic FSH misses complex fertility pathology, and standard sex hormone panels fail to capture the dynamic patterns underlying PCOS, perimenopause, and adrenal-hormonal interactions. Dr. Hendry's functional medicine approach uses comprehensive hormonal testing to build a complete picture of each patient's hormonal environment.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">For hormonal conditions, Dr. Hendry integrates advanced testing (full thyroid panels including rT3 and thyroid antibodies, Dutch hormone testing, 4-point cortisol rhythm testing, comprehensive sex hormone panels) with acupuncture's documented ability to regulate the hypothalamic-pituitary-ovarian axis. This combination addresses both the measurable biochemical drivers of hormonal imbalance and the neuroendocrine regulatory mechanisms that determine how those hormones are used by the body.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:0">Chinese herbal medicine has over 2,000 years of clinical use in women's health — and the modern evidence base supports specific herbal formulas for fertility, PCOS, menstrual regulation, and menopausal symptom management. Dr. Hendry's in-house herbal pharmacy allows same-day dispensing of custom formulations matched to each patient's individual presentation, not a generic off-the-shelf supplement protocol.</p>`,
+    whyIHP: `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Patients seek Integrative Health Partners for hormonal and women's health issues when conventional care has not provided answers — when lab results are "normal" but symptoms are clearly present, when standard fertility interventions have not worked, or when conventional hormone therapy has not adequately addressed menopausal symptoms. Dr. Hendry's deeper functional medicine testing often reveals the specific imbalances that standard panels miss.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:0">Treatment is always evidence-informed and individualized. We never prescribe a standard protocol — every patient receives a treatment plan built from their own lab data, health history, and therapeutic goals. New patients are welcome; call (864) 365-6156 to schedule a comprehensive initial consultation.</p>`,
+    faqs: [
+      { q: "Can acupuncture help with fertility?", a: "Yes. Acupuncture has documented effects on fertility — regulating the HPO axis, improving uterine blood flow, supporting ovarian function, and reducing stress hormones that suppress fertility. It is commonly used alongside IVF to improve success rates and as a standalone approach for natural conception. Dr. Hendry integrates acupuncture with Chinese herbal medicine and functional medicine testing (including complete hormone panels and thyroid assessment) to build a comprehensive fertility support protocol." },
+      { q: "What hormonal testing does Dr. Hendry offer that my primary care doctor doesn't?", a: "Dr. Hendry offers comprehensive functional hormone panels beyond what standard primary care provides: full thyroid panels (including free T3, reverse T3, and thyroid antibodies TPO and TgAb), Dutch hormone testing for sex hormone metabolites, 4-point cortisol rhythm testing (not just a single morning cortisol draw), and comprehensive nutrient testing that identifies deficiencies affecting hormonal synthesis and metabolism." },
+      { q: "How does acupuncture help with menopause symptoms?", a: "Multiple clinical trials have documented acupuncture's effectiveness for hot flashes, sleep disturbance, mood instability, and joint pain associated with menopause. Acupuncture appears to regulate thermoregulatory centers in the hypothalamus and modulate the autonomic nervous system patterns that drive menopausal hot flashes and sleep disruption. Chinese herbal medicine — particularly formulas in the classical women's health tradition — provides additional hormonal support alongside acupuncture." },
+      { q: "Do you treat PCOS at Integrative Health Partners?", a: "Yes. PCOS is one of our core areas of expertise. Dr. Hendry's approach addresses the underlying insulin resistance, androgens, and inflammatory drivers of PCOS through functional medicine testing and targeted interventions — combined with acupuncture to regulate the HPO axis and menstrual cycle. Clinical evidence supports acupuncture for menstrual regulation in PCOS, improving both hormonal parameters and cycle regularity." },
+    ],
+  },
+  "digestive-immune": {
+    approach: `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Digestive and immune health are intimately connected — the gut houses approximately 70% of the immune system, and disruption to gut barrier integrity, microbiome composition, or digestive function creates cascading immune dysregulation throughout the body. Dr. Hendry approaches digestive and immune conditions with the most advanced functional medicine testing available: gut microbiome analysis, intestinal permeability assessment, SIBO breath testing, comprehensive food sensitivity panels, and autoimmune marker panels that go far beyond what standard gastroenterology or immunology testing captures.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Acupuncture has well-documented effects on gastrointestinal function — regulating motility, reducing visceral hypersensitivity, calming IBS symptoms, and modulating the enteric nervous system (the "second brain"). Combined with herbal medicine's long tradition in digestive health and the targeted repair protocols of functional medicine (addressing leaky gut, microbiome rebalancing, and inflammatory triggers), this integrative approach provides comprehensive digestive healing that isolated conventional treatments cannot match.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:0">For autoimmune conditions — including Hashimoto's thyroiditis, rheumatoid arthritis, lupus, and inflammatory bowel disease — Dr. Hendry uses a root-cause framework that identifies and addresses the environmental triggers and gut-immune dysfunction at the foundation of immune dysregulation. While not a cure for autoimmune disease, this approach can meaningfully reduce symptom burden, lower inflammatory markers, and reduce the immune system's activation against self-tissue.</p>`,
+    whyIHP: `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.25rem">Many of our digestive and immune patients have been told their labs are "normal" despite ongoing symptoms, or have received diagnoses like IBS without investigation into the underlying causes. Dr. Hendry's functional medicine approach is specifically designed to find what standard testing misses — and to create targeted protocols based on what he finds, not a generic elimination diet or probiotic recommendation.</p>
+<p style="color:var(--color-muted);line-height:1.75;margin-bottom:0">Integrative Health Partners is one of the few practices in Upstate South Carolina offering this depth of functional digestive and immune evaluation. Our in-house herbal pharmacy allows same-day dispensing of customized formulations for gut healing protocols. New patients are welcome — call (864) 365-6156 to schedule.</p>`,
+    faqs: [
+      { q: "Can acupuncture help with IBS and digestive issues?", a: "Yes. Clinical evidence supports acupuncture for irritable bowel syndrome, reducing both visceral pain and bowel habit dysregulation. Acupuncture regulates the enteric nervous system, reduces intestinal inflammation, and modulates the gut-brain axis signaling that drives many IBS symptoms. It works well alongside dietary and microbiome interventions to provide multi-mechanism digestive support." },
+      { q: "What does a functional medicine gut evaluation look like at IHP?", a: "Dr. Hendry uses advanced testing including comprehensive stool analysis (microbiome, pathogen screening, digestive enzyme function), intestinal permeability assessment (leaky gut markers), SIBO breath testing, comprehensive food sensitivity panels (IgG and IgA), and inflammatory markers. The results inform a targeted protocol — not a generic elimination diet, but a specific intervention matched to your gut's actual biology." },
+      { q: "How does Dr. Hendry treat autoimmune disease?", a: "Autoimmune conditions require identifying and removing the environmental triggers that activate immune dysregulation — common triggers include gut permeability, specific food antigens, microbial imbalances, heavy metal burden, and chronic low-grade infections. Dr. Hendry's comprehensive evaluation identifies which factors are relevant for each patient and creates targeted protocols to address them. While not a cure for autoimmune disease, this root-cause approach often significantly reduces symptoms and inflammatory markers." },
+      { q: "Do you treat Hashimoto's thyroiditis at Integrative Health Partners?", a: "Yes. Hashimoto's is one of our core specialty areas. Dr. Hendry uses comprehensive thyroid panels (free T4, free T3, reverse T3, TPO antibodies, TgAb antibodies) plus full functional gut evaluation to identify the autoimmune triggers underlying each patient's Hashimoto's. Treatment typically involves gut healing, dietary modifications (gluten and dairy assessment), targeted supplementation (selenium, iodine balance, Vitamin D), and acupuncture for thyroid regulation and immune modulation." },
+    ],
+  },
+};
+
 export function renderConditionCategory(catSlug: string): string | null {
   const cat = conditionCategoryMap.get(catSlug);
   if (!cat) return null;
@@ -1411,6 +1468,7 @@ export function renderConditionCategory(catSlug: string): string | null {
   const catConditions = cat.conditionSlugs.map(s => conditionMap.get(s)).filter(Boolean) as typeof conditions;
   const seo = getConditionCategorySEO(cat.slug, cat.shortName, cat.metaDescription);
   const otherCats = conditionCategories.filter(c => c.slug !== catSlug);
+  const catContent = conditionCategoryContent[catSlug] || null;
 
   const html = `${renderHead(seo.title, seo.description)}
 <body data-page="condition-category">
@@ -1453,14 +1511,42 @@ export function renderConditionCategory(catSlug: string): string | null {
           </div>`).join("")}
         </div>
 
+        ${catContent ? `
+        <!-- Approach Section -->
+        <div style="max-width:48rem;margin-bottom:3rem">
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1.25rem">Dr. Hendry's Approach to ${cat.shortName} Conditions</h2>
+          <div class="reveal reveal-delay-1">${catContent.approach}</div>
+        </div>
+
+        <!-- Why IHP Section -->
+        <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.75rem;max-width:48rem;margin-bottom:3rem" class="reveal">
+          <h2 class="font-display" style="font-size:1.5rem;margin-bottom:1rem">Why Patients Choose Integrative Health Partners</h2>
+          ${catContent.whyIHP}
+        </div>
+        ` : ""}
+
         <!-- CTA -->
-        <div class="cta-subtle reveal" style="text-align:center;margin-bottom:4rem">
+        <div class="cta-subtle reveal" style="text-align:center;margin-bottom:3rem">
           <h2 class="font-display" style="font-size:1.75rem;margin-bottom:0.875rem">Ready to address the root cause?</h2>
           <p style="color:var(--color-muted);margin-bottom:1.5rem;max-width:36rem;margin-inline:auto">
             Dr. Hendry is accepting new patients. Schedule a consultation to find out how integrative medicine can help your specific condition.
           </p>
           <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
         </div>
+
+        ${catContent ? `
+        <!-- FAQ Section -->
+        <div style="max-width:48rem;margin-bottom:3rem">
+          <h2 class="section-title reveal" style="margin-bottom:1.75rem">Frequently Asked Questions</h2>
+          ${catContent.faqs.map(faq => `
+          <div class="faq-item reveal">
+            <button class="faq-btn" aria-expanded="false">${faq.q}<span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span></button>
+            <div class="faq-body" role="region">
+              <div class="faq-content">${faq.a}</div>
+            </div>
+          </div>`).join("")}
+        </div>
+        ` : ""}
 
         <!-- Other Categories -->
         <div>
@@ -1735,7 +1821,7 @@ export function renderAbout(): string {
 
           <section class="content-section">
             <h2>Our Location</h2>
-            <p>We are conveniently located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609 — easily accessible from North Greenville, Travelers Rest, Taylors, Mauldin, Simpsonville, and the greater Upstate South Carolina area.</p>
+            <p>We are conveniently located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609 — easily accessible from Spartanburg, Anderson, North Greenville, Travelers Rest, Taylors, Mauldin, Simpsonville, and the greater Upstate South Carolina area. We serve patients throughout Upstate SC.</p>
             <p>We see patients Monday through Friday, 9am–5pm. New patients are always welcome. Call us at <a href="tel:+1-864-365-6156" class="internal-link">(864) 365-6156</a> or email <a href="mailto:info@ihpgreenville.com" class="internal-link">info@ihpgreenville.com</a> to schedule your initial consultation.</p>
           </section>
 
@@ -1869,7 +1955,7 @@ export function renderDrHendry(): string {
       <div class="container">
         ${renderBreadcrumbs([{ name: "Dr. William Hendry", href: "/dr-hendry" }])}
         <h1 class="page-hero__title font-display">Dr. William Hendry, DAOM</h1>
-        <p class="page-hero__subtitle">Board-Certified Acupuncturist &amp; Functional Medicine Practitioner | 25+ Years Clinical Experience | Greenville, SC</p>
+        <p class="page-hero__subtitle">Board-Certified Acupuncturist &amp; Functional Medicine Practitioner | 25+ Years Clinical Experience | Serving Greenville, Spartanburg, Anderson &amp; Upstate SC</p>
       </div>
     </div>
 
@@ -2029,6 +2115,168 @@ export function renderDrHendry(): string {
 </html>`;
 
   return html;
+}
+
+/* ============================================================
+   CONTACT PAGE  (/contact)
+   ============================================================ */
+export function renderContact(): string {
+  const html = `${renderHead("Contact IHP | Acupuncture Appointment Greenville, SC", "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.")}
+<body data-page="contact">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Contact" },
+      ])}
+
+      <div class="main-sidebar">
+        <!-- Main Content -->
+        <article>
+          <h1 class="section-title reveal" style="margin-bottom:1.5rem">Contact Integrative Health Partners</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2rem" class="reveal">
+            Ready to schedule with Dr. William Hendry? Call us directly at <a href="tel:${NAP.phoneRaw}" style="color:var(--color-primary);font-weight:600">${NAP.phone}</a> or email <a href="mailto:${NAP.email}" style="color:var(--color-primary)">${NAP.email}</a>. New patients are welcome. We see patients Monday through Friday, 9am–5pm.
+          </p>
+
+          <!-- NAP Block (canonical) -->
+          <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.75rem;margin-bottom:2rem" class="reveal" itemscope itemtype="https://schema.org/LocalBusiness">
+            <h2 class="font-display" style="font-size:1.375rem;margin-bottom:1.25rem">Practice Information</h2>
+            <div style="display:flex;flex-direction:column;gap:0.875rem">
+              <div style="display:flex;align-items:flex-start;gap:0.75rem">
+                ${icons.mapPin}
+                <div>
+                  <strong itemprop="name">Integrative Health Partners</strong><br>
+                  <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    <span itemprop="streetAddress">319 Wade Hampton Blvd, Suite A</span><br>
+                    <span itemprop="addressLocality">Greenville</span>, <span itemprop="addressRegion">SC</span> <span itemprop="postalCode">29609</span>
+                  </span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem">
+                ${icons.phone}
+                <span><strong>Phone:</strong> <a href="tel:${NAP.phoneRaw}" style="color:var(--color-primary)" itemprop="telephone">${NAP.phone}</a></span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem">
+                ${icons.mail}
+                <span><strong>Email:</strong> <a href="mailto:${NAP.email}" style="color:var(--color-primary)" itemprop="email">${NAP.email}</a></span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem">
+                ${icons.clock}
+                <span itemprop="openingHours" content="Mo-Fr 09:00-17:00"><strong>Hours:</strong> Monday–Friday, 9:00am–5:00pm</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem">
+                ${icons.mapPin}
+                <span><strong>Service Area:</strong> Greenville, Spartanburg, Anderson, and Upstate South Carolina</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Map Embed -->
+          <div style="margin-bottom:2rem;border-radius:0.75rem;overflow:hidden;border:1px solid var(--color-border)" class="reveal">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.892!2d-82.38248!3d34.86226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8856a1c1a1a1a1a1%3A0x1!2s319+Wade+Hampton+Blvd+Suite+A%2C+Greenville%2C+SC+29609!5e0!3m2!1sen!2sus!4v1"
+              width="100%" height="360" style="border:0;display:block" allowfullscreen loading="lazy"
+              title="Integrative Health Partners location map — 319 Wade Hampton Blvd Suite A Greenville SC"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <!-- Driving Directions -->
+          <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.75rem;margin-bottom:2rem" class="reveal">
+            <h2 class="font-display" style="font-size:1.375rem;margin-bottom:1rem">Getting Here</h2>
+            <p style="color:var(--color-muted);line-height:1.75;margin-bottom:1rem">
+              Our clinic is located on Wade Hampton Blvd (US-29) in Greenville, SC. We are easily accessible from:
+            </p>
+            <ul style="color:var(--color-muted);padding-left:1.25rem;line-height:1.9;margin-bottom:1.25rem">
+              <li><strong>Downtown Greenville:</strong> Head north on Church St, continue onto Wade Hampton Blvd — approximately 5 minutes.</li>
+              <li><strong>Spartanburg / I-85:</strong> Take I-85 S to SC-14 W (exit 72), merge onto Wade Hampton Blvd — approximately 30 minutes.</li>
+              <li><strong>Anderson / I-85 N:</strong> Take I-85 N to SC-14/Wade Hampton area — approximately 45 minutes.</li>
+              <li><strong>Travelers Rest / North Greenville:</strong> Head south on US-25 to Wade Hampton Blvd — approximately 10 minutes.</li>
+              <li><strong>Taylors / Greer:</strong> US-29 W (Wade Hampton Blvd) directly to our office — approximately 10 minutes.</li>
+            </ul>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=319+Wade+Hampton+Blvd+Suite+A+Greenville+SC+29609" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex;align-items:center;gap:0.5rem">
+              ${icons.mapPin} Get Google Maps Directions
+            </a>
+          </div>
+
+          <!-- Review Link -->
+          <div style="background:linear-gradient(135deg,var(--color-primary),var(--color-accent));border-radius:0.75rem;padding:1.75rem;margin-bottom:2rem;color:#fff;text-align:center" class="reveal">
+            <h2 class="font-display" style="font-size:1.375rem;margin-bottom:0.75rem;color:#fff">Enjoyed Your Visit?</h2>
+            <p style="opacity:0.9;margin-bottom:1.25rem;line-height:1.65">Your Google review helps other Greenville-area patients find quality integrative care. It takes less than 2 minutes.</p>
+            <a href="https://share.google/TYarboIHpqlhU6odK" target="_blank" rel="noopener noreferrer"
+              style="background:#fff;color:var(--color-primary);font-weight:700;padding:0.75rem 1.5rem;border-radius:0.5rem;text-decoration:none;display:inline-block">
+              ⭐ Leave Us a Google Review
+            </a>
+          </div>
+
+          <!-- Directory Listings -->
+          <div style="margin-bottom:2rem" class="reveal">
+            <h2 class="font-display" style="font-size:1.375rem;margin-bottom:1rem">Find Us Online</h2>
+            <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+              <a href="https://www.google.com/maps/place/Integrative+Health+Partners" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Google Business Profile</a>
+              <a href="https://www.healthgrades.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Healthgrades</a>
+              <a href="https://www.yelp.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Yelp</a>
+              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">NCCAOM Verification</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside>
+          <!-- CTA Card -->
+          <div class="sidebar-cta" style="margin-bottom:1.5rem">
+            <p class="sidebar-cta__label">New Patients Welcome</p>
+            <h2 class="sidebar-cta__title">Schedule Your Consultation</h2>
+            <p class="sidebar-cta__body">Call Dr. Hendry's office directly to book your comprehensive initial evaluation. Appointments typically last 60–90 minutes.</p>
+            <a href="tel:${NAP.phoneRaw}" class="btn btn-primary btn-block">${icons.phone} Call ${NAP.phone}</a>
+            <a href="mailto:${NAP.email}" class="btn btn-secondary btn-block" style="margin-top:0.625rem">${icons.mail} ${NAP.email}</a>
+          </div>
+
+          <!-- Hours Card -->
+          <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.5rem;margin-bottom:1.5rem">
+            <h3 class="font-display" style="font-size:1.125rem;margin-bottom:1rem">Office Hours</h3>
+            <div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.9375rem">
+              ${["Monday","Tuesday","Wednesday","Thursday","Friday"].map(d => `
+              <div style="display:flex;justify-content:space-between">
+                <span style="font-weight:500">${d}</span>
+                <span style="color:var(--color-primary)">9:00am – 5:00pm</span>
+              </div>`).join("")}
+              <div style="display:flex;justify-content:space-between">
+                <span style="font-weight:500">Saturday–Sunday</span>
+                <span style="color:var(--color-muted)">Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.5rem">
+            <h3 class="font-display" style="font-size:1.125rem;margin-bottom:0.875rem">About Our Practice</h3>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              <a href="/about" class="internal-link">About Integrative Health Partners</a>
+              <a href="/dr-hendry" class="internal-link">Dr. William Hendry, DAOM</a>
+              <a href="/conditions" class="internal-link">Conditions We Treat</a>
+              <a href="/services/acupuncturist-services" class="internal-link">Acupuncturist Services</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+  const seo = {
+    title: "Contact IHP | Acupuncture Appointment Greenville, SC",
+    description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
+    canonical: "https://www.ihpgreenville.com/contact",
+    ogType: "website",
+    schemas: []
+  };
+  return injectSEOIntoHTML(html, seo);
 }
 
 /* ============================================================

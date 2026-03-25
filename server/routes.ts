@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, getBlogPostSEO, BASE_URL } from "./seo";
-import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry } from "./renderer";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact } from "./renderer";
 import { conditions, conditionCategories } from "./conditions";
 
 interface LinkableItem {
@@ -367,6 +367,10 @@ export async function registerRoutes(
 
   app.get("/dr-hendry", (req, res) => {
     sendPage(res, renderDrHendry(), req.originalUrl);
+  });
+
+  app.get("/contact", (req, res) => {
+    sendPage(res, renderContact(), req.originalUrl);
   });
 
   app.get("/llms.txt", async (_req, res) => {

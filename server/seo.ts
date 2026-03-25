@@ -47,7 +47,7 @@ const categoryDefinitions: CategoryData[] = [
     slug: "acupuncturist-services",
     name: "Acupuncturist",
     gbpCategory: "Acupuncturist",
-    metaTitle: "Acupuncturist Services in Greenville, SC | Integrative Health Partners",
+    metaTitle: "Acupuncturist Services in Greenville, SC | IHP",
     metaDescription: "Looking for a skilled acupuncturist in Greenville, SC? Dr. William Hendry offers 25+ years of experience in acupuncture therapy and needle-based treatments. Call (864) 365-6156.",
     isPrimary: true,
     carePhrase: "acupuncture",
@@ -65,7 +65,7 @@ const categoryDefinitions: CategoryData[] = [
     slug: "acupuncture-clinic-services",
     name: "Acupuncture Clinic",
     gbpCategory: "Acupuncture clinic",
-    metaTitle: "Acupuncture Clinic Services in Greenville, SC | Pain Treatment & Relief",
+    metaTitle: "Acupuncture Clinic Services in Greenville, SC | IHP",
     metaDescription: "Visit our acupuncture clinic in Greenville, SC for expert pain treatment. We specialize in back pain, sciatica, neck pain, and sports injuries. Call (864) 365-6156.",
     isPrimary: false,
     carePhrase: "acupuncture and pain relief",
@@ -82,7 +82,7 @@ const categoryDefinitions: CategoryData[] = [
     slug: "chinese-medicine-clinic-services",
     name: "Chinese Medicine Clinic",
     gbpCategory: "Chinese medicine clinic",
-    metaTitle: "Chinese Medicine Clinic Services in Greenville, SC | TCM & Herbal Medicine",
+    metaTitle: "Chinese Medicine Clinic Services in Greenville, SC | IHP",
     metaDescription: "Authentic Chinese medicine clinic in Greenville, SC offering cupping, herbal medicine, moxibustion, and traditional TCM treatments. Call (864) 365-6156 to schedule.",
     isPrimary: false,
     carePhrase: "Chinese herbal medicine and TCM",
@@ -101,7 +101,7 @@ const categoryDefinitions: CategoryData[] = [
     slug: "alternative-medicine-practitioner-services",
     name: "Alternative Medicine Practitioner",
     gbpCategory: "Alternative medicine practitioner",
-    metaTitle: "Alternative Medicine Practitioner Services in Greenville, SC | Functional Medicine",
+    metaTitle: "Alternative Medicine in Greenville, SC | IHP",
     metaDescription: "Trusted alternative medicine practitioner in Greenville, SC. Dr. Hendry offers functional medicine, ozone therapy, detox treatments, and holistic health care. Call (864) 365-6156.",
     isPrimary: false,
     carePhrase: "functional medicine",
@@ -134,7 +134,7 @@ for (const cat of categoryDefinitions) {
     const service: ServiceData = {
       slug,
       name,
-      metaTitle: `${name} in Greenville, SC | Integrative Health Partners`,
+      metaTitle: `${name} in Greenville, SC | IHP`,
       metaDescription: `${name} in Greenville, SC — ${cat.carePhrase} from Dr. Hendry, DAOM. Integrative Health Partners. Call (864) 365-6156.`,
       category: cat.name,
       categorySlug: cat.slug,
@@ -155,14 +155,14 @@ interface PageSEO {
 
 function getHomeSEO(): PageSEO {
   return {
-    title: "Integrative Functional Medicine & Acupuncture in Greenville, SC | IHP",
+    title: "Acupuncture & Functional Medicine in Greenville, SC | IHP",
     description: "Integrative Health Partners — acupuncture, functional medicine & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges, 5 research publications. New patients welcome. Call (864) 365-6156.",
     canonical: BASE_URL,
     ogType: "website",
     schemas: [
       {
         "@context": "https://schema.org",
-        "@type": "MedicalBusiness",
+        "@type": ["MedicalBusiness", "LocalBusiness"],
         "name": NAP.name,
         "image": `${NAP.url}/favicon.png`,
         "description": "Integrative functional medicine and acupuncture practice offering root-cause care, Chinese herbal medicine, ozone therapy, and injection therapy in Greenville, SC.",
@@ -175,13 +175,25 @@ function getHomeSEO(): PageSEO {
           "addressCountry": "US"
         },
         "geo": { "@type": "GeoCoordinates", "latitude": NAP.latitude, "longitude": NAP.longitude },
-        "telephone": NAP.phoneRaw,
+        "telephone": NAP.phone,
         "email": NAP.email,
         "url": NAP.url,
         "priceRange": "$$",
         "hasMap": "https://www.google.com/maps/place/Integrative+Health+Partners",
         "medicalSpecialty": ["Acupuncture","Functional Medicine","Chinese Medicine","Integrative Medicine"],
         "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }],
+        "areaServed": [
+          { "@type": "City", "name": "Greenville", "sameAs": "https://en.wikipedia.org/wiki/Greenville,_South_Carolina" },
+          { "@type": "City", "name": "Spartanburg", "sameAs": "https://en.wikipedia.org/wiki/Spartanburg,_South_Carolina" },
+          { "@type": "City", "name": "Anderson", "sameAs": "https://en.wikipedia.org/wiki/Anderson,_South_Carolina" },
+          { "@type": "State", "name": "Upstate South Carolina" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "19",
+          "bestRating": "5"
+        },
         "sameAs": ["https://facebook.com/ihpgreenville","https://instagram.com/integrativehealthpartners"]
       },
       {
@@ -363,7 +375,7 @@ function getServiceSEO(slug: string): PageSEO | null {
 
 function getBlogSEO(): PageSEO {
   return {
-    title: "Health & Wellness Blog | Integrative Health Partners Greenville, SC",
+    title: "Health Blog | Acupuncture & Functional Medicine Greenville SC | IHP",
     description: "Read the latest health and wellness insights from Integrative Health Partners in Greenville, SC. Expert articles on acupuncture, functional medicine, and holistic health.",
     canonical: `${BASE_URL}/blog`,
     ogType: "website",
@@ -436,7 +448,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
 
 function getConditionsHubSEO(): PageSEO {
   return {
-    title: "Conditions We Treat | Integrative Health Partners Greenville, SC",
+    title: "Conditions We Treat in Greenville, SC | IHP",
     description: "Integrative Health Partners treats 30+ health conditions with acupuncture and functional medicine in Greenville, SC. Pain, hormonal, neurological, and digestive conditions. Call (864) 365-6156.",
     canonical: `${BASE_URL}/conditions`,
     ogType: "website",
@@ -472,7 +484,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
     : [];
 
   return {
-    title: `${name} Treatment in Greenville, SC | Integrative Health Partners`,
+    title: `${name} in Greenville, SC | IHP`,
     description: desc,
     canonical: pageUrl,
     ogType: "website",
@@ -504,7 +516,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
 function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: string, catName: string, faqs: { q: string; a: string }[]): PageSEO {
   const pageUrl = `${BASE_URL}/conditions/${slug}`;
   return {
-    title: `${name} Treatment in Greenville, SC | Integrative Health Partners`,
+    title: `${name} Treatment in Greenville, SC | IHP`,
     description: desc,
     canonical: pageUrl,
     ogType: "website",
@@ -542,7 +554,7 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
 
 function getAboutSEO(): PageSEO {
   return {
-    title: "About Integrative Health Partners | Acupuncture & Functional Medicine Greenville, SC",
+    title: "About IHP | Acupuncture & Functional Medicine Greenville SC",
     description: "Learn about Integrative Health Partners — Greenville SC's trusted integrative health practice. Root-cause functional medicine, acupuncture, and in-house herbal pharmacy. Call (864) 365-6156.",
     canonical: `${BASE_URL}/about`,
     ogType: "website",
@@ -589,7 +601,7 @@ function getAboutSEO(): PageSEO {
 
 function getDrHendrySEO(): PageSEO {
   return {
-    title: "Dr. William Hendry, DAOM | Integrative Health Partners Greenville, SC",
+    title: "Dr. William Hendry, DAOM | Acupuncturist Greenville SC | IHP",
     description: "Dr. William Hendry — DAOM, NCCAOM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
     canonical: `${BASE_URL}/dr-hendry`,
     ogType: "profile",
@@ -668,6 +680,43 @@ function getDrHendrySEO(): PageSEO {
   };
 }
 
+function getContactSEO(): PageSEO {
+  return {
+    title: "Contact IHP | Acupuncture Appointment Greenville, SC",
+    description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
+    canonical: `${BASE_URL}/contact`,
+    ogType: "website",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": ["MedicalBusiness", "LocalBusiness"],
+        "name": NAP.name,
+        "url": NAP.url,
+        "telephone": NAP.phone,
+        "email": NAP.email,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": NAP.streetAddress,
+          "addressLocality": NAP.city,
+          "addressRegion": NAP.state,
+          "postalCode": NAP.postalCode,
+          "addressCountry": "US"
+        },
+        "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }],
+        "geo": { "@type": "GeoCoordinates", "latitude": NAP.latitude, "longitude": NAP.longitude }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": `${BASE_URL}/contact` }
+        ]
+      }
+    ]
+  };
+}
+
 export function getSEOForUrl(url: string): PageSEO | null {
   const path = url.split('?')[0].replace(/\/$/, '') || '/';
 
@@ -685,6 +734,10 @@ export function getSEOForUrl(url: string): PageSEO | null {
 
   if (path === '/dr-hendry') {
     return getDrHendrySEO();
+  }
+
+  if (path === '/contact') {
+    return getContactSEO();
   }
 
   const serviceMatch = path.match(/^\/services\/(.+)$/);
@@ -705,7 +758,7 @@ export function getSEOForUrl(url: string): PageSEO | null {
     const slug = condMatch[1];
     const catData = conditionCategoryMap.get(slug);
     if (catData) {
-      return getConditionCategorySEO(slug, catData.name, catData.metaDescription);
+      return getConditionCategorySEO(slug, catData.shortName, catData.metaDescription);
     }
     const condData = conditions.find(c => c.slug === slug);
     if (condData) {
