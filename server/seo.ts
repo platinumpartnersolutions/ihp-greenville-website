@@ -1,5 +1,5 @@
 import { serviceContentMap } from "./services-content";
-import { conditions, conditionCategories, conditionCategoryMap } from "./conditions";
+import { conditions, conditionCategories, conditionCategoryMap, type ConditionData } from "./conditions";
 
 const BASE_URL = "https://www.ihpgreenville.com";
 
@@ -307,7 +307,7 @@ function getServiceSEO(slug: string): PageSEO | null {
         { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. Call (864) 365-6156.` },
       ];
 
-  const schemas: any[] = [
+  const schemas: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
       "@type": "MedicalProcedure",
@@ -485,7 +485,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": `${name} Conditions Treated in Greenville, SC`,
-        "itemListElement": catConditions.map((c: any, i: number) => ({
+        "itemListElement": (catConditions as ConditionData[]).map((c, i: number) => ({
           "@type": "ListItem",
           "position": i + 1,
           "name": c.name,
