@@ -13,45 +13,45 @@ interface LinkableItem {
 }
 
 const categories: LinkableItem[] = [
-  { name: "Acupuncturist", slug: "acupuncturist-greenville-sc", keywords: ["acupuncturist", "acupuncture specialist"] },
-  { name: "Acupuncture Clinic", slug: "acupuncture-clinic-greenville-sc", keywords: ["acupuncture clinic", "acupuncture center"] },
-  { name: "Chinese Medicine Clinic", slug: "chinese-medicine-clinic-greenville-sc", keywords: ["chinese medicine", "traditional chinese medicine", "tcm"] },
-  { name: "Alternative Medicine Practitioner", slug: "alternative-medicine-practitioner-greenville-sc", keywords: ["alternative medicine", "functional medicine", "integrative medicine", "holistic medicine"] },
+  { name: "Acupuncturist", slug: "acupuncturist-services", keywords: ["acupuncturist", "acupuncture specialist"] },
+  { name: "Acupuncture Clinic", slug: "acupuncture-clinic-services", keywords: ["acupuncture clinic", "acupuncture center"] },
+  { name: "Chinese Medicine Clinic", slug: "chinese-medicine-clinic-services", keywords: ["chinese medicine", "traditional chinese medicine", "tcm"] },
+  { name: "Alternative Medicine Practitioner", slug: "alternative-medicine-practitioner-services", keywords: ["alternative medicine", "functional medicine", "integrative medicine", "holistic medicine"] },
 ];
 
 const services: LinkableItem[] = [
-  { name: "Acupuncture Therapy", slug: "acupuncture-therapy-greenville-sc", keywords: ["acupuncture therapy", "acupuncture treatment"] },
-  { name: "Cupping Therapy", slug: "cupping-therapy-greenville-sc", keywords: ["cupping therapy", "cupping", "chinese cupping"] },
-  { name: "Gua Sha Treatment", slug: "gua-sha-treatment-greenville-sc", keywords: ["gua sha", "gua sha treatment", "gua sha therapy"] },
-  { name: "Moxibustion Therapy", slug: "moxibustion-therapy-greenville-sc", keywords: ["moxibustion", "moxa", "moxa treatment"] },
-  { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine-greenville-sc", keywords: ["chinese herbal medicine", "chinese herbs", "herbal medicine", "herbal formulas"] },
-  { name: "Dry Needling Therapy", slug: "dry-needling-therapy-greenville-sc", keywords: ["dry needling", "trigger point needling"] },
-  { name: "Electroacupuncture", slug: "electroacupuncture-greenville-sc", keywords: ["electroacupuncture", "electrical stimulation acupuncture"] },
-  { name: "Back Pain Treatment", slug: "back-pain-treatment-greenville-sc", keywords: ["back pain", "lower back pain", "upper back pain"] },
-  { name: "Sciatica Treatment", slug: "sciatica-treatment-greenville-sc", keywords: ["sciatica", "sciatic pain", "sciatic nerve"] },
-  { name: "Neck Pain Treatment", slug: "neck-pain-treatment-greenville-sc", keywords: ["neck pain"] },
-  { name: "Chronic Pain Management", slug: "chronic-pain-management-greenville-sc", keywords: ["chronic pain"] },
-  { name: "Fibromyalgia Treatment", slug: "fibromyalgia-treatment-greenville-sc", keywords: ["fibromyalgia"] },
-  { name: "Neuropathy Treatment", slug: "neuropathy-treatment-greenville-sc", keywords: ["neuropathy", "peripheral neuropathy"] },
-  { name: "Digestive Issues Treatment", slug: "digestive-issues-treatment-greenville-sc", keywords: ["digestive issues", "digestive health", "digestion", "digestive tract", "gi tract"] },
-  { name: "IBS Treatment", slug: "ibs-treatment-greenville-sc", keywords: ["ibs", "irritable bowel"] },
-  { name: "Stress Management", slug: "stress-management-greenville-sc", keywords: ["stress management", "stress relief"] },
-  { name: "Acupuncture for Anxiety", slug: "acupuncture-for-anxiety-greenville-sc", keywords: ["anxiety"] },
-  { name: "Insomnia Treatment", slug: "insomnia-treatment-greenville-sc", keywords: ["insomnia", "sleep issues", "sleep problems"] },
-  { name: "Fertility Treatment", slug: "fertility-treatment-greenville-sc", keywords: ["fertility", "infertility"] },
-  { name: "Menopause Treatment", slug: "menopause-treatment-greenville-sc", keywords: ["menopause", "hot flashes"] },
-  { name: "Detoxification Therapy", slug: "detoxification-therapy-greenville-sc", keywords: ["detoxification", "detox", "detoxify"] },
-  { name: "Ozone Therapy", slug: "ozone-therapy-greenville-sc", keywords: ["ozone therapy", "ozone treatment"] },
-  { name: "Laser Acupuncture", slug: "laser-acupuncture-greenville-sc", keywords: ["laser acupuncture", "cold laser", "laser therapy", "lllt", "low level light therapy"] },
-  { name: "Cosmetic Acupuncture", slug: "cosmetic-acupuncture-greenville-sc", keywords: ["cosmetic acupuncture", "facial acupuncture", "facial rejuvenation"] },
-  { name: "Allergy Treatment", slug: "allergy-treatment-greenville-sc", keywords: ["allergy", "allergies"] },
-  { name: "Immune System Support", slug: "immune-system-support-greenville-sc", keywords: ["immune system", "immune support", "immunity"] },
-  { name: "Fatigue Treatment", slug: "fatigue-treatment-greenville-sc", keywords: ["fatigue", "chronic fatigue", "tiredness"] },
-  { name: "Hormone Testing", slug: "hormone-testing-greenville-sc", keywords: ["hormone testing", "hormonal imbalance"] },
-  { name: "Thyroid Disorder Treatment", slug: "thyroid-disorder-treatment-greenville-sc", keywords: ["thyroid"] },
-  { name: "Nutritional Counseling", slug: "nutritional-counseling-greenville-sc", keywords: ["nutritional counseling", "nutrition therapy", "nutrition"] },
-  { name: "Arthritis Pain Treatment", slug: "arthritis-pain-treatment-greenville-sc", keywords: ["arthritis"] },
-  { name: "Joint Pain Treatment", slug: "joint-pain-treatment-greenville-sc", keywords: ["joint pain", "joints"] },
+  { name: "Acupuncture Therapy", slug: "acupuncture-therapy", keywords: ["acupuncture therapy", "acupuncture treatment"] },
+  { name: "Cupping Therapy", slug: "cupping-therapy", keywords: ["cupping therapy", "cupping", "chinese cupping"] },
+  { name: "Gua Sha Treatment", slug: "gua-sha-treatment", keywords: ["gua sha", "gua sha treatment", "gua sha therapy"] },
+  { name: "Moxibustion Therapy", slug: "moxibustion-therapy", keywords: ["moxibustion", "moxa", "moxa treatment"] },
+  { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine", keywords: ["chinese herbal medicine", "chinese herbs", "herbal medicine", "herbal formulas"] },
+  { name: "Dry Needling Therapy", slug: "dry-needling-therapy", keywords: ["dry needling", "trigger point needling"] },
+  { name: "Electroacupuncture", slug: "electroacupuncture", keywords: ["electroacupuncture", "electrical stimulation acupuncture"] },
+  { name: "Back Pain Treatment", slug: "back-pain-treatment", keywords: ["back pain", "lower back pain", "upper back pain"] },
+  { name: "Sciatica Treatment", slug: "sciatica-treatment", keywords: ["sciatica", "sciatic pain", "sciatic nerve"] },
+  { name: "Neck Pain Treatment", slug: "neck-pain-treatment", keywords: ["neck pain"] },
+  { name: "Chronic Pain Management", slug: "chronic-pain-management", keywords: ["chronic pain"] },
+  { name: "Fibromyalgia Treatment", slug: "fibromyalgia-treatment", keywords: ["fibromyalgia"] },
+  { name: "Neuropathy Treatment", slug: "neuropathy-treatment", keywords: ["neuropathy", "peripheral neuropathy"] },
+  { name: "Digestive Issues Treatment", slug: "digestive-issues-treatment", keywords: ["digestive issues", "digestive health", "digestion", "digestive tract", "gi tract"] },
+  { name: "IBS Treatment", slug: "ibs-treatment", keywords: ["ibs", "irritable bowel"] },
+  { name: "Stress Management", slug: "stress-management", keywords: ["stress management", "stress relief"] },
+  { name: "Acupuncture for Anxiety", slug: "acupuncture-for-anxiety", keywords: ["anxiety"] },
+  { name: "Insomnia Treatment", slug: "insomnia-treatment", keywords: ["insomnia", "sleep issues", "sleep problems"] },
+  { name: "Fertility Treatment", slug: "fertility-treatment", keywords: ["fertility", "infertility"] },
+  { name: "Menopause Treatment", slug: "menopause-treatment", keywords: ["menopause", "hot flashes"] },
+  { name: "Detoxification Therapy", slug: "detoxification-therapy", keywords: ["detoxification", "detox", "detoxify"] },
+  { name: "Ozone Therapy", slug: "ozone-therapy", keywords: ["ozone therapy", "ozone treatment"] },
+  { name: "Laser Acupuncture", slug: "laser-acupuncture", keywords: ["laser acupuncture", "cold laser", "laser therapy", "lllt", "low level light therapy"] },
+  { name: "Cosmetic Acupuncture", slug: "cosmetic-acupuncture", keywords: ["cosmetic acupuncture", "facial acupuncture", "facial rejuvenation"] },
+  { name: "Allergy Treatment", slug: "allergy-treatment", keywords: ["allergy", "allergies"] },
+  { name: "Immune System Support", slug: "immune-system-support", keywords: ["immune system", "immune support", "immunity"] },
+  { name: "Fatigue Treatment", slug: "fatigue-treatment", keywords: ["fatigue", "chronic fatigue", "tiredness"] },
+  { name: "Hormone Testing", slug: "hormone-testing", keywords: ["hormone testing", "hormonal imbalance"] },
+  { name: "Thyroid Disorder Treatment", slug: "thyroid-disorder-treatment", keywords: ["thyroid"] },
+  { name: "Nutritional Counseling", slug: "nutritional-counseling", keywords: ["nutritional counseling", "nutrition therapy", "nutrition"] },
+  { name: "Arthritis Pain Treatment", slug: "arthritis-pain-treatment", keywords: ["arthritis"] },
+  { name: "Joint Pain Treatment", slug: "joint-pain-treatment", keywords: ["joint pain", "joints"] },
 ];
 
 function addInternalLinks(content: string): { content: string; linksAdded: string[] } {
@@ -141,6 +141,18 @@ async function ensureBlogPostsSynced(): Promise<void> {
   }
 }
 
+/* ============================================================
+   Old -greenville-sc URL redirects (301) — maps every legacy
+   URL to the new clean slug format so existing Google rankings
+   and backlinks are preserved.
+   ============================================================ */
+const CATEGORY_SLUG_REDIRECTS: Record<string, string> = {
+  "acupuncturist-greenville-sc": "acupuncturist-services",
+  "acupuncture-clinic-greenville-sc": "acupuncture-clinic-services",
+  "chinese-medicine-clinic-greenville-sc": "chinese-medicine-clinic-services",
+  "alternative-medicine-practitioner-greenville-sc": "alternative-medicine-practitioner-services",
+};
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
@@ -151,6 +163,17 @@ export async function registerRoutes(
     console.log("Initial blog posts sync completed");
   }).catch(err => {
     console.error("Initial sync failed:", err);
+  });
+
+  /* 301 redirect middleware for old -greenville-sc URLs */
+  app.use((req, res, next) => {
+    const m = req.path.match(/^\/services\/(.+)-greenville-sc$/);
+    if (m) {
+      const fullOldSlug = `${m[1]}-greenville-sc`;
+      const newSlug = CATEGORY_SLUG_REDIRECTS[fullOldSlug] ?? m[1];
+      return res.redirect(301, `/services/${newSlug}`);
+    }
+    next();
   });
 
   app.get("/sitemap.xml", async (_req, res) => {

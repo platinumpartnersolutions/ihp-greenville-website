@@ -40,10 +40,10 @@ const createSlug = (name: string): string => {
 
 const categoryDefinitions: CategoryData[] = [
   {
-    slug: "acupuncturist-greenville-sc",
+    slug: "acupuncturist-services",
     name: "Acupuncturist",
     gbpCategory: "Acupuncturist",
-    metaTitle: "Acupuncturist in Greenville, SC | Integrative Health Partners",
+    metaTitle: "Acupuncturist Services in Greenville, SC | Integrative Health Partners",
     metaDescription: "Looking for a skilled acupuncturist in Greenville, SC? Dr. William Hendry offers 25+ years of experience in acupuncture therapy and needle-based treatments. Call (864) 365-6156.",
     isPrimary: true,
     serviceNames: [
@@ -57,10 +57,10 @@ const categoryDefinitions: CategoryData[] = [
     ]
   },
   {
-    slug: "acupuncture-clinic-greenville-sc",
+    slug: "acupuncture-clinic-services",
     name: "Acupuncture Clinic",
     gbpCategory: "Acupuncture clinic",
-    metaTitle: "Acupuncture Clinic in Greenville, SC | Pain Treatment & Relief",
+    metaTitle: "Acupuncture Clinic Services in Greenville, SC | Pain Treatment & Relief",
     metaDescription: "Visit our acupuncture clinic in Greenville, SC for expert pain treatment. We specialize in back pain, sciatica, neck pain, and sports injuries. Call (864) 365-6156.",
     isPrimary: false,
     serviceNames: [
@@ -73,10 +73,10 @@ const categoryDefinitions: CategoryData[] = [
     ]
   },
   {
-    slug: "chinese-medicine-clinic-greenville-sc",
+    slug: "chinese-medicine-clinic-services",
     name: "Chinese Medicine Clinic",
     gbpCategory: "Chinese medicine clinic",
-    metaTitle: "Chinese Medicine Clinic in Greenville, SC | TCM & Herbal Medicine",
+    metaTitle: "Chinese Medicine Clinic Services in Greenville, SC | TCM & Herbal Medicine",
     metaDescription: "Authentic Chinese medicine clinic in Greenville, SC offering cupping, herbal medicine, moxibustion, and traditional TCM treatments. Call (864) 365-6156 to schedule.",
     isPrimary: false,
     serviceNames: [
@@ -91,10 +91,10 @@ const categoryDefinitions: CategoryData[] = [
     ]
   },
   {
-    slug: "alternative-medicine-practitioner-greenville-sc",
+    slug: "alternative-medicine-practitioner-services",
     name: "Alternative Medicine Practitioner",
     gbpCategory: "Alternative medicine practitioner",
-    metaTitle: "Alternative Medicine Practitioner in Greenville, SC | Functional Medicine",
+    metaTitle: "Alternative Medicine Practitioner Services in Greenville, SC | Functional Medicine",
     metaDescription: "Trusted alternative medicine practitioner in Greenville, SC. Dr. Hendry offers functional medicine, ozone therapy, detox treatments, and holistic health care. Call (864) 365-6156.",
     isPrimary: false,
     serviceNames: [
@@ -122,7 +122,7 @@ const categoryMap = new Map<string, CategoryData>();
 for (const cat of categoryDefinitions) {
   categoryMap.set(cat.slug, cat);
   for (const name of cat.serviceNames) {
-    const slug = `${createSlug(name)}-greenville-sc`;
+    const slug = createSlug(name);
     const service: ServiceData = {
       slug,
       name,
@@ -229,7 +229,7 @@ function getCategorySEO(slug: string): PageSEO | null {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": cat.name, "item": pageUrl }
+          { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": pageUrl }
         ]
       },
       {
@@ -294,7 +294,7 @@ function getServiceSEO(slug: string): PageSEO | null {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": cat.name, "item": `${BASE_URL}/services/${cat.slug}` },
+          { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": `${BASE_URL}/services/${cat.slug}` },
           { "@type": "ListItem", "position": 3, "name": service.name, "item": pageUrl }
         ]
       }

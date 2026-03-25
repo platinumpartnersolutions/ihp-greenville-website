@@ -79,10 +79,24 @@ function renderNav(transparent = false): string {
           <span class="nav__dropdown-chevron">${icons.chevronDown}</span>
         </button>
         <div class="nav__dropdown-menu" role="menu">
-          <a href="/services/acupuncturist-greenville-sc" class="nav__dropdown-item nav__dropdown-item--primary" role="menuitem">Acupuncturist Services</a>
-          <a href="/services/acupuncture-clinic-greenville-sc" class="nav__dropdown-item" role="menuitem">Acupuncture Clinic Services</a>
-          <a href="/services/chinese-medicine-clinic-greenville-sc" class="nav__dropdown-item" role="menuitem">Chinese Medicine Clinic Services</a>
-          <a href="/services/alternative-medicine-practitioner-greenville-sc" class="nav__dropdown-item" role="menuitem">Alternative Medicine Practitioner Services</a>
+          <a href="/services/acupuncturist-services" class="nav__dropdown-item nav__dropdown-item--primary" role="menuitem">Acupuncturist Services</a>
+          <a href="/services/acupuncture-clinic-services" class="nav__dropdown-item" role="menuitem">Acupuncture Clinic Services</a>
+          <a href="/services/chinese-medicine-clinic-services" class="nav__dropdown-item" role="menuitem">Chinese Medicine Clinic Services</a>
+          <a href="/services/alternative-medicine-practitioner-services" class="nav__dropdown-item" role="menuitem">Alternative Medicine Practitioner Services</a>
+        </div>
+      </div>
+
+      <div class="nav__dropdown" role="listitem">
+        <button class="nav__dropdown-btn" aria-haspopup="true" aria-expanded="false">
+          Conditions We Treat
+          <span class="nav__dropdown-chevron">${icons.chevronDown}</span>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a href="/conditions/pain-and-musculoskeletal" class="nav__dropdown-item" role="menuitem">Pain &amp; Musculoskeletal</a>
+          <a href="/conditions/neurological-mental-health" class="nav__dropdown-item" role="menuitem">Neurological &amp; Mental Health</a>
+          <a href="/conditions/hormonal-womens-health" class="nav__dropdown-item" role="menuitem">Hormonal &amp; Women's Health</a>
+          <a href="/conditions/digestive-immune" class="nav__dropdown-item" role="menuitem">Digestive &amp; Immune</a>
+          <a href="/conditions" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem">→ View All Conditions</a>
         </div>
       </div>
 
@@ -103,10 +117,17 @@ function renderNav(transparent = false): string {
   <a href="/blog" class="nav__mobile-link">Blog</a>
 
   <div class="nav__mobile-section">Services</div>
-  <a href="/services/acupuncturist-greenville-sc" class="nav__mobile-sublink">Acupuncturist Services</a>
-  <a href="/services/acupuncture-clinic-greenville-sc" class="nav__mobile-sublink">Acupuncture Clinic Services</a>
-  <a href="/services/chinese-medicine-clinic-greenville-sc" class="nav__mobile-sublink">Chinese Medicine Clinic Services</a>
-  <a href="/services/alternative-medicine-practitioner-greenville-sc" class="nav__mobile-sublink">Alternative Medicine Practitioner Services</a>
+  <a href="/services/acupuncturist-services" class="nav__mobile-sublink">Acupuncturist Services</a>
+  <a href="/services/acupuncture-clinic-services" class="nav__mobile-sublink">Acupuncture Clinic Services</a>
+  <a href="/services/chinese-medicine-clinic-services" class="nav__mobile-sublink">Chinese Medicine Clinic Services</a>
+  <a href="/services/alternative-medicine-practitioner-services" class="nav__mobile-sublink">Alternative Medicine Practitioner Services</a>
+
+  <div class="nav__mobile-section">Conditions We Treat</div>
+  <a href="/conditions/pain-and-musculoskeletal" class="nav__mobile-sublink">Pain &amp; Musculoskeletal</a>
+  <a href="/conditions/neurological-mental-health" class="nav__mobile-sublink">Neurological &amp; Mental Health</a>
+  <a href="/conditions/hormonal-womens-health" class="nav__mobile-sublink">Hormonal &amp; Women's Health</a>
+  <a href="/conditions/digestive-immune" class="nav__mobile-sublink">Digestive &amp; Immune</a>
+  <a href="/conditions" class="nav__mobile-sublink">View All Conditions</a>
 
   <a href="tel:${NAP.phoneRaw}" class="nav__mobile-cta">${icons.phone} Call ${NAP.phone}</a>
 </div>`;
@@ -155,11 +176,22 @@ function renderFooter(): string {
       <div>
         <p class="footer__col-title">Services</p>
         <div class="footer__links">
-          <a href="/services/acupuncturist-greenville-sc" class="footer__link">Acupuncturist Services</a>
-          <a href="/services/acupuncture-clinic-greenville-sc" class="footer__link">Acupuncture Clinic Services</a>
-          <a href="/services/chinese-medicine-clinic-greenville-sc" class="footer__link">Chinese Medicine Clinic Services</a>
-          <a href="/services/alternative-medicine-practitioner-greenville-sc" class="footer__link">Alternative Medicine Practitioner Services</a>
+          <a href="/services/acupuncturist-services" class="footer__link">Acupuncturist Services</a>
+          <a href="/services/acupuncture-clinic-services" class="footer__link">Acupuncture Clinic Services</a>
+          <a href="/services/chinese-medicine-clinic-services" class="footer__link">Chinese Medicine Clinic Services</a>
+          <a href="/services/alternative-medicine-practitioner-services" class="footer__link">Alternative Medicine Practitioner Services</a>
           <a href="/blog" class="footer__link">Health Blog</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer__col-title">Conditions We Treat</p>
+        <div class="footer__links">
+          <a href="/conditions/pain-and-musculoskeletal" class="footer__link">Pain &amp; Musculoskeletal</a>
+          <a href="/conditions/neurological-mental-health" class="footer__link">Neurological &amp; Mental Health</a>
+          <a href="/conditions/hormonal-womens-health" class="footer__link">Hormonal &amp; Women's Health</a>
+          <a href="/conditions/digestive-immune" class="footer__link">Digestive &amp; Immune</a>
+          <a href="/conditions" class="footer__link">View All Conditions</a>
         </div>
       </div>
     </div>
@@ -184,12 +216,12 @@ function starRow(n = 5): string {
    ============================================================ */
 export function renderHome(): string {
   const featuredServices = [
-    { name: "Acupuncture Therapy", slug: "acupuncture-therapy-greenville-sc", icon: icons.leaf, text: "Traditional needle-based therapy that stimulates the body's natural healing systems to relieve pain, reduce stress, and restore balance." },
-    { name: "Cupping Therapy", slug: "cupping-therapy-greenville-sc", icon: icons.activity, text: "Ancient Chinese technique using suction cups to increase circulation, release muscle tension, and promote tissue healing." },
-    { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine-greenville-sc", icon: icons.leaf, text: "Custom herbal formulas rooted in 2,000+ years of tradition, prescribed to address the root cause of your health concerns." },
-    { name: "Functional Medicine", slug: "alternative-medicine-practitioner-greenville-sc", icon: icons.activity, text: "Comprehensive, systems-based approach to find and treat the underlying causes of chronic illness and disease." },
-    { name: "Dry Needling Therapy", slug: "dry-needling-therapy-greenville-sc", icon: icons.activity, text: "Targets trigger points and myofascial pain to release muscle tension, reduce pain, and restore normal movement patterns." },
-    { name: "Ozone Therapy", slug: "ozone-therapy-greenville-sc", icon: icons.shield, text: "Medical-grade ozone treatment that stimulates the immune system, reduces inflammation, and promotes cellular regeneration." },
+    { name: "Acupuncture Therapy", slug: "acupuncture-therapy", icon: icons.leaf, text: "Traditional needle-based therapy that stimulates the body's natural healing systems to relieve pain, reduce stress, and restore balance." },
+    { name: "Cupping Therapy", slug: "cupping-therapy", icon: icons.activity, text: "Ancient Chinese technique using suction cups to increase circulation, release muscle tension, and promote tissue healing." },
+    { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine", icon: icons.leaf, text: "Custom herbal formulas rooted in 2,000+ years of tradition, prescribed to address the root cause of your health concerns." },
+    { name: "Functional Medicine", slug: "alternative-medicine-practitioner-services", icon: icons.activity, text: "Comprehensive, systems-based approach to find and treat the underlying causes of chronic illness and disease." },
+    { name: "Dry Needling Therapy", slug: "dry-needling-therapy", icon: icons.activity, text: "Targets trigger points and myofascial pain to release muscle tension, reduce pain, and restore normal movement patterns." },
+    { name: "Ozone Therapy", slug: "ozone-therapy", icon: icons.shield, text: "Medical-grade ozone treatment that stimulates the immune system, reduces inflammation, and promotes cellular regeneration." },
   ];
 
   const testimonials = [
@@ -326,7 +358,7 @@ export function renderHome(): string {
           </div>`).join("")}
         </div>
         <div class="text-center reveal">
-          <a href="/services/acupuncturist-greenville-sc" class="btn btn-primary">View All Services ${icons.arrowRight}</a>
+          <a href="/services/acupuncturist-services" class="btn btn-primary">View All Services ${icons.arrowRight}</a>
         </div>
       </div>
     </section>
@@ -502,7 +534,7 @@ export function renderCategory(catSlug: string): string | null {
 
   const catServices = cat.serviceNames.map(name => ({
     name,
-    slug: `${createSlug(name)}-greenville-sc`,
+    slug: createSlug(name),
   }));
 
   const otherCats = categoryDefinitions.filter(c => c.slug !== catSlug);
@@ -750,7 +782,7 @@ export function renderService(svcSlug: string): string | null {
           <div class="sidebar-card">
             <p class="sidebar-card__title">Browse ${cat.name} Services</p>
             ${cat.serviceNames.slice(0, 8).map(svcName => {
-              const svcSl = `${createSlug(svcName)}-greenville-sc`;
+              const svcSl = createSlug(svcName);
               return `<a href="/services/${svcSl}" class="sidebar-link">${svcName}</a>`;
             }).join("")}
             <a href="/services/${cat.slug}" class="text-link" style="font-size:0.875rem;font-weight:500;display:block;margin-top:0.75rem">
