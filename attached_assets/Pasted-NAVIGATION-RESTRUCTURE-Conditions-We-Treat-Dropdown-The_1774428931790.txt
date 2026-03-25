@@ -1,0 +1,32 @@
+NAVIGATION RESTRUCTURE — Conditions We Treat Dropdown
+The "Conditions We Treat" dropdown must be restructured from clinical category headers to plain-language patient symptoms. Patients don't search for "Pain & Musculoskeletal" — they search for "back pain" or "knee pain." The nav must speak their language.
+Remove all category header labels from the dropdown entirely. Do not show "Pain & Musculoskeletal", "Neurological & Mental Health", "Hormonal & Women's Health", or "Digestive & Immune" as visible nav items or section headers. These category pages still exist as URLs and remain part of the sitemap and internal linking architecture — they are just not exposed in the dropdown nav.
+Replace with this exact flat list of plain-language conditions, displayed in a 3-column grid layout:
+Column 1 — Pain          Column 2 — Mind/Hormones     Column 3 — Gut/Immune/Other
+Back Pain                Anxiety & Stress              IBS & Gut Issues
+Neck Pain                Depression                    Chronic Fatigue
+Knee Pain                Insomnia                      Autoimmune Disease
+Hip Pain                 PTSD                          Hashimoto's
+Shoulder Pain            Brain Fog                     Thyroid Issues
+Sciatica                 Fertility Support              Food Sensitivities
+Headaches & Migraines    PCOS                          Leaky Gut
+Fibromyalgia             Menopause                     Adrenal Fatigue
+Neuropathy               Hormone Imbalance             Chronic Illness
+Sports Injuries          Perimenopause                 Weight Issues
+Each condition label is a direct link to its individual condition page using the existing URL structure (e.g., "Back Pain" links to /conditions/back-pain/, "Knee Pain" links to /conditions/knee-pain/, etc.).
+At the bottom of the dropdown, below the grid, keep the green CTA link:
+→ View All Conditions linking to /conditions/
+Desktop dropdown behavior:
+
+Opens on click or hover (match existing Services dropdown behavior for consistency)
+3-column grid, evenly spaced
+No bold category headers — just clean plain-text links in the same style as the Services dropdown items
+If you want subtle visual grouping without clinical labels, use a thin 1px horizontal rule or 8px extra vertical spacing between the three column groups — but no text labels above them
+
+Mobile behavior:
+
+Conditions collapse into a single scrollable accordion list (same as Services on mobile)
+All 30 conditions listed vertically, no columns
+"→ View All Conditions" pinned at the bottom of the accordion
+
+Important: The column groupings above (Pain / Mind-Hormones / Gut-Immune) are purely for visual layout in the dropdown — they do not need to correspond to URL categories or page hierarchy. The underlying URL structure (/conditions/pain-and-musculoskeletal/ etc.) remains unchanged. Only the nav presentation changes.
