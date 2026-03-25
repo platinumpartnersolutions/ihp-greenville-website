@@ -272,30 +272,36 @@ export async function registerRoutes(
   });
 
   /* ============================================================
-     Page Routes (server-rendered HTML)
+     Page Routes (server-rendered HTML with explicit SEO injection)
      ============================================================ */
 
-  app.get("/", (_req, res) => {
-    res.set("Content-Type", "text/html").send(renderHome());
+  function sendPage(res: any, html: string, url: string, status = 200): void {
+    const seo = getSEOForUrl(url);
+    if (seo) html = injectSEOIntoHTML(html, seo);
+    res.status(status).set("Content-Type", "text/html").send(html);
+  }
+
+  app.get("/", (req, res) => {
+    sendPage(res, renderHome(), req.originalUrl);
   });
 
   app.get("/services/:slug", (req, res) => {
     const { slug } = req.params;
     const catHtml = renderCategory(slug);
-    if (catHtml) return res.set("Content-Type", "text/html").send(catHtml);
+    if (catHtml) return sendPage(res, catHtml, req.originalUrl);
     const svcHtml = renderService(slug);
-    if (svcHtml) return res.set("Content-Type", "text/html").send(svcHtml);
+    if (svcHtml) return sendPage(res, svcHtml, req.originalUrl);
     return res.status(404).set("Content-Type", "text/html").send(render404());
   });
 
-  app.get("/blog", async (_req, res) => {
+  app.get("/blog", async (req, res) => {
     try {
       await ensureBlogPostsSynced();
       const posts = await storage.getAllBlogPosts();
-      res.set("Content-Type", "text/html").send(renderBlogIndex(posts));
+      sendPage(res, renderBlogIndex(posts), req.originalUrl);
     } catch (error) {
       console.error("Blog index error:", error);
-      res.set("Content-Type", "text/html").send(renderBlogIndex([]));
+      sendPage(res, renderBlogIndex([]), req.originalUrl);
     }
   });
 
@@ -305,7 +311,6 @@ export async function registerRoutes(
       const post = await storage.getBlogPostBySlug(req.params.slug);
       if (!post) return res.status(404).set("Content-Type", "text/html").send(render404());
 
-      let html = renderBlogPost(post);
       const cleanExcerpt = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, "").substring(0, 160) : "";
       const blogSEO = {
         title: `${post.title} | Integrative Health Partners`,
@@ -324,6 +329,7 @@ export async function registerRoutes(
           }
         ]
       };
+      let html = renderBlogPost(post);
       html = injectSEOIntoHTML(html, blogSEO);
       res.set("Content-Type", "text/html").send(html);
     } catch (error) {
