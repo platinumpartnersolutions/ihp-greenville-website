@@ -3,6 +3,16 @@
 ## Overview
 Local SEO-focused website for Integrative Health Partners, a functional medicine and acupuncture practice in Greenville, SC. The site aligns with their Google Business Profile structure, featuring 4 GBP category pages and 130 individual service pages.
 
+## Recent Changes (March 2026)
+- **Full frontend rewrite**: React/Vite SPA replaced with vanilla HTML+CSS+JS served by Express
+- **Server-side rendering**: All pages (home, category, service, blog index, blog post, 404) rendered server-side via `server/renderer.ts`
+- **No build step required**: CSS (`public/css/style.css`) and JS (`public/js/main.js`) served as static files; no bundler needed
+- **Static assets**: `public/` served directly; `attached_assets/` served at `/assets/` path (video, images)
+- **Ordering fix**: `serveStatic(app)` called before `registerRoutes` so CSS/JS are served before the catch-all 404 handler
+- **Vite removed**: `server/index.ts` and `script/build.ts` no longer reference Vite at all
+- `server/renderer.ts` exports: `renderHome`, `renderCategory`, `renderService`, `renderBlogIndex`, `renderBlogPost`, `render404`
+- Blog posts fully server-rendered from DB (no client-side fetch); SEO injected manually for blog post pages
+
 ## Recent Changes (February 2026)
 - **Server-side SEO injection**: Express middleware injects page-specific meta tags, canonical URLs, OG tags, and JSON-LD schema into HTML before serving — crawlers see correct data without JavaScript
 - **sitemap.xml**: Server-generated with all 130 service pages, 4 categories, home, blog index, and individual blog posts (213 URLs total)

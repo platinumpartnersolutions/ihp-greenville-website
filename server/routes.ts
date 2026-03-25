@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, BASE_URL } from "./seo";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404 } from "./renderer";
 
 interface LinkableItem {
   name: string;
@@ -268,6 +269,71 @@ export async function registerRoutes(
       console.error("Add internal links error:", error);
       res.status(500).json({ error: "Failed to add internal links" });
     }
+  });
+
+  /* ============================================================
+     Page Routes (server-rendered HTML)
+     ============================================================ */
+
+  app.get("/", (_req, res) => {
+    res.set("Content-Type", "text/html").send(renderHome());
+  });
+
+  app.get("/services/:slug", (req, res) => {
+    const { slug } = req.params;
+    const catHtml = renderCategory(slug);
+    if (catHtml) return res.set("Content-Type", "text/html").send(catHtml);
+    const svcHtml = renderService(slug);
+    if (svcHtml) return res.set("Content-Type", "text/html").send(svcHtml);
+    return res.status(404).set("Content-Type", "text/html").send(render404());
+  });
+
+  app.get("/blog", async (_req, res) => {
+    try {
+      await ensureBlogPostsSynced();
+      const posts = await storage.getAllBlogPosts();
+      res.set("Content-Type", "text/html").send(renderBlogIndex(posts));
+    } catch (error) {
+      console.error("Blog index error:", error);
+      res.set("Content-Type", "text/html").send(renderBlogIndex([]));
+    }
+  });
+
+  app.get("/blog/:slug", async (req, res) => {
+    try {
+      await ensureBlogPostsSynced();
+      const post = await storage.getBlogPostBySlug(req.params.slug);
+      if (!post) return res.status(404).set("Content-Type", "text/html").send(render404());
+
+      let html = renderBlogPost(post);
+      const cleanExcerpt = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, "").substring(0, 160) : "";
+      const blogSEO = {
+        title: `${post.title} | Integrative Health Partners`,
+        description: cleanExcerpt,
+        canonical: `${BASE_URL}/blog/${post.slug}`,
+        ogType: "article",
+        schemas: [
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` },
+              { "@type": "ListItem", "position": 3, "name": post.title, "item": `${BASE_URL}/blog/${post.slug}` }
+            ]
+          }
+        ]
+      };
+      html = injectSEOIntoHTML(html, blogSEO);
+      res.set("Content-Type", "text/html").send(html);
+    } catch (error) {
+      console.error("Blog post error:", error);
+      res.status(500).set("Content-Type", "text/html").send(render404());
+    }
+  });
+
+  app.use((_req, res) => {
+    res.status(404).set("Content-Type", "text/html").send(render404());
   });
 
   return httpServer;
