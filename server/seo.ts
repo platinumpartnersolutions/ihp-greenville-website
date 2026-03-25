@@ -411,6 +411,109 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
   };
 }
 
+function getAboutSEO(): PageSEO {
+  return {
+    title: "About Integrative Health Partners | Acupuncture & Functional Medicine Greenville, SC",
+    description: "Learn about Integrative Health Partners — Greenville SC's trusted integrative health practice. Root-cause functional medicine, acupuncture, and in-house herbal pharmacy. Call (864) 365-6156.",
+    canonical: `${BASE_URL}/about`,
+    ogType: "website",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": NAP.name,
+        "description": "Integrative functional medicine practice offering acupuncture, functional medicine, and natural treatments in Greenville, SC.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": NAP.streetAddress,
+          "addressLocality": NAP.city,
+          "addressRegion": NAP.state,
+          "postalCode": NAP.postalCode,
+          "addressCountry": "US"
+        },
+        "telephone": NAP.phoneRaw,
+        "url": NAP.url
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": `${BASE_URL}/about` }
+        ]
+      }
+    ]
+  };
+}
+
+function getDrHendrySEO(): PageSEO {
+  return {
+    title: "Dr. William Hendry, DAOM | Integrative Health Partners Greenville, SC",
+    description: "Dr. William Hendry — DAOM, NCCAOM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
+    canonical: `${BASE_URL}/dr-hendry`,
+    ogType: "profile",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Physician",
+        "name": "Dr. William Hendry",
+        "honorificPrefix": "Dr.",
+        "honorificSuffix": "DAOM, Dipl. O.M. (NCCAOM)®",
+        "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
+        "description": "Dr. William Hendry is a board-certified acupuncturist and functional medicine practitioner in Greenville, SC with 25+ years of clinical experience, hospital privileges at Prisma Health, and 5 peer-reviewed research publications.",
+        "worksFor": {
+          "@type": "MedicalBusiness",
+          "name": NAP.name,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": NAP.streetAddress,
+            "addressLocality": NAP.city,
+            "addressRegion": NAP.state,
+            "postalCode": NAP.postalCode,
+            "addressCountry": "US"
+          },
+          "telephone": NAP.phoneRaw,
+          "url": NAP.url
+        },
+        "medicalSpecialty": ["Acupuncture", "Oriental Medicine", "Functional Medicine", "Integrative Medicine"],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Doctor of Acupuncture and Oriental Medicine (DAOM)",
+            "credentialCategory": "degree",
+            "recognizedBy": { "@type": "Organization", "name": "East West College of Natural Medicine" }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Diplomate of Oriental Medicine (Dipl. O.M.)",
+            "credentialCategory": "certification",
+            "recognizedBy": { "@type": "Organization", "name": "NCCAOM", "url": "https://www.nccaom.org" },
+            "identifier": "114498"
+          }
+        ],
+        "identifier": [
+          { "@type": "PropertyValue", "name": "NPI", "value": "1417184045" },
+          { "@type": "PropertyValue", "name": "SC License", "value": "ACUP141" },
+          { "@type": "PropertyValue", "name": "NCCAOM", "value": "114498" }
+        ],
+        "memberOf": [
+          { "@type": "Organization", "name": "Prisma Health" },
+          { "@type": "Organization", "name": "American Academy of Ozone Therapy (AAOT)" }
+        ],
+        "sameAs": ["https://www.researchgate.net/profile/William-Hendry-4", "https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Dr. William Hendry", "item": `${BASE_URL}/dr-hendry` }
+        ]
+      }
+    ]
+  };
+}
+
 export function getSEOForUrl(url: string): PageSEO | null {
   const path = url.split('?')[0].replace(/\/$/, '') || '/';
 
@@ -420,6 +523,14 @@ export function getSEOForUrl(url: string): PageSEO | null {
 
   if (path === '/blog') {
     return getBlogSEO();
+  }
+
+  if (path === '/about') {
+    return getAboutSEO();
+  }
+
+  if (path === '/dr-hendry') {
+    return getDrHendrySEO();
   }
 
   const serviceMatch = path.match(/^\/services\/(.+)$/);
@@ -552,6 +663,22 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
     <priority>0.7</priority>
   </url>`;
   }
+
+  xml += `
+  <url>
+    <loc>${BASE_URL}/about</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+
+  xml += `
+  <url>
+    <loc>${BASE_URL}/dr-hendry</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
 
   xml += `
   <url>

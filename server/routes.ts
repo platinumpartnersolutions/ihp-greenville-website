@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, BASE_URL } from "./seo";
-import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition } from "./renderer";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry } from "./renderer";
 import { conditions, conditionCategories } from "./conditions";
 
 interface LinkableItem {
@@ -351,6 +351,180 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Blog index error:", error);
       sendPage(res, renderBlogIndex([]), req.originalUrl);
+    }
+  });
+
+  app.get("/about", (req, res) => {
+    sendPage(res, renderAbout(), req.originalUrl);
+  });
+
+  app.get("/dr-hendry", (req, res) => {
+    sendPage(res, renderDrHendry(), req.originalUrl);
+  });
+
+  app.get("/llms.txt", async (_req, res) => {
+    try {
+      const posts = await storage.getAllBlogPosts();
+      const allServicesList = [
+        "Acupuncture Therapy","Acupuncture Treatment","Traditional Chinese Acupuncture","Medical Acupuncture",
+        "Auricular Acupuncture","Ear Acupuncture","Electroacupuncture","Electrical Stimulation Acupuncture",
+        "Scalp Acupuncture","Cosmetic Acupuncture","Facial Rejuvenation Acupuncture","Fertility Acupuncture",
+        "Prenatal Acupuncture","Pregnancy Acupuncture","Acupuncture for Anxiety","Acupuncture for Stress Relief",
+        "Acupuncture for Insomnia","Acupuncture for Migraines","Acupuncture for Headaches","Non-Needle Acupuncture",
+        "Laser Acupuncture","Acupressure Therapy","Dry Needling Therapy","Trigger Point Dry Needling",
+        "Intramuscular Stimulation","Biopuncture Therapy","Biopuncture Injections",
+        "Back Pain Treatment","Lower Back Pain Treatment","Upper Back Pain Treatment","Chronic Back Pain Treatment",
+        "Sciatica Treatment","Sciatic Nerve Pain Treatment","Neck Pain Treatment","Shoulder Pain Treatment",
+        "Frozen Shoulder Treatment","Knee Pain Treatment","Hip Pain Treatment","Joint Pain Treatment",
+        "Arthritis Pain Treatment","Fibromyalgia Treatment","Chronic Pain Management","Neuropathy Treatment",
+        "Peripheral Neuropathy Treatment","Plantar Fasciitis Treatment","Carpal Tunnel Treatment","TMJ Treatment",
+        "TMJ Pain Relief","Sports Injury Treatment","Muscle Pain Treatment","Trigger Point Therapy",
+        "Cupping Therapy","Chinese Cupping","Fire Cupping","Gua Sha Treatment","Gua Sha Therapy",
+        "Moxibustion Therapy","Moxa Treatment","Chinese Herbal Medicine","Chinese Herbal Formulas",
+        "Custom Herbal Formulations","Herbal Consultation","Herbal Supplements","Natural Medicine Consultation",
+        "Herb-Drug Interaction Consultation","Menstrual Pain Treatment","PMS Treatment","Menopause Treatment",
+        "Hot Flash Treatment","Fertility Treatment","Infertility Treatment","Digestive Issues Treatment",
+        "IBS Treatment","Acid Reflux Treatment","Allergy Treatment","Sinus Treatment","Insomnia Treatment",
+        "Sleep Disorder Treatment","Natural Anxiety Treatment","Natural Depression Treatment","Stress Management",
+        "Fatigue Treatment","Chronic Fatigue Treatment","Immune System Support",
+        "Functional Medicine Consultation","Functional Medicine Testing","Functional Blood Chemistry Analysis",
+        "Comprehensive Blood Panel","Hormone Testing","Hormonal Imbalance Treatment","Thyroid Testing",
+        "Thyroid Disorder Treatment","Adrenal Fatigue Treatment","Adrenal Testing","Inflammatory Marker Testing",
+        "Food Sensitivity Testing","Nutritional Deficiency Testing","Gut Health Testing","Leaky Gut Treatment",
+        "Digestive Health Treatment","Autoimmune Disease Treatment","Root Cause Analysis",
+        "Integrative Medicine Consultation","Holistic Health Assessment","Brain Fog Treatment",
+        "Weight Loss Support","Metabolism Support","High Blood Pressure Support","Blood Sugar Support",
+        "Natural Diabetes Support","Long COVID Treatment","Post-COVID Recovery","Ozone Therapy",
+        "Ozone Steam Sauna","Ozone Sauna Therapy","Medical Ozone Therapy","Ozone Detoxification",
+        "Infrared Sauna Therapy","Detoxification Therapy","Heavy Metal Detox","Vitamin Therapy",
+        "Vitamin Supplementation","Mineral Supplementation","Supplement Recommendations","Whole Food Supplements",
+        "Professional-Grade Vitamins","Nutritional Supplements","Nutritional Counseling","Nutrition Therapy",
+        "Whole Food Nutrition Counseling"
+      ];
+
+      const conditionNames = [
+        "Back Pain","Neck Pain","Knee Pain","Hip Pain","Shoulder Pain","Sciatica",
+        "Headaches & Migraines","Fibromyalgia","Neuropathy","Sports Injuries",
+        "Anxiety & Stress","Depression","Insomnia","PTSD","Brain Fog",
+        "Fertility","PCOS","Menopause","Hormone Imbalance","Perimenopause",
+        "IBS & Gut Issues","Chronic Fatigue","Autoimmune Disease","Hashimoto's",
+        "Thyroid Issues","Food Sensitivities","Leaky Gut","Adrenal Fatigue",
+        "Chronic Illness","Weight Issues"
+      ];
+
+      const conditionSlugs = [
+        "back-pain","neck-pain","knee-pain","hip-pain","shoulder-pain","sciatica",
+        "headaches-migraines","fibromyalgia","neuropathy","sports-injuries",
+        "anxiety-stress","depression","insomnia","ptsd","brain-fog",
+        "fertility","pcos","menopause","hormone-imbalance","perimenopause",
+        "ibs-gut-issues","chronic-fatigue","autoimmune-disease","hashimotos",
+        "thyroid-issues","food-sensitivities","leaky-gut","adrenal-fatigue",
+        "chronic-illness","weight-issues"
+      ];
+
+      const createServiceSlug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+      let txt = `# Integrative Health Partners — AI Site Index (llms.txt)
+# Generated: ${new Date().toISOString().split('T')[0]}
+# Site: https://www.ihpgreenville.com
+
+## About This Practice
+
+Integrative Health Partners is a functional medicine and acupuncture clinic located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609.
+Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Mon–Fri 9am–5pm
+
+Led by Dr. William Hendry, DAOM — a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids ("Alternatives to Opiates"). He has 5 peer-reviewed publications and 52 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
+
+Services include acupuncture, cupping, gua sha, moxibustion, Chinese herbal medicine, dry needling, electroacupuncture, functional medicine, ozone therapy, injection therapy, and nutritional counseling. In-house professional herbal pharmacy on site.
+
+## Core Pages
+
+${BASE_URL}
+Home page. Overview of Integrative Health Partners: acupuncturist and functional medicine clinic in Greenville, SC. Features Dr. Hendry credentials, services summary, testimonials, and FAQs.
+
+${BASE_URL}/about
+About Integrative Health Partners. Practice history, root-cause philosophy, in-house herbal pharmacy, and what makes IHP different from conventional care. Links to Dr. Hendry page and contact.
+
+${BASE_URL}/dr-hendry
+Dr. William Hendry biography and credentials page. Full credential verification (DAOM, NCCAOM #114498, NPI 1417184045, SC ACUP141, FL AP2646). Features the Prisma Health 3-year opioid alternative ER study, 5 peer-reviewed publications, hospital privileges, and philosophy of care.
+
+${BASE_URL}/blog
+Health and wellness blog. Expert articles on acupuncture, functional medicine, Chinese medicine, and integrative health.
+
+## Service Category Pages
+
+${BASE_URL}/services/acupuncturist-services
+Acupuncturist services hub. 27 acupuncture services including acupuncture therapy, electroacupuncture, laser acupuncture, dry needling, biopuncture, and fertility acupuncture. Greenville SC.
+
+${BASE_URL}/services/acupuncture-clinic-services
+Acupuncture clinic services hub. 24 pain treatment services including back pain, sciatica, neck pain, shoulder pain, knee pain, fibromyalgia, and neuropathy treatment. Greenville SC.
+
+${BASE_URL}/services/chinese-medicine-clinic-services
+Chinese medicine clinic services hub. 33 TCM services including cupping, gua sha, moxibustion, Chinese herbal medicine, menopause treatment, IBS treatment, and stress management. Greenville SC.
+
+${BASE_URL}/services/alternative-medicine-practitioner-services
+Alternative medicine practitioner services hub. 46 functional medicine services including ozone therapy, hormone testing, thyroid treatment, autoimmune disease treatment, and nutritional counseling. Greenville SC.
+
+## Individual Service Pages (130 total)
+
+`;
+
+      for (const name of allServicesList) {
+        const slug = createServiceSlug(name);
+        txt += `${BASE_URL}/services/${slug}\n${name} in Greenville, SC. Provided by Dr. William Hendry at Integrative Health Partners.\n\n`;
+      }
+
+      txt += `## Conditions We Treat
+
+${BASE_URL}/conditions
+Conditions hub page. Overview of 30 health conditions treated with acupuncture and functional medicine at Integrative Health Partners in Greenville, SC.
+
+${BASE_URL}/conditions/pain-and-musculoskeletal
+Pain & Musculoskeletal conditions category. Includes back pain, sciatica, fibromyalgia, neuropathy, sports injuries, and joint pain treatment.
+
+${BASE_URL}/conditions/neurological-mental-health
+Neurological & Mental Health category. Includes anxiety, depression, insomnia, PTSD, and brain fog treatment with acupuncture.
+
+${BASE_URL}/conditions/hormonal-womens-health
+Hormonal & Women's Health category. Includes fertility support, PCOS, menopause, perimenopause, and hormone imbalance treatment.
+
+${BASE_URL}/conditions/digestive-immune
+Digestive & Immune Health category. Includes IBS, leaky gut, food sensitivities, autoimmune disease, Hashimoto's, and adrenal fatigue treatment.
+
+`;
+
+      for (let i = 0; i < conditionSlugs.length; i++) {
+        txt += `${BASE_URL}/conditions/${conditionSlugs[i]}\n${conditionNames[i]} treatment in Greenville, SC. Acupuncture and functional medicine approach by Dr. William Hendry at Integrative Health Partners.\n\n`;
+      }
+
+      txt += `## Blog Posts\n\n`;
+      for (const post of posts) {
+        const cleanExcerpt = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, '').substring(0, 200) : '';
+        txt += `${BASE_URL}/blog/${post.slug}\n${post.title}. ${cleanExcerpt}\n\n`;
+      }
+
+      txt += `## Location & Service Area
+
+Primary location: 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609
+Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer, Spartanburg, and greater Upstate South Carolina.
+
+## Key Differentiators
+
+- Dr. Hendry holds hospital privileges at Prisma Health (9 years) — rare for an acupuncturist
+- Co-author of 3-year Prisma Emergency Department opioid alternative study
+- DAOM degree from East West College of Natural Medicine (highest academic credential in field)
+- NCCAOM board-certified since August 6, 2009 (valid through August 31, 2029)
+- 5 peer-reviewed publications, 52 citations
+- Member: American Academy of Ozone Therapy (AAOT)
+- In-house professional-grade herbal pharmacy
+- Injection therapy certified
+- Active SC License ACUP141, FL License AP2646
+`;
+
+      res.set("Content-Type", "text/plain; charset=utf-8").send(txt);
+    } catch (error) {
+      console.error("llms.txt generation error:", error);
+      res.status(500).set("Content-Type", "text/plain").send("Error generating llms.txt");
     }
   });
 

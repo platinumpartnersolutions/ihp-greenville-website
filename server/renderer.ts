@@ -135,6 +135,17 @@ function renderNav(transparent = false): string {
         </div>
       </div>
 
+      <div class="nav__dropdown" role="listitem">
+        <button class="nav__dropdown-btn" aria-haspopup="true" aria-expanded="false">
+          About
+          <span class="nav__dropdown-chevron">${icons.chevronDown}</span>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a href="/about" class="nav__dropdown-item nav__dropdown-item--primary" role="menuitem">About Integrative Health Partners</a>
+          <a href="/dr-hendry" class="nav__dropdown-item" role="menuitem">Dr. William Hendry, DAOM</a>
+        </div>
+      </div>
+
       <a href="/blog" class="nav__link" role="listitem">Blog</a>
     </div>
 
@@ -190,6 +201,10 @@ function renderNav(transparent = false): string {
   <a href="/conditions/weight-issues" class="nav__mobile-sublink">Weight Issues</a>
   <a href="/conditions" class="nav__mobile-sublink">→ View All Conditions</a>
 
+  <div class="nav__mobile-section">About</div>
+  <a href="/about" class="nav__mobile-sublink">About Integrative Health Partners</a>
+  <a href="/dr-hendry" class="nav__mobile-sublink">Dr. William Hendry, DAOM</a>
+
   <a href="tel:${NAP.phoneRaw}" class="nav__mobile-cta">${icons.phone} Call ${NAP.phone}</a>
 </div>`;
 }
@@ -242,6 +257,14 @@ function renderFooter(): string {
           <a href="/services/chinese-medicine-clinic-services" class="footer__link">Chinese Medicine Clinic Services</a>
           <a href="/services/alternative-medicine-practitioner-services" class="footer__link">Alternative Medicine Practitioner Services</a>
           <a href="/blog" class="footer__link">Health Blog</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer__col-title">About</p>
+        <div class="footer__links">
+          <a href="/about" class="footer__link">About Our Practice</a>
+          <a href="/dr-hendry" class="footer__link">Dr. William Hendry</a>
         </div>
       </div>
 
@@ -1341,6 +1364,323 @@ export function renderCondition(condSlug: string): string | null {
 </html>`;
 
   return injectSEOIntoHTML(html, seo);
+}
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+export function renderAbout(): string {
+  const seo = {
+    title: "About Integrative Health Partners | Acupuncture & Functional Medicine Greenville, SC",
+    description: "Learn about Integrative Health Partners — Greenville SC's trusted integrative health practice. Root-cause functional medicine, acupuncture, and in-house herbal pharmacy. Call (864) 365-6156.",
+    canonical: `${BASE_URL}/about`,
+    ogType: "website",
+    schemas: [] as object[]
+  };
+
+  const html = `${renderHead(seo.title, seo.description)}
+<body data-page="about">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="page-hero page-hero--green">
+      <div class="container">
+        ${renderBreadcrumbs([{ name: "About", href: "/about" }])}
+        <h1 class="page-hero__title font-display">About Integrative Health Partners</h1>
+        <p class="page-hero__subtitle">Root-cause care for the whole person — integrating ancient wisdom with evidence-based medicine</p>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="two-col-layout">
+        <div class="two-col-layout__main">
+
+          <section class="content-section">
+            <h2>A Different Kind of Practice</h2>
+            <p>Integrative Health Partners was founded on a simple but powerful conviction: most chronic health conditions have an identifiable root cause — and finding it changes everything. When patients arrive at our Greenville, SC practice, many have already spent years managing symptoms without resolution. Our job is to stop the cycle.</p>
+            <p>Led by <a href="/dr-hendry" class="internal-link">Dr. William Hendry, DAOM</a>, our practice blends traditional Chinese medicine — refined over 2,000 years — with modern functional medicine diagnostics. The result is a comprehensive, patient-centered approach that addresses not just what you feel, but <em>why</em> you feel it.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>Our Philosophy of Care</h2>
+            <p>Conventional medicine excels at crisis care. Functional and integrative medicine excels at <em>chronic care</em> — the persistent conditions that don't resolve with a pill or a procedure. At Integrative Health Partners, we use both lenses.</p>
+            <p>Every new patient begins with a thorough intake that explores not just their chief complaint, but their entire health history: diet, sleep, stress, environment, medications, and prior treatments. From this foundation, Dr. Hendry builds an individualized treatment plan that may include <a href="/services/acupuncture-therapy" class="internal-link">acupuncture therapy</a>, <a href="/services/chinese-herbal-medicine" class="internal-link">Chinese herbal medicine</a>, <a href="/services/functional-medicine-consultation" class="internal-link">functional medicine consultation</a>, and targeted nutritional support.</p>
+            <p>We believe in transparency. You will always understand what we are doing and why — and we will track your progress with measurable outcomes at every step.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>In-House Herbal Pharmacy</h2>
+            <p>One of the most distinctive features of our practice is our full in-house herbal pharmacy. Many acupuncture clinics refer patients elsewhere for Chinese herbal formulas, creating delays and gaps in care. We stock an extensive formulary of professional-grade, tested herbal medicines on site.</p>
+            <p>Dr. Hendry prescribes custom herbal formulations tailored to each patient's constitution and condition — not a one-size-fits-all supplement. Our pharmacy includes classical formulas, granule extracts, and single-herb preparations. Every product meets rigorous quality standards for purity and potency. For patients managing complex conditions like <a href="/conditions/autoimmune-disease" class="internal-link">autoimmune disease</a>, <a href="/conditions/hormone-imbalance" class="internal-link">hormone imbalance</a>, or <a href="/conditions/chronic-fatigue" class="internal-link">chronic fatigue</a>, the herbal pharmacy is an essential component of the healing process.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>What Makes IHP Different</h2>
+            <ul class="styled-list">
+              <li>${icons.checkCircle} <strong>Hospital-level expertise:</strong> Dr. Hendry held hospital privileges at Prisma Health for 9 years — rare for an acupuncturist — and participated in a landmark 3-year Emergency Department study on needle-based alternatives to opioids.</li>
+              <li>${icons.checkCircle} <strong>Doctoral-level training:</strong> Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine, representing the highest academic credential in the field.</li>
+              <li>${icons.checkCircle} <strong>Published researcher:</strong> With 5 peer-reviewed publications and 52 citations, Dr. Hendry brings an evidence base to every clinical decision. Learn more on the <a href="/dr-hendry" class="internal-link">Dr. Hendry page</a>.</li>
+              <li>${icons.checkCircle} <strong>Full-spectrum integrative care:</strong> Acupuncture, herbal medicine, functional medicine diagnostics, <a href="/services/ozone-therapy" class="internal-link">ozone therapy</a>, injection therapy, and nutritional counseling — all under one roof.</li>
+              <li>${icons.checkCircle} <strong>In-house herbal pharmacy:</strong> Professional-grade herbs dispensed at the time of your appointment — no waiting, no third-party sourcing.</li>
+            </ul>
+          </section>
+
+          <section class="content-section">
+            <h2>Our Location</h2>
+            <p>We are conveniently located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609 — easily accessible from North Greenville, Travelers Rest, Taylors, Mauldin, Simpsonville, and the greater Upstate South Carolina area.</p>
+            <p>We see patients Monday through Friday, 9am–5pm. New patients are always welcome. Call us at <a href="tel:+1-864-365-6156" class="internal-link">(864) 365-6156</a> or email <a href="mailto:info@ihpgreenville.com" class="internal-link">info@ihpgreenville.com</a> to schedule your initial consultation.</p>
+          </section>
+
+          <div class="cta-box">
+            <h3 class="cta-box__title">Ready to Start Your Healing Journey?</h3>
+            <p class="cta-box__text">Discover what's really driving your health challenges. Dr. Hendry will conduct a comprehensive evaluation and build a treatment plan designed around your specific needs.</p>
+            <div class="cta-box__actions">
+              <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
+              <a href="/dr-hendry" class="btn btn-outline">Meet Dr. Hendry</a>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Meet Dr. Hendry</p>
+            <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin-bottom:0.75rem">
+              Dr. William Hendry, DAOM holds a doctorate in acupuncture and oriental medicine and is NCCAOM board-certified with 25+ years of clinical experience.
+            </p>
+            <a href="/dr-hendry" class="sidebar-link">${icons.arrowRight} Full Credentials &amp; Biography</a>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Contact &amp; Location</p>
+            <div class="footer__contact-list" style="gap:0.625rem">
+              <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd<br>Suite A, Greenville, SC 29609</span></div>
+              <div class="footer__contact-row">${icons.phone}<a href="tel:${NAP.phoneRaw}" class="footer__contact-link">${NAP.phone}</a></div>
+              <div class="footer__contact-row">${icons.mail}<a href="mailto:${NAP.email}" class="footer__contact-link">${NAP.email}</a></div>
+              <div class="footer__contact-row">${icons.clock}<span>Mon–Fri 9am–5pm</span></div>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Services</p>
+            <div class="footer__links" style="gap:0.375rem">
+              <a href="/services/acupuncturist-services" class="sidebar-link">${icons.arrowRight} Acupuncturist Services</a>
+              <a href="/services/acupuncture-clinic-services" class="sidebar-link">${icons.arrowRight} Acupuncture Clinic</a>
+              <a href="/services/chinese-medicine-clinic-services" class="sidebar-link">${icons.arrowRight} Chinese Medicine</a>
+              <a href="/services/alternative-medicine-practitioner-services" class="sidebar-link">${icons.arrowRight} Alternative Medicine</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+  return injectSEOIntoHTML(html, seo as any);
+}
+
+/* ============================================================
+   DR. HENDRY PAGE
+   ============================================================ */
+export function renderDrHendry(): string {
+  const seo = {
+    title: "Dr. William Hendry, DAOM | Integrative Health Partners Greenville, SC",
+    description: "Dr. William Hendry — DAOM, NCCAOM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
+    canonical: `${BASE_URL}/dr-hendry`,
+    ogType: "profile",
+    schemas: [] as object[]
+  };
+
+  const publications = [
+    {
+      title: "Evaluating the Effects of Acupuncture in the Treatment of Taxane Induced Peripheral Neuropathy",
+      venue: "Prisma Health Patient Engagement Studio",
+      url: "https://academics.prismahealth.org/research-and-innovation/research-development/resources/patient-engagement-studio/main-studio"
+    },
+    {
+      title: "Symptom Management Among Cancer Survivors: HRV Biofeedback",
+      venue: "Peer-Reviewed Journal — June 2020",
+      url: "https://www.researchgate.net/profile/William-Hendry-4"
+    },
+    {
+      title: "Use of HRV Biofeedback for Symptom Management Among Cancer Survivors",
+      venue: "Peer-Reviewed Journal — May 2017",
+      url: "https://www.researchgate.net/profile/William-Hendry-4"
+    },
+    {
+      title: "HRV Training for Symptom Control in Cancer Survivors",
+      venue: "Peer-Reviewed Journal — February 2017",
+      url: "https://www.researchgate.net/profile/William-Hendry-4"
+    },
+    {
+      title: "Neurogenesis: Implications for Integrative Care of Neurological Conditions",
+      venue: "Peer-Reviewed Journal — November 2013",
+      url: "https://www.researchgate.net/profile/William-Hendry-4"
+    }
+  ];
+
+  const credentials = [
+    { label: "Degree", value: "Doctor of Acupuncture and Oriental Medicine (DAOM)" },
+    { label: "Institution", value: "East West College of Natural Medicine (Graduated December 2008)" },
+    { label: "NCCAOM Certification", value: "Dipl. O.M. (NCCAOM)® — Certificate #114498" },
+    { label: "NCCAOM Valid Through", value: "August 31, 2029" },
+    { label: "NPI Number", value: "1417184045 (Active since June 22, 2009)" },
+    { label: "SC License", value: "ACUP141 (Expires September 30, 2027)" },
+    { label: "FL License", value: "AP2646" },
+    { label: "Additional Certification", value: "Injection Therapy Certified" },
+    { label: "Hospital Privileges", value: "Prisma Health — 9 Years" },
+    { label: "Professional Membership", value: "American Academy of Ozone Therapy (AAOT)" },
+    { label: "Research Publications", value: "5 peer-reviewed studies | 52 citations" },
+  ];
+
+  const html = `${renderHead(seo.title, seo.description)}
+<body data-page="dr-hendry">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="page-hero page-hero--green">
+      <div class="container">
+        ${renderBreadcrumbs([{ name: "Dr. William Hendry", href: "/dr-hendry" }])}
+        <h1 class="page-hero__title font-display">Dr. William Hendry, DAOM</h1>
+        <p class="page-hero__subtitle">Board-Certified Acupuncturist &amp; Functional Medicine Practitioner | 25+ Years Clinical Experience | Greenville, SC</p>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="two-col-layout">
+        <div class="two-col-layout__main">
+
+          <section class="content-section">
+            <h2>Credentials at a Glance</h2>
+            <div class="credentials-grid">
+              ${credentials.map(c => `
+              <div class="credential-row">
+                <span class="credential-label">${c.label}</span>
+                <span class="credential-value">${c.value}</span>
+              </div>`).join('')}
+            </div>
+            <p style="margin-top:1rem;font-size:0.9375rem;color:var(--color-muted)">
+              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="internal-link">Verify NCCAOM Badge ${icons.externalLink}</a>
+              &nbsp;&bull;&nbsp;
+              <a href="https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx" target="_blank" rel="noopener noreferrer" class="internal-link">Verify NPI ${icons.externalLink}</a>
+              &nbsp;&bull;&nbsp;
+              <a href="https://llr.sc.gov/med/" target="_blank" rel="noopener noreferrer" class="internal-link">SC License Lookup ${icons.externalLink}</a>
+            </p>
+          </section>
+
+          <section class="content-section">
+            <h2 class="highlight-heading">The Prisma Health Opioid Alternative Study</h2>
+            <div class="highlight-box">
+              <p>Dr. Hendry served as a co-investigator on a landmark <strong>3-year research study conducted at the Prisma Health Emergency Department</strong> — one of the leading health systems in South Carolina. The study examined <strong>needling techniques as non-opioid alternatives for acute pain management</strong> in an emergency care setting.</p>
+              <p>The study, titled <em>"Alternatives to Opiates,"</em> represented a direct clinical response to the opioid crisis and demonstrated that acupuncture and dry needling can provide meaningful, measurable pain relief without the risks associated with opioid analgesics. For Dr. Hendry, this research was not abstract — it was applied at the bedside, in real time, with emergency patients.</p>
+              <p>This work earned Dr. Hendry a 9-year appointment with hospital privileges at Prisma Health — an exceptional distinction for an acupuncturist, and a testament to the level of trust the medical community placed in his clinical judgment and skill.</p>
+              <p><a href="https://academics.prismahealth.org/research-and-innovation/research-development/resources/patient-engagement-studio/main-studio" target="_blank" rel="noopener noreferrer" class="internal-link">View Prisma Health Research ${icons.externalLink}</a></p>
+            </div>
+          </section>
+
+          <section class="content-section">
+            <h2>25+ Years of Clinical Excellence</h2>
+            <p>Dr. Hendry began his formal training in acupuncture and oriental medicine in the late 1990s and graduated with his Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine in December 2008 — completing the highest academic credential available in the field. He passed his NCCAOM board examinations and has maintained active board certification ever since, with his current certification valid through August 2029.</p>
+            <p>Over more than 25 years, Dr. Hendry has treated thousands of patients across a wide range of conditions — from <a href="/conditions/back-pain" class="internal-link">chronic back pain</a> and <a href="/conditions/fibromyalgia" class="internal-link">fibromyalgia</a> to <a href="/conditions/fertility" class="internal-link">fertility challenges</a>, <a href="/conditions/anxiety-stress" class="internal-link">anxiety and stress</a>, and complex chronic illnesses. His approach is both disciplined and creative: grounded in the classical literature of Chinese medicine, yet continuously informed by the latest functional medicine research.</p>
+            <p>He holds active licenses in both South Carolina (ACUP141) and Florida (AP2646), and is a certified Injection Therapy practitioner — enabling him to offer biopuncture and nutrient injection therapies unavailable at most acupuncture clinics.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>Research &amp; Publications</h2>
+            <p>Dr. Hendry has authored or co-authored 5 peer-reviewed research publications with a combined 52 citations. His research spans acupuncture for chemotherapy-induced neuropathy, HRV biofeedback for cancer survivor symptom management, and the neuroscience of integrative care.</p>
+            <div class="publications-list">
+              ${publications.map((pub, i) => `
+              <div class="publication-item">
+                <span class="publication-number">${i + 1}</span>
+                <div class="publication-content">
+                  <p class="publication-title"><a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="internal-link">${pub.title} ${icons.externalLink}</a></p>
+                  <p class="publication-venue">${pub.venue}</p>
+                </div>
+              </div>`).join('')}
+            </div>
+            <p style="margin-top:1.25rem">
+              <a href="https://www.researchgate.net/profile/William-Hendry-4" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View ResearchGate Profile ${icons.externalLink}</a>
+            </p>
+          </section>
+
+          <section class="content-section">
+            <h2>Teaching, Speaking &amp; Professional Contributions</h2>
+            <p>In November 2016, Dr. Hendry was invited to present a webinar for <em>Acupuncture Today</em> — one of the leading professional publications in the field — titled <strong>"Medicating Our Microbes: Herbs, Supplements and the Microbiome,"</strong> sponsored by Biotics Research Corporation. The presentation explored how Chinese herbal medicine intersects with modern microbiome science, reflecting Dr. Hendry's commitment to bridging traditional knowledge with contemporary evidence.</p>
+            <p><a href="https://acupuncturetoday.com/webinars/detail/medicating-our-microbes-herbs-supplements-and-the-microbiome" target="_blank" rel="noopener noreferrer" class="internal-link">View Acupuncture Today Webinar ${icons.externalLink}</a></p>
+          </section>
+
+          <section class="content-section">
+            <h2>Philosophy of Care</h2>
+            <p>Dr. Hendry's clinical philosophy is built on a foundational belief: the body has an extraordinary capacity to heal itself when given the right conditions. His role — as he sees it — is to remove obstacles, restore balance, and support the body's innate intelligence. That philosophy translates into personalized, whole-person care that respects each patient's unique history, constitution, and goals.</p>
+            <p>He is equally at home working with a patient navigating <a href="/conditions/autoimmune-disease" class="internal-link">autoimmune disease</a> as he is treating a high-performance athlete recovering from a <a href="/conditions/sports-injuries" class="internal-link">sports injury</a>. Whether prescribing a classical herbal formula or interpreting functional blood chemistry, Dr. Hendry brings the same rigor, curiosity, and compassion to every patient encounter.</p>
+            <p>His membership in the <strong>American Academy of Ozone Therapy (AAOT)</strong> reflects his commitment to staying at the frontier of integrative medicine, including emerging therapies like <a href="/services/ozone-therapy" class="internal-link">medical ozone therapy</a> that are gaining traction in evidence-based circles.</p>
+          </section>
+
+          <div class="cta-box">
+            <h3 class="cta-box__title">Schedule with Dr. Hendry</h3>
+            <p class="cta-box__text">New patients are welcome. Call us to schedule your initial consultation and find out what's really behind your health challenges.</p>
+            <div class="cta-box__actions">
+              <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
+              <a href="/about" class="btn btn-outline">About Our Practice</a>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Board Certifications</p>
+            <div class="footer__links" style="gap:0.5rem">
+              <div class="sidebar-cred">${icons.award} NCCAOM Dipl. O.M. #114498</div>
+              <div class="sidebar-cred">${icons.shield} SC License ACUP141</div>
+              <div class="sidebar-cred">${icons.shield} FL License AP2646</div>
+              <div class="sidebar-cred">${icons.check} Injection Therapy Certified</div>
+              <div class="sidebar-cred">${icons.check} NPI 1417184045</div>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Verify Credentials</p>
+            <div class="footer__links" style="gap:0.5rem">
+              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} NCCAOM Badge</a>
+              <a href="https://directory.ncbahm.org/FAP/PractitionerDetail?AgencyClientId=ssLe-Z5Nnck=&d=4.8" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} NCCAOM Directory</a>
+              <a href="https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} NPI Verification</a>
+              <a href="https://llr.sc.gov/med/" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} SC License Lookup</a>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Research</p>
+            <div class="footer__links" style="gap:0.5rem">
+              <a href="https://www.researchgate.net/profile/William-Hendry-4" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.book} ResearchGate Profile</a>
+              <a href="https://academics.prismahealth.org/research-and-innovation/research-development/resources/patient-engagement-studio/main-studio" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} Prisma Health Research</a>
+              <a href="https://acupuncturetoday.com/webinars/detail/medicating-our-microbes-herbs-supplements-and-the-microbiome" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.globe} Acupuncture Today Webinar</a>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Contact Our Office</p>
+            <div class="footer__contact-list" style="gap:0.625rem">
+              <div class="footer__contact-row">${icons.phone}<a href="tel:${NAP.phoneRaw}" class="footer__contact-link">${NAP.phone}</a></div>
+              <div class="footer__contact-row">${icons.mail}<a href="mailto:${NAP.email}" class="footer__contact-link">${NAP.email}</a></div>
+              <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd<br>Suite A, Greenville SC</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+  return injectSEOIntoHTML(html, seo as any);
 }
 
 /* ============================================================
