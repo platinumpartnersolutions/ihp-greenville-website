@@ -805,7 +805,7 @@ export function renderService(svcSlug: string): string | null {
     ? `<div style="margin-top:2.5rem;margin-bottom:2rem" class="reveal">
         <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Conditions Treated with ${service.name}</h2>
         <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
-          ${content.conditionsTreated.map(ct => `<a href="/conditions/${ct.slug}" class="tag tag--link">${ct.name}</a>`).join("")}
+          ${content.conditionsTreated.map(ct => `<a href="/conditions/${ct.slug}/" class="tag tag--link">${ct.name}</a>`).join("")}
         </div>
       </div>`
     : "";
@@ -887,7 +887,7 @@ export function renderService(svcSlug: string): string | null {
 
       <div class="main-sidebar">
         <article>
-          <span class="tag" style="margin-bottom:1rem;display:inline-block">${cat.name} Services</span>
+          <a href="/services/${cat.slug}" class="tag tag--link" style="margin-bottom:1rem;display:inline-block">${cat.name} Services</a>
           <h1 class="section-title reveal" style="margin-bottom:1.25rem">${service.name} in Greenville, SC</h1>
           <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2rem" class="reveal reveal-delay-1">
             ${service.metaDescription}

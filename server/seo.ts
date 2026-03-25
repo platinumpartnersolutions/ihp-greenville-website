@@ -1,3 +1,5 @@
+import { serviceContentMap } from "./services-content";
+
 const BASE_URL = "https://www.ihpgreenville.com";
 
 const NAP = {
@@ -294,38 +296,63 @@ function getServiceSEO(slug: string): PageSEO | null {
 
   const pageUrl = `${BASE_URL}/services/${slug}`;
 
+  const baseSlug = slug.replace(/-greenville-sc$/, "");
+  const content = serviceContentMap.get(baseSlug);
+
+  const faqItems = content
+    ? content.faqs
+    : [
+        { q: `How does ${service.name} work?`, a: `${service.name} is an evidence-based treatment offered at Integrative Health Partners in Greenville, SC. Dr. Hendry conducts a thorough assessment to understand your individual health needs and creates a customized treatment protocol.` },
+        { q: `How many ${service.name} sessions will I need?`, a: `The number of sessions depends on your specific condition. Acute conditions typically require 3–6 sessions, while chronic conditions may need 8–12 or more sessions.` },
+        { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. Call (864) 365-6156.` },
+      ];
+
+  const schemas: any[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalProcedure",
+      "name": `${service.name} in Greenville, SC`,
+      "description": service.metaDescription,
+      "procedureType": "https://schema.org/TherapeuticProcedure",
+      "howPerformed": `${service.name} performed by Dr. William Hendry at Integrative Health Partners`,
+      "bodyLocation": "Varies by condition",
+      "provider": {
+        "@type": "MedicalBusiness",
+        "name": NAP.name,
+        "address": { "@type": "PostalAddress", "streetAddress": NAP.streetAddress, "addressLocality": NAP.city, "addressRegion": NAP.state, "postalCode": NAP.postalCode },
+        "telephone": NAP.phoneRaw
+      },
+      "medicalSpecialty": service.gbpCategory
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": `${BASE_URL}/services/${cat.slug}` },
+        { "@type": "ListItem", "position": 3, "name": service.name, "item": pageUrl }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ];
+
   return {
     title: service.metaTitle,
     description: service.metaDescription,
     canonical: pageUrl,
     ogType: "website",
-    schemas: [
-      {
-        "@context": "https://schema.org",
-        "@type": "MedicalProcedure",
-        "name": `${service.name} in Greenville, SC`,
-        "description": service.metaDescription,
-        "procedureType": "https://schema.org/TherapeuticProcedure",
-        "howPerformed": `${service.name} performed by Dr. William Hendry at Integrative Health Partners`,
-        "bodyLocation": "Varies by condition",
-        "provider": {
-          "@type": "MedicalBusiness",
-          "name": NAP.name,
-          "address": { "@type": "PostalAddress", "streetAddress": NAP.streetAddress, "addressLocality": NAP.city, "addressRegion": NAP.state, "postalCode": NAP.postalCode },
-          "telephone": NAP.phoneRaw
-        },
-        "medicalSpecialty": service.gbpCategory
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": `${BASE_URL}/services/${cat.slug}` },
-          { "@type": "ListItem", "position": 3, "name": service.name, "item": pageUrl }
-        ]
-      }
-    ]
+    schemas
   };
 }
 
