@@ -104,7 +104,7 @@ const categoryDefinitions: CategoryData[] = [
     metaTitle: "Alternative Medicine Practitioner Services in Greenville, SC | Functional Medicine",
     metaDescription: "Trusted alternative medicine practitioner in Greenville, SC. Dr. Hendry offers functional medicine, ozone therapy, detox treatments, and holistic health care. Call (864) 365-6156.",
     isPrimary: false,
-    carePhrase: "functional and integrative medicine",
+    carePhrase: "functional medicine",
     serviceNames: [
       "Functional Medicine Consultation","Functional Medicine Testing","Functional Blood Chemistry Analysis",
       "Comprehensive Blood Panel","Hormone Testing","Hormonal Imbalance Treatment","Thyroid Testing",
@@ -135,7 +135,7 @@ for (const cat of categoryDefinitions) {
       slug,
       name,
       metaTitle: `${name} in Greenville, SC | Integrative Health Partners`,
-      metaDescription: `Professional ${name.toLowerCase()} in Greenville, SC. Dr. William Hendry, DAOM, delivers expert ${cat.carePhrase} care at Integrative Health Partners. Call (864) 365-6156 to schedule.`,
+      metaDescription: `${name} in Greenville, SC — ${cat.carePhrase} from Dr. Hendry, DAOM. Integrative Health Partners. Call (864) 365-6156.`,
       category: cat.name,
       categorySlug: cat.slug,
       gbpCategory: cat.gbpCategory
