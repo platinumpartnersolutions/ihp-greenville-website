@@ -4,7 +4,8 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, BASE_URL } from "./seo";
-import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404 } from "./renderer";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition } from "./renderer";
+import { conditions, conditionCategories } from "./conditions";
 
 interface LinkableItem {
   name: string;
@@ -176,11 +177,36 @@ export async function registerRoutes(
     next();
   });
 
+  /* ── Conditions Section ── */
+  app.get("/conditions", (_req, res) => {
+    res.set("Content-Type", "text/html; charset=utf-8").send(renderConditionsHub());
+  });
+
+  app.get("/conditions/:slug", (req, res, next) => {
+    const { slug } = req.params;
+
+    // Try condition category first
+    const catHtml = renderConditionCategory(slug);
+    if (catHtml) {
+      return res.set("Content-Type", "text/html; charset=utf-8").send(catHtml);
+    }
+
+    // Try individual condition
+    const condHtml = renderCondition(slug);
+    if (condHtml) {
+      return res.set("Content-Type", "text/html; charset=utf-8").send(condHtml);
+    }
+
+    next();
+  });
+
   app.get("/sitemap.xml", async (_req, res) => {
     try {
       const posts = await storage.getAllBlogPosts();
       const today = new Date().toISOString().split('T')[0];
-      let sitemap = generateSitemapXML();
+      const conditionSlugs = conditions.map(c => c.slug);
+      const conditionCatSlugs = conditionCategories.map(c => c.slug);
+      let sitemap = generateSitemapXML(conditionSlugs, conditionCatSlugs);
       const blogPostUrls = posts.map(post => {
         const lastmod = post.pubDate ? new Date(post.pubDate).toISOString().split('T')[0] : today;
         return `\n  <url>\n    <loc>${BASE_URL}/blog/${post.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`;

@@ -3,6 +3,15 @@
 ## Overview
 Local SEO-focused website for Integrative Health Partners, a functional medicine and acupuncture practice in Greenville, SC. The site aligns with their Google Business Profile structure, featuring 4 GBP category pages and 130 individual service pages.
 
+## Recent Changes (March 2026 — Task #3)
+- **Conditions section added**: `/conditions/` hub, 4 category pages, 30 individual condition pages with full content (definitions, symptoms, root causes, treatment, Dr. Hendry approach, 5 FAQs each)
+- **`server/conditions.ts`**: All 30 condition data objects + 4 category definitions with opening paragraphs; exports `conditionMap`, `conditionCategoryMap`
+- **`server/seo.ts`**: Added `getConditionCategorySEO`, `getConditionPageSEO`; updated `generateSitemapXML` signature to accept condition slugs (now 35 condition URLs in sitemap)
+- **`server/renderer.ts`**: Nav updated to 3-column conditions dropdown (30 conditions in grid); added `renderConditionsHub`, `renderConditionCategory`, `renderCondition`
+- **`server/routes.ts`**: Added `/conditions` and `/conditions/:slug` routes; updated sitemap call with condition slugs
+- **`public/css/style.css`**: Added `.nav__dropdown-menu--wide`, `.nav__dropdown-grid`, `.nav__dropdown-col` for 3-column conditions dropdown
+- **Condition URL structure**: `/conditions/[condition-slug]` for individual pages, `/conditions/[category-slug]` for category pages, `/conditions` for hub
+
 ## Recent Changes (March 2026)
 - **Full frontend rewrite**: React/Vite SPA replaced with vanilla HTML+CSS+JS served by Express
 - **Server-side rendering**: All pages (home, category, service, blog index, blog post, 404) rendered server-side via `server/renderer.ts`

@@ -332,6 +332,85 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string): PageSEO {
   };
 }
 
+function getConditionsHubSEO(): PageSEO {
+  return {
+    title: "Conditions We Treat | Integrative Health Partners Greenville, SC",
+    description: "Integrative Health Partners treats 30+ health conditions with acupuncture and functional medicine in Greenville, SC. Pain, hormonal, neurological, and digestive conditions. Call (864) 365-6156.",
+    canonical: `${BASE_URL}/conditions`,
+    ogType: "website",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` }
+        ]
+      }
+    ]
+  };
+}
+
+function getConditionCategorySEO(slug: string, name: string, desc: string): PageSEO {
+  const pageUrl = `${BASE_URL}/conditions/${slug}`;
+  return {
+    title: `${name} Treatment in Greenville, SC | Integrative Health Partners`,
+    description: desc,
+    canonical: pageUrl,
+    ogType: "website",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` },
+          { "@type": "ListItem", "position": 3, "name": name, "item": pageUrl }
+        ]
+      }
+    ]
+  };
+}
+
+function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: string, catName: string, faqs: { q: string; a: string }[]): PageSEO {
+  const pageUrl = `${BASE_URL}/conditions/${slug}`;
+  return {
+    title: `${name} Treatment in Greenville, SC | Integrative Health Partners`,
+    description: desc,
+    canonical: pageUrl,
+    ogType: "website",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalCondition",
+        "name": name,
+        "description": desc,
+        "relevantSpecialty": { "@type": "MedicalSpecialty", "name": "Acupuncture" },
+        "associatedAnatomy": { "@type": "AnatomicalSystem", "name": "Human body" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` },
+          { "@type": "ListItem", "position": 3, "name": catName, "item": `${BASE_URL}/conditions/${catSlug}` },
+          { "@type": "ListItem", "position": 4, "name": name, "item": pageUrl }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+        }))
+      }
+    ]
+  };
+}
+
 export function getSEOForUrl(url: string): PageSEO | null {
   const path = url.split('?')[0].replace(/\/$/, '') || '/';
 
@@ -352,8 +431,14 @@ export function getSEOForUrl(url: string): PageSEO | null {
     if (svcSeo) return svcSeo;
   }
 
+  if (path === '/conditions') {
+    return getConditionsHubSEO();
+  }
+
   return null;
 }
+
+export { getConditionCategorySEO, getConditionPageSEO };
 
 export function injectSEOIntoHTML(html: string, seo: PageSEO): string {
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(seo.title)}</title>`);
@@ -408,7 +493,7 @@ export function injectSEOIntoHTML(html: string, seo: PageSEO): string {
   return html;
 }
 
-export function generateSitemapXML(): string {
+export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSlugs: string[] = []): string {
   const today = new Date().toISOString().split('T')[0];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -434,6 +519,34 @@ export function generateSitemapXML(): string {
     xml += `
   <url>
     <loc>${BASE_URL}/services/${service.slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }
+
+  xml += `
+  <url>
+    <loc>${BASE_URL}/conditions</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+
+  for (const slug of conditionCatSlugs) {
+    xml += `
+  <url>
+    <loc>${BASE_URL}/conditions/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>`;
+  }
+
+  for (const slug of conditionSlugs) {
+    xml += `
+  <url>
+    <loc>${BASE_URL}/conditions/${slug}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

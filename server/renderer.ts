@@ -1,4 +1,5 @@
-import { categoryDefinitions, allServices, serviceMap, categoryMap, NAP, BASE_URL } from "./seo";
+import { categoryDefinitions, allServices, serviceMap, categoryMap, NAP, BASE_URL, getConditionCategorySEO, getConditionPageSEO, injectSEOIntoHTML } from "./seo";
+import { conditions, conditionCategories, conditionMap, conditionCategoryMap } from "./conditions";
 import type { BlogPost } from "@shared/schema";
 
 const createSlug = (name: string): string =>
@@ -91,12 +92,46 @@ function renderNav(transparent = false): string {
           Conditions We Treat
           <span class="nav__dropdown-chevron">${icons.chevronDown}</span>
         </button>
-        <div class="nav__dropdown-menu" role="menu">
-          <a href="/conditions/pain-and-musculoskeletal" class="nav__dropdown-item" role="menuitem">Pain &amp; Musculoskeletal</a>
-          <a href="/conditions/neurological-mental-health" class="nav__dropdown-item" role="menuitem">Neurological &amp; Mental Health</a>
-          <a href="/conditions/hormonal-womens-health" class="nav__dropdown-item" role="menuitem">Hormonal &amp; Women's Health</a>
-          <a href="/conditions/digestive-immune" class="nav__dropdown-item" role="menuitem">Digestive &amp; Immune</a>
-          <a href="/conditions" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem">→ View All Conditions</a>
+        <div class="nav__dropdown-menu nav__dropdown-menu--wide" role="menu">
+          <div class="nav__dropdown-grid">
+            <div class="nav__dropdown-col">
+              <a href="/conditions/back-pain" class="nav__dropdown-item" role="menuitem">Back Pain</a>
+              <a href="/conditions/neck-pain" class="nav__dropdown-item" role="menuitem">Neck Pain</a>
+              <a href="/conditions/knee-pain" class="nav__dropdown-item" role="menuitem">Knee Pain</a>
+              <a href="/conditions/hip-pain" class="nav__dropdown-item" role="menuitem">Hip Pain</a>
+              <a href="/conditions/shoulder-pain" class="nav__dropdown-item" role="menuitem">Shoulder Pain</a>
+              <a href="/conditions/sciatica" class="nav__dropdown-item" role="menuitem">Sciatica</a>
+              <a href="/conditions/headaches-migraines" class="nav__dropdown-item" role="menuitem">Headaches &amp; Migraines</a>
+              <a href="/conditions/fibromyalgia" class="nav__dropdown-item" role="menuitem">Fibromyalgia</a>
+              <a href="/conditions/neuropathy" class="nav__dropdown-item" role="menuitem">Neuropathy</a>
+              <a href="/conditions/sports-injuries" class="nav__dropdown-item" role="menuitem">Sports Injuries</a>
+            </div>
+            <div class="nav__dropdown-col">
+              <a href="/conditions/anxiety-stress" class="nav__dropdown-item" role="menuitem">Anxiety &amp; Stress</a>
+              <a href="/conditions/depression" class="nav__dropdown-item" role="menuitem">Depression</a>
+              <a href="/conditions/insomnia" class="nav__dropdown-item" role="menuitem">Insomnia</a>
+              <a href="/conditions/ptsd" class="nav__dropdown-item" role="menuitem">PTSD</a>
+              <a href="/conditions/brain-fog" class="nav__dropdown-item" role="menuitem">Brain Fog</a>
+              <a href="/conditions/fertility" class="nav__dropdown-item" role="menuitem">Fertility Support</a>
+              <a href="/conditions/pcos" class="nav__dropdown-item" role="menuitem">PCOS</a>
+              <a href="/conditions/menopause" class="nav__dropdown-item" role="menuitem">Menopause</a>
+              <a href="/conditions/hormone-imbalance" class="nav__dropdown-item" role="menuitem">Hormone Imbalance</a>
+              <a href="/conditions/perimenopause" class="nav__dropdown-item" role="menuitem">Perimenopause</a>
+            </div>
+            <div class="nav__dropdown-col">
+              <a href="/conditions/ibs-gut-issues" class="nav__dropdown-item" role="menuitem">IBS &amp; Gut Issues</a>
+              <a href="/conditions/chronic-fatigue" class="nav__dropdown-item" role="menuitem">Chronic Fatigue</a>
+              <a href="/conditions/autoimmune-disease" class="nav__dropdown-item" role="menuitem">Autoimmune Disease</a>
+              <a href="/conditions/hashimotos" class="nav__dropdown-item" role="menuitem">Hashimoto's</a>
+              <a href="/conditions/thyroid-issues" class="nav__dropdown-item" role="menuitem">Thyroid Issues</a>
+              <a href="/conditions/food-sensitivities" class="nav__dropdown-item" role="menuitem">Food Sensitivities</a>
+              <a href="/conditions/leaky-gut" class="nav__dropdown-item" role="menuitem">Leaky Gut</a>
+              <a href="/conditions/adrenal-fatigue" class="nav__dropdown-item" role="menuitem">Adrenal Fatigue</a>
+              <a href="/conditions/chronic-illness" class="nav__dropdown-item" role="menuitem">Chronic Illness</a>
+              <a href="/conditions/weight-issues" class="nav__dropdown-item" role="menuitem">Weight Issues</a>
+            </div>
+          </div>
+          <a href="/conditions" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Conditions</a>
         </div>
       </div>
 
@@ -123,11 +158,37 @@ function renderNav(transparent = false): string {
   <a href="/services/alternative-medicine-practitioner-services" class="nav__mobile-sublink">Alternative Medicine Practitioner Services</a>
 
   <div class="nav__mobile-section">Conditions We Treat</div>
-  <a href="/conditions/pain-and-musculoskeletal" class="nav__mobile-sublink">Pain &amp; Musculoskeletal</a>
-  <a href="/conditions/neurological-mental-health" class="nav__mobile-sublink">Neurological &amp; Mental Health</a>
-  <a href="/conditions/hormonal-womens-health" class="nav__mobile-sublink">Hormonal &amp; Women's Health</a>
-  <a href="/conditions/digestive-immune" class="nav__mobile-sublink">Digestive &amp; Immune</a>
-  <a href="/conditions" class="nav__mobile-sublink">View All Conditions</a>
+  <a href="/conditions/back-pain" class="nav__mobile-sublink">Back Pain</a>
+  <a href="/conditions/neck-pain" class="nav__mobile-sublink">Neck Pain</a>
+  <a href="/conditions/knee-pain" class="nav__mobile-sublink">Knee Pain</a>
+  <a href="/conditions/hip-pain" class="nav__mobile-sublink">Hip Pain</a>
+  <a href="/conditions/shoulder-pain" class="nav__mobile-sublink">Shoulder Pain</a>
+  <a href="/conditions/sciatica" class="nav__mobile-sublink">Sciatica</a>
+  <a href="/conditions/headaches-migraines" class="nav__mobile-sublink">Headaches &amp; Migraines</a>
+  <a href="/conditions/fibromyalgia" class="nav__mobile-sublink">Fibromyalgia</a>
+  <a href="/conditions/neuropathy" class="nav__mobile-sublink">Neuropathy</a>
+  <a href="/conditions/sports-injuries" class="nav__mobile-sublink">Sports Injuries</a>
+  <a href="/conditions/anxiety-stress" class="nav__mobile-sublink">Anxiety &amp; Stress</a>
+  <a href="/conditions/depression" class="nav__mobile-sublink">Depression</a>
+  <a href="/conditions/insomnia" class="nav__mobile-sublink">Insomnia</a>
+  <a href="/conditions/ptsd" class="nav__mobile-sublink">PTSD</a>
+  <a href="/conditions/brain-fog" class="nav__mobile-sublink">Brain Fog</a>
+  <a href="/conditions/fertility" class="nav__mobile-sublink">Fertility Support</a>
+  <a href="/conditions/pcos" class="nav__mobile-sublink">PCOS</a>
+  <a href="/conditions/menopause" class="nav__mobile-sublink">Menopause</a>
+  <a href="/conditions/hormone-imbalance" class="nav__mobile-sublink">Hormone Imbalance</a>
+  <a href="/conditions/perimenopause" class="nav__mobile-sublink">Perimenopause</a>
+  <a href="/conditions/ibs-gut-issues" class="nav__mobile-sublink">IBS &amp; Gut Issues</a>
+  <a href="/conditions/chronic-fatigue" class="nav__mobile-sublink">Chronic Fatigue</a>
+  <a href="/conditions/autoimmune-disease" class="nav__mobile-sublink">Autoimmune Disease</a>
+  <a href="/conditions/hashimotos" class="nav__mobile-sublink">Hashimoto's</a>
+  <a href="/conditions/thyroid-issues" class="nav__mobile-sublink">Thyroid Issues</a>
+  <a href="/conditions/food-sensitivities" class="nav__mobile-sublink">Food Sensitivities</a>
+  <a href="/conditions/leaky-gut" class="nav__mobile-sublink">Leaky Gut</a>
+  <a href="/conditions/adrenal-fatigue" class="nav__mobile-sublink">Adrenal Fatigue</a>
+  <a href="/conditions/chronic-illness" class="nav__mobile-sublink">Chronic Illness</a>
+  <a href="/conditions/weight-issues" class="nav__mobile-sublink">Weight Issues</a>
+  <a href="/conditions" class="nav__mobile-sublink">→ View All Conditions</a>
 
   <a href="tel:${NAP.phoneRaw}" class="nav__mobile-cta">${icons.phone} Call ${NAP.phone}</a>
 </div>`;
@@ -912,6 +973,374 @@ export function renderBlogPost(post: BlogPost): string {
   <script src="/js/main.js" defer></script>
 </body>
 </html>`;
+}
+
+/* ============================================================
+   CONDITIONS HUB PAGE  (/conditions/)
+   ============================================================ */
+export function renderConditionsHub(): string {
+  const allConditions = conditions;
+  const hubFAQs = [
+    { q: "What conditions does acupuncture treat?", a: "Acupuncture has demonstrated clinical efficacy for a broad range of conditions including chronic pain, anxiety, insomnia, digestive disorders, hormonal imbalances, and more. At Integrative Health Partners, Dr. Hendry uses acupuncture as part of a comprehensive integrative protocol tailored to each patient's unique presentation." },
+    { q: "How is functional medicine different from conventional medicine for chronic conditions?", a: "Functional medicine seeks to identify and address the root biological causes of chronic conditions — gut dysbiosis, hormonal imbalances, nutritional deficiencies, systemic inflammation — rather than managing symptoms with medication. This approach often produces more durable results for complex, multi-system chronic conditions." },
+    { q: "Do you treat patients who are already seeing other doctors?", a: "Absolutely. Dr. Hendry works collaboratively with your existing healthcare team. Many patients come to us while under the care of other specialists, using integrative medicine to complement their conventional treatment and address the root causes that conventional care may not be reaching." },
+    { q: "Is integrative medicine evidence-based?", a: "Yes. Dr. Hendry's approach draws on peer-reviewed research in acupuncture, functional medicine, and nutritional science. He holds 5 research publications and 52 citations, and his clinical protocols are informed by the best available evidence across both Eastern and Western medical traditions." },
+  ];
+
+  return `${renderHead("Conditions We Treat | Integrative Health Partners Greenville, SC", "Integrative Health Partners treats 30+ conditions with acupuncture and functional medicine in Greenville, SC. Find your condition and learn how we can help.")}
+<body data-page="conditions-hub">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <section class="section" aria-labelledby="conditions-hub-heading">
+      <div class="container">
+        ${renderBreadcrumbs([{ name: "Conditions We Treat" }])}
+
+        <div style="max-width:48rem;margin-bottom:3rem">
+          <span class="tag reveal">Conditions We Treat</span>
+          <h1 class="section-title reveal reveal-delay-1" id="conditions-hub-heading" style="margin-top:0.875rem">
+            Comprehensive Condition Treatment in Greenville, SC
+          </h1>
+          <p style="color:var(--color-muted);line-height:1.75;margin-top:1.25rem;font-size:1.0625rem" class="reveal reveal-delay-2">
+            At Integrative Health Partners, Dr. William Hendry treats more than 30 conditions using a combination of
+            acupuncture, functional medicine, and Traditional Chinese Medicine. Rather than managing symptoms in isolation,
+            we identify and address the root causes of your health challenges — creating lasting improvement across
+            pain, neurological, hormonal, and digestive health.
+          </p>
+        </div>
+
+        <!-- Category Cards -->
+        <div class="grid-auto md:grid-2 lg:grid-4" style="margin-bottom:4rem">
+          ${conditionCategories.map((cat, i) => `
+          <div class="reveal" style="transition-delay:${i * 0.08}s">
+            <a href="/conditions/${cat.slug}" class="cat-card">
+              <div class="cat-card__header">
+                <span class="cat-card__badge cat-card__badge--secondary">Conditions</span>
+                <span class="cat-card__arrow">${icons.arrowRight}</span>
+              </div>
+              <h2 class="cat-card__title">${cat.shortName}</h2>
+              <p class="cat-card__count">${cat.conditionSlugs.length} conditions</p>
+              <p class="cat-card__desc">${cat.metaDescription.substring(0, 100)}…</p>
+            </a>
+          </div>`).join("")}
+        </div>
+
+        <!-- All Conditions List -->
+        <div style="margin-bottom:4rem">
+          <h2 class="section-title reveal" style="margin-bottom:2rem">All Conditions We Treat</h2>
+          <div class="grid-auto sm:grid-2 md:grid-3 lg:grid-4">
+            ${allConditions.map((cond, i) => `
+            <div class="reveal" style="transition-delay:${Math.min(i * 0.03, 0.5)}s">
+              <a href="/conditions/${cond.slug}" class="svc-list-link">
+                <div class="svc-list-link__inner">
+                  <span class="svc-list-link__name">${cond.name}</span>
+                  <span class="svc-list-link__arrow">${icons.arrowRight}</span>
+                </div>
+              </a>
+            </div>`).join("")}
+          </div>
+        </div>
+
+        <!-- Why IHP -->
+        <div class="cta-subtle reveal" style="margin-bottom:4rem">
+          <div style="max-width:44rem;margin-inline:auto;text-align:center">
+            <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Why Integrative Health Partners?</h2>
+            <p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem">
+              Dr. William Hendry brings 25+ years of clinical experience, NCCAOM board certification,
+              hospital privileges at Prisma Health, and 5 research publications to every patient consultation.
+              His dual training in Oriental medicine and functional medicine means your condition is evaluated
+              from every angle — and treated at its root.
+            </p>
+            <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div style="max-width:56rem;margin-inline:auto">
+          <h2 class="section-title reveal" style="margin-bottom:1.75rem">Frequently Asked Questions</h2>
+          ${hubFAQs.map(faq => `
+          <div class="faq-item reveal">
+            <button class="faq-btn" aria-expanded="false">
+              ${faq.q}
+              <span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-content">${faq.a}</div>
+            </div>
+          </div>`).join("")}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   CONDITION CATEGORY PAGE  (/conditions/:categorySlug/)
+   ============================================================ */
+export function renderConditionCategory(catSlug: string): string | null {
+  const cat = conditionCategoryMap.get(catSlug);
+  if (!cat) return null;
+
+  const catConditions = cat.conditionSlugs.map(s => conditionMap.get(s)).filter(Boolean) as typeof conditions;
+  const seo = getConditionCategorySEO(cat.slug, cat.shortName, cat.metaDescription);
+  const otherCats = conditionCategories.filter(c => c.slug !== catSlug);
+
+  const html = `${renderHead(seo.title, seo.description)}
+<body data-page="condition-category">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <section class="section" aria-labelledby="cond-cat-heading">
+      <div class="container">
+        ${renderBreadcrumbs([
+          { name: "Conditions We Treat", href: "/conditions" },
+          { name: cat.shortName },
+        ])}
+
+        <div style="max-width:48rem;margin-bottom:3rem">
+          <span class="tag reveal">Conditions We Treat</span>
+          <h1 class="section-title reveal reveal-delay-1" id="cond-cat-heading" style="margin-top:0.875rem">
+            ${cat.name} in Greenville, SC
+          </h1>
+          <p style="color:var(--color-muted);line-height:1.75;margin-top:1.25rem;font-size:1.0625rem" class="reveal reveal-delay-2">
+            ${cat.openingParagraph}
+          </p>
+          <div style="margin-top:1.75rem" class="reveal reveal-delay-3">
+            <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
+          </div>
+        </div>
+
+        <!-- Condition Cards -->
+        <h2 class="font-heading" style="font-size:1.25rem;font-weight:600;margin-bottom:1.25rem">
+          ${cat.shortName} Conditions We Treat (${catConditions.length})
+        </h2>
+        <div class="grid-auto sm:grid-2 md:grid-3" style="margin-bottom:3rem">
+          ${catConditions.map((cond, i) => `
+          <div class="reveal" style="transition-delay:${Math.min(i * 0.05, 0.4)}s">
+            <a href="/conditions/${cond.slug}" class="svc-list-link">
+              <div class="svc-list-link__inner">
+                <span class="svc-list-link__name">${cond.name}</span>
+                <span class="svc-list-link__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>
+          </div>`).join("")}
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-subtle reveal" style="text-align:center;margin-bottom:4rem">
+          <h2 class="font-display" style="font-size:1.75rem;margin-bottom:0.875rem">Ready to address the root cause?</h2>
+          <p style="color:var(--color-muted);margin-bottom:1.5rem;max-width:36rem;margin-inline:auto">
+            Dr. Hendry is accepting new patients. Schedule a consultation to find out how integrative medicine can help your specific condition.
+          </p>
+          <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
+        </div>
+
+        <!-- Other Categories -->
+        <div>
+          <h2 class="font-heading" style="font-size:1.125rem;font-weight:600;color:var(--color-muted);margin-bottom:1rem">
+            Other Condition Categories
+          </h2>
+          <div class="grid-auto sm:grid-2 md:grid-3">
+            ${otherCats.map(oc => `
+            <a href="/conditions/${oc.slug}" class="other-cat-card reveal">
+              <div class="other-cat-card__title">${oc.shortName}</div>
+              <div class="other-cat-card__count">${oc.conditionSlugs.length} conditions</div>
+              <span class="other-cat-card__link">View conditions ${icons.arrowRight}</span>
+            </a>`).join("")}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+  return injectSEOIntoHTML(html, seo);
+}
+
+/* ============================================================
+   INDIVIDUAL CONDITION PAGE  (/conditions/:conditionSlug/)
+   ============================================================ */
+export function renderCondition(condSlug: string): string | null {
+  const cond = conditionMap.get(condSlug);
+  if (!cond) return null;
+
+  const cat = conditionCategoryMap.get(cond.categorySlug);
+  if (!cat) return null;
+
+  const relatedConditions = cond.relatedConditionSlugs
+    .map(s => conditionMap.get(s))
+    .filter(Boolean) as typeof conditions;
+
+  const seo = getConditionPageSEO(
+    cond.slug,
+    cond.name,
+    cond.metaDescription,
+    cat.slug,
+    cat.shortName,
+    cond.content.faqs
+  );
+
+  const html = `${renderHead(seo.title, seo.description)}
+<body data-page="condition">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Conditions We Treat", href: "/conditions" },
+        { name: cat.shortName, href: `/conditions/${cat.slug}` },
+        { name: cond.name },
+      ])}
+
+      <div class="main-sidebar">
+        <!-- Main Content -->
+        <article>
+          <span class="tag" style="margin-bottom:1rem;display:inline-block">${cat.shortName}</span>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">${cond.name} Treatment in Greenville, SC</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2rem" class="reveal reveal-delay-1">
+            ${cond.metaDescription}
+          </p>
+
+          <!-- What is it? -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">What Is ${cond.name}?</h2>
+          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">${cond.content.definition}</p>
+
+          <!-- Symptoms -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Common Symptoms</h2>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem">
+            ${cond.content.symptoms.map(s => `
+            <div class="check-item reveal">${icons.checkCircle}<span>${s}</span></div>`).join("")}
+          </div>
+
+          <!-- Root Causes -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Root Causes: A Functional Medicine Perspective</h2>
+          <div style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">
+            ${cond.content.rootCauses.split("\n\n").map(p => `<p style="margin-bottom:1rem">${p}</p>`).join("")}
+          </div>
+
+          <!-- How IHP Treats It -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">How We Treat ${cond.name} at IHP</h2>
+          <div style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">
+            ${cond.content.howTreated.split("\n\n").map(p => `<p style="margin-bottom:1rem">${p}</p>`).join("")}
+          </div>
+
+          <!-- Dr. Hendry's Approach -->
+          <div class="cta-subtle reveal" style="margin-bottom:2rem">
+            <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} Dr. Hendry's Approach</h2>
+            <p style="color:var(--color-muted);line-height:1.75">${cond.content.drApproach}</p>
+          </div>
+
+          <!-- Related Services -->
+          ${cond.relatedServiceSlugs.length > 0 ? `
+          <div style="margin-bottom:2rem">
+            <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">
+              Treatments We Use for ${cond.name}
+            </h2>
+            <div class="grid-auto sm:grid-2">
+              ${cond.relatedServiceSlugs.map(s => {
+                const svcData = serviceMap.get(s);
+                const name = svcData ? svcData.name : s.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+                return `
+              <a href="/services/${s}" class="related-card reveal">
+                <div class="related-card__inner">
+                  <span class="related-card__name">${name}</span>
+                  <span class="related-card__arrow">${icons.arrowRight}</span>
+                </div>
+              </a>`;
+              }).join("")}
+            </div>
+          </div>` : ""}
+
+          <!-- FAQ -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2rem;margin-bottom:1.5rem">
+            Frequently Asked Questions About ${cond.name}
+          </h2>
+          ${cond.content.faqs.map(faq => `
+          <div class="faq-item reveal">
+            <button class="faq-btn" aria-expanded="false">
+              ${faq.q}
+              <span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-content">${faq.a}</div>
+            </div>
+          </div>`).join("")}
+
+          <!-- Related Conditions -->
+          ${relatedConditions.length > 0 ? `
+          <div style="margin-top:3rem">
+            <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">
+              Related Conditions
+            </h2>
+            <div class="grid-auto sm:grid-2">
+              ${relatedConditions.map(rc => `
+              <a href="/conditions/${rc.slug}" class="related-card reveal">
+                <div class="related-card__inner">
+                  <span class="related-card__name">${rc.name}</span>
+                  <span class="related-card__arrow">${icons.arrowRight}</span>
+                </div>
+              </a>`).join("")}
+            </div>
+          </div>` : ""}
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="cta-box">
+            <h3 class="cta-box__title">Get Treatment for ${cond.name}</h3>
+            <p class="cta-box__text">Schedule a consultation with Dr. William Hendry. New patients welcome in Greenville, SC.</p>
+            <a href="tel:${NAP.phoneRaw}" class="btn btn-white btn-full">${icons.phone} ${NAP.phone}</a>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Why Choose Dr. Hendry?</p>
+            <div class="check-list">
+              <div class="check-item">${icons.check}<span>25+ years clinical experience</span></div>
+              <div class="check-item">${icons.check}<span>NCCAOM board-certified</span></div>
+              <div class="check-item">${icons.check}<span>Hospital privileges — Prisma Health</span></div>
+              <div class="check-item">${icons.check}<span>5 research publications</span></div>
+              <div class="check-item">${icons.check}<span>Dual Oriental &amp; functional medicine training</span></div>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Explore All Conditions</p>
+            ${conditionCategories.map(cc => `
+            <a href="/conditions/${cc.slug}" class="sidebar-link">${cc.shortName}</a>`).join("")}
+            <a href="/conditions" class="text-link" style="font-size:0.875rem;font-weight:500;display:block;margin-top:0.75rem">
+              View all conditions →
+            </a>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin-bottom:0.75rem">
+              319 Wade Hampton Blvd, Suite A<br>Greenville, SC 29609
+            </p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+              ${icons.mapPin} Get Directions
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+  return injectSEOIntoHTML(html, seo);
 }
 
 /* ============================================================
