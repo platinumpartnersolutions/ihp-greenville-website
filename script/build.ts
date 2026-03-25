@@ -21,6 +21,7 @@ const allowlist = [
   "passport",
   "passport-local",
   "pg",
+  "rss-parser",
   "stripe",
   "uuid",
   "ws",
