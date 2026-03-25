@@ -469,7 +469,7 @@ export function renderHome(): string {
     <!-- Section 1: E-E-A-T Credentials -->
     <section class="section section--card" aria-labelledby="credentials-heading">
       <div class="container">
-        <div class="two-col" style="grid-template-columns:200px 1fr;align-items:center;gap:3rem">
+        <div class="two-col provider-section-grid">
           <div class="provider-img-wrap reveal">
             <img src="/images/dr-hendry.jpg"
               alt="Dr. William Hendry, DAOM — Board-Certified Acupuncturist and Functional Medicine Practitioner in Greenville, SC"
