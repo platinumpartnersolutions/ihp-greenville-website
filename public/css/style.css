@@ -498,6 +498,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .blog-cross-link:hover { color: var(--color-secondary) !important; }
 .blog-cross-link svg { flex-shrink: 0; width: 1rem; height: 1rem; }
 
+/* Inline auto-link (prose-link) — subtle underline, no disruptive colour */
+.prose-link { color: inherit; text-decoration: underline; text-decoration-color: var(--color-primary); text-decoration-thickness: 1.5px; text-underline-offset: 3px; transition: color 0.18s, text-decoration-color 0.18s; }
+.prose-link:hover { color: var(--color-primary); text-decoration-color: var(--color-primary); }
+
 /* --- Footer --- */
 footer { background: var(--color-foreground); color: white; padding: 4rem 0 2rem; }
 .footer__grid { display: grid; gap: 2.5rem; margin-bottom: 3rem; }

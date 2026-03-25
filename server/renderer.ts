@@ -2,6 +2,7 @@ import { categoryDefinitions, allServices, serviceMap, categoryMap, NAP, BASE_UR
 import { conditions, conditionCategories, conditionMap, conditionCategoryMap } from "./conditions";
 import { serviceContentMap } from "./services-content";
 import { getBlogSiteLinks, getServiceBlogLinks, getConditionBlogLinks } from "./blog-crosslinks";
+import { autoLink } from "./auto-linker";
 import type { BlogPost } from "@shared/schema";
 
 const createSlug = (name: string): string =>
@@ -848,6 +849,7 @@ export function renderService(svcSlug: string): string | null {
 
   const baseSlug = svcSlug.replace(/-greenville-sc$/, "");
   const content = serviceContentMap.get(baseSlug);
+  const svcCurrentUrl = `/services/${baseSlug}`;
 
   const relatedServices = content && content.relatedServiceSlugs && content.relatedServiceSlugs.length > 0
     ? content.relatedServiceSlugs
@@ -885,7 +887,7 @@ export function renderService(svcSlug: string): string | null {
   const researchHtml = content && content.research
     ? `<div class="reveal" style="margin-top:2rem;margin-bottom:2rem">
         <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Research & Evidence</h2>
-        <p style="color:var(--color-muted);line-height:1.75">${content.research}</p>
+        <p style="color:var(--color-muted);line-height:1.75">${autoLink(content.research, svcCurrentUrl)}</p>
       </div>`
     : "";
 
@@ -915,27 +917,30 @@ export function renderService(svcSlug: string): string | null {
       </div>`
     : "";
 
-  const openingHtml = content
-    ? content.opening.split("\n\n").map(p => `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">${p}</p>`).join("")
-    : `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">At Integrative Health Partners in Greenville, SC, Dr. William Hendry provides expert ${service.name} as part of our comprehensive ${cat.name.toLowerCase()} services. Every treatment is personalized to your unique health history and therapeutic goals. Dr. Hendry draws on 25+ years of clinical experience and ongoing research to deliver the highest standard of integrative care.</p>`;
+  const openingHtml = autoLink(
+    content
+      ? content.opening.split("\n\n").map(p => `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">${p}</p>`).join("")
+      : `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">At Integrative Health Partners in Greenville, SC, Dr. William Hendry provides expert ${service.name} as part of our comprehensive ${cat.name.toLowerCase()} services. Every treatment is personalized to your unique health history and therapeutic goals. Dr. Hendry draws on 25+ years of clinical experience and ongoing research to deliver the highest standard of integrative care.</p>`,
+    svcCurrentUrl
+  );
 
   const howItWorksHtml = content
-    ? `<h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2.5rem;margin-bottom:1rem">How ${service.name} Works</h2>
+    ? autoLink(`<h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2.5rem;margin-bottom:1rem">How ${service.name} Works</h2>
        ${content.howItWorks.split("\n\n").map(p => `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">${p}</p>`).join("")}
-       ${stepsHtml}`
+       ${stepsHtml}`, svcCurrentUrl)
     : "";
 
   const firstApptHtml = content
     ? `<div class="highlight-box--compact reveal" style="margin-top:2rem;margin-bottom:2rem">
         <h3 class="font-heading" style="font-size:1.125rem;font-weight:600;margin-bottom:0.5rem">${icons.calendar} Your First Appointment</h3>
-        <p style="color:var(--color-muted);line-height:1.65;font-size:0.9375rem">${content.firstAppointment}</p>
+        <p style="color:var(--color-muted);line-height:1.65;font-size:0.9375rem">${autoLink(content.firstAppointment, svcCurrentUrl)}</p>
       </div>`
     : "";
 
   const whyDrHendryHtml = content
     ? `<div class="reveal" style="margin-top:2rem;margin-bottom:2rem">
         <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Why Dr. Hendry for ${service.name}</h2>
-        <p style="color:var(--color-muted);line-height:1.75">${content.whyDrHendry}</p>
+        <p style="color:var(--color-muted);line-height:1.75">${autoLink(content.whyDrHendry, svcCurrentUrl)}</p>
       </div>`
     : "";
 
@@ -1153,7 +1158,7 @@ export function renderBlogPost(post: BlogPost): string {
       </header>
 
       <div class="prose blog-post-content">
-        ${post.content || `<p>${excerpt}</p>`}
+        ${autoLink(post.content || `<p>${excerpt}</p>`, `/blog/${post.slug}`)}
       </div>
 
       ${(() => {
@@ -1441,7 +1446,7 @@ export function renderCondition(condSlug: string): string | null {
 
           <!-- What is it? -->
           <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">What Is ${cond.name}?</h2>
-          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">${cond.content.definition}</p>
+          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">${autoLink(cond.content.definition, `/conditions/${condSlug}`)}</p>
 
           <!-- Symptoms -->
           <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Common Symptoms</h2>
@@ -1453,19 +1458,19 @@ export function renderCondition(condSlug: string): string | null {
           <!-- Root Causes -->
           <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Root Causes: A Functional Medicine Perspective</h2>
           <div style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">
-            ${cond.content.rootCauses.split("\n\n").map(p => `<p style="margin-bottom:1rem">${p}</p>`).join("")}
+            ${autoLink(cond.content.rootCauses.split("\n\n").map(p => `<p style="margin-bottom:1rem">${p}</p>`).join(""), `/conditions/${condSlug}`)}
           </div>
 
           <!-- How IHP Treats It -->
           <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">How We Treat ${cond.name} at IHP</h2>
           <div style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">
-            ${cond.content.howTreated.split("\n\n").map(p => `<p style="margin-bottom:1rem">${p}</p>`).join("")}
+            ${autoLink(cond.content.howTreated.split("\n\n").map(p => `<p style="margin-bottom:1rem">${p}</p>`).join(""), `/conditions/${condSlug}`)}
           </div>
 
           <!-- Dr. Hendry's Approach -->
           <div class="cta-subtle reveal" style="margin-bottom:2rem">
             <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} Dr. Hendry's Approach</h2>
-            <p style="color:var(--color-muted);line-height:1.75">${cond.content.drApproach}</p>
+            <p style="color:var(--color-muted);line-height:1.75">${autoLink(cond.content.drApproach, `/conditions/${condSlug}`)}</p>
           </div>
 
           <!-- Related Services -->
