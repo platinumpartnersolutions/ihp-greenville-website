@@ -82,11 +82,58 @@ function renderNav(transparent = false): string {
           Services
           <span class="nav__dropdown-chevron">${icons.chevronDown}</span>
         </button>
-        <div class="nav__dropdown-menu" role="menu">
-          <a href="/services/acupuncturist-services" class="nav__dropdown-item nav__dropdown-item--primary" role="menuitem">Acupuncturist Services</a>
-          <a href="/services/acupuncture-clinic-services" class="nav__dropdown-item" role="menuitem">Acupuncture Clinic Services</a>
-          <a href="/services/chinese-medicine-clinic-services" class="nav__dropdown-item" role="menuitem">Chinese Medicine Clinic Services</a>
-          <a href="/services/alternative-medicine-practitioner-services" class="nav__dropdown-item" role="menuitem">Alternative Medicine Practitioner Services</a>
+        <div class="nav__dropdown-menu nav__dropdown-menu--wide4" role="menu">
+          <div class="nav__dropdown-grid nav__dropdown-grid--4col">
+            <div class="nav__dropdown-col nav__dropdown-col--divider">
+              <a href="/services/acupuncture-therapy" class="nav__dropdown-item" role="menuitem">Acupuncture Therapy</a>
+              <a href="/services/dry-needling-therapy" class="nav__dropdown-item" role="menuitem">Dry Needling</a>
+              <a href="/services/electroacupuncture" class="nav__dropdown-item" role="menuitem">Electroacupuncture</a>
+              <a href="/services/medical-acupuncture" class="nav__dropdown-item" role="menuitem">Medical Acupuncture</a>
+              <a href="/services/auricular-acupuncture" class="nav__dropdown-item" role="menuitem">Auricular Acupuncture</a>
+              <a href="/services/scalp-acupuncture" class="nav__dropdown-item" role="menuitem">Scalp Acupuncture</a>
+              <a href="/services/fertility-acupuncture" class="nav__dropdown-item" role="menuitem">Fertility Acupuncture</a>
+              <a href="/services/acupuncture-for-anxiety" class="nav__dropdown-item" role="menuitem">Acupuncture for Anxiety</a>
+              <a href="/services/acupuncture-for-migraines" class="nav__dropdown-item" role="menuitem">Acupuncture for Migraines</a>
+              <a href="/services/biopuncture-therapy" class="nav__dropdown-item" role="menuitem">Biopuncture Therapy</a>
+            </div>
+            <div class="nav__dropdown-col nav__dropdown-col--divider">
+              <a href="/services/back-pain-treatment" class="nav__dropdown-item" role="menuitem">Back Pain Treatment</a>
+              <a href="/services/neck-pain-treatment" class="nav__dropdown-item" role="menuitem">Neck Pain Treatment</a>
+              <a href="/services/knee-pain-treatment" class="nav__dropdown-item" role="menuitem">Knee Pain Treatment</a>
+              <a href="/services/sciatica-treatment" class="nav__dropdown-item" role="menuitem">Sciatica Treatment</a>
+              <a href="/services/shoulder-pain-treatment" class="nav__dropdown-item" role="menuitem">Shoulder Pain Treatment</a>
+              <a href="/services/hip-pain-treatment" class="nav__dropdown-item" role="menuitem">Hip Pain Treatment</a>
+              <a href="/services/fibromyalgia-treatment" class="nav__dropdown-item" role="menuitem">Fibromyalgia Treatment</a>
+              <a href="/services/neuropathy-treatment" class="nav__dropdown-item" role="menuitem">Neuropathy Treatment</a>
+              <a href="/services/sports-injury-treatment" class="nav__dropdown-item" role="menuitem">Sports Injury Treatment</a>
+              <a href="/services/trigger-point-therapy" class="nav__dropdown-item" role="menuitem">Trigger Point Therapy</a>
+            </div>
+            <div class="nav__dropdown-col nav__dropdown-col--divider">
+              <a href="/services/cupping-therapy" class="nav__dropdown-item" role="menuitem">Cupping Therapy</a>
+              <a href="/services/gua-sha-treatment" class="nav__dropdown-item" role="menuitem">Gua Sha</a>
+              <a href="/services/moxibustion-therapy" class="nav__dropdown-item" role="menuitem">Moxibustion</a>
+              <a href="/services/chinese-herbal-medicine" class="nav__dropdown-item" role="menuitem">Chinese Herbal Medicine</a>
+              <a href="/services/custom-herbal-formulations" class="nav__dropdown-item" role="menuitem">Custom Herbal Formulations</a>
+              <a href="/services/herbal-consultation" class="nav__dropdown-item" role="menuitem">Herbal Consultation</a>
+              <a href="/services/herb-drug-interaction-consultation" class="nav__dropdown-item" role="menuitem">Herb-Drug Consultation</a>
+              <a href="/services/ibs-treatment" class="nav__dropdown-item" role="menuitem">IBS Treatment</a>
+              <a href="/services/natural-anxiety-treatment" class="nav__dropdown-item" role="menuitem">Natural Anxiety Treatment</a>
+              <a href="/services/insomnia-treatment" class="nav__dropdown-item" role="menuitem">Insomnia Treatment</a>
+            </div>
+            <div class="nav__dropdown-col">
+              <a href="/services/functional-medicine-consultation" class="nav__dropdown-item" role="menuitem">Functional Medicine</a>
+              <a href="/services/hormone-testing" class="nav__dropdown-item" role="menuitem">Hormone Testing</a>
+              <a href="/services/thyroid-testing" class="nav__dropdown-item" role="menuitem">Thyroid Testing</a>
+              <a href="/services/adrenal-fatigue-treatment" class="nav__dropdown-item" role="menuitem">Adrenal Fatigue Treatment</a>
+              <a href="/services/gut-health-testing" class="nav__dropdown-item" role="menuitem">Gut Health Testing</a>
+              <a href="/services/food-sensitivity-testing" class="nav__dropdown-item" role="menuitem">Food Sensitivity Testing</a>
+              <a href="/services/leaky-gut-treatment" class="nav__dropdown-item" role="menuitem">Leaky Gut Treatment</a>
+              <a href="/services/ozone-therapy" class="nav__dropdown-item" role="menuitem">Ozone Therapy</a>
+              <a href="/services/infrared-sauna-therapy" class="nav__dropdown-item" role="menuitem">Infrared Sauna Therapy</a>
+              <a href="/services/nutritional-counseling" class="nav__dropdown-item" role="menuitem">Nutritional Counseling</a>
+            </div>
+          </div>
+          <a href="/services/" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Services</a>
         </div>
       </div>
 
@@ -166,10 +213,47 @@ function renderNav(transparent = false): string {
   <a href="/blog" class="nav__mobile-link">Blog</a>
 
   <div class="nav__mobile-section">Services</div>
-  <a href="/services/acupuncturist-services" class="nav__mobile-sublink">Acupuncturist Services</a>
-  <a href="/services/acupuncture-clinic-services" class="nav__mobile-sublink">Acupuncture Clinic Services</a>
-  <a href="/services/chinese-medicine-clinic-services" class="nav__mobile-sublink">Chinese Medicine Clinic Services</a>
-  <a href="/services/alternative-medicine-practitioner-services" class="nav__mobile-sublink">Alternative Medicine Practitioner Services</a>
+  <a href="/services/acupuncture-therapy" class="nav__mobile-sublink">Acupuncture Therapy</a>
+  <a href="/services/dry-needling-therapy" class="nav__mobile-sublink">Dry Needling</a>
+  <a href="/services/electroacupuncture" class="nav__mobile-sublink">Electroacupuncture</a>
+  <a href="/services/medical-acupuncture" class="nav__mobile-sublink">Medical Acupuncture</a>
+  <a href="/services/auricular-acupuncture" class="nav__mobile-sublink">Auricular Acupuncture</a>
+  <a href="/services/scalp-acupuncture" class="nav__mobile-sublink">Scalp Acupuncture</a>
+  <a href="/services/fertility-acupuncture" class="nav__mobile-sublink">Fertility Acupuncture</a>
+  <a href="/services/acupuncture-for-anxiety" class="nav__mobile-sublink">Acupuncture for Anxiety</a>
+  <a href="/services/acupuncture-for-migraines" class="nav__mobile-sublink">Acupuncture for Migraines</a>
+  <a href="/services/biopuncture-therapy" class="nav__mobile-sublink">Biopuncture Therapy</a>
+  <a href="/services/back-pain-treatment" class="nav__mobile-sublink">Back Pain Treatment</a>
+  <a href="/services/neck-pain-treatment" class="nav__mobile-sublink">Neck Pain Treatment</a>
+  <a href="/services/knee-pain-treatment" class="nav__mobile-sublink">Knee Pain Treatment</a>
+  <a href="/services/sciatica-treatment" class="nav__mobile-sublink">Sciatica Treatment</a>
+  <a href="/services/shoulder-pain-treatment" class="nav__mobile-sublink">Shoulder Pain Treatment</a>
+  <a href="/services/hip-pain-treatment" class="nav__mobile-sublink">Hip Pain Treatment</a>
+  <a href="/services/fibromyalgia-treatment" class="nav__mobile-sublink">Fibromyalgia Treatment</a>
+  <a href="/services/neuropathy-treatment" class="nav__mobile-sublink">Neuropathy Treatment</a>
+  <a href="/services/sports-injury-treatment" class="nav__mobile-sublink">Sports Injury Treatment</a>
+  <a href="/services/trigger-point-therapy" class="nav__mobile-sublink">Trigger Point Therapy</a>
+  <a href="/services/cupping-therapy" class="nav__mobile-sublink">Cupping Therapy</a>
+  <a href="/services/gua-sha-treatment" class="nav__mobile-sublink">Gua Sha</a>
+  <a href="/services/moxibustion-therapy" class="nav__mobile-sublink">Moxibustion</a>
+  <a href="/services/chinese-herbal-medicine" class="nav__mobile-sublink">Chinese Herbal Medicine</a>
+  <a href="/services/custom-herbal-formulations" class="nav__mobile-sublink">Custom Herbal Formulations</a>
+  <a href="/services/herbal-consultation" class="nav__mobile-sublink">Herbal Consultation</a>
+  <a href="/services/herb-drug-interaction-consultation" class="nav__mobile-sublink">Herb-Drug Consultation</a>
+  <a href="/services/ibs-treatment" class="nav__mobile-sublink">IBS Treatment</a>
+  <a href="/services/natural-anxiety-treatment" class="nav__mobile-sublink">Natural Anxiety Treatment</a>
+  <a href="/services/insomnia-treatment" class="nav__mobile-sublink">Insomnia Treatment</a>
+  <a href="/services/functional-medicine-consultation" class="nav__mobile-sublink">Functional Medicine</a>
+  <a href="/services/hormone-testing" class="nav__mobile-sublink">Hormone Testing</a>
+  <a href="/services/thyroid-testing" class="nav__mobile-sublink">Thyroid Testing</a>
+  <a href="/services/adrenal-fatigue-treatment" class="nav__mobile-sublink">Adrenal Fatigue Treatment</a>
+  <a href="/services/gut-health-testing" class="nav__mobile-sublink">Gut Health Testing</a>
+  <a href="/services/food-sensitivity-testing" class="nav__mobile-sublink">Food Sensitivity Testing</a>
+  <a href="/services/leaky-gut-treatment" class="nav__mobile-sublink">Leaky Gut Treatment</a>
+  <a href="/services/ozone-therapy" class="nav__mobile-sublink">Ozone Therapy</a>
+  <a href="/services/infrared-sauna-therapy" class="nav__mobile-sublink">Infrared Sauna Therapy</a>
+  <a href="/services/nutritional-counseling" class="nav__mobile-sublink">Nutritional Counseling</a>
+  <a href="/services/" class="nav__mobile-sublink">→ View All Services</a>
 
   <div class="nav__mobile-section">Conditions We Treat</div>
   <a href="/conditions/back-pain" class="nav__mobile-sublink">Back Pain</a>

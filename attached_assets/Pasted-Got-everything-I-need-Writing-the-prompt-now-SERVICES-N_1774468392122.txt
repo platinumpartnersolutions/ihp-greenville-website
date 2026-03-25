@@ -1,0 +1,38 @@
+Got everything I need. Writing the prompt now.
+
+SERVICES NAVIGATION RESTRUCTURE
+The Services dropdown currently shows 4 GBP category labels (Acupuncturist Services, Acupuncture Clinic Services, Chinese Medicine Clinic Services, Alternative Medicine Practitioner Services). These mean nothing to patients. Replace the dropdown with a curated flat list of the most recognizable, searchable individual service names — the same way the Conditions dropdown was restructured.
+Important: The 4 category pages still exist, still have their URLs, still appear in the sitemap and internal linking. They are not deleted. Only the nav presentation changes. Add a "→ View All Services" link at the bottom that goes to /services/ hub page.
+
+Replace the Services dropdown with this exact 4-column grid:
+Column 1 — Needling        Column 2 — Body/Pain         Column 3 — Chinese Med       Column 4 — Functional Med
+Acupuncture Therapy        Back Pain Treatment           Cupping Therapy              Functional Medicine
+Dry Needling               Neck Pain Treatment           Gua Sha                      Hormone Testing
+Electroacupuncture         Knee Pain Treatment           Moxibustion                  Thyroid Testing
+Medical Acupuncture        Sciatica Treatment            Chinese Herbal Medicine       Adrenal Fatigue Treatment
+Auricular Acupuncture      Shoulder Pain Treatment       Custom Herbal Formulations   Gut Health Testing
+Scalp Acupuncture          Hip Pain Treatment            Herbal Consultation          Food Sensitivity Testing
+Fertility Acupuncture      Fibromyalgia Treatment        Herb-Drug Consultation       Leaky Gut Treatment
+Acupuncture for Anxiety    Neuropathy Treatment          IBS Treatment                Ozone Therapy
+Acupuncture for Migraines  Sports Injury Treatment       Natural Anxiety Treatment     Infrared Sauna Therapy
+Biopuncture Therapy        Trigger Point Therapy         Insomnia Treatment           Nutritional Counseling
+Each name links directly to its individual service page using the existing slug format (e.g., "Dry Needling" → /services/dry-needling/, "Back Pain Treatment" → /services/back-pain-treatment/, etc.). Match exact existing slugs — do not create new URLs.
+At the bottom of the dropdown, centered, add:
+→ View All Services linking to /services/
+
+Desktop behavior:
+
+4-column grid layout, same dropdown panel style as the Conditions dropdown
+No bold category headers visible — plain text links only
+If subtle visual separation is needed between columns, use a thin 1px vertical rule between columns — no text labels
+Opens on click or hover, consistent with Conditions dropdown behavior
+
+Mobile behavior:
+
+Collapses to single vertical accordion list
+All 40 items listed sequentially, no columns
+"→ View All Services" pinned at bottom of accordion
+
+
+Selection logic for this curated list:
+These 40 were chosen because they match how patients actually search — specific treatment names and specific body parts/conditions. The remaining 90+ services (Acupuncture Treatment, Traditional Chinese Acupuncture, Electrical Stimulation Acupuncture, Acupressure Therapy, Prenatal Acupuncture, etc.) are all still live as individual pages, linked from their category hub pages, and indexed by Google. They just don't need to be in the nav — the nav is for discoverability, not exhaustiveness. A patient looking for "Acupressure Therapy" will find it via search or via the Acupuncturist Services category page. The nav serves the 80% use case.

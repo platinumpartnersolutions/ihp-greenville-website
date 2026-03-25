@@ -135,6 +135,24 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav__dropdown-col { display: flex; flex-direction: column; }
 .nav__dropdown-col .nav__dropdown-item { font-size: 0.8125rem; padding: 0.5rem 0.875rem; }
 
+/* Wide 4-column services dropdown — left-anchored so it doesn't overflow left edge */
+.nav__dropdown-menu--wide4 {
+  min-width: 800px;
+  left: 0;
+  transform: translateY(-8px);
+}
+.nav__dropdown:hover .nav__dropdown-menu--wide4,
+.nav__dropdown.is-open .nav__dropdown-menu--wide4 {
+  transform: translateY(0);
+}
+.nav__dropdown-grid--4col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0;
+}
+/* thin vertical rule between columns */
+.nav__dropdown-col--divider { border-right: 1px solid var(--color-border); }
+
 .nav__cta {
   display: none; align-items: center; gap: 0.5rem;
   background: var(--color-primary); color: white; padding: 0.625rem 1.5rem;
