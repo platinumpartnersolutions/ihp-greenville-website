@@ -163,38 +163,64 @@ function getHomeSEO(): PageSEO {
       {
         "@context": "https://schema.org",
         "@type": ["MedicalBusiness", "LocalBusiness"],
-        "name": NAP.name,
-        "image": `${NAP.url}/favicon.png`,
-        "description": "Integrative functional medicine and acupuncture practice offering root-cause care, Chinese herbal medicine, ozone therapy, and injection therapy in Greenville, SC.",
+        "name": "Integrative Health Partners",
+        "url": "https://www.ihpgreenville.com",
+        "telephone": "(864) 365-6156",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": NAP.streetAddress,
-          "addressLocality": NAP.city,
-          "addressRegion": NAP.state,
-          "postalCode": NAP.postalCode,
+          "streetAddress": "319 Wade Hampton Blvd, Ste A",
+          "addressLocality": "Greenville",
+          "addressRegion": "SC",
+          "postalCode": "29609",
           "addressCountry": "US"
         },
-        "geo": { "@type": "GeoCoordinates", "latitude": NAP.latitude, "longitude": NAP.longitude },
-        "telephone": NAP.phone,
-        "email": NAP.email,
-        "url": NAP.url,
-        "priceRange": "$$",
-        "hasMap": "https://www.google.com/maps/place/Integrative+Health+Partners",
-        "medicalSpecialty": ["Acupuncture","Functional Medicine","Chinese Medicine","Integrative Medicine"],
-        "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 34.86488989304498,
+          "longitude": -82.38281488216316
+        },
+        "openingHours": ["Mo-Fr 09:00-17:00"],
         "areaServed": [
           { "@type": "City", "name": "Greenville", "sameAs": "https://en.wikipedia.org/wiki/Greenville,_South_Carolina" },
           { "@type": "City", "name": "Spartanburg", "sameAs": "https://en.wikipedia.org/wiki/Spartanburg,_South_Carolina" },
           { "@type": "City", "name": "Anderson", "sameAs": "https://en.wikipedia.org/wiki/Anderson,_South_Carolina" },
           { "@type": "State", "name": "Upstate South Carolina" }
         ],
+        "medicalSpecialty": ["Acupuncture", "Traditional Chinese Medicine", "Integrative Medicine"],
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
           "reviewCount": "19",
-          "bestRating": "5"
+          "bestRating": "5",
+          "worstRating": "1"
         },
-        "sameAs": ["https://facebook.com/ihpgreenville","https://instagram.com/integrativehealthpartners"]
+        "employee": {
+          "@type": "Physician",
+          "name": "Dr. William Hendry",
+          "givenName": "William",
+          "familyName": "Hendry",
+          "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
+          "description": "DAOM with 25 years of experience in Chinese herbal medicine and 16 years serving Greenville SC. Hospital privileges at Prisma Health. Co-author of a 3-year clinical study on acupuncture as an opioid alternative. NCCAOM Diplomate of Oriental Medicine.",
+          "hasCredential": [
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Doctor of Acupuncture and Oriental Medicine (DAOM)" },
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "NCCAOM Diplomate of Oriental Medicine" }
+          ],
+          "worksFor": { "@type": "MedicalBusiness", "name": "Integrative Health Partners" }
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Integrative Health Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acupuncture Therapy", "url": "https://www.ihpgreenville.com/services/acupuncture-therapy-greenville-sc" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry Needling", "url": "https://www.ihpgreenville.com/services/dry-needling-greenville-sc" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Functional Medicine", "url": "https://www.ihpgreenville.com/services/functional-medicine-greenville-sc" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electroacupuncture", "url": "https://www.ihpgreenville.com/services/electroacupuncture-greenville-sc" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chinese Herbal Medicine", "url": "https://www.ihpgreenville.com/services/chinese-herbal-medicine-greenville-sc" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acupuncture Injection Therapy", "url": "https://www.ihpgreenville.com/services/acupuncture-injection-therapy-greenville-sc" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ozone Therapy", "url": "https://www.ihpgreenville.com/services/ozone-therapy-greenville-sc" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Body Contouring", "url": "https://www.ihpgreenville.com/services/body-contouring-greenville-sc" } }
+          ]
+        }
       },
       {
         "@context": "https://schema.org",
