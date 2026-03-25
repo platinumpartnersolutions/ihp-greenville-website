@@ -386,8 +386,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .stat-box__label { font-size: 0.8125rem; color: var(--color-muted); margin-top: 0.25rem; }
 
 /* --- Provider / Doctor --- */
-.provider-img-wrap { position: relative; }
-.provider-img { border-radius: 50%; width: 100%; object-fit: cover; aspect-ratio: 1/1; object-position: center top; border: 4px solid var(--color-primary); }
+.provider-img-wrap { position: relative; max-width: 170px; margin: 0 auto; }
+.provider-img { border-radius: 1.5rem; width: 100%; object-fit: cover; aspect-ratio: 4/5; object-position: center top; }
 /* small circular headshot used in sidebars */
 .dr-headshot {
   width: 110px;
@@ -400,13 +400,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: 3px solid var(--color-primary);
 }
 .provider-badge-overlay {
-  position: absolute; bottom: -3rem; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: -1rem; left: -0.5rem;
   background: var(--color-primary); color: white; border-radius: 0.75rem;
-  padding: 0.625rem 1rem; box-shadow: var(--shadow-xl);
-  white-space: nowrap; text-align: center;
+  padding: 0.75rem 1rem; box-shadow: var(--shadow-xl);
 }
 .provider-badge-overlay__degree { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; line-height: 1; }
-.provider-badge-overlay__sub { font-size: 0.6875rem; color: rgba(255,255,255,0.82); margin-top: 0.2rem; line-height: 1.35; }
+.provider-badge-overlay__sub { font-size: 0.75rem; color: rgba(255,255,255,0.82); margin-top: 0.2rem; line-height: 1.35; }
 .provider-cred-tag { display: inline-block; background: var(--color-card); border-radius: 0.5rem; padding: 0.5rem 1rem; font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; box-shadow: var(--shadow-sm); }
 
 /* --- Credentials Badge --- */
