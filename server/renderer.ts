@@ -301,30 +301,30 @@ function starRow(n = 5): string {
    ============================================================ */
 export function renderHome(): string {
   const featuredServices = [
-    { name: "Acupuncture Therapy", slug: "acupuncture-therapy", icon: icons.leaf, text: "Traditional needle-based therapy stimulates the body's natural healing response to relieve pain, reduce stress, and restore physiological balance." },
-    { name: "Dry Needling Therapy", slug: "dry-needling-therapy", icon: icons.activity, text: "Precision targeting of myofascial trigger points to release stubborn muscle tension, reduce pain signaling, and restore normal movement patterns." },
-    { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine", icon: icons.leaf, text: "Custom herbal formulas prescribed from our in-house pharmacy — rooted in 2,000 years of clinical tradition, tailored to your constitution and condition." },
-    { name: "Functional Medicine", slug: "functional-medicine-consultation", icon: icons.activity, text: "Systems-based investigation to identify the root biological causes of chronic illness — gut health, hormonal imbalance, inflammation, and nutritional status." },
-    { name: "Ozone Therapy", slug: "ozone-therapy", icon: icons.shield, text: "Medical-grade ozone stimulates the immune system, reduces oxidative inflammation, and promotes cellular regeneration for chronic and systemic conditions." },
-    { name: "Electroacupuncture", slug: "electroacupuncture", icon: icons.activity, text: "Enhanced acupuncture using micro-electrical stimulation to amplify therapeutic effects — particularly effective for neuropathy, chronic pain, and muscle rehab." },
+    { name: "Acupuncture Therapy", slug: "acupuncture-therapy", icon: icons.leaf, text: "Precise needle placement guided by Dr. Hendry's 25 years of expertise in traditional Chinese diagnostic methods to relieve acute and chronic pain, restore nervous system balance, and address root causes rather than symptoms alone." },
+    { name: "Dry Needling Therapy", slug: "dry-needling-therapy", icon: icons.activity, text: "Dr. Hendry targets specific trigger points with specialized needles to release chronic muscle tension and restore normal movement patterns. This technique addresses muscle memory problems that cause persistent pain and stiffness — without medications." },
+    { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine", icon: icons.leaf, text: "Customized herbal protocols combining traditional Chinese formulas with standardized Western botanical extracts. All herbs are third-party tested for purity and potency — dispensed from our in-house pharmacy, same day." },
+    { name: "Integrative Functional Medicine", slug: "functional-medicine-consultation", icon: icons.activity, text: "Advanced testing — nutrient levels, hormones, food reactions — to uncover what traditional labs miss. No one-size-fits-all plans. Dr. Hendry starts by listening to your whole health story, then builds a step-by-step plan unique to your body." },
+    { name: "Ozone Sauna Therapy", slug: "ozone-therapy", icon: icons.shield, text: "Medical-grade ozone protocols delivered through infrared saunas that boost immune function, enhance detoxification, increase cellular energy production, and accelerate recovery from chronic fatigue, fibromyalgia, and immune disorders." },
+    { name: "Electroacupuncture", slug: "electroacupuncture", icon: icons.activity, text: "Dr. Hendry adds therapeutic electrical frequencies to acupuncture points to accelerate healing and block pain signals more effectively — stimulating nerve regeneration for conditions like neuropathy and chronic pain." },
   ];
 
   const testimonials = [
-    { text: "Dr. Hendry has been absolutely life-changing for me. After years of chronic back pain and failed conventional treatments, acupuncture finally gave me my life back. His expertise and compassion are unmatched.", author: "Sarah M." },
-    { text: "I was skeptical about acupuncture at first, but after just 6 sessions with Dr. Hendry, my migraines have reduced dramatically. The team is professional, caring, and genuinely invested in your recovery.", author: "James T." },
-    { text: "I came to Integrative Health Partners for fertility support after years of trying. Dr. Hendry's integrative approach — combining acupuncture with Chinese herbs — made all the difference. Forever grateful.", author: "Maria L." },
-    { text: "The functional medicine approach Dr. Hendry uses is unlike anything I've experienced. He found the root cause of my fatigue and hormone issues in the first visit. I finally feel like myself again.", author: "Christine B." },
+    { text: "Dr. Hendry is so informative and truly listens to all of your concerns. Definitely steps away from normal western medicine. So excited to see where this journey takes me!", author: "C. Fanton" },
+    { text: "It's pretty amazing how you can get instant relief from chronic pains from Acupuncture. Doctor Hendry's knowledge of the human body never ceases to amaze me.", author: "R. McClaran" },
+    { text: "Dr Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds. After reading a book about natural salt I saw in his office, I have been using natural salt, it has eliminated my chronic headaches.", author: "K. Hill" },
+    { text: "I am so glad to find the peri-neural therapy here to help heal nerve damage. My pain level decreased significantly after my first treatment.", author: "L. Getty" },
   ];
 
   const homeFAQs = [
-    { q: "What conditions does acupuncture treat?", a: "Acupuncture has clinical evidence for a broad range of conditions: chronic pain (back pain, sciatica, neck pain, fibromyalgia), headaches and migraines, anxiety, insomnia, digestive disorders, hormonal imbalances, fertility challenges, and more. Dr. Hendry also integrates functional medicine testing to address root biological causes — not just symptom relief." },
-    { q: "What is functional medicine and how is it different from conventional care?", a: "Functional medicine identifies the underlying biological drivers of chronic illness — gut dysbiosis, hormonal imbalances, nutritional deficiencies, systemic inflammation — and addresses them directly rather than managing symptoms with medication. Dr. Hendry uses advanced diagnostic testing to build a root-cause treatment plan for conditions that conventional care often struggles to resolve long-term." },
-    { q: "How many sessions will I need?", a: "Acute conditions typically improve in 3–6 sessions. Chronic or complex conditions usually require 8–12 sessions, with some patients benefiting from ongoing maintenance care. Dr. Hendry will outline a realistic treatment timeline during your first visit based on your specific history and presentation." },
-    { q: "Does acupuncture hurt?", a: "Most patients experience little to no discomfort. Acupuncture needles are hair-thin — far finer than a hypodermic needle — and most people feel a mild sensation of warmth or tingling at the insertion point. Many patients fall asleep during their session. Dr. Hendry adjusts needle depth and stimulation based on each patient's sensitivity." },
-    { q: "What makes Dr. Hendry different from other acupuncturists in Greenville, SC?", a: "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) — the highest doctoral credential in the field — and is NCCAOM board-certified (Cert. #114498). He held hospital privileges at Prisma Health for 9 years and co-authored a landmark 3-year Emergency Department study on needling techniques as alternatives to opioids. His 5 peer-reviewed publications and 52 citations reflect a level of clinical scholarship rare in integrative medicine." },
-    { q: "Do you offer ozone therapy and injection therapy in Greenville, SC?", a: "Yes. Dr. Hendry is an Injection Therapy-certified practitioner and a member of the American Academy of Ozone Therapy (AAOT). We offer medical ozone therapy, biopuncture, and nutrient injection therapies that most local clinics cannot provide. Call (864) 365-6156 to ask whether these therapies are appropriate for your condition." },
-    { q: "Is Integrative Health Partners accepting new patients?", a: "Yes, we are currently welcoming new patients. Call (864) 365-6156 or email info@ihpgreenville.com to schedule your initial consultation with Dr. William Hendry at our Greenville, SC office (319 Wade Hampton Blvd, Suite A)." },
-    { q: "Do you accept insurance for acupuncture or functional medicine?", a: "We recommend calling your insurance provider to ask about your acupuncture benefits before your first visit. Our staff is happy to assist with insurance questions. We offer transparent self-pay rates and can discuss payment options during your consultation." },
+    { q: "What conditions does Dr. Hendry treat?", a: "Dr. Hendry treats chronic pain, headaches, digestive problems, hormone imbalances, autoimmune conditions, chronic fatigue, fibromyalgia, and unexplained symptoms that haven't responded to conventional treatments. His 25 years of Chinese medicine experience and functional medicine training help address root causes rather than just symptoms. Each person's situation is different, so results vary." },
+    { q: "What is functional medicine and how does it work with acupuncture?", a: "Functional medicine uses advanced lab testing to find hidden causes of chronic illness like nutrient deficiencies, hormone imbalances, and food sensitivities that regular blood work misses. When combined with acupuncture, we can treat both the underlying biochemical problems and energy blockages, giving you faster and more complete healing." },
+    { q: "Does acupuncture hurt?", a: "Most people are surprised that acupuncture is virtually painless. We use hair-thin needles that are much smaller than injection needles. You might feel a tiny pinch when the needle goes in, followed by a dull ache or tingling sensation that means the treatment is working. Many patients find acupuncture so relaxing they fall asleep during treatment. Everyone's pain tolerance is different." },
+    { q: "How quickly will I see results?", a: "Some patients notice improvements within the first few treatments, while others take several weeks. Acute conditions often respond faster than chronic problems you've had for years. Dr. Hendry monitors your progress and adjusts treatment as needed. Results vary based on individual conditions." },
+    { q: "How is this different from regular medical care?", a: "Regular medicine often focuses on managing symptoms with medications. Dr. Hendry combines traditional Chinese medicine with functional medicine to find underlying causes — like nutrient deficiencies, hormone imbalances, or toxin exposure — that standard tests might miss. His approach works alongside your current medical care, not instead of it." },
+    { q: "What is Ozone Sauna Therapy?", a: "Ozone sauna therapy combines medical-grade ozone gas with infrared heat to boost your immune system and help your body detoxify naturally. You sit in a sauna while ozone is delivered around your body (not inhaled), which increases oxygen levels in your tissues, fights infections, and reduces inflammation. It's particularly helpful for chronic fatigue, fibromyalgia, immune disorders, and recovery from illness. Sessions last 20–30 minutes and most people feel energized and relaxed afterward." },
+    { q: "Are you accepting new patients?", a: "Yes, Dr. Hendry is currently accepting new patients. New patient appointments include initial consultations that last 60–90 minutes. Call (864) 365-6156 to schedule your comprehensive evaluation." },
+    { q: "Do you accept insurance?", a: "We are a cash-pay practice and do not bill insurance directly. This allows us to spend more time with each patient and provide personalized care without insurance restrictions. We provide detailed receipts that you can submit to your insurance for possible reimbursement. Many patients find that our comprehensive approach saves money long-term by addressing root causes and reducing the need for multiple specialists." },
   ];
 
   const conditionHighlights = [
@@ -361,7 +361,7 @@ export function renderHome(): string {
           Integrative Functional Medicine<br>&amp; <em>Acupuncture</em> in Greenville, SC
         </h1>
         <p class="hero__subtitle reveal reveal-delay-2">
-          Root-cause acupuncture, functional medicine &amp; Chinese medicine — helping Greenville patients heal from the inside out since 2009.
+          If you're struggling with chronic pain, digestive problems, or fatigue in Greenville, you're not alone. Greenville's leading evidence-based natural medicine practice — led by Dr. William Hendry, DAOM.
         </p>
         <div class="hero__stars reveal reveal-delay-3">
           <div class="hero__star-row" aria-label="5 star rating">${starRow()}</div>
@@ -420,6 +420,50 @@ export function renderHome(): string {
               <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Schedule a Consultation</a>
               <a href="/dr-hendry" class="btn btn-outline">Full Credentials</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy / Approach Section -->
+    <section class="section" aria-labelledby="approach-heading">
+      <div class="container">
+        <div style="max-width:56rem;margin-inline:auto">
+          <div class="text-center" style="margin-bottom:3rem">
+            <span class="section-label reveal">Our Philosophy</span>
+            <h2 class="section-title reveal reveal-delay-1" id="approach-heading">Integrative Functional Medicine in Greenville, SC</h2>
+            <p class="section-sub reveal reveal-delay-2" style="max-width:48rem;margin-inline:auto">
+              The highest purpose of medicine should be to restore your body to optimum function — not just mask symptoms. Eastern traditions have long operated from this position, and now this idea is being popularized in the West as Functional Medicine. By combining these complementary approaches, we integrate the best of science and tradition to help you restore and maintain optimum health.
+            </p>
+          </div>
+
+          <div class="grid-auto md:grid-3" style="margin-bottom:2.5rem">
+            ${[
+              {
+                num: "01",
+                title: "Finding Your Root Cause — Personally",
+                body: "No one-size-fits-all plans here. Dr. Hendry starts by listening to your whole health story — where you've been, what you've tried, what hasn't worked, and how symptoms actually affect your everyday life. Then we use advanced testing — nutrient levels, hormones, food reactions, and more — to uncover what traditional labs might miss."
+              },
+              {
+                num: "02",
+                title: "A Step-by-Step Plan, Just for You",
+                body: "Once we have the full picture, you and Dr. Hendry create a practical, step-by-step action plan unique to your body and your goals: tailored nutrition changes, targeted supplements only if they match what you need, strategies for sleep and stress, and clear explanations for each step — why it matters, and what to expect."
+              },
+              {
+                num: "03",
+                title: "Why This Matters",
+                body: "People in Greenville choose integrative functional medicine because it helps uncover the true sources of pain, fatigue, and stubborn symptoms — and gives you a clear path forward, not just a new prescription. If you want to finally know why you feel this way and what you can do about it, Dr. Hendry's personalized approach can help."
+              },
+            ].map((item, i) => `
+            <div class="reveal content-section" style="transition-delay:${i * 0.1}s;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.75rem">
+              <div style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--color-primary-light);line-height:1;margin-bottom:0.875rem">${item.num}</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.0625rem;font-weight:700;color:var(--color-foreground);margin-bottom:0.75rem">${item.title}</h3>
+              <p style="color:var(--color-muted);font-size:0.9375rem;line-height:1.7;margin:0">${item.body}</p>
+            </div>`).join("")}
+          </div>
+
+          <div class="text-center reveal">
+            <a href="/services/functional-medicine-consultation" class="btn btn-primary">Learn About Functional Medicine ${icons.arrowRight}</a>
           </div>
         </div>
       </div>
@@ -565,6 +609,12 @@ export function renderHome(): string {
             </div>
             <button id="tm-next" class="tm-btn" aria-label="Next testimonial">${icons.arrowRight}</button>
           </div>
+          <div class="text-center" style="margin-top:1.5rem">
+            <a href="https://share.google/TYarboIHpqlhU6odK" target="_blank" rel="noopener noreferrer"
+              style="font-family:var(--font-heading);font-size:0.9375rem;font-weight:600;color:rgba(255,255,255,0.85);text-decoration:underline;text-underline-offset:3px">
+              Check out more reviews on Google ${icons.externalLink}
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -599,9 +649,18 @@ export function renderHome(): string {
             <span class="section-label reveal">Visit Us in Greenville, SC</span>
             <h2 class="section-title reveal reveal-delay-1" id="contact-heading">Schedule Your First Consultation</h2>
             <p style="color:var(--color-muted);line-height:1.75;margin:1.25rem 0 1.5rem" class="reveal reveal-delay-2">
-              Integrative Health Partners is located on Wade Hampton Blvd in Greenville, SC — easily accessible
-              from North Greenville, Taylors, Travelers Rest, Mauldin, and Simpsonville. New patients are always welcome.
+              Our clinic is at 319 Wade Hampton Blvd, Suite A — just a few minutes east of downtown and North Main. We're conveniently close to Bob Jones University, Wade Hampton Lanes, and a quick drive from Greenville Memorial Hospital and the Stone Lake community.
             </p>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.25rem" class="reveal reveal-delay-2">
+              <div style="display:flex;align-items:flex-start;gap:0.75rem">
+                <span style="color:var(--color-primary);flex-shrink:0;margin-top:0.125rem">${icons.mapPin}</span>
+                <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.6;margin:0"><strong style="color:var(--color-foreground)">Near Everyday Greenville:</strong> Down the road from Community Tap, Cookout, Harris Teeter, Henry's Smokehouse — easy to reach from North Main, Overbrook, and Northwood Hills.</p>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:0.75rem">
+                <span style="color:var(--color-primary);flex-shrink:0;margin-top:0.125rem">${icons.checkCircle}</span>
+                <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.6;margin:0"><strong style="color:var(--color-foreground)">Ample Free Parking:</strong> Free and easy parking access right at our door — no meters, garages, or downtown traffic.</p>
+              </div>
+            </div>
             <div style="display:flex;flex-direction:column;gap:1.5rem">
               <div class="info-row reveal">
                 <div class="info-icon">${icons.mapPin}</div>
