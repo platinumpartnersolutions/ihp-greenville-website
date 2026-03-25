@@ -538,10 +538,26 @@ export interface SiteRef {
 }
 
 /**
- * For a blog post page: returns up to `limit` service + condition links.
+ * For a blog post page: returns up to `limit` other blog posts that share
+ * at least one service or condition with the given blog slug (related posts).
  */
-export function getBlogRelatedServices(blogSlug: string, limit = 4): BlogRef[] {
-  return [];
+export function getBlogRelatedPosts(blogSlug: string, limit = 4): BlogRef[] {
+  const source = byBlogSlug.get(blogSlug);
+  if (!source) return [];
+  const srcServices = new Set(source.serviceBaseSlugs);
+  const srcConditions = new Set(source.conditionSlugs);
+  const scored: { slug: string; title: string; score: number }[] = [];
+  for (const entry of blogEntries) {
+    if (entry.blogSlug === blogSlug) continue;
+    let score = 0;
+    for (const s of entry.serviceBaseSlugs) if (srcServices.has(s)) score++;
+    for (const c of entry.conditionSlugs) if (srcConditions.has(c)) score++;
+    if (score > 0) scored.push({ slug: entry.blogSlug, title: entry.blogTitle, score });
+  }
+  return scored
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(({ slug, title }) => ({ slug, title }));
 }
 
 /**
