@@ -383,7 +383,7 @@ export function renderHome(): string {
       <div class="container">
         <div class="two-col">
           <div class="provider-img-wrap reveal">
-            <img src="/assets/take_this_small_blurry_photograph_and_create_1768153917878.jpg"
+            <img src="/images/dr-hendry.png"
               alt="Dr. William Hendry, DAOM — Board-Certified Acupuncturist and Functional Medicine Practitioner in Greenville, SC"
               class="provider-img" width="480" height="600" loading="lazy" />
             <div class="provider-badge-overlay" aria-label="Dr. Hendry's degree">
@@ -1683,12 +1683,17 @@ export function renderAbout(): string {
         </div>
 
         <aside class="sidebar">
-          <div class="sidebar-card">
-            <p class="sidebar-card__title">Meet Dr. Hendry</p>
-            <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin-bottom:0.75rem">
-              Dr. William Hendry, DAOM holds a doctorate in acupuncture and oriental medicine and is NCCAOM board-certified with 25+ years of clinical experience.
-            </p>
-            <a href="/dr-hendry" class="sidebar-link">${icons.arrowRight} Full Credentials &amp; Biography</a>
+          <div class="sidebar-card" style="padding:0;overflow:hidden">
+            <img src="/images/dr-hendry.png"
+              alt="Dr. William Hendry, DAOM — Acupuncturist and Functional Medicine Practitioner, Greenville SC"
+              style="width:100%;height:200px;object-fit:cover;object-position:center top;display:block" loading="lazy" />
+            <div style="padding:1rem">
+              <p class="sidebar-card__title" style="margin-top:0">Meet Dr. Hendry</p>
+              <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin-bottom:0.75rem">
+                Dr. William Hendry, DAOM holds a doctorate in acupuncture and oriental medicine and is NCCAOM board-certified with 25+ years of clinical experience.
+              </p>
+              <a href="/dr-hendry" class="sidebar-link">${icons.arrowRight} Full Credentials &amp; Biography</a>
+            </div>
           </div>
 
           <div class="sidebar-card">
@@ -1881,10 +1886,10 @@ export function renderDrHendry(): string {
 
         <aside class="sidebar">
           <div class="sidebar-card" style="padding:0;overflow:hidden">
-            <div style="background:linear-gradient(135deg,rgba(47,129,74,0.12) 0%,rgba(104,204,209,0.12) 100%);min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;">
-              <div style="width:96px;height:96px;border-radius:50%;background:var(--color-primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;border:3px solid var(--color-primary)">
-                ${icons.user}
-              </div>
+            <img src="/images/dr-hendry.png"
+              alt="Dr. William Hendry, DAOM — Acupuncturist and Functional Medicine Practitioner, Greenville SC"
+              style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block" loading="lazy" />
+            <div style="padding:1rem;text-align:center">
               <p style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-foreground)">Dr. William Hendry</p>
               <p style="font-size:0.8125rem;color:var(--color-muted);margin-top:0.25rem">DAOM, Dipl. O.M. (NCCAOM)®</p>
               <p style="font-size:0.75rem;color:var(--color-muted);margin-top:0.125rem">Greenville, SC</p>
