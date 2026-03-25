@@ -100,9 +100,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav__dropdown-chevron { width: 16px; height: 16px; transition: transform var(--transition); }
 .nav__dropdown:hover .nav__dropdown-chevron { transform: rotate(180deg); }
 .nav__dropdown-menu {
-  position: absolute; top: calc(100% + 0.75rem); left: 50%;
+  position: absolute; top: 100%; left: 50%;
   background: white; border-radius: var(--radius-sm); box-shadow: var(--shadow-xl);
-  border: 1px solid var(--color-border); padding: 0.625rem; min-width: 260px;
+  border: 1px solid var(--color-border); padding: 0.625rem; padding-top: calc(0.625rem + 0.75rem); min-width: 260px;
   opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease;
   transform: translateX(-50%) translateY(-8px);
 }
