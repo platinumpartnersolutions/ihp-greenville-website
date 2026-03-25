@@ -1370,15 +1370,7 @@ export function renderCondition(condSlug: string): string | null {
    ABOUT PAGE
    ============================================================ */
 export function renderAbout(): string {
-  const seo = {
-    title: "About Integrative Health Partners | Acupuncture & Functional Medicine Greenville, SC",
-    description: "Learn about Integrative Health Partners — Greenville SC's trusted integrative health practice. Root-cause functional medicine, acupuncture, and in-house herbal pharmacy. Call (864) 365-6156.",
-    canonical: `${BASE_URL}/about`,
-    ogType: "website",
-    schemas: [] as object[]
-  };
-
-  const html = `${renderHead(seo.title, seo.description)}
+  const html = `${renderHead("About Integrative Health Partners | Acupuncture & Functional Medicine Greenville, SC", "Learn about Integrative Health Partners — Greenville SC's trusted integrative health practice. Root-cause functional medicine, acupuncture, and in-house herbal pharmacy. Call (864) 365-6156.")}
 <body data-page="about">
   ${renderNav(false)}
 
@@ -1440,6 +1432,10 @@ export function renderAbout(): string {
             </div>
           </div>
 
+          <p style="margin-top:1rem;font-size:0.9375rem;color:var(--color-muted)">
+            Have questions before booking? <a href="mailto:${NAP.email}" class="internal-link">Contact us at ${NAP.email}</a>.
+          </p>
+
         </div>
 
         <aside class="sidebar">
@@ -1480,21 +1476,13 @@ export function renderAbout(): string {
 </body>
 </html>`;
 
-  return injectSEOIntoHTML(html, seo as any);
+  return html;
 }
 
 /* ============================================================
    DR. HENDRY PAGE
    ============================================================ */
 export function renderDrHendry(): string {
-  const seo = {
-    title: "Dr. William Hendry, DAOM | Integrative Health Partners Greenville, SC",
-    description: "Dr. William Hendry — DAOM, NCCAOM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
-    canonical: `${BASE_URL}/dr-hendry`,
-    ogType: "profile",
-    schemas: [] as object[]
-  };
-
   const publications = [
     {
       title: "Evaluating the Effects of Acupuncture in the Treatment of Taxane Induced Peripheral Neuropathy",
@@ -1537,7 +1525,7 @@ export function renderDrHendry(): string {
     { label: "Research Publications", value: "5 peer-reviewed studies | 52 citations" },
   ];
 
-  const html = `${renderHead(seo.title, seo.description)}
+  const html = `${renderHead("Dr. William Hendry, DAOM | Integrative Health Partners Greenville, SC", "Dr. William Hendry — DAOM, NCCAOM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.")}
 <body data-page="dr-hendry">
   ${renderNav(false)}
 
@@ -1632,6 +1620,17 @@ export function renderDrHendry(): string {
         </div>
 
         <aside class="sidebar">
+          <div class="sidebar-card" style="padding:0;overflow:hidden">
+            <div style="background:linear-gradient(135deg,rgba(47,129,74,0.12) 0%,rgba(104,204,209,0.12) 100%);min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;">
+              <div style="width:96px;height:96px;border-radius:50%;background:var(--color-primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;border:3px solid var(--color-primary)">
+                ${icons.user}
+              </div>
+              <p style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-foreground)">Dr. William Hendry</p>
+              <p style="font-size:0.8125rem;color:var(--color-muted);margin-top:0.25rem">DAOM, Dipl. O.M. (NCCAOM)®</p>
+              <p style="font-size:0.75rem;color:var(--color-muted);margin-top:0.125rem">Greenville, SC</p>
+            </div>
+          </div>
+
           <div class="sidebar-card">
             <p class="sidebar-card__title">Board Certifications</p>
             <div class="footer__links" style="gap:0.5rem">
@@ -1680,7 +1679,7 @@ export function renderDrHendry(): string {
 </body>
 </html>`;
 
-  return injectSEOIntoHTML(html, seo as any);
+  return html;
 }
 
 /* ============================================================

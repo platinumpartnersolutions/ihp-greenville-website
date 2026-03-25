@@ -451,6 +451,9 @@ Dr. William Hendry biography and credentials page. Full credential verification 
 ${BASE_URL}/blog
 Health and wellness blog. Expert articles on acupuncture, functional medicine, Chinese medicine, and integrative health.
 
+${BASE_URL}/contact
+Contact page. Schedule an appointment with Dr. William Hendry at Integrative Health Partners. Address: 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. Phone: (864) 365-6156. Email: info@ihpgreenville.com.
+
 ## Service Category Pages
 
 ${BASE_URL}/services/acupuncturist-services

@@ -494,6 +494,7 @@ function getDrHendrySEO(): PageSEO {
         "identifier": [
           { "@type": "PropertyValue", "name": "NPI", "value": "1417184045" },
           { "@type": "PropertyValue", "name": "SC License", "value": "ACUP141" },
+          { "@type": "PropertyValue", "name": "FL License", "value": "AP2646" },
           { "@type": "PropertyValue", "name": "NCCAOM", "value": "114498" }
         ],
         "memberOf": [
@@ -650,7 +651,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
     <loc>${BASE_URL}/conditions/${slug}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
   </url>`;
   }
 
@@ -660,7 +661,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
     <loc>${BASE_URL}/conditions/${slug}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>`;
   }
 
