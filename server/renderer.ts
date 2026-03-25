@@ -711,6 +711,22 @@ export function renderHome(): string {
       </div>
     </section>
 
+    <!-- Office Photo Gallery -->
+    <section class="section" aria-label="Inside Our Greenville Clinic">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:2rem">
+          <span class="section-label reveal">Our Clinic</span>
+          <h2 class="section-title reveal reveal-delay-1">Inside Integrative Health Partners</h2>
+          <p class="section-sub reveal reveal-delay-2">A welcoming, professional environment where traditional Eastern medicine meets evidence-based Western care.</p>
+        </div>
+        <div class="clinic-gallery reveal">
+          <img src="/images/clinic/room1.jpg" alt="Acupuncture treatment room at Integrative Health Partners — treatment table, traditional Chinese physician art, and anatomical model" loading="lazy" width="600" height="260" />
+          <img src="/images/clinic/pharmacy.jpg" alt="In-house herbal pharmacy at IHP Greenville stocked with professional-grade herbs, supplements, and botanical formulas" loading="lazy" width="600" height="260" />
+          <img src="/images/clinic/hallway.jpg" alt="IHP clinic hallway with chalkboard listing Acupuncture, Chinese Herbs, and Functional Medicine — call 365-6156" loading="lazy" width="600" height="260" />
+        </div>
+      </div>
+    </section>
+
     <!-- Section 5: FAQ -->
     <section class="section section--card" aria-labelledby="faq-heading">
       <div class="container">
@@ -828,6 +844,14 @@ export function renderCategory(catSlug: string): string | null {
 
   const otherCats = categoryDefinitions.filter(c => c.slug !== catSlug);
 
+  const catPhotos: Record<string, { src: string; alt: string }> = {
+    "acupuncturist-greenville-sc": { src: "/images/clinic/room2.jpg", alt: "Acupuncture treatment room at IHP Greenville — treatment table with meridian charts and TDP heat lamp" },
+    "acupuncture-clinic-greenville-sc": { src: "/images/clinic/room3.jpg", alt: "Prepared acupuncture treatment table at Integrative Health Partners, Greenville SC" },
+    "chinese-medicine-clinic-greenville-sc": { src: "/images/clinic/pharmacy.jpg", alt: "Full in-house herbal pharmacy at IHP — professional Chinese herbs, supplements, and botanical formulas" },
+    "alternative-medicine-practitioner-greenville-sc": { src: "/images/clinic/products.jpg", alt: "Ozone therapy, Perfect Amino, and integrative wellness products available at IHP Greenville" },
+  };
+  const catPhoto = catPhotos[catSlug];
+
   const faqItems = [
     {
       q: `What ${cat.name.toLowerCase()} services do you offer in Greenville, SC?`,
@@ -864,6 +888,11 @@ export function renderCategory(catSlug: string): string | null {
             <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
           </div>
         </div>
+
+        ${catPhoto ? `
+        <figure class="clinic-photo-card reveal" style="max-width:52rem;margin-bottom:2rem">
+          <img src="${catPhoto.src}" alt="${catPhoto.alt}" loading="lazy" width="800" height="260" />
+        </figure>` : ""}
 
         <!-- Service Grid -->
         <h2 class="font-heading" style="font-size:1.25rem;font-weight:600;margin-bottom:1.25rem" id="services-list">
@@ -1808,6 +1837,11 @@ export function renderAbout(): string {
             <p>Dr. Hendry prescribes custom herbal formulations tailored to each patient's constitution and condition — not a one-size-fits-all supplement. Our pharmacy includes classical formulas, granule extracts, and single-herb preparations. Every product meets rigorous quality standards for purity and potency. For patients managing complex conditions like <a href="/conditions/autoimmune-disease" class="internal-link">autoimmune disease</a>, <a href="/conditions/hormone-imbalance" class="internal-link">hormone imbalance</a>, or <a href="/conditions/chronic-fatigue" class="internal-link">chronic fatigue</a>, the herbal pharmacy is an essential component of the healing process.</p>
           </section>
 
+          <figure class="clinic-photo-card reveal">
+            <img src="/images/clinic/pharmacy.jpg" alt="In-house herbal pharmacy at Integrative Health Partners — hundreds of professional-grade herbs, formulas, and supplements" loading="lazy" width="800" height="260" />
+            <figcaption>Our full in-house herbal pharmacy — professional-grade formulas, granule extracts, and single-herb preparations dispensed same-day at your appointment.</figcaption>
+          </figure>
+
           <section class="content-section">
             <h2>What Makes IHP Different</h2>
             <ul class="styled-list">
@@ -1857,6 +1891,15 @@ export function renderAbout(): string {
         </div>
 
         <aside class="sidebar">
+          <div class="sidebar-card" style="padding:0;overflow:hidden">
+            <div class="sidebar-photo">
+              <img src="/images/clinic/waiting.jpg" alt="Waiting area at Integrative Health Partners — peaceful setting with traditional Chinese landscape art" loading="lazy" width="400" height="180" />
+            </div>
+            <div style="padding:0.875rem 1.25rem">
+              <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.6">Our welcoming waiting area at 319 Wade Hampton Blvd, Suite A, Greenville, SC.</p>
+            </div>
+          </div>
+
           <div class="sidebar-card" style="text-align:center">
             <img src="/images/dr-hendry.jpg"
               alt="Dr. William Hendry, DAOM — Acupuncturist and Functional Medicine Practitioner, Greenville SC"
@@ -2182,6 +2225,12 @@ export function renderContact(): string {
             </iframe>
           </div>
 
+          <!-- Clinic Photo -->
+          <figure class="clinic-photo-card reveal" style="margin-bottom:2rem">
+            <img src="/images/clinic/waiting.jpg" alt="Waiting area at Integrative Health Partners — comfortable and decorated with traditional Chinese landscape art" loading="lazy" width="800" height="260" />
+            <figcaption>Our welcoming waiting area — a peaceful environment to begin your healing journey at Integrative Health Partners, Greenville, SC.</figcaption>
+          </figure>
+
           <!-- Driving Directions -->
           <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.75rem;margin-bottom:2rem" class="reveal">
             <h2 class="font-display" style="font-size:1.375rem;margin-bottom:1rem">Getting Here</h2>
@@ -2250,13 +2299,23 @@ export function renderContact(): string {
           </div>
 
           <!-- Quick Links -->
-          <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.5rem">
+          <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.5rem;margin-bottom:1.5rem">
             <h3 class="font-display" style="font-size:1.125rem;margin-bottom:0.875rem">About Our Practice</h3>
             <div style="display:flex;flex-direction:column;gap:0.5rem">
               <a href="/about" class="internal-link">About Integrative Health Partners</a>
               <a href="/dr-hendry" class="internal-link">Dr. William Hendry, DAOM</a>
               <a href="/conditions" class="internal-link">Conditions We Treat</a>
               <a href="/services/acupuncturist-services" class="internal-link">Acupuncturist Services</a>
+            </div>
+          </div>
+
+          <!-- Clinic Exterior Photo -->
+          <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;overflow:hidden">
+            <div class="sidebar-photo">
+              <img src="/images/clinic/exterior.jpg" alt="Exterior entrance of Integrative Health Partners clinic at 319 Wade Hampton Blvd, Greenville SC" loading="lazy" width="400" height="180" />
+            </div>
+            <div style="padding:0.875rem 1.25rem">
+              <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.6;font-weight:500">319 Wade Hampton Blvd, Suite A<br>Greenville, SC 29609</p>
             </div>
           </div>
         </aside>
