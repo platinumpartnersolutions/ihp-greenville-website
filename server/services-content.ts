@@ -2668,4 +2668,78 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Can I just buy these online?", a: "Some professional brands allow online purchase; others are exclusively through licensed providers. Dr. Hendry recommends the most appropriate product for your condition, which may or may not be exclusively available through clinical channels." },
       { q: "Are there fake vitamins online?", a: "Yes — multiple studies have found Amazon and other marketplaces selling counterfeit, mislabeled, or contaminated supplements. Purchasing from known, reputable sources (directly from manufacturers or licensed providers) is the safest approach." },
       { q: "Does IHP have a supplement dispensary?", a: "Yes — Integrative Health Partners maintains an in-house professional supplement dispensary for patient convenience, allowing same-day dispensing of prescribed supplements at your appointment." },
-      { q: "Where can I get professional grade vitamins in Greenville, SC?", a: "
+      { q: "Where can I get professional grade vitamins in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156." },
+    ],
+  },
+  {
+    slug: "nutritional-supplements",
+    opening: `Nutritional supplements — vitamins, minerals, amino acids, enzymes, and botanical extracts — are a cornerstone of integrative and functional medicine when used correctly. At Integrative Health Partners in Greenville, SC, Dr. William Hendry prescribes nutritional supplements based on objective lab testing and clinical assessment, not guesswork or generalized wellness trends. Every supplement recommendation is specific to your biochemistry, therapeutic goals, and current medication profile.`,
+    howItWorks: `Nutritional supplement prescribing at IHP follows a clinical methodology: identify deficiencies and therapeutic targets through functional blood chemistry, organic acids testing, or specialty panels; select the most bioavailable form at therapeutic dose; monitor for response and adjust. Dr. Hendry uses only professional-grade supplements from manufacturers with third-party testing and cGMP compliance.`,
+    conditionsTreated: [
+      { name: "Chronic Fatigue", slug: "chronic-fatigue" }, { name: "Neuropathy", slug: "neuropathy" }, { name: "Chronic Illness", slug: "chronic-illness" },
+    ],
+    firstAppointment: `Bring all current supplements and medications so Dr. Hendry can evaluate interactions, duplications, and gaps in your current regimen.`,
+    whyDrHendry: `Dr. Hendry's dual training in Chinese herbal medicine and evidence-based functional medicine gives him an unusually comprehensive perspective on supplementation — he understands both traditional and modern applications.`,
+    faqs: [
+      { q: "How do I know which supplements I actually need?", a: "Dr. Hendry uses functional lab testing to identify specific deficiencies and therapeutic targets rather than prescribing supplements based on symptoms alone." },
+      { q: "Are supplements safe to take with medications?", a: "Some are, some aren't. Herb-drug and nutrient-drug interactions are real. Dr. Hendry screens all supplement recommendations against your medication profile." },
+      { q: "How long before I notice results from supplements?", a: "Water-soluble nutrients (B vitamins, vitamin C) can show effects within days to weeks. Fat-soluble vitamins (D, K), minerals, and adaptogens typically require 4–12 weeks for measurable clinical change." },
+      { q: "Do I need supplements if I eat well?", a: "Possibly. Soil depletion, food processing, genetic polymorphisms (MTHFR, etc.), and increased physiological demands from chronic illness mean even excellent diets may not provide therapeutic levels of all nutrients." },
+      { q: "Where can I get nutritional supplement recommendations in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156." },
+    ],
+  },
+  {
+    slug: "nutritional-counseling",
+    opening: `Nutritional counseling at Integrative Health Partners goes far beyond generic dietary advice. Dr. William Hendry provides individualized nutrition guidance rooted in functional medicine principles — connecting what you eat to how your body functions at a biochemical level. Whether you are managing a chronic condition, recovering from illness, optimizing athletic performance, or addressing digestive dysfunction, nutritional counseling identifies the specific dietary patterns, deficiencies, and food sensitivities driving your symptoms.`,
+    howItWorks: `Nutritional counseling sessions include a detailed dietary history, food-symptom correlation analysis, review of relevant lab markers (inflammatory markers, blood sugar, lipids, nutrient levels), and development of a personalized nutrition plan. This is not calorie counting — it is clinical nutrition targeted to your biochemistry and health goals. Follow-up sessions track progress, adjust recommendations, and address barriers to compliance.`,
+    conditionsTreated: [
+      { name: "Digestive Issues", slug: "digestive-issues" }, { name: "Autoimmune Disease", slug: "autoimmune-disease" }, { name: "Chronic Fatigue", slug: "chronic-fatigue" },
+    ],
+    firstAppointment: `Keep a 3-day food diary (everything you eat and drink, with approximate times) before your appointment. This gives Dr. Hendry a realistic baseline to work from.`,
+    whyDrHendry: `Dr. Hendry's training in Chinese dietary therapy (food as medicine) combined with modern functional nutrition gives him a uniquely holistic perspective on how food interacts with your individual constitution and health conditions.`,
+    faqs: [
+      { q: "Is nutritional counseling the same as seeing a dietitian?", a: "Not exactly. Dr. Hendry's approach integrates functional medicine lab interpretation, Chinese medicine dietary theory, and clinical nutrition — providing a more comprehensive framework than standard dietetic counseling." },
+      { q: "Will I have to follow a restrictive diet?", a: "The goal is finding the most liberal, sustainable diet that supports your health. Elimination phases may be necessary short-term to identify reactive foods, but long-term dietary diversity is always the objective." },
+      { q: "Can nutrition really help chronic disease?", a: "Extensive research supports dietary intervention for autoimmune conditions, metabolic syndrome, cardiovascular disease, digestive disorders, and neurological conditions. Food is not a replacement for all medical treatment, but it is a foundational variable." },
+      { q: "Do you recommend specific diets like keto or paleo?", a: "Dr. Hendry recommends dietary patterns based on your individual lab results, symptoms, and health goals — not ideology. A protocol that works for one patient may be counterproductive for another." },
+      { q: "Where can I get nutritional counseling in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156." },
+    ],
+  },
+  {
+    slug: "nutrition-therapy",
+    opening: `Nutrition therapy uses targeted dietary interventions as a primary treatment modality for specific health conditions. At Integrative Health Partners, Dr. William Hendry applies nutrition therapy principles from both functional medicine and traditional Chinese dietary therapy — using food as medicine to address the biochemical drivers of chronic disease, inflammation, and metabolic dysfunction.`,
+    howItWorks: `Nutrition therapy is more clinically targeted than general dietary counseling. It involves identifying specific biochemical imbalances through lab testing (inflammatory markers, blood sugar dysregulation, nutrient deficiencies, food sensitivities), then prescribing dietary protocols designed to correct those imbalances. This may include therapeutic elimination diets, anti-inflammatory protocols, gut-healing diets, blood sugar stabilization plans, or condition-specific dietary strategies.`,
+    conditionsTreated: [
+      { name: "Autoimmune Disease", slug: "autoimmune-disease" }, { name: "Digestive Issues", slug: "digestive-issues" }, { name: "Chronic Illness", slug: "chronic-illness" },
+    ],
+    firstAppointment: `Bring recent lab work if available. Dr. Hendry may order additional functional testing to guide nutrition therapy recommendations specific to your biochemistry.`,
+    whyDrHendry: `Dr. Hendry's background in Chinese dietary therapy — which has used food as medicine for over 2,000 years — combined with modern functional nutrition science provides a uniquely comprehensive therapeutic dietary framework.`,
+    faqs: [
+      { q: "How is nutrition therapy different from nutritional counseling?", a: "Nutrition therapy is more condition-specific and lab-driven — it uses dietary interventions as a primary treatment modality for diagnosed conditions, while nutritional counseling may focus more broadly on dietary optimization and education." },
+      { q: "Can nutrition therapy replace medication?", a: "In some cases, dietary changes can reduce or eliminate the need for certain medications — particularly for metabolic conditions, digestive disorders, and inflammatory conditions. This should always be done under clinical supervision." },
+      { q: "What is an anti-inflammatory diet?", a: "Anti-inflammatory diets emphasize whole foods, omega-3 fatty acids, colorful vegetables, and targeted exclusion of inflammatory triggers (processed foods, refined sugars, seed oils, and individual food sensitivities). The specific protocol varies by patient." },
+      { q: "How long does nutrition therapy take to show results?", a: "Many patients notice improvements in energy, digestion, and symptom severity within 2–4 weeks. Measurable lab changes typically require 8–12 weeks of consistent dietary implementation." },
+      { q: "Where can I get nutrition therapy in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156." },
+    ],
+  },
+  {
+    slug: "whole-food-nutrition-counseling",
+    opening: `Whole food nutrition counseling emphasizes a dietary approach centered on minimally processed, nutrient-dense whole foods as the foundation of health. At Integrative Health Partners, Dr. William Hendry guides patients toward dietary patterns that maximize nutritional value from real food sources — reducing reliance on processed foods, artificial additives, and nutritionally empty calories that drive inflammation and metabolic dysfunction.`,
+    howItWorks: `Whole food nutrition counseling begins with understanding your current dietary patterns, health history, and therapeutic goals. Dr. Hendry assesses your diet through the dual lens of functional medicine (nutrient density, anti-inflammatory properties, metabolic impact) and Chinese dietary therapy (thermal nature of foods, organ system support, constitutional appropriateness). The result is a practical, sustainable whole-food plan tailored to your body, your condition, and your lifestyle.`,
+    conditionsTreated: [
+      { name: "Digestive Issues", slug: "digestive-issues" }, { name: "Chronic Fatigue", slug: "chronic-fatigue" }, { name: "Autoimmune Disease", slug: "autoimmune-disease" },
+    ],
+    firstAppointment: `No special preparation needed beyond your standard health intake. If you have dietary restrictions (allergies, religious, ethical), mention these so recommendations can be tailored accordingly.`,
+    whyDrHendry: `Dr. Hendry's Chinese medicine training — which has always emphasized whole, natural foods as medicine — combined with his functional medicine expertise creates a uniquely practical and clinically grounded approach to whole food nutrition.`,
+    faqs: [
+      { q: "What counts as a 'whole food'?", a: "Foods in their natural or minimally processed state — vegetables, fruits, whole grains, legumes, nuts, seeds, eggs, fish, and meat. The fewer steps between the farm and your plate, the more 'whole' the food." },
+      { q: "Is whole food nutrition the same as organic?", a: "Not necessarily. 'Whole food' refers to processing level, while 'organic' refers to farming practices. A whole food can be conventionally grown, and an organic food can be highly processed. Both considerations matter, but whole food status is generally more impactful for health." },
+      { q: "Can whole food nutrition help with weight loss?", a: "Yes — whole food diets tend to be more satiating, lower in inflammatory triggers, and better for metabolic function than processed food diets. Many patients experience natural, sustainable weight normalization." },
+      { q: "Do I have to give up all processed food?", a: "The goal is progress, not perfection. Dr. Hendry helps you identify the most impactful dietary changes and build sustainable habits rather than imposing unrealistic all-or-nothing rules." },
+      { q: "Where can I get whole food nutrition counseling in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156." },
+    ],
+  },
+];
+
+contents.forEach(c => serviceContentMap.set(c.slug, c));
+standardContents.forEach(c => serviceContentMap.set(c.slug, c));

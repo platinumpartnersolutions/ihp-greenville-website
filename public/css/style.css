@@ -488,6 +488,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* Placeholder notice */
 .placeholder-notice { background: rgba(47,129,74,0.06); border-left: 4px solid var(--color-primary); padding: 1rem 1.5rem; border-radius: 0 0.5rem 0.5rem 0; color: var(--color-muted); font-style: italic; font-size: 0.9375rem; line-height: 1.65; margin-bottom: 1rem; }
 
+/* Tag link variant */
+.tag--link { text-decoration: none; transition: background 0.2s, color 0.2s; cursor: pointer; }
+.tag--link:hover { background: var(--color-primary); color: #fff; }
+
 /* --- Footer --- */
 footer { background: var(--color-foreground); color: white; padding: 4rem 0 2rem; }
 .footer__grid { display: grid; gap: 2.5rem; margin-bottom: 3rem; }

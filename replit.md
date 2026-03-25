@@ -3,6 +3,13 @@
 ## Overview
 Local SEO-focused website for Integrative Health Partners, a functional medicine and acupuncture practice in Greenville, SC. The site aligns with their Google Business Profile structure, featuring 4 GBP category pages and 130 individual service pages.
 
+## Recent Changes (March 2026 — Task #5)
+- **Homepage restructured**: New H1 "Integrative Functional Medicine & Acupuncture in Greenville, SC", 6-section layout (hero, E-E-A-T credentials, conditions, services, why IHP, NAP/contact), 8-question FAQPage schema, enhanced Physician schema
+- **All 130 service pages now have unique content**: `server/services-content.ts` (2748 lines) contains 9 core money pages (1500-2500 words each with research, cost info, treatment timelines) and 121 standard pages (800+ words each with opening, how-it-works, conditions treated, first appointment, why Dr. Hendry, 5-6 FAQs)
+- **`renderService()` rewritten**: Uses `serviceContentMap` to render rich content sections — core pages get 7+ sections, standard pages get 5+ sections, with graceful fallback for any missing entries
+- **Condition cross-links**: Service pages link to related condition pages via `.tag--link` styled links
+- **`server/services-content.ts`**: Exports `serviceContentMap` (Map<string, ServiceContent>); interface includes optional fields: `howItWorksSteps`, `comparison`, `research`, `costInfo`, `timeline`, `relatedServiceSlugs`
+
 ## Recent Changes (March 2026 — Task #3)
 - **Conditions section added**: `/conditions/` hub, 4 category pages, 30 individual condition pages with full content (definitions, symptoms, root causes, treatment, Dr. Hendry approach, 5 FAQs each)
 - **`server/conditions.ts`**: All 30 condition data objects + 4 category definitions with opening paragraphs; exports `conditionMap`, `conditionCategoryMap`

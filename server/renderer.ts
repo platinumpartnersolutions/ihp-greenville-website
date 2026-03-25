@@ -1,5 +1,6 @@
 import { categoryDefinitions, allServices, serviceMap, categoryMap, NAP, BASE_URL, getConditionCategorySEO, getConditionPageSEO, injectSEOIntoHTML } from "./seo";
 import { conditions, conditionCategories, conditionMap, conditionCategoryMap } from "./conditions";
+import { serviceContentMap } from "./services-content";
 import type { BlogPost } from "@shared/schema";
 
 const createSlug = (name: string): string =>
@@ -785,32 +786,93 @@ export function renderService(svcSlug: string): string | null {
   const cat = categoryMap.get(service.categorySlug);
   if (!cat) return null;
 
+  const baseSlug = svcSlug.replace(/-greenville-sc$/, "");
+  const content = serviceContentMap.get(baseSlug);
+
   const relatedServices = allServices
     .filter(s => s.categorySlug === service.categorySlug && s.slug !== svcSlug)
     .slice(0, 8);
 
-  const whatToExpectItems = [
-    "An in-depth health history and lifestyle consultation",
-    "A comprehensive assessment of your chief complaint and related symptoms",
-    "Development of a personalized treatment plan",
-    "A comfortable and professional treatment session",
-    "Post-treatment guidance and self-care recommendations",
-  ];
+  const faqItems = content
+    ? content.faqs
+    : [
+        { q: `How does ${service.name} work?`, a: `${service.name} is an evidence-based treatment offered at Integrative Health Partners in Greenville, SC. Dr. Hendry conducts a thorough assessment to understand your individual health needs and creates a customized treatment protocol to address the root cause of your condition.` },
+        { q: `How many ${service.name} sessions will I need?`, a: `The number of sessions depends on your specific condition and its chronicity. Acute conditions typically require 3–6 sessions, while chronic conditions may need 8–12 or more sessions. Dr. Hendry will outline a recommended treatment schedule during your initial consultation.` },
+        { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. Call (864) 365-6156 to schedule your appointment with Dr. William Hendry.` },
+      ];
 
-  const faqItems = [
-    {
-      q: `How does ${service.name} work?`,
-      a: `${service.name} is an evidence-based treatment offered at Integrative Health Partners in Greenville, SC. Dr. Hendry conducts a thorough assessment to understand your individual health needs and creates a customized treatment protocol to address the root cause of your condition.`,
-    },
-    {
-      q: `How many ${service.name} sessions will I need?`,
-      a: `The number of sessions depends on your specific condition and its chronicity. Acute conditions typically require 3–6 sessions, while chronic conditions may need 8–12 or more sessions. Dr. Hendry will outline a recommended treatment schedule during your initial consultation.`,
-    },
-    {
-      q: `Where is ${service.name} available in Greenville, SC?`,
-      a: `${service.name} is available at Integrative Health Partners, located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. Call (864) 365-6156 to schedule your appointment with Dr. William Hendry.`,
-    },
-  ];
+  const conditionsLinksHtml = content && content.conditionsTreated.length > 0
+    ? `<div style="margin-top:2.5rem;margin-bottom:2rem" class="reveal">
+        <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Conditions Treated with ${service.name}</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+          ${content.conditionsTreated.map(ct => `<a href="/conditions/${ct.slug}" class="tag tag--link">${ct.name}</a>`).join("")}
+        </div>
+      </div>`
+    : "";
+
+  const comparisonHtml = content && content.comparison
+    ? `<div class="highlight-box reveal" style="margin-top:2rem;margin-bottom:2rem">
+        <h3 class="font-heading" style="font-size:1.25rem;font-weight:600;margin-bottom:0.75rem">${content.comparison.title}</h3>
+        <p style="color:var(--color-muted);line-height:1.75">${content.comparison.text}</p>
+      </div>`
+    : "";
+
+  const researchHtml = content && content.research
+    ? `<div class="reveal" style="margin-top:2rem;margin-bottom:2rem">
+        <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Research & Evidence</h2>
+        <p style="color:var(--color-muted);line-height:1.75">${content.research}</p>
+      </div>`
+    : "";
+
+  const costHtml = content && content.costInfo
+    ? `<div class="reveal" style="margin-top:2rem;margin-bottom:2rem">
+        <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Cost & Insurance Information</h2>
+        <p style="color:var(--color-muted);line-height:1.75">${content.costInfo}</p>
+      </div>`
+    : "";
+
+  const timelineHtml = content && content.timeline && content.timeline.length > 0
+    ? `<div class="reveal" style="margin-top:2rem;margin-bottom:2rem">
+        <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1.25rem">Treatment Timeline</h2>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          ${content.timeline.map((t, i) => `
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="min-width:2.5rem;height:2.5rem;border-radius:50%;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:0.875rem">${i + 1}</div>
+            <div><strong style="display:block;margin-bottom:0.25rem">${t.label}</strong><span style="color:var(--color-muted);line-height:1.65">${t.desc}</span></div>
+          </div>`).join("")}
+        </div>
+      </div>`
+    : "";
+
+  const stepsHtml = content && content.howItWorksSteps && content.howItWorksSteps.length > 0
+    ? `<div style="display:flex;flex-direction:column;gap:0.875rem;margin-bottom:2rem">
+        ${content.howItWorksSteps.map(step => `<div class="check-item reveal">${icons.checkCircle}<span>${step}</span></div>`).join("")}
+      </div>`
+    : "";
+
+  const openingHtml = content
+    ? content.opening.split("\n\n").map(p => `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">${p}</p>`).join("")
+    : `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">At Integrative Health Partners in Greenville, SC, Dr. William Hendry provides expert ${service.name} as part of our comprehensive ${cat.name.toLowerCase()} services. Every treatment is personalized to your unique health history and therapeutic goals. Dr. Hendry draws on 25+ years of clinical experience and ongoing research to deliver the highest standard of integrative care.</p>`;
+
+  const howItWorksHtml = content
+    ? `<h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2.5rem;margin-bottom:1rem">How ${service.name} Works</h2>
+       ${content.howItWorks.split("\n\n").map(p => `<p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">${p}</p>`).join("")}
+       ${stepsHtml}`
+    : "";
+
+  const firstApptHtml = content
+    ? `<div class="highlight-box--compact reveal" style="margin-top:2rem;margin-bottom:2rem">
+        <h3 class="font-heading" style="font-size:1.125rem;font-weight:600;margin-bottom:0.5rem">${icons.calendar} Your First Appointment</h3>
+        <p style="color:var(--color-muted);line-height:1.65;font-size:0.9375rem">${content.firstAppointment}</p>
+      </div>`
+    : "";
+
+  const whyDrHendryHtml = content
+    ? `<div class="reveal" style="margin-top:2rem;margin-bottom:2rem">
+        <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Why Dr. Hendry for ${service.name}</h2>
+        <p style="color:var(--color-muted);line-height:1.75">${content.whyDrHendry}</p>
+      </div>`
+    : "";
 
   return `${renderHead(service.metaTitle, service.metaDescription)}
 <body data-page="service">
@@ -824,7 +886,6 @@ export function renderService(svcSlug: string): string | null {
       ])}
 
       <div class="main-sidebar">
-        <!-- Main Content -->
         <article>
           <span class="tag" style="margin-bottom:1rem;display:inline-block">${cat.name} Services</span>
           <h1 class="section-title reveal" style="margin-bottom:1.25rem">${service.name} in Greenville, SC</h1>
@@ -832,32 +893,17 @@ export function renderService(svcSlug: string): string | null {
             ${service.metaDescription}
           </p>
 
-          <div class="placeholder-notice reveal">
-            <strong>Note:</strong> Detailed content for this service page is coming soon. 
-            Please call us at (864) 365-6156 for complete information about our ${service.name} treatments.
-          </div>
+          ${openingHtml}
+          ${howItWorksHtml}
+          ${conditionsLinksHtml}
+          ${comparisonHtml}
+          ${researchHtml}
+          ${costHtml}
+          ${timelineHtml}
+          ${firstApptHtml}
+          ${whyDrHendryHtml}
 
-          <h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2rem;margin-bottom:1rem">About ${service.name}</h2>
-          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem" class="reveal">
-            At Integrative Health Partners in Greenville, SC, Dr. William Hendry provides expert ${service.name} 
-            as part of our comprehensive ${cat.name.toLowerCase()} services. Every treatment is personalized to 
-            your unique health history and therapeutic goals. Dr. Hendry draws on 25+ years of clinical experience 
-            and ongoing research to deliver the highest standard of integrative care.
-          </p>
-          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">
-            As a board-certified NCCAOM Diplomate of Oriental Medicine and holder of hospital privileges at 
-            Prisma Health, Dr. Hendry integrates the best of Traditional Chinese Medicine and modern functional 
-            medicine to create treatment plans that achieve lasting results.
-          </p>
-
-          <h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2rem;margin-bottom:1rem">What to Expect at Your Appointment</h2>
-          <div style="display:flex;flex-direction:column;gap:0.875rem;margin-bottom:2rem">
-            ${whatToExpectItems.map(item => `
-            <div class="check-item reveal">${icons.checkCircle}<span>${item}</span></div>`).join("")}
-          </div>
-
-          <!-- FAQ -->
-          <h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2.5rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
           ${faqItems.map(faq => `
           <div class="faq-item reveal">
             <button class="faq-btn" aria-expanded="false">
@@ -869,7 +915,6 @@ export function renderService(svcSlug: string): string | null {
             </div>
           </div>`).join("")}
 
-          <!-- Related Services -->
           ${relatedServices.length > 0 ? `
           <div style="margin-top:3rem">
             <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">
@@ -887,7 +932,6 @@ export function renderService(svcSlug: string): string | null {
           </div>` : ""}
         </article>
 
-        <!-- Sidebar -->
         <aside class="sidebar">
           <div class="cta-box">
             <h3 class="cta-box__title">Ready to Get Started?</h3>
