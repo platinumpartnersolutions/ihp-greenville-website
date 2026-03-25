@@ -651,6 +651,9 @@ footer { background: var(--color-foreground); color: white; padding: 4rem 0 2rem
 }
 .highlight-box p { color: var(--color-muted); line-height: 1.75; font-size: 1.0375rem; margin-bottom: 0.875rem; }
 .highlight-box p:last-child { margin-bottom: 0; }
+.highlight-box--compact { padding: 1rem 1.25rem; margin: 0.875rem 0; }
+.highlight-box--compact strong { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; color: var(--color-primary); }
+.highlight-box--compact svg { width: 1rem; height: 1rem; flex-shrink: 0; }
 
 /* --- Publications list --- */
 .publications-list { display: flex; flex-direction: column; gap: 1rem; margin: 1.25rem 0; }

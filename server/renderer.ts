@@ -300,29 +300,48 @@ function starRow(n = 5): string {
    ============================================================ */
 export function renderHome(): string {
   const featuredServices = [
-    { name: "Acupuncture Therapy", slug: "acupuncture-therapy", icon: icons.leaf, text: "Traditional needle-based therapy that stimulates the body's natural healing systems to relieve pain, reduce stress, and restore balance." },
-    { name: "Cupping Therapy", slug: "cupping-therapy", icon: icons.activity, text: "Ancient Chinese technique using suction cups to increase circulation, release muscle tension, and promote tissue healing." },
-    { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine", icon: icons.leaf, text: "Custom herbal formulas rooted in 2,000+ years of tradition, prescribed to address the root cause of your health concerns." },
-    { name: "Functional Medicine", slug: "alternative-medicine-practitioner-services", icon: icons.activity, text: "Comprehensive, systems-based approach to find and treat the underlying causes of chronic illness and disease." },
-    { name: "Dry Needling Therapy", slug: "dry-needling-therapy", icon: icons.activity, text: "Targets trigger points and myofascial pain to release muscle tension, reduce pain, and restore normal movement patterns." },
-    { name: "Ozone Therapy", slug: "ozone-therapy", icon: icons.shield, text: "Medical-grade ozone treatment that stimulates the immune system, reduces inflammation, and promotes cellular regeneration." },
+    { name: "Acupuncture Therapy", slug: "acupuncture-therapy", icon: icons.leaf, text: "Traditional needle-based therapy stimulates the body's natural healing response to relieve pain, reduce stress, and restore physiological balance." },
+    { name: "Dry Needling Therapy", slug: "dry-needling-therapy", icon: icons.activity, text: "Precision targeting of myofascial trigger points to release stubborn muscle tension, reduce pain signaling, and restore normal movement patterns." },
+    { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine", icon: icons.leaf, text: "Custom herbal formulas prescribed from our in-house pharmacy — rooted in 2,000 years of clinical tradition, tailored to your constitution and condition." },
+    { name: "Functional Medicine", slug: "functional-medicine-consultation", icon: icons.activity, text: "Systems-based investigation to identify the root biological causes of chronic illness — gut health, hormonal imbalance, inflammation, and nutritional status." },
+    { name: "Ozone Therapy", slug: "ozone-therapy", icon: icons.shield, text: "Medical-grade ozone stimulates the immune system, reduces oxidative inflammation, and promotes cellular regeneration for chronic and systemic conditions." },
+    { name: "Electroacupuncture", slug: "electroacupuncture", icon: icons.activity, text: "Enhanced acupuncture using micro-electrical stimulation to amplify therapeutic effects — particularly effective for neuropathy, chronic pain, and muscle rehab." },
   ];
 
   const testimonials = [
     { text: "Dr. Hendry has been absolutely life-changing for me. After years of chronic back pain and failed conventional treatments, acupuncture finally gave me my life back. His expertise and compassion are unmatched.", author: "Sarah M." },
     { text: "I was skeptical about acupuncture at first, but after just 6 sessions with Dr. Hendry, my migraines have reduced dramatically. The team is professional, caring, and genuinely invested in your recovery.", author: "James T." },
     { text: "I came to Integrative Health Partners for fertility support after years of trying. Dr. Hendry's integrative approach — combining acupuncture with Chinese herbs — made all the difference. Forever grateful.", author: "Maria L." },
+    { text: "The functional medicine approach Dr. Hendry uses is unlike anything I've experienced. He found the root cause of my fatigue and hormone issues in the first visit. I finally feel like myself again.", author: "Christine B." },
   ];
 
   const homeFAQs = [
-    { q: "What conditions does acupuncture treat?", a: "Acupuncture has been shown to effectively treat a wide range of conditions including chronic pain (back pain, neck pain, sciatica), headaches and migraines, stress and anxiety, insomnia, digestive disorders, fertility issues, and more. Dr. Hendry will conduct a comprehensive evaluation to determine the best treatment approach for your specific needs." },
-    { q: "How many acupuncture sessions will I need?", a: "The number of sessions varies depending on your condition, its severity, and how long you've had it. Acute conditions may resolve in 3–6 sessions, while chronic conditions often require 8–12 sessions or ongoing maintenance care. Dr. Hendry will create a personalized treatment plan during your initial consultation." },
-    { q: "Does acupuncture hurt?", a: "Most patients experience little to no discomfort during acupuncture. The needles used are very thin — much finer than hypodermic needles — and most people feel a mild tingling or warmth at the insertion sites. Many patients report feeling deeply relaxed during and after treatment." },
-    { q: "Is Integrative Health Partners accepting new patients?", a: "Yes, we are currently accepting new patients. Call us at (864) 365-6156 or email info@ihpgreenville.com to schedule your initial consultation with Dr. William Hendry." },
-    { q: "Do you accept insurance for acupuncture?", a: "We recommend checking with your insurance provider about your specific acupuncture benefits. Our staff is happy to help you understand your coverage options. We also offer transparent self-pay rates and will work with you on a payment plan if needed." },
+    { q: "What conditions does acupuncture treat?", a: "Acupuncture has clinical evidence for a broad range of conditions: chronic pain (back pain, sciatica, neck pain, fibromyalgia), headaches and migraines, anxiety, insomnia, digestive disorders, hormonal imbalances, fertility challenges, and more. Dr. Hendry also integrates functional medicine testing to address root biological causes — not just symptom relief." },
+    { q: "What is functional medicine and how is it different from conventional care?", a: "Functional medicine identifies the underlying biological drivers of chronic illness — gut dysbiosis, hormonal imbalances, nutritional deficiencies, systemic inflammation — and addresses them directly rather than managing symptoms with medication. Dr. Hendry uses advanced diagnostic testing to build a root-cause treatment plan for conditions that conventional care often struggles to resolve long-term." },
+    { q: "How many sessions will I need?", a: "Acute conditions typically improve in 3–6 sessions. Chronic or complex conditions usually require 8–12 sessions, with some patients benefiting from ongoing maintenance care. Dr. Hendry will outline a realistic treatment timeline during your first visit based on your specific history and presentation." },
+    { q: "Does acupuncture hurt?", a: "Most patients experience little to no discomfort. Acupuncture needles are hair-thin — far finer than a hypodermic needle — and most people feel a mild sensation of warmth or tingling at the insertion point. Many patients fall asleep during their session. Dr. Hendry adjusts needle depth and stimulation based on each patient's sensitivity." },
+    { q: "What makes Dr. Hendry different from other acupuncturists in Greenville, SC?", a: "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) — the highest doctoral credential in the field — and is NCCAOM board-certified (Cert. #114498). He held hospital privileges at Prisma Health for 9 years and co-authored a landmark 3-year Emergency Department study on needling techniques as alternatives to opioids. His 5 peer-reviewed publications and 52 citations reflect a level of clinical scholarship rare in integrative medicine." },
+    { q: "Do you offer ozone therapy and injection therapy in Greenville, SC?", a: "Yes. Dr. Hendry is an Injection Therapy-certified practitioner and a member of the American Academy of Ozone Therapy (AAOT). We offer medical ozone therapy, biopuncture, and nutrient injection therapies that most local clinics cannot provide. Call (864) 365-6156 to ask whether these therapies are appropriate for your condition." },
+    { q: "Is Integrative Health Partners accepting new patients?", a: "Yes, we are currently welcoming new patients. Call (864) 365-6156 or email info@ihpgreenville.com to schedule your initial consultation with Dr. William Hendry at our Greenville, SC office (319 Wade Hampton Blvd, Suite A)." },
+    { q: "Do you accept insurance for acupuncture or functional medicine?", a: "We recommend calling your insurance provider to ask about your acupuncture benefits before your first visit. Our staff is happy to assist with insurance questions. We offer transparent self-pay rates and can discuss payment options during your consultation." },
   ];
 
-  return `${renderHead()}
+  const conditionHighlights = [
+    { name: "Back Pain", slug: "back-pain", cat: "Pain & Musculoskeletal" },
+    { name: "Sciatica", slug: "sciatica", cat: "Pain & Musculoskeletal" },
+    { name: "Anxiety & Stress", slug: "anxiety-stress", cat: "Neurological & Mental Health" },
+    { name: "Insomnia", slug: "insomnia", cat: "Neurological & Mental Health" },
+    { name: "Fertility Support", slug: "fertility", cat: "Hormonal & Women's Health" },
+    { name: "Hormone Imbalance", slug: "hormone-imbalance", cat: "Hormonal & Women's Health" },
+    { name: "IBS & Gut Issues", slug: "ibs-gut-issues", cat: "Digestive & Immune" },
+    { name: "Chronic Fatigue", slug: "chronic-fatigue", cat: "Digestive & Immune" },
+    { name: "Headaches & Migraines", slug: "headaches-migraines", cat: "Neurological & Mental Health" },
+    { name: "Fibromyalgia", slug: "fibromyalgia", cat: "Pain & Musculoskeletal" },
+    { name: "Autoimmune Disease", slug: "autoimmune-disease", cat: "Digestive & Immune" },
+    { name: "Thyroid Issues", slug: "thyroid-issues", cat: "Digestive & Immune" },
+  ];
+
+  return `${renderHead("Integrative Functional Medicine & Acupuncture in Greenville, SC | IHP", "Integrative Health Partners — acupuncture, functional medicine & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges. Call (864) 365-6156.")}
 <body data-page="home">
   ${renderNav(true)}
 
@@ -338,10 +357,10 @@ export function renderHome(): string {
       <div class="hero__content">
         <p class="hero__eyebrow reveal">Greenville, SC's Trusted Integrative Health Practice</p>
         <h1 class="hero__h1 reveal reveal-delay-1 font-display">
-          <em>Acupuncturist</em><br>in Greenville, SC
+          Integrative Functional Medicine<br>&amp; <em>Acupuncture</em> in Greenville, SC
         </h1>
         <p class="hero__subtitle reveal reveal-delay-2">
-          Evidence-based acupuncture, functional medicine &amp; Chinese medicine — helping Greenville patients heal naturally since 2009.
+          Root-cause acupuncture, functional medicine &amp; Chinese medicine — helping Greenville patients heal from the inside out since 2009.
         </p>
         <div class="hero__stars reveal reveal-delay-3">
           <div class="hero__star-row" aria-label="5 star rating">${starRow()}</div>
@@ -356,18 +375,117 @@ export function renderHome(): string {
       </div>
     </section>
 
-    <!-- Categories -->
-    <section class="section" aria-labelledby="categories-heading">
+    <!-- Section 1: E-E-A-T Credentials -->
+    <section class="section section--card" aria-labelledby="credentials-heading">
+      <div class="container">
+        <div class="two-col">
+          <div class="provider-img-wrap reveal">
+            <img src="/assets/take_this_small_blurry_photograph_and_create_1768153917878.jpg"
+              alt="Dr. William Hendry, DAOM — Board-Certified Acupuncturist and Functional Medicine Practitioner in Greenville, SC"
+              class="provider-img" width="480" height="600" loading="lazy" />
+            <div class="provider-badge-overlay" aria-label="Dr. Hendry's degree">
+              <div class="provider-badge-overlay__degree">DAOM</div>
+              <div class="provider-badge-overlay__sub">Doctor of Acupuncture<br>&amp; Oriental Medicine</div>
+            </div>
+          </div>
+          <div>
+            <span class="section-label reveal">Meet Your Provider</span>
+            <h2 class="section-title reveal reveal-delay-1" id="credentials-heading">Dr. William Hendry, DAOM</h2>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.875rem 0 1.25rem" class="reveal reveal-delay-2">
+              <span class="provider-cred-tag">Dipl. O.M. (NCCAOM)®</span>
+              <span class="provider-cred-tag">NCCAOM #114498</span>
+              <span class="provider-cred-tag">SC ACUP141</span>
+              <span class="provider-cred-tag">NPI 1417184045</span>
+            </div>
+
+            <div class="highlight-box highlight-box--compact reveal reveal-delay-2">
+              <strong>${icons.award} Prisma Health — 3-Year Opioid Alternative Study</strong>
+              <p style="margin:0.5rem 0 0;font-size:0.9375rem;line-height:1.65">
+                Dr. Hendry co-authored a landmark 3-year Emergency Department study at Prisma Health on needling techniques as non-opioid alternatives for acute pain management — earning 9 years of hospital privileges, a distinction extremely rare among acupuncturists.
+              </p>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:0.875rem;margin:1.5rem 0 2rem">
+              ${[
+                "25+ years clinical experience in acupuncture and integrative medicine",
+                "5 peer-reviewed research publications, 52 citations",
+                "NCCAOM board-certified Diplomate of Oriental Medicine",
+                "Injection Therapy certified · AAOT member",
+                "In-house professional herbal pharmacy on site"
+              ].map(item => `
+              <div class="check-item reveal"><span>${icons.checkCircle}</span><span>${item}</span></div>`).join("")}
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:1rem" class="reveal">
+              <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Schedule a Consultation</a>
+              <a href="/dr-hendry" class="btn btn-outline">Full Credentials</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Conditions We Treat -->
+    <section class="section" aria-labelledby="conditions-heading">
       <div class="container">
         <div class="text-center" style="margin-bottom:3rem">
-          <span class="section-label reveal">Our Specialties</span>
-          <h2 class="section-title reveal reveal-delay-1" id="categories-heading">Comprehensive Integrative Health Services</h2>
+          <span class="section-label reveal">What We Help With</span>
+          <h2 class="section-title reveal reveal-delay-1" id="conditions-heading">Conditions We Treat in Greenville, SC</h2>
           <p class="section-sub reveal reveal-delay-2" style="max-width:44rem;margin-inline:auto">
-            Integrative Health Partners offers four distinct service categories, each guided by Dr. William Hendry's
-            25+ years of clinical expertise and advanced NCCAOM certification.
+            Dr. Hendry uses acupuncture, functional medicine diagnostics, and Chinese herbal medicine to address 30+ conditions
+            across pain, neurological, hormonal, and digestive health — identifying and treating root causes rather than managing symptoms.
           </p>
         </div>
-        <div class="grid-auto md:grid-2 lg:grid-4">
+
+        <div class="grid-auto md:grid-2 lg:grid-4" style="margin-bottom:2.5rem">
+          ${[
+            { name: "Pain & Musculoskeletal", slug: "pain-and-musculoskeletal", count: 10, desc: "Back pain, sciatica, fibromyalgia, neuropathy, sports injuries" },
+            { name: "Neurological & Mental Health", slug: "neurological-mental-health", count: 5, desc: "Anxiety, depression, insomnia, PTSD, brain fog" },
+            { name: "Hormonal & Women's Health", slug: "hormonal-womens-health", count: 5, desc: "Fertility, PCOS, menopause, hormone imbalance, perimenopause" },
+            { name: "Digestive & Immune", slug: "digestive-immune", count: 10, desc: "IBS, leaky gut, autoimmune disease, chronic fatigue, Hashimoto's" },
+          ].map((cat, i) => `
+          <div class="reveal" style="transition-delay:${i * 0.08}s">
+            <a href="/conditions/${cat.slug}" class="cat-card">
+              <div class="cat-card__header">
+                <span class="cat-card__badge cat-card__badge--secondary">Conditions</span>
+                <span class="cat-card__arrow">${icons.arrowRight}</span>
+              </div>
+              <h3 class="cat-card__title">${cat.name}</h3>
+              <p class="cat-card__count">${cat.count} conditions</p>
+              <p class="cat-card__desc">${cat.desc}</p>
+            </a>
+          </div>`).join("")}
+        </div>
+
+        <div class="grid-auto sm:grid-2 md:grid-3 lg:grid-4" style="margin-bottom:2rem">
+          ${conditionHighlights.map((c, i) => `
+          <div class="reveal" style="transition-delay:${Math.min(i * 0.04, 0.4)}s">
+            <a href="/conditions/${c.slug}" class="svc-list-link">
+              <div class="svc-list-link__inner">
+                <span class="svc-list-link__name">${c.name}</span>
+                <span class="svc-list-link__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>
+          </div>`).join("")}
+        </div>
+
+        <div class="text-center reveal">
+          <a href="/conditions" class="btn btn-primary">View All 30+ Conditions ${icons.arrowRight}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Services -->
+    <section class="section section--card" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="text-center" style="margin-bottom:3rem">
+          <span class="section-label reveal">Our Services</span>
+          <h2 class="section-title reveal reveal-delay-1" id="services-heading">130+ Integrative Health Services in Greenville, SC</h2>
+          <p class="section-sub reveal reveal-delay-2" style="max-width:44rem;margin-inline:auto">
+            Four service categories — each with a dedicated hub page listing every available treatment.
+            Guided by Dr. Hendry's 25+ years of clinical expertise and doctoral training.
+          </p>
+        </div>
+        <div class="grid-auto md:grid-2 lg:grid-4" style="margin-bottom:3rem">
           ${categoryDefinitions.map((cat, i) => `
           <div class="reveal" style="transition-delay:${i * 0.08}s">
             <a href="/services/${cat.slug}" class="cat-card">
@@ -381,55 +499,9 @@ export function renderHome(): string {
             </a>
           </div>`).join("")}
         </div>
-      </div>
-    </section>
 
-    <!-- Approach -->
-    <section class="section section--card" aria-labelledby="approach-heading">
-      <div class="container">
-        <div class="two-col">
-          <div>
-            <span class="section-label reveal">Our Philosophy</span>
-            <h2 class="section-title reveal reveal-delay-1" id="approach-heading">Treating Root Causes, Not Just Symptoms</h2>
-            <p style="color:var(--color-muted);line-height:1.75;margin:1.25rem 0 1.75rem" class="reveal reveal-delay-2">
-              At Integrative Health Partners, Dr. Hendry takes a whole-person approach to health — combining the
-              time-tested wisdom of Traditional Chinese Medicine with modern functional medicine to address the root
-              causes of illness rather than just managing symptoms.
-            </p>
-            <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem">
-              ${["Personalized treatment plans tailored to your unique health history",
-                "Evidence-based integrative protocols combining Eastern and Western medicine",
-                "Continuous progress monitoring with adjustments at every visit",
-                "Education and lifestyle guidance for lasting results"].map(item => `
-              <div class="check-item reveal"><span>${icons.checkCircle}</span><span>${item}</span></div>`).join("")}
-            </div>
-            <a href="tel:${NAP.phoneRaw}" class="btn btn-primary reveal">${icons.phone} Schedule a Consultation</a>
-          </div>
-          <div class="reveal reveal-delay-2">
-            <div class="approach-visual">
-              <div style="text-align:center;width:100%">
-                <div class="approach-icon-wrap">${icons.leaf}</div>
-                <h3 class="font-display" style="font-size:1.5rem;margin-bottom:0.25rem">Integrative Healing</h3>
-                <p style="color:var(--color-muted);margin-bottom:2rem">East meets West for whole-person care</p>
-                <div class="stats-grid">
-                  <div class="stat-box"><div class="stat-box__num stat-box__num--primary">25+</div><div class="stat-box__label">Years Experience</div></div>
-                  <div class="stat-box"><div class="stat-box__num stat-box__num--secondary">130+</div><div class="stat-box__label">Services Offered</div></div>
-                  <div class="stat-box"><div class="stat-box__num stat-box__num--primary">5</div><div class="stat-box__label">Research Publications</div></div>
-                  <div class="stat-box"><div class="stat-box__num stat-box__num--secondary">9yr</div><div class="stat-box__label">Prisma Health Privileges</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Services -->
-    <section class="section" aria-labelledby="services-heading">
-      <div class="container">
-        <div class="text-center" style="margin-bottom:3rem">
-          <span class="section-label reveal">What We Treat</span>
-          <h2 class="section-title reveal reveal-delay-1" id="services-heading">Popular Services at Our Greenville Practice</h2>
+        <div class="text-center" style="margin-bottom:1rem">
+          <h3 class="font-heading" style="font-size:1rem;font-weight:600;color:var(--color-muted);margin-bottom:1.25rem">Popular Services</h3>
         </div>
         <div class="grid-auto md:grid-2 lg:grid-3" style="margin-bottom:2.5rem">
           ${featuredServices.map((svc, i) => `
@@ -441,65 +513,40 @@ export function renderHome(): string {
             </a>
           </div>`).join("")}
         </div>
-        <div class="text-center reveal">
-          <a href="/services/acupuncturist-services" class="btn btn-primary">View All Services ${icons.arrowRight}</a>
-        </div>
       </div>
     </section>
 
-    <!-- Provider / Dr. Hendry -->
-    <section class="section section--card" aria-labelledby="provider-heading">
+    <!-- Section 4: Why Choose IHP -->
+    <section class="section section--primary" aria-labelledby="why-heading">
       <div class="container">
-        <div class="two-col">
-          <div class="provider-img-wrap reveal">
-            <img src="/assets/take_this_small_blurry_photograph_and_create_1768153917878.jpg"
-              alt="Dr. William Hendry, DAOM — Acupuncturist and Functional Medicine Practitioner in Greenville, SC"
-              class="provider-img" width="480" height="600" loading="lazy" />
-            <div class="provider-badge-overlay" aria-label="Dr. Hendry's degree">
-              <div class="provider-badge-overlay__degree">DAOM</div>
-              <div class="provider-badge-overlay__sub">Doctor of Acupuncture<br>&amp; Oriental Medicine</div>
-            </div>
-          </div>
-          <div>
-            <span class="section-label reveal">Meet Your Practitioner</span>
-            <h2 class="section-title reveal reveal-delay-1" id="provider-heading">Dr. William Hendry</h2>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.875rem 0 1.25rem" class="reveal reveal-delay-2">
-              <span class="provider-cred-tag">Dipl. O.M. (NCCAOM)®</span>
-              <span class="provider-cred-tag">NCCAOM #114498</span>
-              <span class="provider-cred-tag">SC ACUP141</span>
-            </div>
-            <p style="color:var(--color-muted);line-height:1.75;margin-bottom:1rem" class="reveal reveal-delay-2">
-              Dr. Hendry is a board-certified Doctor of Acupuncture and Oriental Medicine with over 25 years of clinical experience. 
-              A graduate of East West College of Natural Medicine (DAOM, 2008), he holds hospital privileges at Prisma Health — 
-              a distinction that reflects the highest standard of clinical competency in integrative medicine.
-            </p>
-            <p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.75rem" class="reveal reveal-delay-2">
-              His research at Prisma's Emergency Department on needling techniques as alternatives to opioids has been
-              published across 5 studies with 52 citations. He is a member of the American Academy of Ozone Therapy and
-              a featured speaker in Acupuncture Today webinars.
-            </p>
-            <div style="display:flex;flex-direction:column;gap:0.875rem;margin-bottom:2rem">
-              ${[
-                "Hospital privileges at Prisma Health (9 years)",
-                "5 research publications, 52 citations",
-                "NCCAOM board-certified Diplomat of Oriental Medicine",
-                "SC License ACUP141 (Valid through Sept. 30, 2027)"
-              ].map(item => `
-              <div class="check-item reveal"><span>${icons.checkCircle}</span><span>${item}</span></div>`).join("")}
-            </div>
-            <a href="tel:${NAP.phoneRaw}" class="btn btn-primary reveal">${icons.phone} Book an Appointment</a>
+        <div style="max-width:56rem;margin-inline:auto;text-align:center">
+          <span class="section-label section-label--white reveal">Why Integrative Health Partners?</span>
+          <h2 class="section-title section-title--white reveal reveal-delay-1" id="why-heading">What Separates IHP from Other Greenville Practices</h2>
+          <p class="section-sub section-sub--white reveal reveal-delay-2" style="margin-bottom:3rem">
+            Credentials, research, and clinical experience that most integrative practices in the region simply cannot match.
+          </p>
+
+          <div class="grid-auto md:grid-2 lg:grid-2" style="margin-bottom:3rem;text-align:left">
+            ${[
+              { icon: icons.award, title: "Hospital-Level Clinical Credentials", body: "9 years of hospital privileges at Prisma Health — one of South Carolina's leading health systems — reflect the trust placed in Dr. Hendry's clinical judgment by the broader medical community." },
+              { icon: icons.shield, title: "Published Opioid Alternative Research", body: "Co-author of a 3-year Prisma Health ER study examining needling as a non-opioid pain solution. 5 peer-reviewed publications and 52 citations across acupuncture, HRV biofeedback, and integrative oncology." },
+              { icon: icons.leaf, title: "Doctoral Training + NCCAOM Certification", body: "Dr. Hendry's DAOM (East West College of Natural Medicine, 2008) represents the highest academic credential in acupuncture. NCCAOM board-certified (Cert. #114498), valid through August 2029." },
+              { icon: icons.book, title: "In-House Herbal Pharmacy", body: "Full professional herbal pharmacy on site — custom formulas dispensed same-day, not referred out. Classical formulas, granule extracts, and single-herb preparations meet strict purity and potency standards." },
+              { icon: icons.activity, title: "Full-Spectrum Integrative Therapies", body: "Acupuncture, dry needling, Chinese herbal medicine, functional medicine, ozone therapy, injection therapy (biopuncture), and nutritional counseling — all under one roof in Greenville, SC." },
+              { icon: icons.heart, title: "Root-Cause, Whole-Person Approach", body: "No symptom suppression. Every patient begins with a comprehensive intake covering health history, diet, sleep, stress, and environment. Treatment plans are built on understanding, not assumption." },
+            ].map(item => `
+            <div class="reveal" style="background:rgba(255,255,255,0.08);border-radius:0.75rem;padding:1.5rem;text-align:left">
+              <div style="color:var(--color-secondary);width:2rem;height:2rem;margin-bottom:0.875rem">${item.icon}</div>
+              <h3 style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:#fff;margin-bottom:0.5rem">${item.title}</h3>
+              <p style="color:rgba(255,255,255,0.8);font-size:0.9375rem;line-height:1.65;margin:0">${item.body}</p>
+            </div>`).join("")}
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="section section--primary" aria-labelledby="testimonials-heading">
-      <div class="container">
-        <div style="max-width:48rem;margin-inline:auto;text-align:center">
-          <span class="section-label section-label--white reveal">Patient Stories</span>
-          <h2 class="section-title section-title--white reveal reveal-delay-1" id="testimonials-heading">What Our Patients Say</h2>
-          <p class="section-sub section-sub--white reveal reveal-delay-2" style="margin-bottom:3rem">Real stories from real patients who found relief through integrative care.</p>
+        <!-- Testimonials -->
+        <div style="max-width:48rem;margin-inline:auto">
+          <h3 class="section-title section-title--white reveal" style="text-align:center;margin-bottom:0.5rem">Patient Stories</h3>
+          <p class="section-sub section-sub--white reveal" style="text-align:center;margin-bottom:2rem">Real outcomes from real Greenville patients.</p>
 
           <div class="testimonials__carousel" aria-live="polite">
             ${testimonials.map((t, i) => `
@@ -521,16 +568,38 @@ export function renderHome(): string {
       </div>
     </section>
 
-    <!-- Contact + Location -->
+    <!-- Section 5: FAQ -->
+    <section class="section section--card" aria-labelledby="faq-heading">
+      <div class="container">
+        <div style="max-width:56rem;margin-inline:auto">
+          <div class="text-center" style="margin-bottom:3rem">
+            <span class="section-label reveal">Common Questions</span>
+            <h2 class="section-title reveal reveal-delay-1" id="faq-heading">Frequently Asked Questions</h2>
+          </div>
+          ${homeFAQs.map(faq => `
+          <div class="faq-item reveal">
+            <button class="faq-btn" aria-expanded="false">
+              ${faq.q}
+              <span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span>
+            </button>
+            <div class="faq-body" role="region">
+              <div class="faq-content">${faq.a}</div>
+            </div>
+          </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Local Trust Signals + NAP -->
     <section class="section" id="contact" aria-labelledby="contact-heading">
       <div class="container">
         <div class="two-col">
           <div>
-            <span class="section-label reveal">Get In Touch</span>
-            <h2 class="section-title reveal reveal-delay-1" id="contact-heading">Visit Our Greenville, SC Office</h2>
-            <p style="color:var(--color-muted);line-height:1.75;margin:1.25rem 0 2rem" class="reveal reveal-delay-2">
-              Ready to experience the benefits of integrative medicine? Reach out to schedule your first consultation.
-              New patients are always welcome.
+            <span class="section-label reveal">Visit Us in Greenville, SC</span>
+            <h2 class="section-title reveal reveal-delay-1" id="contact-heading">Schedule Your First Consultation</h2>
+            <p style="color:var(--color-muted);line-height:1.75;margin:1.25rem 0 1.5rem" class="reveal reveal-delay-2">
+              Integrative Health Partners is located on Wade Hampton Blvd in Greenville, SC — easily accessible
+              from North Greenville, Taylors, Travelers Rest, Mauldin, and Simpsonville. New patients are always welcome.
             </p>
             <div style="display:flex;flex-direction:column;gap:1.5rem">
               <div class="info-row reveal">
@@ -562,6 +631,10 @@ export function renderHome(): string {
                 </div>
               </div>
             </div>
+            <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem" class="reveal">
+              <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call to Schedule</a>
+              <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="btn btn-outline">${icons.mapPin} Get Directions</a>
+            </div>
           </div>
           <div class="reveal reveal-delay-2">
             <div class="map-wrap">
@@ -571,33 +644,13 @@ export function renderHome(): string {
                 referrerpolicy="no-referrer-when-downgrade"
                 title="Integrative Health Partners location map"></iframe>
             </div>
-            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer"
-              class="btn btn-primary btn-full" style="margin-top:1rem;justify-content:center">
-              ${icons.mapPin} Get Directions
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section section--card" aria-labelledby="faq-heading">
-      <div class="container">
-        <div style="max-width:56rem;margin-inline:auto">
-          <div class="text-center" style="margin-bottom:3rem">
-            <span class="section-label reveal">Common Questions</span>
-            <h2 class="section-title reveal reveal-delay-1" id="faq-heading">Frequently Asked Questions</h2>
-          </div>
-          ${homeFAQs.map(faq => `
-          <div class="faq-item reveal">
-            <button class="faq-btn" aria-expanded="false">
-              ${faq.q}
-              <span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span>
-            </button>
-            <div class="faq-body" role="region">
-              <div class="faq-content">${faq.a}</div>
+            <div style="margin-top:1.5rem;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.25rem">
+              <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:0.75rem">Service Area</p>
+              <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin:0">
+                Greenville, Taylors, Travelers Rest, Greer, Mauldin, Simpsonville, Piedmont, Five Forks, North Greenville, and greater Upstate South Carolina.
+              </p>
             </div>
-          </div>`).join("")}
+          </div>
         </div>
       </div>
     </section>

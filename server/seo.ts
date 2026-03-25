@@ -147,8 +147,8 @@ interface PageSEO {
 
 function getHomeSEO(): PageSEO {
   return {
-    title: "Acupuncturist in Greenville, SC | Integrative Health Partners",
-    description: "Trusted acupuncturist in Greenville, SC. Dr. William Hendry offers acupuncture, Chinese medicine, and functional medicine treatments. 25+ years experience. Board-certified with hospital privileges at Prisma Health. Call (864) 365-6156.",
+    title: "Integrative Functional Medicine & Acupuncture in Greenville, SC | IHP",
+    description: "Integrative Health Partners — acupuncture, functional medicine & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges, 5 research publications. New patients welcome. Call (864) 365-6156.",
     canonical: BASE_URL,
     ogType: "website",
     schemas: [
@@ -157,7 +157,7 @@ function getHomeSEO(): PageSEO {
         "@type": "MedicalBusiness",
         "name": NAP.name,
         "image": `${NAP.url}/logo.png`,
-        "description": "Integrative functional medicine practice offering acupuncture, functional medicine, and natural treatments in Greenville, SC.",
+        "description": "Integrative functional medicine and acupuncture practice offering root-cause care, Chinese herbal medicine, ozone therapy, and injection therapy in Greenville, SC.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": NAP.streetAddress,
@@ -182,11 +182,38 @@ function getHomeSEO(): PageSEO {
         "@type": "Physician",
         "name": "Dr. William Hendry",
         "honorificPrefix": "Dr.",
+        "honorificSuffix": "DAOM, Dipl. O.M. (NCCAOM)®",
         "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
         "worksFor": { "@type": "MedicalBusiness", "name": NAP.name },
-        "medicalSpecialty": ["Acupuncture","Oriental Medicine","Functional Medicine"],
-        "memberOf": { "@type": "Organization", "name": "Prisma Health" },
-        "knowsAbout": ["Acupuncture","Functional Medicine","Chinese Herbal Medicine","Chronic Pain Treatment","Digestive Health"]
+        "medicalSpecialty": ["Acupuncture","Oriental Medicine","Functional Medicine","Integrative Medicine"],
+        "memberOf": [
+          { "@type": "Organization", "name": "Prisma Health" },
+          { "@type": "Organization", "name": "American Academy of Ozone Therapy" }
+        ],
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "name": "Doctor of Acupuncture and Oriental Medicine (DAOM)", "recognizedBy": { "@type": "Organization", "name": "East West College of Natural Medicine" } },
+          { "@type": "EducationalOccupationalCredential", "name": "Diplomate of Oriental Medicine", "identifier": "114498", "recognizedBy": { "@type": "Organization", "name": "NCCAOM" } }
+        ],
+        "identifier": [
+          { "@type": "PropertyValue", "name": "NPI", "value": "1417184045" },
+          { "@type": "PropertyValue", "name": "SC License", "value": "ACUP141" },
+          { "@type": "PropertyValue", "name": "FL License", "value": "AP2646" }
+        ],
+        "knowsAbout": ["Acupuncture","Functional Medicine","Chinese Herbal Medicine","Chronic Pain Treatment","Ozone Therapy","Injection Therapy"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What conditions does acupuncture treat?", "acceptedAnswer": { "@type": "Answer", "text": "Acupuncture has clinical evidence for chronic pain (back pain, sciatica, neck pain), headaches and migraines, anxiety and stress, insomnia, digestive disorders, fertility challenges, hormonal imbalance, and more. Dr. Hendry combines acupuncture with functional medicine to address root causes, not just symptoms." } },
+          { "@type": "Question", "name": "How many sessions will I need?", "acceptedAnswer": { "@type": "Answer", "text": "Acute conditions typically resolve in 3–6 sessions. Chronic conditions often require 8–12 sessions with ongoing maintenance. Dr. Hendry creates a personalized treatment plan at your initial consultation." } },
+          { "@type": "Question", "name": "What is functional medicine?", "acceptedAnswer": { "@type": "Answer", "text": "Functional medicine identifies the root biological causes of chronic illness — gut dysbiosis, hormonal imbalances, nutritional deficiencies, inflammatory triggers — and addresses them directly. Dr. Hendry uses advanced testing and integrative protocols to resolve conditions that conventional medicine manages but doesn't cure." } },
+          { "@type": "Question", "name": "Does acupuncture hurt?", "acceptedAnswer": { "@type": "Answer", "text": "Most patients experience little to no discomfort. Acupuncture needles are hair-thin and most people feel a mild tingling or warmth. Many patients fall asleep during treatment." } },
+          { "@type": "Question", "name": "Is Dr. Hendry accepting new patients?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we are currently accepting new patients. Call (864) 365-6156 or email info@ihpgreenville.com to schedule your initial consultation with Dr. William Hendry at our Greenville, SC office." } },
+          { "@type": "Question", "name": "What makes Integrative Health Partners different?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry holds 9-year hospital privileges at Prisma Health, co-authored a landmark 3-year study on needle-based alternatives to opioids in the Prisma ER, holds a DAOM doctoral degree (highest in the field), and maintains 5 peer-reviewed publications with 52 citations. Our practice also offers an in-house herbal pharmacy and a full range of integrative therapies under one roof." } },
+          { "@type": "Question", "name": "Do you offer ozone therapy and injection therapy in Greenville, SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry is certified in Injection Therapy and is a member of the American Academy of Ozone Therapy (AAOT). We offer medical ozone therapy, biopuncture, and nutrient injection therapies that most clinics cannot provide." } },
+          { "@type": "Question", "name": "Do you accept insurance for acupuncture?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend checking with your insurance provider about specific acupuncture benefits. Our staff can help you understand your coverage. We offer transparent self-pay rates and will work with you on a plan." } }
+        ]
       }
     ]
   };
