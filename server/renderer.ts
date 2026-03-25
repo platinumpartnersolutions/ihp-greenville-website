@@ -85,6 +85,7 @@ function renderNav(transparent = false): string {
         <div class="nav__dropdown-menu nav__dropdown-menu--wide4" role="menu">
           <div class="nav__dropdown-grid nav__dropdown-grid--4col">
             <div class="nav__dropdown-col nav__dropdown-col--divider">
+              <span class="nav__dropdown-col-label">Needling</span>
               <a href="/services/acupuncture-therapy" class="nav__dropdown-item" role="menuitem">Acupuncture Therapy</a>
               <a href="/services/dry-needling-therapy" class="nav__dropdown-item" role="menuitem">Dry Needling</a>
               <a href="/services/electroacupuncture" class="nav__dropdown-item" role="menuitem">Electroacupuncture</a>
@@ -97,6 +98,7 @@ function renderNav(transparent = false): string {
               <a href="/services/biopuncture-therapy" class="nav__dropdown-item" role="menuitem">Biopuncture Therapy</a>
             </div>
             <div class="nav__dropdown-col nav__dropdown-col--divider">
+              <span class="nav__dropdown-col-label">Body &amp; Pain</span>
               <a href="/services/back-pain-treatment" class="nav__dropdown-item" role="menuitem">Back Pain Treatment</a>
               <a href="/services/neck-pain-treatment" class="nav__dropdown-item" role="menuitem">Neck Pain Treatment</a>
               <a href="/services/knee-pain-treatment" class="nav__dropdown-item" role="menuitem">Knee Pain Treatment</a>
@@ -109,6 +111,7 @@ function renderNav(transparent = false): string {
               <a href="/services/trigger-point-therapy" class="nav__dropdown-item" role="menuitem">Trigger Point Therapy</a>
             </div>
             <div class="nav__dropdown-col nav__dropdown-col--divider">
+              <span class="nav__dropdown-col-label">Chinese Medicine</span>
               <a href="/services/cupping-therapy" class="nav__dropdown-item" role="menuitem">Cupping Therapy</a>
               <a href="/services/gua-sha-treatment" class="nav__dropdown-item" role="menuitem">Gua Sha</a>
               <a href="/services/moxibustion-therapy" class="nav__dropdown-item" role="menuitem">Moxibustion</a>
@@ -121,6 +124,7 @@ function renderNav(transparent = false): string {
               <a href="/services/insomnia-treatment" class="nav__dropdown-item" role="menuitem">Insomnia Treatment</a>
             </div>
             <div class="nav__dropdown-col">
+              <span class="nav__dropdown-col-label">Functional Medicine</span>
               <a href="/services/functional-medicine-consultation" class="nav__dropdown-item" role="menuitem">Functional Medicine</a>
               <a href="/services/hormone-testing" class="nav__dropdown-item" role="menuitem">Hormone Testing</a>
               <a href="/services/thyroid-testing" class="nav__dropdown-item" role="menuitem">Thyroid Testing</a>
