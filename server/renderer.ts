@@ -789,9 +789,14 @@ export function renderService(svcSlug: string): string | null {
   const baseSlug = svcSlug.replace(/-greenville-sc$/, "");
   const content = serviceContentMap.get(baseSlug);
 
-  const relatedServices = allServices
-    .filter(s => s.categorySlug === service.categorySlug && s.slug !== svcSlug)
-    .slice(0, 8);
+  const relatedServices = content && content.relatedServiceSlugs && content.relatedServiceSlugs.length > 0
+    ? content.relatedServiceSlugs
+        .map(rs => serviceMap.get(rs))
+        .filter((s): s is NonNullable<typeof s> => !!s)
+        .slice(0, 5)
+    : allServices
+        .filter(s => s.categorySlug === service.categorySlug && s.slug !== svcSlug)
+        .slice(0, 5);
 
   const faqItems = content
     ? content.faqs
