@@ -1,7 +1,7 @@
 import { serviceContentMap } from "./services-content";
 import { conditions, conditionCategories, conditionCategoryMap, type ConditionData } from "./conditions";
 
-const BASE_URL = "https://www.ihpgreenville.com";
+const BASE_URL = process.env.BASE_URL || "https://www.ihpgreenville.com";
 
 const NAP = {
   name: "Integrative Health Partners",

@@ -2272,7 +2272,7 @@ export function renderContact(): string {
   const seo = {
     title: "Contact IHP | Acupuncture Appointment Greenville, SC",
     description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
-    canonical: "https://www.ihpgreenville.com/contact",
+    canonical: `${process.env.BASE_URL || "https://www.ihpgreenville.com"}/contact`,
     ogType: "website",
     schemas: []
   };
