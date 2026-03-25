@@ -387,7 +387,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* --- Provider / Doctor --- */
 .provider-img-wrap { position: relative; }
-.provider-img { border-radius: 1.5rem; width: 100%; object-fit: cover; aspect-ratio: 4/5; }
+.provider-img { border-radius: 1.5rem; width: 100%; object-fit: cover; aspect-ratio: 4/5; object-position: center top; }
+/* small circular headshot used in sidebars */
+.dr-headshot {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin: 0 auto;
+  border: 3px solid var(--color-primary);
+}
 .provider-badge-overlay {
   position: absolute; bottom: -1.5rem; left: -1.5rem;
   background: var(--color-primary); color: white; border-radius: 1rem;
