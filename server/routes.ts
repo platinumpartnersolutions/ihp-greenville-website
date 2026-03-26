@@ -604,7 +604,9 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
   });
 
   // ONE-TIME BLOG MIGRATION — remove after confirming production row count
-  app.post("/api/blog-migrate-397fe9ea31aea7e56fa587d4ad75a9f9e06c", async (_req, res) => {
+  // Route path is set by MIGRATION_TOKEN env var so no token ever appears in source code
+  const _migToken = process.env.MIGRATION_TOKEN;
+  if (_migToken) app.post(`/api/blog-migrate-${_migToken}`, async (_req, res) => {
     try {
       const filePath = path.join(process.cwd(), "script", "blog-export.json");
       const posts: Array<Record<string, unknown>> = JSON.parse(fs.readFileSync(filePath, "utf8"));
