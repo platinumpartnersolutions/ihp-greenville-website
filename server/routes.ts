@@ -573,8 +573,8 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
 
   app.get("/blog/:slug", (req, res, next) => {
     const path = `/blog/${req.params.slug}`;
-    if (BLOG_301S[path]) return res.redirect(301, BLOG_301S[path]);
     if (BLOG_410S.has(path)) return res.status(410).set("Content-Type", "text/html").send("<html><body><h1>410 Gone</h1><p>This content has been permanently removed.</p></body></html>");
+    if (BLOG_301S[path]) return res.redirect(301, BLOG_301S[path]);
     next();
   });
 

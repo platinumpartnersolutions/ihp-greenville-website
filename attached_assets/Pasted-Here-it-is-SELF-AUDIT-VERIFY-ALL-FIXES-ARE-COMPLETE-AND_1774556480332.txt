@@ -1,0 +1,231 @@
+Here it is:
+
+SELF-AUDIT — VERIFY ALL FIXES ARE COMPLETE AND NOTHING IS MISSED
+You are performing a thorough self-audit of the ihpgreenville.com codebase. Do not assume anything is working — verify every item by checking the actual code, routes, and data. Work through every section completely and report findings before moving to the next. At the end produce a pass/fail checklist with zero ambiguity.
+
+SECTION 1 — ROUTING AUDIT
+Check every route registered in routes.ts (or equivalent). For each route confirm it returns a 200 status with valid HTML content — not a redirect, not an error, not an empty response.
+Specifically verify these routes exist and return 200:
+GET /
+GET /services
+GET /services/
+GET /conditions
+GET /about
+GET /dr-hendry
+GET /blog
+GET /contact
+GET /sitemap.xml
+GET /robots.txt
+GET /llms.txt
+For /services and /services/ — confirm both return 200 directly with NO redirect between them. The fix was a regex route app.get(/^\/services\/?$/, ...) — confirm this is in the codebase and that neither URL triggers a redirect chain.
+Check every URL in sitemap.xml against registered routes. Any URL in the sitemap that has no corresponding route handler is a ticking 404. List every sitemap URL that does not have an explicit route.
+
+SECTION 2 — BLOG REDIRECT AND 410 AUDIT
+Open server/blog-redirects.ts (or wherever the blog redirect data lives). Verify:
+The following 4 blog posts are handled — they were missing from the previous pass and are still returning 404:
+/blog/cold-and-flu-season        → must return 410
+/blog/health-habit-success       → must return 410
+/blog/is-fish-oil-alone-enough   → must return 410
+/blog/got-rocks                  → must return 410
+Check whether there are any other blog slugs that exist in the old site data, internal links, or anywhere in the codebase that are NOT in either the BLOG_301S or BLOG_410S arrays. Search the entire codebase for any /blog/ URL string that doesn't have a matching entry in one of those two arrays. List every one found.
+Verify the route handler for blog paths checks BLOG_410S first, then BLOG_301S, then falls through to 404 for truly unknown slugs. Confirm the order of operations in the route handler.
+
+SECTION 3 — SITEMAP AUDIT
+Open sitemap.xml (or the sitemap generation code). Verify every one of the following URLs is present. This is the complete required list — if any are missing, add them now:
+# Core pages
+https://www.ihpgreenville.com/                          priority 1.0
+https://www.ihpgreenville.com/services                  priority 0.9
+https://www.ihpgreenville.com/conditions                priority 0.9
+https://www.ihpgreenville.com/about                     priority 0.8
+https://www.ihpgreenville.com/dr-hendry                 priority 0.8
+https://www.ihpgreenville.com/blog                      priority 0.8
+https://www.ihpgreenville.com/contact                   priority 0.7
+
+# Service category hubs
+https://www.ihpgreenville.com/services/acupuncturist-services              priority 0.9
+https://www.ihpgreenville.com/services/acupuncture-clinic-services         priority 0.9
+https://www.ihpgreenville.com/services/chinese-medicine-clinic-services    priority 0.9
+https://www.ihpgreenville.com/services/alternative-medicine-practitioner-services  priority 0.9
+
+# All condition pages
+https://www.ihpgreenville.com/conditions/back-pain
+https://www.ihpgreenville.com/conditions/neck-pain
+https://www.ihpgreenville.com/conditions/knee-pain
+https://www.ihpgreenville.com/conditions/hip-pain
+https://www.ihpgreenville.com/conditions/shoulder-pain
+https://www.ihpgreenville.com/conditions/sciatica
+https://www.ihpgreenville.com/conditions/headaches-migraines
+https://www.ihpgreenville.com/conditions/fibromyalgia
+https://www.ihpgreenville.com/conditions/neuropathy
+https://www.ihpgreenville.com/conditions/sports-injuries
+https://www.ihpgreenville.com/conditions/arthritis
+https://www.ihpgreenville.com/conditions/chronic-illness
+https://www.ihpgreenville.com/conditions/anxiety-stress
+https://www.ihpgreenville.com/conditions/depression
+https://www.ihpgreenville.com/conditions/insomnia
+https://www.ihpgreenville.com/conditions/ptsd
+https://www.ihpgreenville.com/conditions/brain-fog
+https://www.ihpgreenville.com/conditions/fertility
+https://www.ihpgreenville.com/conditions/pcos
+https://www.ihpgreenville.com/conditions/menopause
+https://www.ihpgreenville.com/conditions/perimenopause
+https://www.ihpgreenville.com/conditions/hormone-imbalance
+https://www.ihpgreenville.com/conditions/hormonal-womens-health
+https://www.ihpgreenville.com/conditions/ibs-gut-issues
+https://www.ihpgreenville.com/conditions/leaky-gut
+https://www.ihpgreenville.com/conditions/autoimmune-disease
+https://www.ihpgreenville.com/conditions/hashimotos
+https://www.ihpgreenville.com/conditions/thyroid-issues
+https://www.ihpgreenville.com/conditions/chronic-fatigue
+https://www.ihpgreenville.com/conditions/adrenal-fatigue
+https://www.ihpgreenville.com/conditions/food-sensitivities
+https://www.ihpgreenville.com/conditions/weight-issues
+https://www.ihpgreenville.com/conditions/pain-and-musculoskeletal
+https://www.ihpgreenville.com/conditions/neurological-mental-health
+https://www.ihpgreenville.com/conditions/digestive-immune
+All condition pages: priority 0.8, changefreq monthly.
+Then make the sitemap auto-generating going forward. The sitemap should be built programmatically from the actual registered route list — not maintained as a static file. Write a generateSitemap() function that iterates all registered Express routes, filters to GET routes that return HTML pages (excluding API routes, redirects, error handlers), and outputs the XML. Call it on server start and on a daily interval. This prevents any future page from being added without appearing in the sitemap.
+
+SECTION 4 — SCHEMA AUDIT
+Schema errors jumped back to 193 in the latest crawl — this means condition pages and the new /services hub page were added without valid schema. Check the following:
+For every condition page — confirm these 3 schema blocks are present and valid:
+
+MedicalCondition schema with name, description, associatedAnatomy or signOrSymptom where applicable
+FAQPage schema wrapping all Q&A pairs on the page
+BreadcrumbList schema: Home > Conditions We Treat > [Condition Name]
+
+For the /services hub page — confirm:
+
+ItemList or OfferCatalog schema listing all service categories
+BreadcrumbList schema: Home > Services
+
+For every service page — confirm:
+
+MedicalProcedure schema with name, description, performer, location, procedureType
+FAQPage schema
+BreadcrumbList schema
+
+Run a programmatic check: loop through every page type in the renderer and confirm the schema injection function is being called. If any page type skips schema injection, flag it.
+Then validate the homepage schema and one condition page at https://validator.schema.org — paste the results here so we can confirm the validator passes with zero errors before deploying.
+
+SECTION 5 — INTERNAL LINKING AUDIT
+Check two specific items:
+5a. /services hub page has no incoming internal links.
+The nav links to individual service pages but not to the hub itself. Fix: find every place in the site where "View All Services" or a services overview link appears and confirm it points to /services not just to a category page. Specifically check:
+
+Homepage services section — does the "View All Services" CTA link to /services?
+Footer — is there a link to /services?
+Each category hub page — does it link back to /services as a parent?
+
+5b. Internal links still pointing to /blog/ redirect URLs.
+The renderer was supposed to resolve blog cross-link hrefs to their final destinations. Verify this is actually working by searching the rendered HTML output of 5 representative pages for any href="/blog/" or href="https://www.ihpgreenville.com/blog/ strings that are NOT the blog index itself. If any exist, the resolver isn't working and needs to be fixed.
+Search the service page data files and condition page data files for any raw /blog/ URL strings that were hardcoded as internal links rather than being resolved by the renderer. List every instance found.
+
+SECTION 6 — EMAIL PROTECTION AUDIT
+The <!--email_off--> wrapper was added to prevent Cloudflare from generating the /cdn-cgi/l/email-protection URL. Verify:
+Search the entire rendered HTML output (not just the template source) of the homepage, footer, contact page, and about page for any raw email address string @ihpgreenville.com that is NOT wrapped in <!--email_off--> tags. The wrapper must surround the email in the final rendered HTML, not just in the template.
+Also verify that no email address appears as a plain text node in any JSON-LD schema block — schema must use the telephone field not an email field, and if email is included in schema it must be a properly formatted email property not embedded in a description string where Cloudflare might try to obfuscate it.
+
+SECTION 7 — SLOW PAGE AUDIT
+Three service pages were flagged as slow by Ahrefs:
+
+/services/auricular-acupuncture
+/services/biopuncture-injections
+/services/pregnancy-acupuncture
+
+Check whether these pages are using the same server-side rendering template as all other service pages. If they are, the issue is likely content-specific — check for:
+
+Unusually large content blocks or embedded media on these specific pages
+Images that are not WebP format or missing explicit width/height attributes
+Any inline scripts or stylesheets unique to these pages
+
+If all service pages use the same template with no page-specific differences, the slow response is likely a Railway cold-start issue hitting these specific routes — not a code problem. Report which it is.
+
+SECTION 8 — NAP CONSISTENCY FINAL CHECK
+Search the entire codebase for every instance of the business address. Confirm every single instance uses exactly this format — no variations:
+Name:    Integrative Health Partners
+Address: 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609
+Phone:   (864) 365-6156
+Flag any instance that uses "Suite A" instead of "Ste A", "Boulevard" instead of "Blvd", "South Carolina" instead of "SC", or any other variation. Also check the JSON-LD schema blocks — the streetAddress field must be "319 Wade Hampton Blvd, Ste A" not "319 Wade Hampton Blvd, Suite A".
+
+SECTION 9 — META DESCRIPTION FINAL CHECK
+The 8 pages that were too long are now fixed per the last Replit commit. Verify by checking the actual rendered HTML character count of the meta description on each of these pages — not just the template string, but what actually renders in the <head>:
+/
+/blog
+/about
+/dr-hendry
+/services/acupuncturist-services
+/services/acupuncture-clinic-services
+/services/chinese-medicine-clinic-services
+/services/alternative-medicine-practitioner-services
+For each page: output the meta description string and its exact character count. Any over 160 characters must be trimmed. Any under 120 characters should be noted as potentially too short.
+
+SECTION 10 — PRE-DEPLOY CHECKLIST
+Before pushing this commit, run these programmatic checks in Node.js and report the results:
+javascript// Run these checks against the live route list and data files
+const checks = [
+  'All sitemap URLs have a matching route handler',
+  'No route handler returns a redirect to itself',
+  'All blog slugs in service/condition page data are in BLOG_301S or BLOG_410S',
+  'All condition pages have schema injection called',
+  'All service pages have schema injection called', 
+  'No raw email address appears outside email_off tags in rendered output',
+  'NAP address format is identical across all instances',
+  'All meta descriptions are between 120-160 characters',
+  '/services route returns 200 not 3XX',
+  '/services/ route returns 200 not 3XX',
+]
+```
+
+Report PASS or FAIL for each check with specific details on any failures. Do not push to GitHub until every check shows PASS.
+
+---
+
+**OUTPUT FORMAT REQUIRED:**
+
+When the audit is complete, produce this exact checklist:
+```
+ROUTING
+□ /services returns 200 — no redirect loop — PASS/FAIL
+□ /services/ returns 200 — no redirect loop — PASS/FAIL  
+□ /contact returns 200 — PASS/FAIL
+□ All sitemap URLs have matching routes — PASS/FAIL [list any failures]
+
+BLOG HANDLING
+□ /blog/cold-and-flu-season → 410 — PASS/FAIL
+□ /blog/health-habit-success → 410 — PASS/FAIL
+□ /blog/is-fish-oil-alone-enough → 410 — PASS/FAIL
+□ /blog/got-rocks → 410 — PASS/FAIL
+□ No other unhandled blog slugs found — PASS/FAIL [list any found]
+
+SITEMAP
+□ /services in sitemap — PASS/FAIL
+□ /contact in sitemap — PASS/FAIL
+□ All 35 condition pages in sitemap — PASS/FAIL [list any missing]
+□ Sitemap auto-generation implemented — PASS/FAIL
+
+SCHEMA
+□ All condition pages have MedicalCondition + FAQPage + BreadcrumbList — PASS/FAIL
+□ /services hub has ItemList + BreadcrumbList — PASS/FAIL
+□ schema.org validator shows 0 errors on homepage — PASS/FAIL
+□ schema.org validator shows 0 errors on sample condition page — PASS/FAIL
+
+INTERNAL LINKING
+□ /services linked from homepage CTA — PASS/FAIL
+□ /services linked from footer — PASS/FAIL
+□ No internal links pointing to /blog/ redirect URLs — PASS/FAIL
+
+EMAIL PROTECTION
+□ No raw email outside email_off tags in rendered HTML — PASS/FAIL
+□ Email not in schema description fields — PASS/FAIL
+
+NAP CONSISTENCY
+□ All address instances use "Ste A" not "Suite A" — PASS/FAIL
+□ Schema streetAddress matches GBP format exactly — PASS/FAIL
+
+META DESCRIPTIONS
+□ All 8 previously long pages now 120-160 chars — PASS/FAIL [list actual counts]
+
+SLOW PAGES
+□ Slow page cause identified — content issue / cold start / template bug — [answer]
+Do not mark anything PASS unless you have verified it in the actual code or rendered output. Do not push until every item is PASS.

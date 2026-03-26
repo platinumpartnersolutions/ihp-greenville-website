@@ -320,7 +320,8 @@ function getCategorySEO(slug: string): PageSEO | null {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": pageUrl }
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` },
+          { "@type": "ListItem", "position": 3, "name": `${cat.name} Services`, "item": pageUrl }
         ]
       },
       {
@@ -992,8 +993,8 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   <url>
     <loc>${BASE_URL}/conditions</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>`;
 
   for (const slug of conditionCatSlugs) {

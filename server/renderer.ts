@@ -882,7 +882,7 @@ export function renderCategory(catSlug: string): string | null {
   <main class="page-top">
     <section class="section" aria-labelledby="cat-heading">
       <div class="container">
-        ${renderBreadcrumbs([{ name: `${cat.name} Services` }])}
+        ${renderBreadcrumbs([{ name: "Services", href: "/services" }, { name: `${cat.name} Services` }])}
 
         <div style="max-width:48rem;margin-bottom:3.5rem">
           ${cat.isPrimary ? `<span class="tag reveal">Primary GBP Category</span>` : `<span class="tag reveal">Specialty Services</span>`}
