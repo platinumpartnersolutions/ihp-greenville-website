@@ -129,13 +129,13 @@ const categoryMap = new Map<string, CategoryData>();
 
 const svcDescTemplates: Record<string, (name: string) => string> = {
   "acupuncturist-services":
-    (n) => `Consult Dr. Hendry, DAOM for ${n} in Greenville, SC. NCCAOM-certified (#114498), 25+ years experience, and hospital-credentialed at Prisma Health. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — NCCAOM-certified, 25+ yrs experience, hospital-credentialed. Call (864) 365-6156.`,
   "acupuncture-clinic-services":
-    (n) => `${n} at IHP Greenville — Dr. Hendry, DAOM treats chronic pain and musculoskeletal conditions with evidence-based acupuncture. New patients welcome. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville — expert acupuncture for chronic pain and musculoskeletal issues. Dr. Hendry, DAOM. Call (864) 365-6156.`,
   "chinese-medicine-clinic-services":
-    (n) => `${n} at IHP Greenville — authentic TCM from Dr. Hendry, DAOM. Full in-house herbal pharmacy, root-cause integrative care for chronic conditions. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville — authentic TCM, in-house herbal pharmacy. Dr. Hendry, DAOM, 25+ yrs experience. Call (864) 365-6156.`,
   "alternative-medicine-practitioner-services":
-    (n) => `${n} at IHP Greenville — Dr. Hendry uses functional medicine diagnostics to find root causes and build a personalized integrative treatment plan. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — functional medicine, root-cause diagnostics, personalized care. Call (864) 365-6156.`,
 };
 
 for (const cat of categoryDefinitions) {
@@ -367,17 +367,18 @@ function getServiceSEO(slug: string): PageSEO | null {
       "@context": "https://schema.org",
       "@type": "MedicalProcedure",
       "name": `${service.name} in Greenville, SC`,
+      "url": pageUrl,
       "description": service.metaDescription,
-      "procedureType": "https://schema.org/TherapeuticProcedure",
-      "howPerformed": `${service.name} performed by Dr. William Hendry at Integrative Health Partners`,
+      "howPerformed": `${service.name} performed by Dr. William Hendry, DAOM at Integrative Health Partners in Greenville, SC`,
       "bodyLocation": "Varies by condition",
-      "provider": {
+      "procedureType": { "@type": "MedicalProcedureType", "name": "TherapeuticProcedure" },
+      "performer": { "@type": "Physician", "name": "Dr. William Hendry, DAOM", "url": `${BASE_URL}/dr-hendry` },
+      "location": {
         "@type": "MedicalBusiness",
         "name": NAP.name,
         "address": { "@type": "PostalAddress", "streetAddress": NAP.streetAddress, "addressLocality": NAP.city, "addressRegion": NAP.state, "postalCode": NAP.postalCode },
         "telephone": NAP.phoneRaw
-      },
-      "medicalSpecialty": service.gbpCategory
+      }
     },
     {
       "@context": "https://schema.org",

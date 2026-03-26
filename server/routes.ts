@@ -342,12 +342,17 @@ export async function registerRoutes(
   });
 
   app.get("/services/:slug", (req, res) => {
-    const { slug } = req.params;
-    const catHtml = renderCategory(slug);
-    if (catHtml) return sendPage(res, catHtml, req.originalUrl);
-    const svcHtml = renderService(slug);
-    if (svcHtml) return sendPage(res, svcHtml, req.originalUrl);
-    return res.status(404).set("Content-Type", "text/html").send(render404());
+    try {
+      const { slug } = req.params;
+      const catHtml = renderCategory(slug);
+      if (catHtml) return sendPage(res, catHtml, req.originalUrl);
+      const svcHtml = renderService(slug);
+      if (svcHtml) return sendPage(res, svcHtml, req.originalUrl);
+      return res.status(404).set("Content-Type", "text/html").send(render404());
+    } catch (error) {
+      console.error("Service page render error:", error);
+      return res.status(404).set("Content-Type", "text/html").send(render404());
+    }
   });
 
   app.get("/blog", async (req, res) => {
@@ -568,7 +573,7 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
       res.set("Content-Type", "text/html").send(html);
     } catch (error) {
       console.error("Blog post error:", error);
-      res.status(500).set("Content-Type", "text/html").send(render404());
+      res.status(404).set("Content-Type", "text/html").send(render404());
     }
   });
 
