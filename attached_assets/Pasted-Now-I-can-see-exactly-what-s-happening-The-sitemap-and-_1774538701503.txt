@@ -1,0 +1,35 @@
+Now I can see exactly what's happening. The sitemap and crawl data tell a clear story. Here's the full diagnosis:
+
+THE REAL PROBLEM: 70 FIVE-HUNDRED ERRORS
+This is the most urgent issue. 70 pages are returning 5XX server errors — meaning the server is crashing on those requests. With 130+ service pages in the sitemap, Ahrefs is hitting pages that either don't exist yet as actual built pages or are causing server errors when rendered. This is actively tanking your health score (14/100) and will prevent Google from indexing any of those pages.
+What's causing it: The sitemap lists every URL but many of those service pages likely don't have actual content files behind them — the server has no page to serve so it throws a 500. Every page listed in the sitemap must have a real, working HTML response.
+
+Here's the full breakdown from the Ahrefs report:
+CRITICAL — fix immediately:
+1. 70 five-hundred (5XX) server errors — these pages are listed in the sitemap but the server is crashing when Ahrefs requests them. Go into Replit and identify which routes are returning 500s. The likely culprits are the secondary service pages that were added to the sitemap but don't have actual page templates or content built yet. Every URL in the sitemap must return a 200.
+2. 175 pages with links to broken pages — your site is linking to 175 URLs that don't resolve. This comes from the category hub pages linking out to all 130 individual service pages — but many of those service pages are the same ones throwing 500s. Fix the 500 errors and this number drops automatically.
+3. 193 schema.org validation errors — the schema is present but has validation issues. Most likely cause: the hasOfferCatalog block or the Physician schema has a field that schema.org's validator flags. Need to run every schema block through https://validator.schema.org and fix each error.
+4. 167 meta descriptions too long — 167 pages have meta descriptions exceeding 160 characters. Almost certainly the service pages are using auto-generated descriptions that are too long. Every service page meta description needs to be trimmed to 150–160 characters max.
+MEDIUM priority:
+5. 40 pages with only one dofollow internal link — these are orphaned or near-orphaned pages. Service pages that are listed in the sitemap but not linked from their category hub pages. Every service page must be linked from at least its parent category page plus the sitemap.
+6. 30 pages with links to broken non-indexable pages — secondary issue from the 500 errors.
+7. 6 four-hundred (4XX) and 3 four-oh-four (404) errors — minor compared to the 500s but need to be cleaned up.
+
+The prompt to give Replit right now — in priority order:
+
+URGENT: Fix all server errors and broken links — Ahrefs crawl shows health score of 14/100
+The site has critical crawl errors that are preventing Google from indexing pages. Fix in this exact order:
+STEP 1 — Identify and fix all 5XX errors:
+Every URL listed in the sitemap must return an HTTP 200 status code. Go through the server routing logic and find every route that is throwing a 500 error. The most likely cause is service pages that have a URL defined in the sitemap but no corresponding page template or content object in the codebase. For every URL in the sitemap, confirm there is a valid page handler that returns a 200. If a page has no content yet, create a minimal valid page with the correct H1, meta tags, and a "content coming soon" placeholder rather than letting it 500. A 500 is worse than a thin page — it signals a broken site to Google.
+STEP 2 — Fix all broken internal links:
+Every internal link on every page must resolve to a 200. After fixing the 500 errors, audit every category hub page and confirm every service card link goes to a page that returns 200. Remove any internal links that point to pages that don't exist and aren't planned.
+STEP 3 — Fix all 167 meta descriptions that are too long:
+Every service page and condition page meta description must be 150–160 characters maximum. The current auto-generated descriptions are exceeding this. Go through every page's meta description, measure the character count, and trim anything over 160 characters. The description should end at a natural sentence break, not mid-word.
+STEP 4 — Fix schema validation errors:
+Run the homepage schema block at https://validator.schema.org. Fix every error and warning returned. Then run the acupuncture therapy service page schema and fix those errors. Apply the same fixes as a template across all service pages. Common causes of schema errors: missing required fields in Service schema, incorrect @type values, malformed hasCredential objects, openingHours format issues.
+STEP 5 — Fix orphaned pages:
+Every service page must have at least 2 dofollow internal links pointing to it: one from its parent category hub page, and one from at least one related service page or condition page. Audit the 40 pages Ahrefs flagged as having only one incoming internal link and add a second link to each from a relevant page.
+STEP 6 — Fix 4XX and 404 errors:
+Check what URLs are returning 404s and either create those pages or add 301 redirects from the dead URLs to the closest matching live page.
+After all fixes are deployed:
+Submit the sitemap to Google Search Console at https://search.google.com/search-console — go to Sitemaps, enter https://www.ihpgreenville.com/sitemap.xml, and submit. Then use the URL Inspection tool to request indexing on the homepage and the 5 core money pages (acupuncture therapy, dry needling, functional medicine, back pain treatment, electroacupuncture).
