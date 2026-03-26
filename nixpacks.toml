@@ -5,7 +5,7 @@ nixPkgs = ["nodejs_20"]
 cmds = ["npm install"]
 
 [phases.build]
-cmds = ["npm run build", "npx drizzle-kit push --force"]
+cmds = ["npm run build"]
 
 [start]
-cmd = "NODE_ENV=production node dist/index.cjs"
+cmd = "npx drizzle-kit push --force && NODE_ENV=production node dist/index.cjs"
