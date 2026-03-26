@@ -1,0 +1,240 @@
+Now I have the complete picture. Here's exactly what needs to go to Replit — this is precise, no guessing required:
+
+AHREFS CRAWL — FULL ISSUE BREAKDOWN WITH EXACT FIXES
+The Ahrefs export has been fully analyzed. Here are the exact issues with exact URLs to fix.
+
+ISSUE 1: 70+ blog posts are 404ing — the old blog was not migrated
+All 70+ blog posts from the old Squarespace/Duda site are returning 404 because the new Replit site doesn't have blog post routes. These posts are still being linked to from the service pages (that's where the "175 broken internal links" count comes from — service pages linking to blog posts that don't exist).
+Here is the complete list of 404ing blog URLs that need to be handled:
+/blog/give-your-immune-system-a-200-boost-in-just-20-minutes
+/blog/cupping-how-does-it-work-what-is-it-good-for
+/blog/detoxification-for-health
+/blog/what-is-prolotherapy-and-why-does-it-work
+/blog/what-is-prolotherapy-2
+/blog/why-rotator-cuff-injuries-stop-healing-after-40
+/blog/berberine-for-gut-health
+/blog/leaky-gut-made-simple
+/blog/meniscus-degeneration-and-preventive-maintenance-for-knee-health
+/blog/ozone-therapy-demystified
+/blog/prolotherapy-for-spinal-ligament-tightening-and-spondylolisthesis-reversal
+/blog/dry-needling-and-acupuncture
+/blog/threat-perception-and-physical-health-managing-the-feedback-loop
+/blog/astragalus-immune-builder
+/blog/monograph-black-seed-oil-nigella-sativa
+/blog/go-green
+/blog/fish-in-a-bowl
+/blog/intermittent-fasting
+/blog/why-detoxify
+/blog/laser-acupuncture-rejuvenation
+/blog/b12-injections
+/blog/sugar-blues-highs-and-lows
+/blog/tea-for-brain-health
+/blog/covid-and-vitamin-d
+/blog/acupuncture-for-back-pain
+/blog/herbal-tale-of-caution
+/blog/dermal-needling-for-scars-and-signs-of-aging
+/blog/weekly-digestive-health-tips-dietary-fiber
+/blog/get-out-more
+/blog/taking-chinese-herbs
+/blog/most-important-supplement-fact
+/blog/chinese-herbs-viruses
+/blog/tea-time
+/blog/what-is-in-your-fish-oil
+/blog/vitamin-d
+/blog/arsenic-in-rice
+/blog/acupuncture-for-coronary-artery-disease-cad
+/blog/weekly-digestive-health-tips
+/blog/threat-perception-and-physical-health-how-to-manage-the-feedback-loop
+/blog/paleo-caveman-diet
+/blog/us-military-using-acupuncture-to-reduce-stress-and-pain
+/blog/obesity-and-cancer
+/blog/what-is-prolotherapy
+/blog/concerned-about-bone-loss
+/blog/berberine-and-the-metabolic-master-switch
+/blog/biopuncture-for-knee-pain
+/blog/what-is-dermal-needling
+/blog/covid-gut-bacteria
+/blog/weekly-digestive-health-tips-stress
+/blog/food-for-thought-meat
+/blog/vitamin-d-for-health
+/blog/what-tea-is-right-for-me
+/blog/weekly-digestive-health-blog-hydration
+/blog/weekly-product-spotlight
+/blog/nausea-wristband-uses-acupuncture-point
+/blog/still-point-inducer
+/blog/how-to-treat-mold-illness-with-herbs-and-supplements
+/blog/does-acupuncture-hurt
+/blog/magnesium-the-master-commander
+/blog/weekly-digestive-health-tips-2
+/blog/vitamin-ks-many-benefits
+/blog/is-detoxification-necessary
+/blog/hidden-topical-toxins
+/blog/collagen
+/blog/microbes-memory-aging
+/blog/prolotherapy-joint-pain
+/blog/caught-a-cold
+/blog/how-is-your-vitamin-d-supplement-working-for-you
+/blog/our-microbiome-and-the-living-soil
+/blog/gaba-for-relaxation
+/blog/weekly-digestive-health-tips-3
+/blog/weekly-digestive-health-tips-4
+/blog/weekly-digestive-health-tips-5
+For each of these blog URLs, do ONE of the following — decide based on the post quality:
+Posts worth keeping (high SEO value — 301 redirect these to the most relevant service or condition page on the new site):
+
+/blog/acupuncture-for-back-pain → 301 to /conditions/back-pain
+/blog/dry-needling-and-acupuncture → 301 to /services/dry-needling-therapy
+/blog/cupping-how-does-it-work-what-is-it-good-for → 301 to /services/cupping-therapy
+/blog/ozone-therapy-demystified → 301 to /services/ozone-therapy
+/blog/berberine-for-gut-health → 301 to /services/gut-health-testing
+/blog/leaky-gut-made-simple → 301 to /conditions/leaky-gut
+/blog/what-is-prolotherapy-and-why-does-it-work → 301 to /services/biopuncture-therapy
+/blog/what-is-prolotherapy-2 → 301 to /services/biopuncture-therapy
+/blog/what-is-prolotherapy → 301 to /services/biopuncture-therapy
+/blog/prolotherapy-joint-pain → 301 to /services/biopuncture-therapy
+/blog/prolotherapy-for-spinal-ligament-tightening-and-spondylolisthesis-reversal → 301 to /services/biopuncture-therapy
+/blog/laser-acupuncture-rejuvenation → 301 to /services/cosmetic-acupuncture
+/blog/does-acupuncture-hurt → 301 to /services/acupuncture-therapy
+/blog/biopuncture-for-knee-pain → 301 to /services/biopuncture-therapy
+/blog/meniscus-degeneration-and-preventive-maintenance-for-knee-health → 301 to /conditions/knee-pain
+/blog/why-rotator-cuff-injuries-stop-healing-after-40 → 301 to /conditions/shoulder-pain
+/blog/berberine-and-the-metabolic-master-switch → 301 to /services/gut-health-testing
+/blog/intermittent-fasting → 301 to /services/functional-medicine-consultation
+/blog/covid-and-vitamin-d → 301 to /services/long-covid-treatment
+/blog/covid-gut-bacteria → 301 to /services/long-covid-treatment
+/blog/magnesium-the-master-commander → 301 to /services/nutritional-counseling
+/blog/vitamin-d → 301 to /services/vitamin-therapy
+/blog/vitamin-d-for-health → 301 to /services/vitamin-therapy
+/blog/how-is-your-vitamin-d-supplement-working-for-you → 301 to /services/vitamin-supplementation
+/blog/b12-injections → 301 to /services/vitamin-therapy
+/blog/vitamin-ks-many-benefits → 301 to /services/vitamin-supplementation
+/blog/collagen → 301 to /services/nutritional-supplements
+/blog/gaba-for-relaxation → 301 to /services/natural-anxiety-treatment
+/blog/microbes-memory-aging → 301 to /services/gut-health-testing
+/blog/our-microbiome-and-the-living-soil → 301 to /services/gut-health-testing
+/blog/how-to-treat-mold-illness-with-herbs-and-supplements → 301 to /services/chinese-herbal-medicine
+/blog/threat-perception-and-physical-health-managing-the-feedback-loop → 301 to /conditions/anxiety-stress
+/blog/threat-perception-and-physical-health-how-to-manage-the-feedback-loop → 301 to /conditions/anxiety-stress
+/blog/hidden-topical-toxins → 301 to /services/detoxification-therapy
+/blog/is-detoxification-necessary → 301 to /services/detoxification-therapy
+/blog/detoxification-for-health → 301 to /services/detoxification-therapy
+/blog/why-detoxify → 301 to /services/detoxification-therapy
+/blog/herbal-tale-of-caution → 301 to /services/herb-drug-interaction-consultation
+/blog/taking-chinese-herbs → 301 to /services/chinese-herbal-medicine
+/blog/chinese-herbs-viruses → 301 to /services/chinese-herbal-medicine
+/blog/monograph-black-seed-oil-nigella-sativa → 301 to /services/herbal-supplements
+/blog/astragalus-immune-builder → 301 to /services/immune-system-support
+/blog/dermal-needling-for-scars-and-signs-of-aging → 301 to /services/cosmetic-acupuncture
+/blog/what-is-dermal-needling → 301 to /services/cosmetic-acupuncture
+/blog/us-military-using-acupuncture-to-reduce-stress-and-pain → 301 to /services/acupuncture-therapy
+/blog/acupuncture-for-coronary-artery-disease-cad → 301 to /services/acupuncture-therapy
+/blog/sugar-blues-highs-and-lows → 301 to /services/blood-sugar-support
+/blog/concerned-about-bone-loss → 301 to /services/nutritional-counseling
+/blog/obesity-and-cancer → 301 to /services/weight-loss-support
+/blog/paleo-caveman-diet → 301 to /services/nutritional-counseling
+/blog/food-for-thought-meat → 301 to /services/nutritional-counseling
+
+Low-value posts (return 410 Gone — not 404, not redirect — these had no search value):
+
+All weekly-digestive-health-tips variants → 410
+/blog/go-green → 410
+/blog/fish-in-a-bowl → 410
+/blog/tea-time → 410
+/blog/get-out-more → 410
+/blog/weekly-product-spotlight → 410
+/blog/what-tea-is-right-for-me → 410
+/blog/tea-for-brain-health → 410
+/blog/nausea-wristband-uses-acupuncture-point → 410
+/blog/still-point-inducer → 410
+/blog/what-is-in-your-fish-oil → 410
+/blog/arsenic-in-rice → 410
+/blog/caught-a-cold → 410
+/blog/most-important-supplement-fact → 410
+
+A 410 tells Google the content is intentionally gone and to stop crawling it. A 404 leaves ambiguity. Use 410 for all content that is permanently gone with no redirect target.
+
+ISSUE 2: /services/ (with trailing slash) is 404ing
+https://www.ihpgreenville.com/services/ returns 404. The sitemap has https://www.ihpgreenville.com/services without a trailing slash, but Ahrefs found links pointing to the slash version. Fix: add a route handler so /services/ (with trailing slash) either redirects to /services or returns 200. Also confirm the services hub page itself (/services) returns 200 and is properly built.
+
+ISSUE 3: /conditions/digestive-issues/ is 404ing
+https://www.ihpgreenville.com/conditions/digestive-issues/ returns 404. This URL is being linked to somewhere on the site — find the source link and update it to point to /conditions/digestive-immune (the correct URL) instead.
+
+ISSUE 4: 3 malformed URLs with <a%20href= in them
+Ahrefs found these malformed URLs being generated by the server:
+
+https://www.ihpgreenville.com/services/<a%20href=
+https://www.ihpgreenville.com/services/fire-<a%20href=
+https://www.ihpgreenville.com/services/auricular-<a%20href=
+
+This means somewhere in the service page template, an HTML anchor tag is being rendered as literal text instead of as HTML — it's appearing in the URL path rather than being parsed. Find the service data file or template where the Fire Cupping and Auricular Acupuncture service entries are defined and fix the malformed HTML in those entries. The <a href= is leaking into the URL slug field.
+
+ISSUE 5: /cdn-cgi/l/email-protection is 404ing
+This is a Cloudflare email obfuscation URL. It means somewhere on the site there is a plain text email address that Cloudflare is trying to obfuscate but the route doesn't exist. Find every email address displayed as plain text on the site and either: remove it, replace it with a mailto: link, or use a contact form instead. The email address is likely in the footer or contact page.
+
+ISSUE 6: 36 condition pages and the contact page are missing from the sitemap
+The following pages exist and are indexable but are not in the sitemap. Add all of them to sitemap.xml:
+/conditions/hormone-imbalance
+/conditions/hormonal-womens-health
+/conditions/perimenopause
+/conditions/chronic-fatigue
+/conditions/shoulder-pain
+/conditions/adrenal-fatigue
+/conditions/food-sensitivities
+/conditions/ptsd
+/conditions/brain-fog
+/conditions/hashimotos
+/conditions/menopause
+/conditions/depression
+/conditions/sciatica
+/conditions/insomnia
+/conditions/headaches-migraines
+/conditions/anxiety-stress
+/conditions/pcos
+/contact
+/conditions/neck-pain
+/conditions/knee-pain
+/conditions/autoimmune-disease
+/conditions/leaky-gut
+/conditions/sports-injuries
+/conditions/thyroid-issues
+/conditions/ibs-gut-issues
+/conditions/neurological-mental-health
+/conditions/chronic-illness
+/conditions/hip-pain
+/conditions/digestive-immune
+/conditions/fertility
+/conditions/pain-and-musculoskeletal
+/conditions/neuropathy
+/conditions/fibromyalgia
+/conditions/weight-issues
+/conditions/back-pain
+/conditions/arthritis
+All condition pages should have priority 0.8 and changefreq monthly. The contact page should have priority 0.7 and changefreq monthly.
+
+ISSUE 7: 40 service pages have only one incoming internal link
+These pages only have a single internal link pointing to them — meaning they're only linked from their category hub page and nowhere else. Add at least one more internal link to each from a relevant condition page or related service page. The full list:
+/services/peripheral-neuropathy-treatment
+/services/immune-system-support
+/services/tmj-treatment
+/services/brain-fog-treatment
+/services/acid-reflux-treatment
+/services/nutritional-supplements
+/services/mineral-supplementation
+/services/whole-food-supplements
+/services/intramuscular-stimulation
+/services/nutrition-therapy
+/services/plantar-fasciitis-treatment
+/services/sinus-treatment
+/services/pms-treatment
+/services/nutritional-deficiency-testing
+/services/allergy-treatment
+/services/menstrual-pain-treatment
+/services/natural-medicine-consultation
+/services/blood-sugar-support
+/services/carpal-tunnel-treatment
+/services/vitamin-supplementation
+(plus 20 more in the full Ahrefs export)
+For each: find the most relevant condition page and add a "Related Services" link to it. For example, /services/peripheral-neuropathy-treatment should be linked from /conditions/neuropathy. /services/tmj-treatment should be linked from /conditions/headaches-migraines. /services/brain-fog-treatment should be linked from /conditions/brain-fog. Use the condition pages as the source of these additional links since they're topically related.
+
+ISSUE 8: HTTP to HTTPS redirect confirmed working
+http://www.ihpgreenville.com/ correctly 301 redirects to https://www.ihpgreenville.com/ — this is fine, no action needed.
