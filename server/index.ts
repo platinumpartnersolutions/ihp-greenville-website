@@ -2,6 +2,29 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import { pool } from "./db";
+
+async function ensureSchema() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS users (
+      id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+      username TEXT NOT NULL UNIQUE,
+      password TEXT NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS blog_posts (
+      id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
+      title TEXT NOT NULL,
+      slug TEXT NOT NULL UNIQUE,
+      link TEXT NOT NULL DEFAULT '',
+      pub_date TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      creator TEXT NOT NULL DEFAULT '',
+      excerpt TEXT NOT NULL DEFAULT '',
+      content TEXT NOT NULL DEFAULT '',
+      categories TEXT[] NOT NULL DEFAULT '{}',
+      synced_at TIMESTAMP NOT NULL DEFAULT NOW()
+    );
+  `);
+}
 
 const app = express();
 const httpServer = createServer(app);
@@ -60,6 +83,8 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  await ensureSchema();
+
   serveStatic(app);
 
   await registerRoutes(httpServer, app);

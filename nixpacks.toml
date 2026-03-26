@@ -8,4 +8,4 @@ cmds = ["npm install"]
 cmds = ["npm run build"]
 
 [start]
-cmd = "npx drizzle-kit push --force && NODE_ENV=production node dist/index.cjs"
+cmd = "NODE_ENV=production node dist/index.cjs"
