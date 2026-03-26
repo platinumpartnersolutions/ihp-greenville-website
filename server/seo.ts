@@ -127,15 +127,27 @@ const allServices: ServiceData[] = [];
 const serviceMap = new Map<string, ServiceData>();
 const categoryMap = new Map<string, CategoryData>();
 
+const svcDescTemplates: Record<string, (name: string) => string> = {
+  "acupuncturist-services":
+    (n) => `Consult Dr. Hendry, DAOM for ${n} in Greenville, SC. NCCAOM-certified (#114498), 25+ years experience, and hospital-credentialed at Prisma Health. Call (864) 365-6156.`,
+  "acupuncture-clinic-services":
+    (n) => `${n} at IHP Greenville — Dr. Hendry, DAOM treats chronic pain and musculoskeletal conditions with evidence-based acupuncture. New patients welcome. Call (864) 365-6156.`,
+  "chinese-medicine-clinic-services":
+    (n) => `${n} at IHP Greenville — authentic TCM from Dr. Hendry, DAOM. Full in-house herbal pharmacy, root-cause integrative care for chronic conditions. Call (864) 365-6156.`,
+  "alternative-medicine-practitioner-services":
+    (n) => `${n} at IHP Greenville — Dr. Hendry uses functional medicine diagnostics to find root causes and build a personalized integrative treatment plan. Call (864) 365-6156.`,
+};
+
 for (const cat of categoryDefinitions) {
   categoryMap.set(cat.slug, cat);
   for (const name of cat.serviceNames) {
     const slug = createSlug(name);
+    const descFn = svcDescTemplates[cat.slug];
     const service: ServiceData = {
       slug,
       name,
       metaTitle: `${name} in Greenville, SC | IHP`,
-      metaDescription: `${name} in Greenville, SC — ${cat.carePhrase} from Dr. Hendry, DAOM. Integrative Health Partners. Call (864) 365-6156.`,
+      metaDescription: descFn ? descFn(name) : `${name} in Greenville, SC — ${cat.carePhrase} from Dr. Hendry, DAOM. Integrative Health Partners. Call (864) 365-6156.`,
       category: cat.name,
       categorySlug: cat.slug,
       gbpCategory: cat.gbpCategory

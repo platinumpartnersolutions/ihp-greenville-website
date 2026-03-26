@@ -575,10 +575,10 @@ export function renderHome(): string {
 
         <div class="grid-auto md:grid-2 lg:grid-4" style="margin-bottom:2.5rem">
           ${[
-            { name: "Pain & Musculoskeletal", slug: "pain-and-musculoskeletal", count: 10, desc: "Back pain, sciatica, fibromyalgia, neuropathy, sports injuries" },
-            { name: "Neurological & Mental Health", slug: "neurological-mental-health", count: 5, desc: "Anxiety, depression, insomnia, PTSD, brain fog" },
-            { name: "Hormonal & Women's Health", slug: "hormonal-womens-health", count: 5, desc: "Fertility, PCOS, menopause, hormone imbalance, perimenopause" },
-            { name: "Digestive & Immune", slug: "digestive-immune", count: 10, desc: "IBS, leaky gut, autoimmune disease, chronic fatigue, Hashimoto's" },
+            { name: "Pain & Joint Conditions", slug: "pain-and-musculoskeletal", count: 10, desc: "Back pain, sciatica, fibromyalgia, neuropathy, sports injuries" },
+            { name: "Mental Health & Sleep", slug: "neurological-mental-health", count: 5, desc: "Anxiety, depression, insomnia, PTSD, brain fog" },
+            { name: "Women's & Hormonal Health", slug: "hormonal-womens-health", count: 5, desc: "Fertility, PCOS, menopause, hormone imbalance, perimenopause" },
+            { name: "Gut, Immune & Chronic Illness", slug: "digestive-immune", count: 10, desc: "IBS, leaky gut, autoimmune disease, chronic fatigue, Hashimoto's" },
           ].map((cat, i) => `
           <div class="reveal" style="transition-delay:${i * 0.08}s">
             <a href="/conditions/${cat.slug}" class="cat-card">

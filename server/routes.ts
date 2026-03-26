@@ -483,9 +483,21 @@ Alternative medicine practitioner services hub. 46 functional medicine services 
 
 `;
 
+      const svcCatContext: Record<string, string> = {
+        "Acupuncture Therapy": "Full-spectrum acupuncture using classical point selection and Dr. Hendry's 25+ years of diagnostic expertise. Addresses pain, chronic illness, and functional health.",
+        "Dry Needling Therapy": "Trigger-point dry needling targets myofascial pain and muscle dysfunction. Dr. Hendry holds dual expertise in traditional acupuncture and Western dry needling.",
+        "Electroacupuncture": "Electrical stimulation combined with acupuncture enhances therapeutic effect for neuropathy, chronic pain, and nerve regeneration.",
+        "Functional Medicine Consultation": "Advanced root-cause diagnostics: nutrient panels, hormone testing, food sensitivity, and gut health analysis interpreted through an integrative lens.",
+        "Chinese Herbal Medicine": "Custom herbal formulas dispensed same-day from our in-house professional pharmacy. Classical formulas, granule extracts, and single-herb preparations.",
+        "Ozone Therapy": "Medical-grade ozone delivered via infrared sauna protocols. Supports immune function, detoxification, and recovery from chronic fatigue and fibromyalgia.",
+        "Cupping Therapy": "Traditional cupping stimulates blood flow and releases fascial tension. Effective for musculoskeletal pain, respiratory conditions, and recovery.",
+        "Gua Sha Treatment": "Gua sha scraping technique reduces inflammation, improves circulation, and addresses chronic muscle tension and systemic qi stagnation.",
+        "Moxibustion Therapy": "Heat applied via burning moxa warms meridians, supports immune function, and addresses cold-type conditions including menstrual pain and digestive weakness.",
+      };
       for (const name of allServicesList) {
         const slug = createServiceSlug(name);
-        txt += `${BASE_URL}/services/${slug}\n${name} in Greenville, SC. Provided by Dr. William Hendry at Integrative Health Partners.\n\n`;
+        const extra = svcCatContext[name] || "Part of IHP's integrative approach combining acupuncture, Chinese medicine, and functional medicine under Dr. William Hendry, DAOM.";
+        txt += `${BASE_URL}/services/${slug}\n${name} in Greenville, SC. ${extra} Integrative Health Partners: (864) 365-6156.\n\n`;
       }
 
       txt += `## Conditions We Treat
