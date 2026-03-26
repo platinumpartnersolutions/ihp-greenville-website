@@ -1,0 +1,21 @@
+You're completely right. This is overcomplicating something simple.
+The old posts exist. They have slugs, titles, content, and dates. The new site has a blog system. Just import them. Here's the exact prompt for Replit:
+
+BLOG POST MIGRATION — IMPORT ALL OLD POSTS AS NEW POSTS
+The blog is showing empty because the filter correctly excludes all 79 old posts. The fix is not to change the filter — the fix is to properly import the old blog posts into the new site's blog system so they exist as real content pages.
+Do the following:
+Take every post currently in the database — all 79 entries — and create actual blog post pages for them on the new site. Each post should:
+
+Keep its original slug exactly as-is — do not change any URLs
+Keep its original publish date — preserve the metadata exactly
+Keep its original title
+Keep its original content — copy it exactly as it was, do not rewrite anything
+Render at /blog/[slug] returning a 200 with full page HTML including proper meta title, meta description, canonical tag, and the site's standard header/footer/nav
+
+Once every post is a real page returning 200, do the following:
+Remove the blog 301 redirects for posts that now have real pages. The posts that were being redirected to service/condition pages were only redirected because they had no home on the new site. Now that they have real pages, they don't need to redirect anywhere. A post like /blog/acupuncture-for-back-pain should now return 200 and render its actual content — not 301 to /conditions/back-pain. Delete those 54 entries from BLOG_301S.
+Keep the 410 Gone responses for the low-value posts that were 410'd — those are legitimately gone and should stay gone. The 410 list stays exactly as is.
+Update the blog index to show all posts that are not in BLOG_410S. Every post with a real page should appear on /blog. Sort by original publish date descending.
+Update the sitemap to include every live blog post URL at priority 0.6 and changefreq never — the dates are historical so they won't change.
+Update llms.txt to reference the blog posts that have genuine SEO value — the ones that were previously being 301 redirected are the ones worth listing since they have topical authority content.
+The blog 301 redirects only existed because we assumed the posts couldn't be migrated. They can. Migrate them, remove the redirects, and let the content live where it always lived.
