@@ -7,9 +7,7 @@ import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt,
 import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub } from "./renderer";
 import { BLOG_301S, BLOG_410S } from "./blog-redirects";
 import { conditions, conditionCategories } from "./conditions";
-import { pool } from "./db";
-import fs from "fs";
-import path from "path";
+
 
 interface LinkableItem {
   name: string;
@@ -600,48 +598,6 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
     } catch (error) {
       console.error("Blog post error:", error);
       res.status(404).set("Content-Type", "text/html").send(render404());
-    }
-  });
-
-  // ONE-TIME BLOG MIGRATION — remove after confirming production row count
-  // Route path is set by MIGRATION_TOKEN env var so no token ever appears in source code
-  const _migToken = process.env.MIGRATION_TOKEN;
-  if (_migToken) app.post(`/api/blog-migrate-${_migToken}`, async (_req, res) => {
-    try {
-      const filePath = path.join(process.cwd(), "script", "blog-export.json");
-      const posts: Array<Record<string, unknown>> = JSON.parse(fs.readFileSync(filePath, "utf8"));
-      let inserted = 0;
-      let skipped = 0;
-      for (const p of posts) {
-        const result = await pool.query(
-          `INSERT INTO blog_posts (slug, title, link, pub_date, creator, excerpt, content, categories)
-           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-           ON CONFLICT (slug) DO NOTHING`,
-          [
-            p.slug,
-            p.title || "",
-            p.link || "",
-            p.pub_date || null,
-            p.author || "Integrative Health Partners",
-            p.excerpt || "",
-            p.content || "",
-            (p.categories as string[]) || []
-          ]
-        );
-        if ((result.rowCount ?? 0) > 0) inserted++;
-        else skipped++;
-      }
-      const countResult = await pool.query(`
-        SELECT
-          COUNT(*) AS total_posts,
-          MIN(pub_date) AS oldest_post,
-          MAX(pub_date) AS newest_post,
-          COUNT(CASE WHEN length(content) > 1000 THEN 1 END) AS posts_with_real_content
-        FROM blog_posts
-      `);
-      res.json({ processed: posts.length, inserted, skipped, db: countResult.rows[0] });
-    } catch (err) {
-      res.status(500).json({ error: String(err) });
     }
   });
 
