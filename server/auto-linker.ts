@@ -203,11 +203,16 @@ export function autoLink(html: string, currentUrl = ""): string {
         if (used.has(url)) continue;
         if (url === currentUrl) continue;
         let linked = false;
-        result = result.replace(pattern, (m) => {
-          if (linked || used.has(url)) return m;
-          linked = true;
-          used.add(url);
-          return `<a href="${url}" class="prose-link">${m}</a>`;
+        // Apply pattern only to text nodes within result — never inside HTML tags or attributes
+        result = result.replace(/(<[^>]+>)|([^<]+)/g, (m, tag, txt) => {
+          if (tag !== undefined) return tag;
+          if (!txt) return m;
+          return txt.replace(pattern, (match) => {
+            if (linked || used.has(url)) return match;
+            linked = true;
+            used.add(url);
+            return `<a href="${url}" class="prose-link">${match}</a>`;
+          });
         });
       }
       return result;

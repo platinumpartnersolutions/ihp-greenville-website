@@ -247,7 +247,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Headache & Migraine Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Natural headache and migraine treatment in Greenville, SC. Dr. Hendry's acupuncture and functional medicine approach reduces frequency and severity. Call (864) 365-6156.",
-    relatedServiceSlugs: ["acupuncture-for-migraines", "acupuncture-therapy", "stress-management", "nutritional-counseling"],
+    relatedServiceSlugs: ["acupuncture-for-migraines", "acupuncture-therapy", "stress-management", "nutritional-counseling", "tmj-treatment"],
     relatedConditionSlugs: ["neck-pain", "anxiety-stress", "insomnia", "fibromyalgia"],
     content: {
       definition: "Headaches are one of the most common neurological disorders, affecting over 50% of the global population. Migraine — characterized by moderate to severe pulsating pain, often with nausea, light and sound sensitivity, and visual aura — affects roughly 12% of adults and is significantly debilitating. Despite their prevalence, both conditions are frequently undertreated or managed only with medications that address symptoms rather than underlying causes.",
@@ -281,7 +281,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Fibromyalgia Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Fibromyalgia treatment in Greenville, SC. Dr. Hendry's integrative approach addresses the root causes of widespread pain, fatigue, and brain fog. Call (864) 365-6156.",
-    relatedServiceSlugs: ["fibromyalgia-treatment", "acupuncture-therapy", "functional-medicine-consultation", "nutritional-counseling"],
+    relatedServiceSlugs: ["fibromyalgia-treatment", "acupuncture-therapy", "functional-medicine-consultation", "nutritional-counseling", "whole-food-supplements"],
     relatedConditionSlugs: ["chronic-fatigue", "insomnia", "anxiety-stress", "hormone-imbalance"],
     content: {
       definition: "Fibromyalgia is a chronic pain condition characterized by widespread musculoskeletal pain, fatigue, sleep disturbances, and cognitive difficulties ('fibro fog'). It represents a disorder of central pain processing — the nervous system amplifies pain signals in the absence of identifiable tissue damage. Affecting approximately 4 million Americans, it is far more common in women and often coexists with other conditions like IBS, headaches, and mood disorders.",
@@ -315,7 +315,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Neuropathy Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Peripheral neuropathy treatment in Greenville, SC. Dr. Hendry uses acupuncture and functional medicine to reduce numbness, tingling, and nerve pain. Call (864) 365-6156.",
-    relatedServiceSlugs: ["neuropathy-treatment", "acupuncture-therapy", "electroacupuncture", "functional-medicine-consultation"],
+    relatedServiceSlugs: ["neuropathy-treatment", "acupuncture-therapy", "electroacupuncture", "functional-medicine-consultation", "peripheral-neuropathy-treatment", "intramuscular-stimulation", "carpal-tunnel-treatment"],
     relatedConditionSlugs: ["back-pain", "sciatica", "fibromyalgia", "autoimmune-disease"],
     content: {
       definition: "Peripheral neuropathy occurs when the peripheral nerves — those outside the brain and spinal cord — are damaged, resulting in weakness, numbness, and pain, typically in the hands and feet. It can be caused by diabetes, chemotherapy, autoimmune conditions, vitamin deficiencies, or unknown factors (idiopathic neuropathy). Dr. Hendry has specific research experience treating chemotherapy-induced peripheral neuropathy (CIPN) at Prisma Health.",
@@ -383,7 +383,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Sports Injury Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Sports injury treatment in Greenville, SC. Acupuncture and dry needling help athletes recover faster from strains, sprains, and overuse injuries. Call (864) 365-6156.",
-    relatedServiceSlugs: ["sports-injury-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy"],
+    relatedServiceSlugs: ["sports-injury-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy", "plantar-fasciitis-treatment"],
     relatedConditionSlugs: ["back-pain", "shoulder-pain", "knee-pain", "hip-pain"],
     content: {
       definition: "Sports injuries encompass acute injuries (sudden trauma such as sprains, strains, and fractures) and overuse injuries (gradual onset from repetitive stress, such as tendinopathy, stress fractures, and bursitis). Athletes at all levels — from weekend warriors to competitive athletes — benefit from integrative treatment that promotes faster recovery, reduces reinjury risk, and addresses the systemic factors that contribute to injury susceptibility.",
@@ -555,7 +555,7 @@ const conditions: ConditionData[] = [
     categorySlug: "neurological-mental-health",
     metaTitle: "Brain Fog Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Struggling with brain fog in Greenville, SC? Dr. Hendry identifies root causes like inflammation, hormonal shifts, and gut dysfunction and treats them naturally. Call (864) 365-6156.",
-    relatedServiceSlugs: ["functional-medicine-consultation", "nutritional-counseling", "acupuncture-therapy", "hormone-testing"],
+    relatedServiceSlugs: ["functional-medicine-consultation", "nutritional-counseling", "acupuncture-therapy", "hormone-testing", "brain-fog-treatment"],
     relatedConditionSlugs: ["chronic-fatigue", "thyroid-issues", "hashimotos", "insomnia"],
     content: {
       definition: "Brain fog is not a medical diagnosis but a widely reported constellation of symptoms: mental cloudiness, difficulty concentrating, poor memory, slowed thinking, and a general sense of cognitive inefficiency. It is a common feature of fibromyalgia, chronic fatigue syndrome, hormonal imbalances, thyroid dysfunction, post-COVID syndrome, autoimmune conditions, and various nutritional deficiencies. Identifying the underlying cause is essential — brain fog is a symptom with many roots.",
@@ -625,7 +625,7 @@ const conditions: ConditionData[] = [
     categorySlug: "hormonal-womens-health",
     metaTitle: "PCOS Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "PCOS treatment in Greenville, SC. Dr. Hendry addresses insulin resistance, hormonal imbalance, and cycle irregularities with acupuncture and functional medicine. Call (864) 365-6156.",
-    relatedServiceSlugs: ["hormone-testing", "fertility-treatment", "nutritional-counseling", "acupuncture-therapy"],
+    relatedServiceSlugs: ["hormone-testing", "fertility-treatment", "nutritional-counseling", "acupuncture-therapy", "pms-treatment", "menstrual-pain-treatment"],
     relatedConditionSlugs: ["fertility", "hormone-imbalance", "thyroid-issues", "weight-issues"],
     content: {
       definition: "Polycystic ovary syndrome (PCOS) is the most common hormonal disorder in reproductive-age women, affecting 8–13% of women globally. Characterized by irregular periods, elevated androgens (male hormones), and polycystic ovaries on ultrasound, PCOS is also strongly associated with insulin resistance, weight difficulties, and increased risk of type 2 diabetes, cardiovascular disease, and mood disorders. It is the leading cause of ovulatory infertility.",
@@ -763,7 +763,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "IBS & Gut Issues Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "IBS and gut health treatment in Greenville, SC. Dr. Hendry's functional medicine and acupuncture approach heals the gut and resolves digestive symptoms. Call (864) 365-6156.",
-    relatedServiceSlugs: ["ibs-treatment", "digestive-issues-treatment", "gut-health-testing", "nutritional-counseling"],
+    relatedServiceSlugs: ["ibs-treatment", "digestive-issues-treatment", "gut-health-testing", "nutritional-counseling", "acid-reflux-treatment"],
     relatedConditionSlugs: ["leaky-gut", "food-sensitivities", "autoimmune-disease", "chronic-fatigue"],
     content: {
       definition: "Irritable bowel syndrome (IBS) affects 10–15% of the global population and is characterized by recurring abdominal pain, bloating, and altered bowel habits (diarrhea, constipation, or both) in the absence of structural gastrointestinal disease. It is one of the most commonly diagnosed and poorly treated gastrointestinal conditions in conventional medicine — because standard treatment manages symptoms rather than addressing the underlying dysfunction.",
@@ -797,7 +797,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "Chronic Fatigue Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Chronic fatigue treatment in Greenville, SC. Dr. Hendry identifies and treats the root causes of persistent exhaustion with functional medicine and acupuncture. Call (864) 365-6156.",
-    relatedServiceSlugs: ["fatigue-treatment", "chronic-fatigue-treatment", "functional-medicine-consultation", "nutritional-counseling"],
+    relatedServiceSlugs: ["fatigue-treatment", "chronic-fatigue-treatment", "functional-medicine-consultation", "nutritional-counseling", "nutritional-supplements", "mineral-supplementation", "nutritional-deficiency-testing", "vitamin-supplementation"],
     relatedConditionSlugs: ["fibromyalgia", "brain-fog", "thyroid-issues", "adrenal-fatigue"],
     content: {
       definition: "Chronic fatigue syndrome (CFS/ME — myalgic encephalomyelitis) is a complex, debilitating condition characterized by profound, persistent fatigue that is not relieved by rest and significantly impairs daily function. It is accompanied by post-exertional malaise (symptoms worsen after physical or mental exertion), unrefreshing sleep, cognitive impairment, and orthostatic intolerance. Affecting up to 2.5 million Americans, it is frequently misdiagnosed and undertreated. Many more people experience significant fatigue without meeting formal CFS criteria — a population that also benefits enormously from functional medicine evaluation.",
@@ -831,7 +831,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "Autoimmune Disease Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Integrative autoimmune disease treatment in Greenville, SC. Dr. Hendry addresses gut dysbiosis, inflammation, and immune triggers naturally. Call (864) 365-6156.",
-    relatedServiceSlugs: ["autoimmune-disease-treatment", "functional-medicine-consultation", "gut-health-testing", "nutritional-counseling"],
+    relatedServiceSlugs: ["autoimmune-disease-treatment", "functional-medicine-consultation", "gut-health-testing", "nutritional-counseling", "immune-system-support"],
     relatedConditionSlugs: ["hashimotos", "leaky-gut", "food-sensitivities", "thyroid-issues"],
     content: {
       definition: "Autoimmune disease occurs when the immune system mistakenly attacks the body's own tissues — causing chronic inflammation and damage in specific organs or systemically. There are over 80 recognized autoimmune conditions, including rheumatoid arthritis, Hashimoto's thyroiditis, lupus, multiple sclerosis, Crohn's disease, and psoriasis. Collectively, autoimmune disease affects more than 23 million Americans and is the third most common category of illness in the U.S.",
@@ -933,7 +933,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "Food Sensitivity Testing & Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Food sensitivity testing and treatment in Greenville, SC. Dr. Hendry identifies hidden food reactions driving your chronic symptoms. Call (864) 365-6156.",
-    relatedServiceSlugs: ["food-sensitivity-testing", "gut-health-testing", "nutritional-counseling", "functional-medicine-consultation"],
+    relatedServiceSlugs: ["food-sensitivity-testing", "gut-health-testing", "nutritional-counseling", "functional-medicine-consultation", "sinus-treatment", "allergy-treatment"],
     relatedConditionSlugs: ["leaky-gut", "ibs-gut-issues", "autoimmune-disease", "brain-fog"],
     content: {
       definition: "Food sensitivities (also called food intolerances or non-IgE food reactions) are delayed immune reactions to specific foods that produce a wide range of symptoms — typically appearing 2–72 hours after consumption, making the connection to specific foods very difficult to identify without systematic testing. Unlike true food allergies (IgE-mediated, immediate reactions), food sensitivities involve IgG antibodies, T-cell mediated reactions, and direct intestinal permeability effects, producing chronic, diffuse symptoms rather than acute reactions.",
@@ -1035,7 +1035,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "Chronic Illness Support in Greenville, SC | Integrative Health Partners",
     metaDescription: "Integrative chronic illness support in Greenville, SC. Dr. Hendry helps patients with complex, multi-system chronic conditions find root causes and healing. Call (864) 365-6156.",
-    relatedServiceSlugs: ["functional-medicine-consultation", "nutritional-counseling", "acupuncture-therapy", "root-cause-analysis"],
+    relatedServiceSlugs: ["functional-medicine-consultation", "nutritional-counseling", "acupuncture-therapy", "root-cause-analysis", "natural-medicine-consultation"],
     relatedConditionSlugs: ["autoimmune-disease", "chronic-fatigue", "fibromyalgia", "chronic-fatigue"],
     content: {
       definition: "Chronic illness encompasses any health condition lasting 3 months or more that significantly impacts quality of life and function. Unlike acute conditions that resolve with standard treatment, chronic illness persists despite conventional care — often because the underlying biological drivers remain unaddressed. Functional medicine's systematic, personalized approach to root-cause identification makes it uniquely suited to addressing the complexity of multi-system chronic illness.",
@@ -1069,7 +1069,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "Weight Management Support in Greenville, SC | Integrative Health Partners",
     metaDescription: "Functional medicine weight management in Greenville, SC. Dr. Hendry identifies hormonal and metabolic barriers to weight loss and addresses them at the root. Call (864) 365-6156.",
-    relatedServiceSlugs: ["weight-loss-support", "metabolism-support", "nutritional-counseling", "functional-medicine-consultation"],
+    relatedServiceSlugs: ["weight-loss-support", "metabolism-support", "nutritional-counseling", "functional-medicine-consultation", "nutrition-therapy", "blood-sugar-support"],
     relatedConditionSlugs: ["thyroid-issues", "hormone-imbalance", "adrenal-fatigue", "chronic-illness"],
     content: {
       definition: "Weight management difficulties — both undesired weight gain and inability to lose weight despite genuine effort — are rarely simple caloric imbalance problems. The majority of patients who struggle with weight have underlying biological factors that make weight management physiologically difficult: hormonal imbalances, insulin resistance, thyroid dysfunction, gut dysbiosis, sleep deprivation, chronic stress, and inflammatory states that dysregulate the body's weight-regulating systems. Functional medicine identifies and addresses these root causes.",

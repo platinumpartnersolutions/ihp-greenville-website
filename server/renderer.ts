@@ -859,7 +859,7 @@ export function renderCategory(catSlug: string): string | null {
     },
     {
       q: `How do I schedule a ${cat.name.toLowerCase()} appointment?`,
-      a: `Call us at (864) 365-6156 or email info@ihpgreenville.com. We're located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. New patients are always welcome.`,
+      a: `Call us at (864) 365-6156. We're located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. New patients are always welcome.`,
     },
     {
       q: `Does Dr. Hendry accept insurance for ${cat.name.toLowerCase()} services?`,
@@ -1856,7 +1856,7 @@ export function renderAbout(): string {
           <section class="content-section">
             <h2>Our Location</h2>
             <p>We are conveniently located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609 — easily accessible from Spartanburg, Anderson, North Greenville, Travelers Rest, Taylors, Mauldin, Simpsonville, and the greater Upstate South Carolina area. We serve patients throughout Upstate SC.</p>
-            <p>We see patients Monday through Friday, 9am–5pm. New patients are always welcome. Call us at <a href="tel:+1-864-365-6156" class="internal-link">(864) 365-6156</a> or email <a href="mailto:info@ihpgreenville.com" class="internal-link">info@ihpgreenville.com</a> to schedule your initial consultation.</p>
+            <p>We see patients Monday through Friday, 9am–5pm. New patients are always welcome. Call us at <a href="tel:+1-864-365-6156" class="internal-link">(864) 365-6156</a> or email <!--email_off--><a href="mailto:info@ihpgreenville.com" class="internal-link">info@ihpgreenville.com</a><!--/email_off--> to schedule your initial consultation.</p>
           </section>
 
           <section class="content-section">

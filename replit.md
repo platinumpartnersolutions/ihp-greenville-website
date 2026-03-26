@@ -1,158 +1,53 @@
 # Integrative Health Partners Website
 
 ## Overview
-Local SEO-focused website for Integrative Health Partners, a functional medicine and acupuncture practice in Greenville, SC. The site aligns with their Google Business Profile structure, featuring 4 GBP category pages and 130 individual service pages.
+This project involves developing a local SEO-focused website for Integrative Health Partners, a functional medicine and acupuncture practice in Greenville, SC. The website is designed to align with their Google Business Profile structure, featuring 4 GBP category pages and 130 individual service pages. The primary goal is to enhance online visibility, attract local clients, and provide comprehensive information about the practice's services and conditions treated. The site aims for high search engine rankings through meticulous SEO practices, including rich schema markup, optimized content, and a robust internal linking strategy.
 
-## Recent Changes (March 2026 — Whitespark 2026 Local SEO Audit)
-- **Title tags**: All page titles now ≤60 chars. Changed brand suffix from "Integrative Health Partners" to "IHP" for service/condition pages; homepage keeps full format. 4 category pages, 130 service pages, 35 condition pages, About, Dr. Hendry, Contact, Conditions hub all updated.
-- **Homepage H1**: Changed to "Acupuncture & Functional Medicine in Greenville, SC" — leads with Acupuncture as primary GBP category signal. Eyebrow updated to "Serving Greenville, Spartanburg, Anderson & Upstate SC".
-- **Homepage schema**: Added `aggregateRating` (5.0, 19 reviews) and `areaServed` (Greenville, Spartanburg, Anderson, Upstate SC) to MedicalBusiness schema. Added `LocalBusiness` co-type.
-- **Review count**: Hero badge corrected to "19 Reviews" (not "100+").
-- **Contact page** (`/contact`): New full page with canonical NAP block, Google Maps iframe, driving directions (Spartanburg, Anderson, Travelers Rest routes), Google review link, office hours, and directory links. Added to `renderer.ts`, `routes.ts`, and `seo.ts`.
-- **Google review link**: Added to site footer "Leave a Google Review" linking to `share.google/TYarboIHpqlhU6odK`. Also prominent on `/contact` page.
-- **Service area**: Homepage eyebrow, About page location section, and Dr. Hendry page subtitle all now reference Spartanburg, Anderson, and Upstate SC explicitly.
-- **Condition category pages**: Added ~500-word "Our Approach" + "Why IHP" + 4-FAQ sections to all 4 condition category hub pages; pages now 1,292–1,349 words each (up from 711–748 words).
-- **getSEOForUrl**: Condition category titles now use `shortName` field for cleaner titles.
+## User Preferences
+The user prefers a clean, modern design with a focus on intuitive navigation. They want the site to load quickly and be fully responsive across all devices. Content should be easily updateable, and the site should prominently feature Dr. Hendry's credentials and expertise. The user expects the AI to prioritize SEO best practices in all development aspects, from content structure to technical implementation. They also emphasize the importance of accurate and comprehensive schema markup for all page types.
 
-## Recent Changes (March 2026 — SEO Audit)
-- **Schema gaps fixed**: Removed hardcoded aggregateRating, fixed logo URL, added Blog+Article schemas to blog pages, ItemList to conditions hub/category, FAQPage to About and Dr. Hendry pages
-- **Conditions SEO injection**: Conditions hub, category, and individual pages now get proper SEO injection via `getSEOForUrl()` in routes
-- **Blog post SEO**: Blog posts use actual post data (title, excerpt, date) for Article schema instead of stub
-- **FAQs added**: 6 FAQs on About page, 6 FAQs on Dr. Hendry page — with matching FAQPage schema
-- **Sitemap**: 253 URLs total (130 services, 4 service categories, 35 conditions, about, dr-hendry, blog index, blog posts)
-- **All page types have schema**: Home (MedicalBusiness, Physician, FAQPage), Categories (BreadcrumbList, FAQPage, MedicalBusiness), Services (BreadcrumbList, MedicalProcedure, FAQPage), Conditions hub (ItemList), Condition categories (ItemList, BreadcrumbList), Condition pages (MedicalCondition, FAQPage, BreadcrumbList), About (MedicalBusiness, FAQPage, BreadcrumbList), Dr. Hendry (Physician, FAQPage, BreadcrumbList), Blog (Blog, BreadcrumbList), Blog posts (Article, BreadcrumbList)
+## System Architecture
 
-## Recent Changes (March 2026 — Task #5)
-- **Homepage restructured**: New H1 "Integrative Functional Medicine & Acupuncture in Greenville, SC", 6-section layout (hero, E-E-A-T credentials, conditions, services, why IHP, NAP/contact), 8-question FAQPage schema, enhanced Physician schema
-- **All 130 service pages now have unique content**: `server/services-content.ts` (2748 lines) contains 9 core money pages (1500-2500 words each with research, cost info, treatment timelines) and 121 standard pages (800+ words each with opening, how-it-works, conditions treated, first appointment, why Dr. Hendry, 5-6 FAQs)
-- **`renderService()` rewritten**: Uses `serviceContentMap` to render rich content sections — core pages get 7+ sections, standard pages get 5+ sections, with graceful fallback for any missing entries
-- **Condition cross-links**: Service pages link to related condition pages via `.tag--link` styled links
-- **`server/services-content.ts`**: Exports `serviceContentMap` (Map<string, ServiceContent>); interface includes optional fields: `howItWorksSteps`, `comparison`, `research`, `costInfo`, `timeline`, `relatedServiceSlugs`
+### UI/UX Decisions
+The design system utilizes a primary color of `#2F814A` (green) and a secondary/accent color of `#68CCD1` (teal). Typography includes Playfair Display for display text, Montserrat for headings, and Source Sans 3 for body text. The site features a video hero with hardware-accelerated animations for performance. The navigation includes a 3-column dropdown for conditions.
 
-## Recent Changes (March 2026 — Task #3)
-- **Conditions section added**: `/conditions/` hub, 4 category pages, 30 individual condition pages with full content (definitions, symptoms, root causes, treatment, Dr. Hendry approach, 5 FAQs each)
-- **`server/conditions.ts`**: All 30 condition data objects + 4 category definitions with opening paragraphs; exports `conditionMap`, `conditionCategoryMap`
-- **`server/seo.ts`**: Added `getConditionCategorySEO`, `getConditionPageSEO`; updated `generateSitemapXML` signature to accept condition slugs (now 35 condition URLs in sitemap)
-- **`server/renderer.ts`**: Nav updated to 3-column conditions dropdown (30 conditions in grid); added `renderConditionsHub`, `renderConditionCategory`, `renderCondition`
-- **`server/routes.ts`**: Added `/conditions` and `/conditions/:slug` routes; updated sitemap call with condition slugs
-- **`public/css/style.css`**: Added `.nav__dropdown-menu--wide`, `.nav__dropdown-grid`, `.nav__dropdown-col` for 3-column conditions dropdown
-- **Condition URL structure**: `/conditions/[condition-slug]` for individual pages, `/conditions/[category-slug]` for category pages, `/conditions` for hub
+### Technical Implementations
+The website is built with vanilla HTML, CSS, and JavaScript, served by an Express.js backend. All pages are server-side rendered via `server/renderer.ts`, eliminating the need for a client-side framework like React/Vite. There is no build step required, as CSS (`public/css/style.css`) and JS (`public/js/main.js`) are served as static files. Static assets are served from the `public/` directory, and `attached_assets/` (video, images) are served at the `/assets/` path.
 
-## Recent Changes (March 2026)
-- **Full frontend rewrite**: React/Vite SPA replaced with vanilla HTML+CSS+JS served by Express
-- **Server-side rendering**: All pages (home, category, service, blog index, blog post, 404) rendered server-side via `server/renderer.ts`
-- **No build step required**: CSS (`public/css/style.css`) and JS (`public/js/main.js`) served as static files; no bundler needed
-- **Static assets**: `public/` served directly; `attached_assets/` served at `/assets/` path (video, images)
-- **Ordering fix**: `serveStatic(app)` called before `registerRoutes` so CSS/JS are served before the catch-all 404 handler
-- **Vite removed**: `server/index.ts` and `script/build.ts` no longer reference Vite at all
-- `server/renderer.ts` exports: `renderHome`, `renderCategory`, `renderService`, `renderBlogIndex`, `renderBlogPost`, `render404`
-- Blog posts fully server-rendered from DB (no client-side fetch); SEO injected manually for blog post pages
+### Feature Specifications
+- **URL Structure**:
+    - Home: `/`
+    - Categories: `/services/[category-slug]-greenville-sc`
+    - Services: `/services/[service-slug]-greenville-sc`
+    - Conditions Hub: `/conditions`
+    - Condition Categories: `/conditions/[category-slug]`
+    - Individual Conditions: `/conditions/[condition-slug]`
+- **GBP Categories**: Four main categories: Acupuncturist, Acupuncture Clinic, Chinese Medicine Clinic, Alternative Medicine Practitioner.
+- **Content Management**:
+    - 130 unique service pages, with 9 core pages having extensive content (1500-2500 words) and 121 standard pages (800+ words). Content for services is managed via `server/services-content.ts`.
+    - 30 individual condition pages with detailed content (definitions, symptoms, root causes, treatment, Dr. Hendry's approach, FAQs), managed via `server/conditions.ts`.
+    - Blog section with posts stored in a database, automatically synced from a WordPress RSS feed every 30 minutes, with manual sync available.
+- **SEO**:
+    - Server-side SEO injection for meta tags, canonical URLs, OG tags, and JSON-LD schema.
+    - Server-generated `sitemap.xml` including all service pages, categories, conditions, and blog posts.
+    - `robots.txt` configured to allow GPTBot, Google-Extended, and ChatGPT-User crawlers.
+    - Title tags are optimized to be ≤60 characters, using "IHP" as the brand suffix for service/condition pages.
+    - Comprehensive schema markup implemented for various page types: Organization, LocalBusiness, Service, Breadcrumb, FAQ, Physician, MedicalProcedure, MedicalCondition, ItemList, Blog, Article, EducationalOccupationalCredential.
+    - Internal linking strategy with descriptive anchor text, cross-linking between related services and conditions.
 
-## Recent Changes (February 2026)
-- **Server-side SEO injection**: Express middleware injects page-specific meta tags, canonical URLs, OG tags, and JSON-LD schema into HTML before serving — crawlers see correct data without JavaScript
-- **sitemap.xml**: Server-generated with all 130 service pages, 4 categories, home, blog index, and individual blog posts (213 URLs total)
-- **robots.txt**: Includes sitemap reference and allows GPTBot, Google-Extended, ChatGPT-User crawlers
-- **Server-side schema markup**: MedicalProcedure, BreadcrumbList, FAQPage, MedicalBusiness schemas injected per page type
-- Added "Services" suffix to all secondary category titles throughout navigation and pages
+### System Design Choices
+- **Server-Side Rendering (SSR)**: Chosen to ensure all content is available to search engine crawlers without JavaScript execution, improving SEO.
+- **Vanilla Stack**: Reduces complexity and overhead associated with client-side frameworks and build processes.
+- **Dynamic Routing**: Handles a large number of service and condition pages efficiently from centralized data files.
+- **Dedicated Contact Page**: Includes canonical NAP block, Google Maps iframe, driving directions, Google review link, office hours, and directory links.
+- **Email Obfuscation**: Uses `<!--email_off-->...<!--/email_off-->` to prevent Cloudflare from corrupting `mailto:` links.
 
-## Previous Changes (January 2026)
-- Implemented complete URL structure: `/services/[service-name]-greenville-sc`
-- Created 4 category pages matching GBP categories
-- Built dynamic routing for 130 service pages
-- Added comprehensive schema markup (Organization, LocalBusiness, Service, Breadcrumb, FAQ)
-- Updated home page H1 to focus on primary category: "Acupuncturist in Greenville, SC"
-- Implemented internal linking with varied, descriptive anchor text
-- Added blog section with database storage for posts imported from WordPress RSS feed
-- Blog posts sync automatically every 30 minutes from WordPress RSS feed
-- Manual sync available via POST /api/blog/sync endpoint
-
-## Site Architecture
-
-### GBP Categories (4 total)
-1. **Acupuncturist** (Primary) - 27 services - `/services/acupuncturist-greenville-sc`
-2. **Acupuncture Clinic** - 24 services - `/services/acupuncture-clinic-greenville-sc`
-3. **Chinese Medicine Clinic** - 33 services - `/services/chinese-medicine-clinic-greenville-sc`
-4. **Alternative Medicine Practitioner** - 46 services - `/services/alternative-medicine-practitioner-greenville-sc`
-
-### URL Structure
-- Home: `/`
-- Categories: `/services/[category-slug]-greenville-sc`
-- Services: `/services/[service-slug]-greenville-sc`
-
-### Key Files
-- `client/src/data/services.ts` - All 130 services organized by category with slugs, meta info
-- `client/src/pages/home.tsx` - Landing page with LocalBusiness schema
-- `client/src/pages/service-router.tsx` - Route handler that directs to category or service page
-- `client/src/pages/category.tsx` - Category page template
-- `client/src/pages/service.tsx` - Service page template
-- `client/src/components/SchemaMarkup.tsx` - Schema components
-- `client/src/components/Navigation.tsx` - Site navigation with service dropdown
-- `client/src/components/NAPFooter.tsx` - Consistent NAP footer
-- `client/src/components/Breadcrumbs.tsx` - Breadcrumb navigation
-- `client/src/components/SEOHead.tsx` - Dynamic meta tag updates
-
-## NAP Information
-- Name: Integrative Health Partners
-- Address: 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609
-- Phone: (864) 365-6156
-- Email: info@ihpgreenville.com
-- URL: https://www.ihpgreenville.com
-
-## Schema Markup Implementation
-- **Organization Schema** - Every page (via component)
-- **LocalBusiness Schema** - Home page only (GBP landing)
-- **Service Schema** - All 130 service pages
-- **Breadcrumb Schema** - Category and service pages
-- **FAQ Schema** - Category, service, and home pages
-- **Physician Schema** - Home page (Dr. Hendry)
-- **EducationalOccupationalCredential Schema** - Home page (NCCAOM certification)
-
-## Dr. Hendry Credentials
-- **NCCAOM Certification #:** 114498
-- **NCCAOM Designation:** Dipl. O.M. (NCCAOM)®
-- **Certified Since:** August 6, 2009
-- **Certification Valid Through:** August 31, 2029
-- **NCCAOM Badge URL:** https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==
-- **NCCAOM Directory:** https://directory.ncbahm.org/FAP/PractitionerDetail?AgencyClientId=ssLe-Z5Nnck=&d=4.8
-- **State License Verification:** https://llr.sc.gov/med/
-- **DAOM School:** East West College of Natural Medicine (Graduated December 2008)
-- **NPI Number:** 1417184045 (Active since June 22, 2009)
-- **NPI Verification:** https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx
-- **SC Acupuncture License #:** ACUP141 (Expires: September 30, 2027)
-- **FL Acupuncture License #:** AP2646
-- **Specialty:** Injection Therapy Certification
-
-## Dr. Hendry Achievements
-- **Hospital Privileges:** Prisma Health (9 years)
-- **Professional Membership:** American Academy of Ozone Therapy (AAOT)
-- **Speaking:** Acupuncture Today webinar "Medicating Our Microbes: Herbs, Supplements and the Microbiome" (Nov 2016), sponsored by Biotics Research Corporation
-- **Acupuncture Today Webinar:** https://acupuncturetoday.com/webinars/detail/medicating-our-microbes-herbs-supplements-and-the-microbiome
-- **Research:** Co-author of "Alternatives to Opiates" - 3-year study at Prisma Emergency Department on needling techniques as opioid alternatives
-- **Publications:** 5 research studies/publications, 52 citations
-- **ResearchGate Profile:** https://www.researchgate.net/profile/William-Hendry-4
-- **Prisma Health Research:** https://academics.prismahealth.org/research-and-innovation/research-development/resources/patient-engagement-studio/main-studio
-- **Key Publications:**
-  - Evaluating the Effects of Acupuncture in the Treatment of Taxane Induced Peripheral Neuropathy (Patient Engagement Studio)
-  - Symptom Management Among Cancer Survivors: HRV Biofeedback (Jun 2020)
-  - Use of HRV biofeedback for symptom management among cancer survivors (May 2017)
-  - HRV training for symptom control in cancer survivors (Feb 2017)
-  - Neurogenesis: Implications for Integrative Care of Neurological Conditions (Nov 2013)
-
-## Design System
-- **Primary Color:** #2F814A (green)
-- **Secondary/Accent:** #68CCD1 (teal)
-- **Typography:** Playfair Display (display), Montserrat (headings), Source Sans 3 (body)
-
-## Internal Linking Strategy
-- Unique, descriptive anchor text for each link
-- Natural keyword integration
-- Links placed in body content
-- Category pages link to all their services
-- Service pages link back to parent category
-- Home page links to all 4 categories
-- Cross-linking between related services
-
-## Development Notes
-- All service pages have placeholder content (user will provide real content)
-- Dynamic routing handles all 130 services from centralized data file
-- Video hero with hardware-accelerated animations for performance
+## External Dependencies
+- **WordPress RSS Feed**: Used for syncing blog posts into the site's database.
+- **Google Maps**: Integrated via an iframe on the contact page for location display and driving directions.
+- **Google My Business Profile**: The website's structure and content are designed to align with the GBP categories and information.
+- **Cloudflare**: Utilized for email obfuscation.
+- **NCCAOM (National Certification Commission for Acupuncture and Oriental Medicine)**: Credentials and badge linked for Dr. Hendry.
+- **NPI Registry**: Used for verifying Dr. Hendry's National Provider Identifier.
+- **South Carolina LLR (Department of Labor, Licensing and Regulation)**: Linked for state license verification.
+- **ResearchGate**: Profile linked for Dr. Hendry's research and publications.

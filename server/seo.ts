@@ -991,6 +991,14 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
 
   xml += `
   <url>
+    <loc>${BASE_URL}/contact</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+
+  xml += `
+  <url>
     <loc>${BASE_URL}/blog</loc>
     <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
