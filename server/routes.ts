@@ -215,10 +215,12 @@ export async function registerRoutes(
       const conditionSlugs = conditions.map(c => c.slug);
       const conditionCatSlugs = conditionCategories.map(c => c.slug);
       let sitemap = generateSitemapXML(conditionSlugs, conditionCatSlugs);
-      const blogPostUrls = posts.map(post => {
-        const lastmod = post.pubDate ? new Date(post.pubDate).toISOString().split('T')[0] : today;
-        return `\n  <url>\n    <loc>${BASE_URL}/blog/${post.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
-      }).join('');
+      const blogPostUrls = posts
+        .filter(post => !BLOG_410S.has(`/blog/${post.slug}`) && !BLOG_301S[`/blog/${post.slug}`])
+        .map(post => {
+          const lastmod = post.pubDate ? new Date(post.pubDate).toISOString().split('T')[0] : today;
+          return `\n  <url>\n    <loc>${BASE_URL}/blog/${post.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+        }).join('');
       sitemap = sitemap.replace('</urlset>', `${blogPostUrls}\n</urlset>`);
       res.set("Content-Type", "application/xml").send(sitemap);
     } catch (error) {
@@ -360,7 +362,8 @@ export async function registerRoutes(
   app.get("/blog", async (req, res) => {
     try {
       await ensureBlogPostsSynced();
-      const posts = await storage.getAllBlogPosts();
+      const allPosts = await storage.getAllBlogPosts();
+      const posts = allPosts.filter(p => !BLOG_410S.has(`/blog/${p.slug}`));
       sendPage(res, renderBlogIndex(posts), req.originalUrl);
     } catch (error) {
       console.error("Blog index error:", error);
@@ -532,6 +535,7 @@ Digestive & Immune Health category. Includes IBS, leaky gut, food sensitivities,
 
       txt += `## Blog Posts\n\n`;
       for (const post of posts) {
+        if (BLOG_410S.has(`/blog/${post.slug}`) || BLOG_301S[`/blog/${post.slug}`]) continue;
         const cleanExcerpt = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, '').substring(0, 200) : '';
         txt += `${BASE_URL}/blog/${post.slug}\n${post.title}. ${cleanExcerpt}\n\n`;
       }

@@ -1,0 +1,63 @@
+Based on a domino effect analysis of all 8 changes made to the site, there are 11 specific issues that your self-audit did not verify. Work through every one and report PASS or FAIL with evidence — not assumptions.
+1. Schema on condition pages and /services hub
+Fetch the rendered HTML of /conditions/back-pain and /services. Check whether <script type="application/ld+json"> blocks exist. List the @type values found. If condition pages have no MedicalCondition schema or if /services has no ItemList schema, add the schema injection now and explain why those page types were excluded from the schema template.
+2. /services incoming internal links
+Search the rendered HTML of the homepage, footer, and nav for href="/services" (exact, not /services/acupuncturist-services or any subpath). If zero results, /services is an orphan. Add a "View All Services" link pointing to /services in the footer and confirm the homepage services section CTA also points there.
+3. Internal links still pointing to /blog/ redirect URLs
+Fetch the rendered HTML of these 5 pages and grep for any href containing /blog/:
+
+/services/acupuncture-therapy
+/services/dry-needling-therapy
+/conditions/back-pain
+/conditions/leaky-gut
+/about
+
+List every /blog/ href found. If any exist that are not the blog index (/blog), the renderer is not resolving them. Fix the resolver to output the final destination URL in the rendered HTML.
+4. Sitemap completeness
+Open sitemap.xml and confirm these specific URLs are present — not just condition pages in general:
+/services
+/contact
+/conditions/pain-and-musculoskeletal
+/conditions/neurological-mental-health
+/conditions/hormonal-womens-health
+/conditions/digestive-immune
+If any are missing, add them and then implement automatic sitemap generation from the registered route list so this never needs to be done manually again.
+5. Blog index linking to 410'd posts
+Fetch the rendered HTML of /blog. List every href on that page. Cross-reference against the BLOG_410S array. If any href matches a 410 slug, the blog index template is pulling from the full posts list without filtering 410'd entries. Fix the blog index to exclude 410 slugs from its rendered output.
+6. llms.txt referencing 410'd posts
+Open /llms.txt. Search for any of these slugs: go-green, fish-in-a-bowl, tea-time, weekly-digestive-health-tips, caught-a-cold, got-rocks, health-habit-success, cold-and-flu-season, is-fish-oil-alone-enough. Remove any that appear.
+7. OG tags on 8 trimmed pages
+For each of these pages, output both <meta name="description"> and <meta property="og:description"> from the rendered HTML and confirm they match and are both under 160 characters:
+
+/ — /blog — /about — /dr-hendry
+/services/acupuncturist-services
+/services/acupuncture-clinic-services
+/services/chinese-medicine-clinic-services
+/services/alternative-medicine-practitioner-services
+
+8. Email obfuscation completeness
+Search the rendered HTML output (post-render, not template source) of these pages for every occurrence of @ihpgreenville.com:
+
+Homepage, footer component, /contact, /about, /dr-hendry
+
+For each occurrence confirm it is wrapped in <!--email_off-->. Output the surrounding 50 characters of HTML context for each instance found. If any instance is unwrapped, fix it.
+9. Redirect chain check
+For each of the 54 blog 301 redirect destinations, confirm the destination itself returns a direct 200 — not another redirect. Specifically check these which are most likely to have changed:
+/services/biopuncture-therapy
+/services/immune-system-support  
+/services/detoxification-therapy
+/conditions/anxiety-stress
+/conditions/leaky-gut
+If any destination redirects, you have a chain. Fix by pointing the blog redirect directly to the final URL.
+10. Anchor text on new condition page cross-links
+Show me the exact anchor text and href for every new link added to these condition pages in the last commit:
+
+/conditions/neuropathy (new links to peripheral-neuropathy-treatment)
+/conditions/headaches-migraines (new links to acupuncture-for-headaches)
+/conditions/anxiety-stress (new links to natural-anxiety-treatment)
+
+If anchor text is "Learn More", "View Service", or any other generic phrase, rewrite it to be descriptive — e.g. "peripheral neuropathy treatment", "acupuncture for headaches", "natural anxiety treatment in Greenville".
+11. NAP address format in service page schema
+Search the service page schema template for the streetAddress field value. Confirm it is exactly "319 Wade Hampton Blvd, Ste A" — not "319 Wade Hampton Blvd, Suite A". If it says "Suite A" fix it to "Ste A" to match the GBP and homepage schema exactly.
+
+Report PASS or FAIL with evidence for each of the 11 items. Do not push until all 11 are resolved.
