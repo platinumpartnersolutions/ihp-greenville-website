@@ -1,0 +1,35 @@
+Stop Replit here. Adding drizzle-kit push to the Railway build step is the right call — but before approving it, there's an important consideration.
+The concern: drizzle-kit push on every deploy is fine for development but risky in production if the schema ever changes in a destructive way (dropping columns, renaming tables). It's a blunt instrument.
+However — for this project right now, the schema is stable and this is the fastest path to a working production database. Approve it with one condition.
+Tell Replit:
+
+Proceed with adding drizzle-kit push to the Railway build step, but with these exact conditions:
+1. Add it to the build command, not the start command
+In railway.toml or the Railway build settings, the build command should be:
+npm run build && npx drizzle-kit push
+Not in the start command. Schema migration should happen once at build time, not on every server restart.
+2. Confirm the Drizzle schema has the blog posts table defined correctly before pushing
+Show me the schema definition for the blog posts table from the Drizzle schema file before running push. Confirm it includes: id (uuid), slug (unique), title, content, excerpt, published_at, meta_description, author. If any fields are missing the migration endpoint will fail on INSERT.
+3. After Railway deploys with the schema push, do this in sequence:
+First — confirm the table exists in Railway PostgreSQL:
+sqlSELECT table_name FROM information_schema.tables 
+WHERE table_schema = 'public';
+Second — call the migration endpoint to seed the 79 posts.
+Third — confirm row count:
+sqlSELECT COUNT(*) FROM blog_posts;
+```
+Expected: 79 rows.
+
+Fourth — check these URLs live:
+```
+/blog                                       → 53 posts showing
+/blog/acupuncture-for-back-pain             → 200 with content
+/blog/dry-needling-and-acupuncture          → 200 with content
+/blog/go-green                              → 410
+Fifth — in a single commit after confirming everything works:
+
+Remove the migration endpoint from routes.ts
+Remove blog-export.json from the repo
+Add blog-export.json to .gitignore
+
+Show me the schema definition first before doing anything else.
