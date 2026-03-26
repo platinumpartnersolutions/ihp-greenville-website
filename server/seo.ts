@@ -3,9 +3,16 @@ import { conditions, conditionCategories, conditionCategoryMap, type ConditionDa
 
 const BASE_URL = process.env.BASE_URL || "https://www.ihpgreenville.com";
 
+function trim160(desc: string): string {
+  if (desc.length <= 160) return desc;
+  const cut = desc.substring(0, 157);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 120 ? cut.substring(0, lastSpace) : cut) + '...';
+}
+
 const NAP = {
   name: "Integrative Health Partners",
-  streetAddress: "319 Wade Hampton Blvd, Suite A",
+  streetAddress: "319 Wade Hampton Blvd, Ste A",
   city: "Greenville",
   state: "SC",
   postalCode: "29609",
@@ -333,7 +340,7 @@ function getCategorySEO(slug: string): PageSEO | null {
             "name": `How do I schedule an appointment for ${cat.name.toLowerCase()} services?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `You can schedule an appointment by calling us at (864) 365-6156 or emailing info@ihpgreenville.com. We're located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609.`
+              "text": `You can schedule an appointment by calling us at (864) 365-6156 or emailing info@ihpgreenville.com. We're located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609.`
             }
           }
         ]
@@ -359,7 +366,7 @@ function getServiceSEO(slug: string): PageSEO | null {
     : [
         { q: `How does ${service.name} work?`, a: `${service.name} is an evidence-based treatment offered at Integrative Health Partners in Greenville, SC. Dr. Hendry conducts a thorough assessment to understand your individual health needs and creates a customized treatment protocol.` },
         { q: `How many ${service.name} sessions will I need?`, a: `The number of sessions depends on your specific condition. Acute conditions typically require 3–6 sessions, while chronic conditions may need 8–12 or more sessions.` },
-        { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. Call (864) 365-6156.` },
+        { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156.` },
       ];
 
   const schemas: Record<string, unknown>[] = [
@@ -488,7 +495,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
 function getConditionsHubSEO(): PageSEO {
   return {
     title: "Conditions We Treat in Greenville, SC | IHP",
-    description: "Integrative Health Partners treats 30+ health conditions with acupuncture and functional medicine in Greenville, SC. Pain, hormonal, neurological, and digestive conditions. Call (864) 365-6156.",
+    description: "Acupuncture & functional medicine for 30+ conditions in Greenville, SC — pain, hormonal, neurological, gut & immune. Dr. Hendry, DAOM. Call (864) 365-6156.",
     canonical: `${BASE_URL}/conditions`,
     ogType: "website",
     schemas: [
@@ -587,7 +594,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
 
   return {
     title: `${name} in Greenville, SC | IHP`,
-    description: desc,
+    description: trim160(desc),
     canonical: pageUrl,
     ogType: "website",
     schemas
@@ -598,7 +605,7 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
   const pageUrl = `${BASE_URL}/conditions/${slug}`;
   return {
     title: `${name} Treatment in Greenville, SC | IHP`,
-    description: desc,
+    description: trim160(desc),
     canonical: pageUrl,
     ogType: "website",
     schemas: [
@@ -764,7 +771,7 @@ function getDrHendrySEO(): PageSEO {
 function getContactSEO(): PageSEO {
   return {
     title: "Contact IHP | Acupuncture Appointment Greenville, SC",
-    description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
+    description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
     canonical: `${BASE_URL}/contact`,
     ogType: "website",
     schemas: [

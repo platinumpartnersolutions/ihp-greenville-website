@@ -240,7 +240,7 @@ export const getServicesByCategory = (categorySlug: string): Service[] => {
 
 export const NAP = {
   name: "Integrative Health Partners",
-  streetAddress: "319 Wade Hampton Blvd, Suite A",
+  streetAddress: "319 Wade Hampton Blvd, Ste A",
   city: "Greenville",
   state: "SC",
   postalCode: "29609",

@@ -333,7 +333,7 @@ function renderFooter(): string {
       <div>
         <p class="footer__col-title">Contact &amp; Location</p>
         <div class="footer__contact-list">
-          <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd, Suite A<br>Greenville, SC 29609</span></div>
+          <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd, Ste A<br>Greenville, SC 29609</span></div>
           <div class="footer__contact-row">${icons.phone}<a href="tel:${NAP.phoneRaw}" class="footer__contact-link">${NAP.phone}</a></div>
           <div class="footer__contact-row">${icons.mail}<a href="mailto:${NAP.email}" class="footer__contact-link">${NAP.email}</a></div>
           <div class="footer__contact-row">${icons.clock}<span>Mon–Fri 9am–5pm</span></div>
@@ -375,7 +375,7 @@ function renderFooter(): string {
 
     <div class="footer__bottom">
       <p>&copy; ${new Date().getFullYear()} Integrative Health Partners. All rights reserved.</p>
-      <p>319 Wade Hampton Blvd Suite A, Greenville, SC 29609 &nbsp;&bull;&nbsp; <a href="tel:${NAP.phoneRaw}" style="color:inherit">${NAP.phone}</a></p>
+      <p>319 Wade Hampton Blvd, Ste A, Greenville, SC 29609 &nbsp;&bull;&nbsp; <a href="tel:${NAP.phoneRaw}" style="color:inherit">${NAP.phone}</a></p>
     </div>
   </div>
 </footer>`;
@@ -757,7 +757,7 @@ export function renderHome(): string {
             <span class="section-label reveal">Visit Us in Greenville, SC</span>
             <h2 class="section-title reveal reveal-delay-1" id="contact-heading">Schedule Your First Consultation</h2>
             <p style="color:var(--color-muted);line-height:1.75;margin:1.25rem 0 1.5rem" class="reveal reveal-delay-2">
-              Our clinic is at 319 Wade Hampton Blvd, Suite A — just a few minutes east of downtown and North Main. We're conveniently close to Bob Jones University, Wade Hampton Lanes, and a quick drive from Greenville Memorial Hospital and the Stone Lake community.
+              Our clinic is at 319 Wade Hampton Blvd, Ste A — just a few minutes east of downtown and North Main. We're conveniently close to Bob Jones University, Wade Hampton Lanes, and a quick drive from Greenville Memorial Hospital and the Stone Lake community.
             </p>
             <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.25rem" class="reveal reveal-delay-2">
               <div style="display:flex;align-items:flex-start;gap:0.75rem">
@@ -774,7 +774,7 @@ export function renderHome(): string {
                 <div class="info-icon">${icons.mapPin}</div>
                 <div>
                   <div class="info-label">Office Address</div>
-                  <div class="info-value">319 Wade Hampton Blvd, Suite A<br>Greenville, SC 29609</div>
+                  <div class="info-value">319 Wade Hampton Blvd, Ste A<br>Greenville, SC 29609</div>
                 </div>
               </div>
               <div class="info-row reveal">
@@ -859,7 +859,7 @@ export function renderCategory(catSlug: string): string | null {
     },
     {
       q: `How do I schedule a ${cat.name.toLowerCase()} appointment?`,
-      a: `Call us at (864) 365-6156 or email info@ihpgreenville.com. We're located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. New patients are always welcome.`,
+      a: `Call us at (864) 365-6156 or email info@ihpgreenville.com. We're located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. New patients are always welcome.`,
     },
     {
       q: `Does Dr. Hendry accept insurance for ${cat.name.toLowerCase()} services?`,
@@ -984,7 +984,7 @@ export function renderService(svcSlug: string): string | null {
     : [
         { q: `How does ${service.name} work?`, a: `${service.name} is an evidence-based treatment offered at Integrative Health Partners in Greenville, SC. Dr. Hendry conducts a thorough assessment to understand your individual health needs and creates a customized treatment protocol to address the root cause of your condition.` },
         { q: `How many ${service.name} sessions will I need?`, a: `The number of sessions depends on your specific condition and its chronicity. Acute conditions typically require 3–6 sessions, while chronic conditions may need 8–12 or more sessions. Dr. Hendry will outline a recommended treatment schedule during your initial consultation.` },
-        { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. Call (864) 365-6156 to schedule your appointment with Dr. William Hendry.` },
+        { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156 to schedule your appointment with Dr. William Hendry.` },
       ];
 
   const conditionsLinksHtml = content && content.conditionsTreated.length > 0
@@ -1159,7 +1159,7 @@ export function renderService(svcSlug: string): string | null {
           <div class="sidebar-card">
             <p class="sidebar-card__title">Our Location</p>
             <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin-bottom:0.75rem">
-              319 Wade Hampton Blvd, Suite A<br>Greenville, SC 29609
+              319 Wade Hampton Blvd, Ste A<br>Greenville, SC 29609
             </p>
             <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">
               ${icons.mapPin} Get Directions
@@ -1778,7 +1778,7 @@ export function renderCondition(condSlug: string): string | null {
           <div class="sidebar-card">
             <p class="sidebar-card__title">Our Location</p>
             <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin-bottom:0.75rem">
-              319 Wade Hampton Blvd, Suite A<br>Greenville, SC 29609
+              319 Wade Hampton Blvd, Ste A<br>Greenville, SC 29609
             </p>
             <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">
               ${icons.mapPin} Get Directions
@@ -1855,7 +1855,7 @@ export function renderAbout(): string {
 
           <section class="content-section">
             <h2>Our Location</h2>
-            <p>We are conveniently located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609 — easily accessible from Spartanburg, Anderson, North Greenville, Travelers Rest, Taylors, Mauldin, Simpsonville, and the greater Upstate South Carolina area. We serve patients throughout Upstate SC.</p>
+            <p>We are conveniently located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609 — easily accessible from Spartanburg, Anderson, North Greenville, Travelers Rest, Taylors, Mauldin, Simpsonville, and the greater Upstate South Carolina area. We serve patients throughout Upstate SC.</p>
             <p>We see patients Monday through Friday, 9am–5pm. New patients are always welcome. Call us at <a href="tel:+1-864-365-6156" class="internal-link">(864) 365-6156</a> or email <a href="mailto:info@ihpgreenville.com" class="internal-link">info@ihpgreenville.com</a> to schedule your initial consultation.</p>
           </section>
 
@@ -1896,7 +1896,7 @@ export function renderAbout(): string {
               <img src="/images/clinic/waiting.jpg" alt="Waiting area at Integrative Health Partners — peaceful setting with traditional Chinese landscape art" loading="lazy" width="400" height="180" />
             </div>
             <div style="padding:0.875rem 1.25rem">
-              <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.6">Our welcoming waiting area at 319 Wade Hampton Blvd, Suite A, Greenville, SC.</p>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.6">Our welcoming waiting area at 319 Wade Hampton Blvd, Ste A, Greenville, SC.</p>
             </div>
           </div>
 
@@ -1914,7 +1914,7 @@ export function renderAbout(): string {
           <div class="sidebar-card">
             <p class="sidebar-card__title">Contact &amp; Location</p>
             <div class="footer__contact-list" style="gap:0.625rem">
-              <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd<br>Suite A, Greenville, SC 29609</span></div>
+              <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd<br>Ste A, Greenville, SC 29609</span></div>
               <div class="footer__contact-row">${icons.phone}<a href="tel:${NAP.phoneRaw}" class="footer__contact-link">${NAP.phone}</a></div>
               <div class="footer__contact-row">${icons.mail}<a href="mailto:${NAP.email}" class="footer__contact-link">${NAP.email}</a></div>
               <div class="footer__contact-row">${icons.clock}<span>Mon–Fri 9am–5pm</span></div>
@@ -2144,7 +2144,7 @@ export function renderDrHendry(): string {
             <div class="footer__contact-list" style="gap:0.625rem">
               <div class="footer__contact-row">${icons.phone}<a href="tel:${NAP.phoneRaw}" class="footer__contact-link">${NAP.phone}</a></div>
               <div class="footer__contact-row">${icons.mail}<a href="mailto:${NAP.email}" class="footer__contact-link">${NAP.email}</a></div>
-              <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd<br>Suite A, Greenville SC</span></div>
+              <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd<br>Ste A, Greenville SC</span></div>
             </div>
           </div>
         </aside>
@@ -2164,7 +2164,7 @@ export function renderDrHendry(): string {
    CONTACT PAGE  (/contact)
    ============================================================ */
 export function renderContact(): string {
-  const html = `${renderHead("Contact IHP | Acupuncture Appointment Greenville, SC", "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.")}
+  const html = `${renderHead("Contact IHP | Acupuncture Appointment Greenville, SC", "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.")}
 <body data-page="contact">
   ${renderNav(false)}
 
@@ -2191,7 +2191,7 @@ export function renderContact(): string {
                 <div>
                   <strong itemprop="name">Integrative Health Partners</strong><br>
                   <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                    <span itemprop="streetAddress">319 Wade Hampton Blvd, Suite A</span><br>
+                    <span itemprop="streetAddress">319 Wade Hampton Blvd, Ste A</span><br>
                     <span itemprop="addressLocality">Greenville</span>, <span itemprop="addressRegion">SC</span> <span itemprop="postalCode">29609</span>
                   </span>
                 </div>
@@ -2220,7 +2220,7 @@ export function renderContact(): string {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.892!2d-82.38248!3d34.86226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8856a1c1a1a1a1a1%3A0x1!2s319+Wade+Hampton+Blvd+Suite+A%2C+Greenville%2C+SC+29609!5e0!3m2!1sen!2sus!4v1"
               width="100%" height="360" style="border:0;display:block" allowfullscreen loading="lazy"
-              title="Integrative Health Partners location map — 319 Wade Hampton Blvd Suite A Greenville SC"
+              title="Integrative Health Partners location map — 319 Wade Hampton Blvd, Ste A Greenville SC"
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
@@ -2315,7 +2315,7 @@ export function renderContact(): string {
               <img src="/images/clinic/exterior.jpg" alt="Exterior entrance of Integrative Health Partners clinic at 319 Wade Hampton Blvd, Greenville SC" loading="lazy" width="400" height="180" />
             </div>
             <div style="padding:0.875rem 1.25rem">
-              <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.6;font-weight:500">319 Wade Hampton Blvd, Suite A<br>Greenville, SC 29609</p>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.6;font-weight:500">319 Wade Hampton Blvd, Ste A<br>Greenville, SC 29609</p>
             </div>
           </div>
         </aside>
@@ -2330,7 +2330,7 @@ export function renderContact(): string {
 
   const seo = {
     title: "Contact IHP | Acupuncture Appointment Greenville, SC",
-    description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd Suite A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
+    description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
     canonical: `${process.env.BASE_URL || "https://www.ihpgreenville.com"}/contact`,
     ogType: "website",
     schemas: []

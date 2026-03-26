@@ -446,7 +446,7 @@ export async function registerRoutes(
 
 ## About This Practice
 
-Integrative Health Partners is a functional medicine and acupuncture clinic located at 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609.
+Integrative Health Partners is a functional medicine and acupuncture clinic located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609.
 Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Mon–Fri 9am–5pm
 
 Led by Dr. William Hendry, DAOM — a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids ("Alternatives to Opiates"). He has 5 peer-reviewed publications and 52 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
@@ -468,7 +468,7 @@ ${BASE_URL}/blog
 Health and wellness blog. Expert articles on acupuncture, functional medicine, Chinese medicine, and integrative health.
 
 ${BASE_URL}/contact
-Contact page. Schedule an appointment with Dr. William Hendry at Integrative Health Partners. Address: 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609. Phone: (864) 365-6156. Email: info@ihpgreenville.com.
+Contact page. Schedule an appointment with Dr. William Hendry at Integrative Health Partners. Address: 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Phone: (864) 365-6156. Email: info@ihpgreenville.com.
 
 ## Service Category Pages
 
@@ -536,7 +536,7 @@ Digestive & Immune Health category. Includes IBS, leaky gut, food sensitivities,
 
       txt += `## Location & Service Area
 
-Primary location: 319 Wade Hampton Blvd, Suite A, Greenville, SC 29609
+Primary location: 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609
 Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer, Spartanburg, and greater Upstate South Carolina.
 
 ## Key Differentiators
