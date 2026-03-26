@@ -43,7 +43,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Back Pain Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Suffering from back pain in Greenville, SC? Dr. William Hendry combines acupuncture, dry needling, and functional medicine to address the root cause. Call (864) 365-6156.",
-    relatedServiceSlugs: ["back-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy"],
+    relatedServiceSlugs: ["back-pain-treatment", "lower-back-pain-treatment", "upper-back-pain-treatment", "chronic-back-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy"],
     relatedConditionSlugs: ["sciatica", "neck-pain", "fibromyalgia", "neuropathy"],
     content: {
       definition: "Back pain is one of the most prevalent health complaints worldwide, affecting up to 80% of adults at some point in their lives. It ranges from a dull, persistent ache to sharp, debilitating pain and can originate in the muscles, ligaments, discs, or nerves of the spine. At Integrative Health Partners, we view back pain not as an isolated symptom but as a signal that the body's structural and physiological balance has been disrupted.",
@@ -77,7 +77,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Sciatica Treatment in Greenville, SC | Acupuncture & Natural Relief",
     metaDescription: "Natural sciatica treatment in Greenville, SC. Dr. Hendry uses acupuncture and dry needling to relieve sciatic nerve pain without surgery or opioids. Call (864) 365-6156.",
-    relatedServiceSlugs: ["sciatica-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy"],
+    relatedServiceSlugs: ["sciatica-treatment", "sciatic-nerve-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy"],
     relatedConditionSlugs: ["back-pain", "neuropathy", "hip-pain", "fibromyalgia"],
     content: {
       definition: "Sciatica refers to pain that follows the path of the sciatic nerve — the longest nerve in the body, running from the lower back through the hips, buttocks, and down each leg. It typically affects one side of the body and can range from a mild ache to an intense, burning pain that makes standing, sitting, or walking unbearable. Sciatica is a symptom, not a diagnosis in itself, and identifying its root cause is essential to effective treatment.",
@@ -179,7 +179,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Hip Pain Treatment in Greenville, SC | Acupuncture & Integrative Care",
     metaDescription: "Hip pain treatment in Greenville, SC. Dr. Hendry treats bursitis, labral tears, hip arthritis, and referred hip pain using acupuncture and dry needling. Call (864) 365-6156.",
-    relatedServiceSlugs: ["joint-pain-treatment", "acupuncture-therapy", "dry-needling-therapy", "arthritis-pain-treatment"],
+    relatedServiceSlugs: ["joint-pain-treatment", "hip-pain-treatment", "acupuncture-therapy", "dry-needling-therapy", "arthritis-pain-treatment"],
     relatedConditionSlugs: ["sciatica", "knee-pain", "back-pain", "arthritis"],
     content: {
       definition: "Hip pain can arise from the joint itself — the ball-and-socket joint between the femur and pelvis — or from the surrounding muscles, tendons, bursae, and nerves. It is frequently misunderstood, because true hip joint pain is felt in the groin, while pain felt on the outer hip is usually muscular or bursitis-related. Pain in the buttock often originates from the lower back or sacroiliac joint. Accurate identification of the pain source is the first step to effective treatment.",
@@ -247,7 +247,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Headache & Migraine Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Natural headache and migraine treatment in Greenville, SC. Dr. Hendry's acupuncture and functional medicine approach reduces frequency and severity. Call (864) 365-6156.",
-    relatedServiceSlugs: ["acupuncture-for-migraines", "acupuncture-therapy", "stress-management", "nutritional-counseling", "tmj-treatment"],
+    relatedServiceSlugs: ["acupuncture-for-migraines", "acupuncture-for-headaches", "acupuncture-therapy", "stress-management", "nutritional-counseling", "tmj-treatment", "tmj-pain-relief"],
     relatedConditionSlugs: ["neck-pain", "anxiety-stress", "insomnia", "fibromyalgia"],
     content: {
       definition: "Headaches are one of the most common neurological disorders, affecting over 50% of the global population. Migraine — characterized by moderate to severe pulsating pain, often with nausea, light and sound sensitivity, and visual aura — affects roughly 12% of adults and is significantly debilitating. Despite their prevalence, both conditions are frequently undertreated or managed only with medications that address symptoms rather than underlying causes.",
@@ -315,7 +315,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Neuropathy Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Peripheral neuropathy treatment in Greenville, SC. Dr. Hendry uses acupuncture and functional medicine to reduce numbness, tingling, and nerve pain. Call (864) 365-6156.",
-    relatedServiceSlugs: ["neuropathy-treatment", "acupuncture-therapy", "electroacupuncture", "functional-medicine-consultation", "peripheral-neuropathy-treatment", "intramuscular-stimulation", "carpal-tunnel-treatment"],
+    relatedServiceSlugs: ["neuropathy-treatment", "acupuncture-therapy", "electroacupuncture", "electrical-stimulation-acupuncture", "functional-medicine-consultation", "peripheral-neuropathy-treatment", "intramuscular-stimulation", "carpal-tunnel-treatment"],
     relatedConditionSlugs: ["back-pain", "sciatica", "fibromyalgia", "autoimmune-disease"],
     content: {
       definition: "Peripheral neuropathy occurs when the peripheral nerves — those outside the brain and spinal cord — are damaged, resulting in weakness, numbness, and pain, typically in the hands and feet. It can be caused by diabetes, chemotherapy, autoimmune conditions, vitamin deficiencies, or unknown factors (idiopathic neuropathy). Dr. Hendry has specific research experience treating chemotherapy-induced peripheral neuropathy (CIPN) at Prisma Health.",
@@ -349,7 +349,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Arthritis Treatment in Greenville, SC | Natural Pain Relief",
     metaDescription: "Arthritis treatment in Greenville, SC. Dr. Hendry's acupuncture and functional medicine reduce joint inflammation, pain, and stiffness naturally. Call (864) 365-6156.",
-    relatedServiceSlugs: ["arthritis-pain-treatment", "joint-pain-treatment", "acupuncture-therapy", "nutritional-counseling"],
+    relatedServiceSlugs: ["arthritis-pain-treatment", "joint-pain-treatment", "acupuncture-therapy", "acupuncture-treatment", "traditional-chinese-acupuncture", "nutritional-counseling"],
     relatedConditionSlugs: ["knee-pain", "hip-pain", "shoulder-pain", "autoimmune-disease"],
     content: {
       definition: "Arthritis is an umbrella term for joint inflammation, with over 100 distinct types. Osteoarthritis — the 'wear and tear' form — is the most common, affecting cartilage breakdown in weight-bearing and commonly used joints. Rheumatoid arthritis is an autoimmune condition where the immune system attacks the joint lining. Both types respond well to integrative treatment that addresses the underlying inflammatory processes.",
@@ -383,7 +383,7 @@ const conditions: ConditionData[] = [
     categorySlug: "pain-and-musculoskeletal",
     metaTitle: "Sports Injury Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Sports injury treatment in Greenville, SC. Acupuncture and dry needling help athletes recover faster from strains, sprains, and overuse injuries. Call (864) 365-6156.",
-    relatedServiceSlugs: ["sports-injury-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy", "plantar-fasciitis-treatment"],
+    relatedServiceSlugs: ["sports-injury-treatment", "muscle-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy", "plantar-fasciitis-treatment"],
     relatedConditionSlugs: ["back-pain", "shoulder-pain", "knee-pain", "hip-pain"],
     content: {
       definition: "Sports injuries encompass acute injuries (sudden trauma such as sprains, strains, and fractures) and overuse injuries (gradual onset from repetitive stress, such as tendinopathy, stress fractures, and bursitis). Athletes at all levels — from weekend warriors to competitive athletes — benefit from integrative treatment that promotes faster recovery, reduces reinjury risk, and addresses the systemic factors that contribute to injury susceptibility.",
@@ -419,7 +419,7 @@ const conditions: ConditionData[] = [
     categorySlug: "neurological-mental-health",
     metaTitle: "Anxiety & Stress Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Natural anxiety and stress treatment in Greenville, SC. Dr. Hendry uses acupuncture and functional medicine to calm the nervous system and reduce anxiety. Call (864) 365-6156.",
-    relatedServiceSlugs: ["acupuncture-for-anxiety", "stress-management", "nutritional-counseling", "insomnia-treatment"],
+    relatedServiceSlugs: ["acupuncture-for-anxiety", "acupuncture-for-stress-relief", "natural-anxiety-treatment", "non-needle-acupuncture", "stress-management", "nutritional-counseling", "insomnia-treatment"],
     relatedConditionSlugs: ["insomnia", "depression", "fibromyalgia", "hormone-imbalance"],
     content: {
       definition: "Anxiety is one of the most prevalent mental health conditions in the United States, affecting over 40 million adults. It encompasses generalized anxiety disorder, panic disorder, social anxiety, and related presentations — all characterized by excessive fear, worry, and physical symptoms driven by an overactivated stress response. Chronic stress, even without a formal anxiety diagnosis, causes measurable physiological damage and is a root contributor to nearly every chronic disease.",
@@ -453,7 +453,7 @@ const conditions: ConditionData[] = [
     categorySlug: "neurological-mental-health",
     metaTitle: "Depression Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Integrative depression treatment in Greenville, SC. Dr. Hendry addresses the nutritional, hormonal, and neurological root causes of depression naturally. Call (864) 365-6156.",
-    relatedServiceSlugs: ["acupuncture-therapy", "nutritional-counseling", "functional-medicine-consultation", "stress-management"],
+    relatedServiceSlugs: ["acupuncture-therapy", "natural-depression-treatment", "nutritional-counseling", "functional-medicine-consultation", "stress-management"],
     relatedConditionSlugs: ["anxiety-stress", "insomnia", "chronic-fatigue", "thyroid-issues"],
     content: {
       definition: "Depression is a mood disorder characterized by persistent sadness, loss of interest, fatigue, and impaired function that significantly disrupts daily life. While often treated as a purely psychological condition, depression has clear biological underpinnings: neurotransmitter imbalances, neuroinflammation, hormonal dysregulation, and nutritional deficiencies all contribute to its onset and persistence. Integrative medicine addresses these biological drivers alongside supporting psychological wellbeing.",
@@ -487,7 +487,7 @@ const conditions: ConditionData[] = [
     categorySlug: "neurological-mental-health",
     metaTitle: "Insomnia Treatment in Greenville, SC | Acupuncture for Better Sleep",
     metaDescription: "Insomnia treatment in Greenville, SC. Acupuncture and functional medicine help you fall asleep, stay asleep, and wake up refreshed. Call Dr. Hendry at (864) 365-6156.",
-    relatedServiceSlugs: ["insomnia-treatment", "acupuncture-for-insomnia", "stress-management", "acupuncture-therapy"],
+    relatedServiceSlugs: ["insomnia-treatment", "sleep-disorder-treatment", "acupuncture-for-insomnia", "stress-management", "acupuncture-therapy"],
     relatedConditionSlugs: ["anxiety-stress", "depression", "fibromyalgia", "hormone-imbalance"],
     content: {
       definition: "Insomnia is the inability to fall asleep, stay asleep, or achieve restorative sleep, resulting in daytime impairment. It is the most common sleep disorder, affecting roughly one-third of adults, with approximately 10% meeting criteria for chronic insomnia disorder. Poor sleep is not a minor inconvenience — sleep deprivation impairs immune function, cognitive performance, emotional regulation, metabolic health, and significantly increases the risk of chronic disease.",
@@ -591,7 +591,7 @@ const conditions: ConditionData[] = [
     categorySlug: "hormonal-womens-health",
     metaTitle: "Fertility Support in Greenville, SC | Acupuncture & Integrative Medicine",
     metaDescription: "Fertility support in Greenville, SC. Dr. Hendry's acupuncture and functional medicine approach improves fertility outcomes naturally and with IVF. Call (864) 365-6156.",
-    relatedServiceSlugs: ["fertility-treatment", "fertility-acupuncture", "hormone-testing", "chinese-herbal-medicine"],
+    relatedServiceSlugs: ["fertility-treatment", "infertility-treatment", "fertility-acupuncture", "prenatal-acupuncture", "pregnancy-acupuncture", "hormone-testing", "chinese-herbal-medicine"],
     relatedConditionSlugs: ["pcos", "hormone-imbalance", "thyroid-issues", "perimenopause"],
     content: {
       definition: "Infertility affects approximately 12% of couples in the United States — and the incidence is rising. Defined as the inability to conceive after 12 months of regular unprotected intercourse (6 months for women over 35), infertility has causes in both partners: ovulatory dysfunction, endometriosis, uterine factors, male factor infertility, and unexplained infertility. Integrative medicine supports natural conception and significantly improves IVF and IUI success rates.",
@@ -659,7 +659,7 @@ const conditions: ConditionData[] = [
     categorySlug: "hormonal-womens-health",
     metaTitle: "Menopause Treatment in Greenville, SC | Natural Symptom Relief",
     metaDescription: "Menopause symptom relief in Greenville, SC. Dr. Hendry treats hot flashes, sleep disruption, mood changes, and hormonal imbalance naturally. Call (864) 365-6156.",
-    relatedServiceSlugs: ["menopause-treatment", "hormone-testing", "acupuncture-therapy", "nutritional-counseling"],
+    relatedServiceSlugs: ["menopause-treatment", "hot-flash-treatment", "hormone-testing", "acupuncture-therapy", "nutritional-counseling"],
     relatedConditionSlugs: ["perimenopause", "insomnia", "hormone-imbalance", "thyroid-issues"],
     content: {
       definition: "Menopause is the permanent cessation of menstruation that occurs naturally around age 51, defined as 12 consecutive months without a menstrual period. The transition — perimenopause — begins years earlier and brings the most significant hormonal fluctuations. Declining estrogen and progesterone affect virtually every body system, producing a wide range of symptoms that significantly impact quality of life. Integrative medicine offers effective, natural approaches to menopause symptom management.",
@@ -763,7 +763,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "IBS & Gut Issues Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "IBS and gut health treatment in Greenville, SC. Dr. Hendry's functional medicine and acupuncture approach heals the gut and resolves digestive symptoms. Call (864) 365-6156.",
-    relatedServiceSlugs: ["ibs-treatment", "digestive-issues-treatment", "gut-health-testing", "nutritional-counseling", "acid-reflux-treatment"],
+    relatedServiceSlugs: ["ibs-treatment", "digestive-issues-treatment", "digestive-health-treatment", "gut-health-testing", "nutritional-counseling", "acid-reflux-treatment"],
     relatedConditionSlugs: ["leaky-gut", "food-sensitivities", "autoimmune-disease", "chronic-fatigue"],
     content: {
       definition: "Irritable bowel syndrome (IBS) affects 10–15% of the global population and is characterized by recurring abdominal pain, bloating, and altered bowel habits (diarrhea, constipation, or both) in the absence of structural gastrointestinal disease. It is one of the most commonly diagnosed and poorly treated gastrointestinal conditions in conventional medicine — because standard treatment manages symptoms rather than addressing the underlying dysfunction.",
@@ -1001,7 +1001,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "Adrenal Fatigue Treatment in Greenville, SC | Integrative Health Partners",
     metaDescription: "Adrenal fatigue and HPA axis dysfunction treatment in Greenville, SC. Dr. Hendry restores energy, stress resilience, and hormonal balance. Call (864) 365-6156.",
-    relatedServiceSlugs: ["adrenal-testing", "adrenal-fatigue-treatment", "functional-medicine-consultation", "nutritional-counseling"],
+    relatedServiceSlugs: ["adrenal-testing", "adrenal-fatigue-treatment", "functional-medicine-testing", "functional-medicine-consultation", "nutritional-counseling"],
     relatedConditionSlugs: ["chronic-fatigue", "hormone-imbalance", "thyroid-issues", "insomnia"],
     content: {
       definition: "Adrenal fatigue — more precisely called HPA axis dysfunction or cortisol dysregulation — describes a state in which the hypothalamic-pituitary-adrenal stress axis has become dysregulated after a prolonged period of physical, emotional, or physiological stress. Rather than truly exhausted adrenal glands, it typically involves abnormal cortisol rhythm: cortisol may be low in the morning (causing fatigue and difficulty waking), high in the evening (causing insomnia), or both — a loss of the normal diurnal pattern essential for energy, mood, and immune function.",
@@ -1035,7 +1035,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "Chronic Illness Support in Greenville, SC | Integrative Health Partners",
     metaDescription: "Integrative chronic illness support in Greenville, SC. Dr. Hendry helps patients with complex, multi-system chronic conditions find root causes and healing. Call (864) 365-6156.",
-    relatedServiceSlugs: ["functional-medicine-consultation", "nutritional-counseling", "acupuncture-therapy", "root-cause-analysis", "natural-medicine-consultation"],
+    relatedServiceSlugs: ["functional-medicine-consultation", "integrative-medicine-consultation", "holistic-health-assessment", "nutritional-counseling", "acupuncture-therapy", "root-cause-analysis", "natural-medicine-consultation", "herb-drug-interaction-consultation"],
     relatedConditionSlugs: ["autoimmune-disease", "chronic-fatigue", "fibromyalgia", "chronic-fatigue"],
     content: {
       definition: "Chronic illness encompasses any health condition lasting 3 months or more that significantly impacts quality of life and function. Unlike acute conditions that resolve with standard treatment, chronic illness persists despite conventional care — often because the underlying biological drivers remain unaddressed. Functional medicine's systematic, personalized approach to root-cause identification makes it uniquely suited to addressing the complexity of multi-system chronic illness.",
@@ -1069,7 +1069,7 @@ const conditions: ConditionData[] = [
     categorySlug: "digestive-immune",
     metaTitle: "Weight Management Support in Greenville, SC | Integrative Health Partners",
     metaDescription: "Functional medicine weight management in Greenville, SC. Dr. Hendry identifies hormonal and metabolic barriers to weight loss and addresses them at the root. Call (864) 365-6156.",
-    relatedServiceSlugs: ["weight-loss-support", "metabolism-support", "nutritional-counseling", "functional-medicine-consultation", "nutrition-therapy", "blood-sugar-support"],
+    relatedServiceSlugs: ["weight-loss-support", "metabolism-support", "high-blood-pressure-support", "natural-diabetes-support", "nutritional-counseling", "functional-medicine-consultation", "nutrition-therapy", "blood-sugar-support", "whole-food-nutrition-counseling"],
     relatedConditionSlugs: ["thyroid-issues", "hormone-imbalance", "adrenal-fatigue", "chronic-illness"],
     content: {
       definition: "Weight management difficulties — both undesired weight gain and inability to lose weight despite genuine effort — are rarely simple caloric imbalance problems. The majority of patients who struggle with weight have underlying biological factors that make weight management physiologically difficult: hormonal imbalances, insulin resistance, thyroid dysfunction, gut dysbiosis, sleep deprivation, chronic stress, and inflammatory states that dysregulate the body's weight-regulating systems. Functional medicine identifies and addresses these root causes.",

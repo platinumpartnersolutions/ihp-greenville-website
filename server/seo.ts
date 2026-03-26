@@ -55,7 +55,7 @@ const categoryDefinitions: CategoryData[] = [
     name: "Acupuncturist",
     gbpCategory: "Acupuncturist",
     metaTitle: "Acupuncturist Services in Greenville, SC | IHP",
-    metaDescription: "Looking for a skilled acupuncturist in Greenville, SC? Dr. William Hendry offers 25+ years of experience in acupuncture therapy and needle-based treatments. Call (864) 365-6156.",
+    metaDescription: "Skilled acupuncturist in Greenville, SC. Dr. Hendry — 25+ years in acupuncture therapy and needle-based treatments. New patients welcome. Call (864) 365-6156.",
     isPrimary: true,
     carePhrase: "acupuncture",
     serviceNames: [
@@ -73,7 +73,7 @@ const categoryDefinitions: CategoryData[] = [
     name: "Acupuncture Clinic",
     gbpCategory: "Acupuncture clinic",
     metaTitle: "Acupuncture Clinic Services in Greenville, SC | IHP",
-    metaDescription: "Visit our acupuncture clinic in Greenville, SC for expert pain treatment. We specialize in back pain, sciatica, neck pain, and sports injuries. Call (864) 365-6156.",
+    metaDescription: "Expert pain treatment at our acupuncture clinic in Greenville, SC. Back pain, sciatica, neck pain, sports injuries, fibromyalgia. Call (864) 365-6156.",
     isPrimary: false,
     carePhrase: "acupuncture and pain relief",
     serviceNames: [
@@ -90,7 +90,7 @@ const categoryDefinitions: CategoryData[] = [
     name: "Chinese Medicine Clinic",
     gbpCategory: "Chinese medicine clinic",
     metaTitle: "Chinese Medicine Clinic Services in Greenville, SC | IHP",
-    metaDescription: "Authentic Chinese medicine clinic in Greenville, SC offering cupping, herbal medicine, moxibustion, and traditional TCM treatments. Call (864) 365-6156 to schedule.",
+    metaDescription: "Authentic Chinese medicine clinic in Greenville, SC. Cupping, herbal medicine, moxibustion, and traditional TCM treatments. Call (864) 365-6156.",
     isPrimary: false,
     carePhrase: "Chinese herbal medicine and TCM",
     serviceNames: [
@@ -109,7 +109,7 @@ const categoryDefinitions: CategoryData[] = [
     name: "Alternative Medicine Practitioner",
     gbpCategory: "Alternative medicine practitioner",
     metaTitle: "Alternative Medicine in Greenville, SC | IHP",
-    metaDescription: "Trusted alternative medicine practitioner in Greenville, SC. Dr. Hendry offers functional medicine, ozone therapy, detox treatments, and holistic health care. Call (864) 365-6156.",
+    metaDescription: "Trusted alternative medicine practitioner in Greenville, SC. Functional medicine, ozone therapy, detox & holistic health care. Call (864) 365-6156.",
     isPrimary: false,
     carePhrase: "functional medicine",
     serviceNames: [
@@ -175,7 +175,7 @@ interface PageSEO {
 function getHomeSEO(): PageSEO {
   return {
     title: "Acupuncture & Functional Medicine in Greenville, SC | IHP",
-    description: "Integrative Health Partners — acupuncture, functional medicine & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges, 5 research publications. New patients welcome. Call (864) 365-6156.",
+    description: "Acupuncture & functional medicine in Greenville, SC. Dr. Hendry, DAOM — 25+ years, Prisma Health privileges. Root-cause care. New patients welcome.",
     canonical: BASE_URL,
     ogType: "website",
     schemas: [
@@ -422,7 +422,7 @@ function getServiceSEO(slug: string): PageSEO | null {
 function getBlogSEO(): PageSEO {
   return {
     title: "Health Blog | Acupuncture & Functional Medicine Greenville SC | IHP",
-    description: "Read the latest health and wellness insights from Integrative Health Partners in Greenville, SC. Expert articles on acupuncture, functional medicine, and holistic health.",
+    description: "Health & wellness insights from IHP in Greenville, SC. Expert articles on acupuncture, functional medicine, Chinese herbs, and holistic health.",
     canonical: `${BASE_URL}/blog`,
     ogType: "website",
     schemas: [
@@ -643,7 +643,7 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
 function getAboutSEO(): PageSEO {
   return {
     title: "About IHP | Acupuncture & Functional Medicine Greenville SC",
-    description: "Learn about Integrative Health Partners — Greenville SC's trusted integrative health practice. Root-cause functional medicine, acupuncture, and in-house herbal pharmacy. Call (864) 365-6156.",
+    description: "Integrative Health Partners — Greenville SC's root-cause health practice. Acupuncture, functional medicine, in-house herbal pharmacy. Call (864) 365-6156.",
     canonical: `${BASE_URL}/about`,
     ogType: "website",
     schemas: [
@@ -690,7 +690,7 @@ function getAboutSEO(): PageSEO {
 function getDrHendrySEO(): PageSEO {
   return {
     title: "Dr. William Hendry, DAOM | Acupuncturist Greenville SC | IHP",
-    description: "Dr. William Hendry — DAOM, NCCAOM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
+    description: "Dr. William Hendry, DAOM — NCCAOM #114498, 25+ yrs clinical exp. Co-author: Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
     canonical: `${BASE_URL}/dr-hendry`,
     ogType: "profile",
     schemas: [
@@ -826,6 +826,23 @@ export function getSEOForUrl(url: string): PageSEO | null {
 
   if (path === '/contact') {
     return getContactSEO();
+  }
+
+  if (path === '/services') {
+    return {
+      title: "Services | Acupuncture & Functional Medicine | IHP Greenville",
+      description: "Explore our full range of acupuncture, Chinese medicine, and functional medicine services in Greenville, SC. New patients welcome. Call (864) 365-6156.",
+      canonical: `${BASE_URL}/services`,
+      ogType: "website",
+      schemas: [{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` }
+        ]
+      }]
+    };
   }
 
   const serviceMatch = path.match(/^\/services\/(.+)$/);

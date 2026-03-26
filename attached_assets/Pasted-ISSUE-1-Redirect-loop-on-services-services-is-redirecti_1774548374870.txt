@@ -1,0 +1,66 @@
+ISSUE 1 — Redirect loop on /services/
+/services/ is redirecting to /services which is redirecting back to /services/ — creating a loop. Ahrefs flagged it as Error-Redirect_loop. Fix: the /services/ route should either return 200 directly (make it the same page as /services) or do a clean 301 to /services with no loop. Check that the /services route itself isn't also redirecting somewhere.
+
+ISSUE 2 — /services itself is in the 3XX redirect list
+https://www.ihpgreenville.com/services is redirecting to itself — that entry in the redirect list is suspicious and likely the cause of the loop. The services hub page needs a clean 200 response at /services with no redirect chain involved.
+
+ISSUE 3 — 35 condition pages still missing from sitemap
+These are all still absent from sitemap.xml — same list as before, Replit didn't add them yet. Add every URL in this list to the sitemap with priority 0.8 and changefreq monthly:
+/conditions/hormone-imbalance
+/conditions/perimenopause
+/conditions/chronic-fatigue
+/conditions/shoulder-pain
+/conditions/adrenal-fatigue
+/conditions/food-sensitivities
+/conditions/ptsd
+/conditions/brain-fog
+/conditions/hashimotos
+/conditions/menopause
+/conditions/depression
+/conditions/sciatica
+/conditions/insomnia
+/conditions/headaches-migraines
+/conditions/anxiety-stress
+/conditions/pcos
+/conditions/neck-pain
+/conditions/knee-pain
+/conditions/autoimmune-disease
+/conditions/leaky-gut
+/conditions/sports-injuries
+/conditions/thyroid-issues
+/conditions/ibs-gut-issues
+/conditions/chronic-illness
+/conditions/hip-pain
+/conditions/fertility
+/conditions/neuropathy
+/conditions/fibromyalgia
+/conditions/weight-issues
+/conditions/back-pain
+/conditions/hormonal-womens-health
+/conditions/neurological-mental-health
+/conditions/digestive-immune
+/conditions/pain-and-musculoskeletal
+/conditions/arthritis
+Also add /contact at priority 0.7.
+
+ISSUE 4 — 8 pages with meta descriptions still too long
+The service page descriptions were fixed but these static pages weren't. Trim each to 150–160 characters:
+
+/ — homepage
+/blog — blog index
+/about
+/dr-hendry
+/services/acupuncturist-services
+/services/acupuncture-clinic-services
+/services/chinese-medicine-clinic-services
+/services/alternative-medicine-practitioner-services
+
+
+ISSUE 5 — 175 pages linking to redirects
+Every service page and condition page on the site still has internal links pointing to the old blog URLs like /blog/acupuncture-for-back-pain — which now 301 redirect instead of returning 200. The 301s work, but linking to redirects wastes crawl budget and dilutes link equity. Update all internal links on service and condition pages to point directly to the redirect destinations instead of the old blog URLs. For example anywhere /blog/acupuncture-for-back-pain is linked, update it to link directly to /conditions/back-pain.
+
+ISSUE 6 — 20 orphaned pages still have only one internal link
+Down from 40 to 20 — good progress. The remaining 20 still need a second internal link each. Same fix as before: add them to the Related Services section on the most relevant condition page.
+
+ISSUE 7 — 1 remaining true 404
+/cdn-cgi/l/email-protection — this is Cloudflare's email obfuscation URL. A plain text email address exists somewhere on the site that Cloudflare is trying to protect but the route doesn't exist on Railway. Find every raw email address displayed as text on the site and replace with a mailto: link or a contact form. Check the footer and contact page first.

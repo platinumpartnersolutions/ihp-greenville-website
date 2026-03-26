@@ -2,6 +2,7 @@ import { categoryDefinitions, allServices, serviceMap, categoryMap, NAP, BASE_UR
 import { conditions, conditionCategories, conditionMap, conditionCategoryMap } from "./conditions";
 import { serviceContentMap } from "./services-content";
 import { getBlogSiteLinks, getServiceBlogLinks, getConditionBlogLinks } from "./blog-crosslinks";
+import { BLOG_301S, BLOG_410S } from "./blog-redirects";
 import { autoLink } from "./auto-linker";
 import type { BlogPost } from "@shared/schema";
 
@@ -1121,7 +1122,15 @@ export function renderService(svcSlug: string): string | null {
           </div>` : ""}
 
           ${(() => {
-            const blogLinks = getServiceBlogLinks(baseSlug, 4);
+            const rawBlogLinks = getServiceBlogLinks(baseSlug, 6);
+            const blogLinks = rawBlogLinks
+              .map(b => {
+                const key = `/blog/${b.slug}`;
+                if (BLOG_410S.has(key)) return null;
+                return { slug: b.slug, title: b.title, url: BLOG_301S[key] ?? `/blog/${b.slug}` };
+              })
+              .filter((b): b is { slug: string; title: string; url: string } => b !== null)
+              .slice(0, 4);
             if (blogLinks.length === 0) return "";
             return `
           <div style="margin-top:3rem" class="reveal">
@@ -1130,7 +1139,7 @@ export function renderService(svcSlug: string): string | null {
             </h2>
             <div style="display:flex;flex-direction:column;gap:0.625rem">
               ${blogLinks.map(b => `
-              <a href="/blog/${b.slug}" style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:var(--color-primary);text-decoration:none;padding:0.5rem 0;border-bottom:1px solid var(--color-border)" class="blog-cross-link">
+              <a href="${b.url}" style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:var(--color-primary);text-decoration:none;padding:0.5rem 0;border-bottom:1px solid var(--color-border)" class="blog-cross-link">
                 ${icons.arrowRight}<span>${b.title}</span>
               </a>`).join("")}
             </div>
@@ -1730,7 +1739,15 @@ export function renderCondition(condSlug: string): string | null {
           </div>` : ""}
 
           ${(() => {
-            const blogLinks = getConditionBlogLinks(condSlug, 3);
+            const rawBlogLinks = getConditionBlogLinks(condSlug, 5);
+            const blogLinks = rawBlogLinks
+              .map(b => {
+                const key = `/blog/${b.slug}`;
+                if (BLOG_410S.has(key)) return null;
+                return { slug: b.slug, title: b.title, url: BLOG_301S[key] ?? `/blog/${b.slug}` };
+              })
+              .filter((b): b is { slug: string; title: string; url: string } => b !== null)
+              .slice(0, 3);
             if (blogLinks.length === 0) return "";
             return `
           <div style="margin-top:3rem" class="reveal">
@@ -1739,7 +1756,7 @@ export function renderCondition(condSlug: string): string | null {
             </h2>
             <div style="display:flex;flex-direction:column;gap:0.625rem">
               ${blogLinks.map(b => `
-              <a href="/blog/${b.slug}" style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:var(--color-primary);text-decoration:none;padding:0.5rem 0;border-bottom:1px solid var(--color-border)" class="blog-cross-link">
+              <a href="${b.url}" style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:var(--color-primary);text-decoration:none;padding:0.5rem 0;border-bottom:1px solid var(--color-border)" class="blog-cross-link">
                 ${icons.arrowRight}<span>${b.title}</span>
               </a>`).join("")}
             </div>
@@ -2336,6 +2353,83 @@ export function renderContact(): string {
     schemas: []
   };
   return injectSEOIntoHTML(html, seo);
+}
+
+/* ============================================================
+   SERVICES HUB PAGE  (/services)
+   ============================================================ */
+export function renderServicesHub(): string {
+  const categoryIcons: Record<string, string> = {
+    "acupuncturist-services": icons.leaf,
+    "acupuncture-clinic-services": icons.check,
+    "chinese-medicine-clinic-services": icons.star,
+    "alternative-medicine-practitioner-services": icons.shield,
+  };
+  const servicesByCategory = new Map<string, Array<{ slug: string; name: string }>>();
+  for (const svc of allServices) {
+    if (!servicesByCategory.has(svc.categorySlug)) servicesByCategory.set(svc.categorySlug, []);
+    servicesByCategory.get(svc.categorySlug)!.push({ slug: svc.slug, name: svc.name });
+  }
+  return `${renderHead("Services | Acupuncture & Functional Medicine | IHP Greenville")}
+<body data-page="services-hub">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="container" style="max-width:1100px;padding:3rem 1.25rem 4rem">
+
+      <nav aria-label="Breadcrumb" class="breadcrumb" style="margin-bottom:2rem">
+        <a href="/">Home</a>
+        <span aria-hidden="true"> › </span>
+        <span aria-current="page">Services</span>
+      </nav>
+
+      <h1 class="font-display reveal" style="font-size:clamp(1.75rem,4vw,2.5rem);margin-bottom:1rem">
+        Acupuncture &amp; Functional Medicine Services in Greenville, SC
+      </h1>
+      <p class="reveal" style="font-size:1.0625rem;line-height:1.75;max-width:720px;margin-bottom:3rem;color:var(--color-text-light)">
+        Integrative Health Partners offers a comprehensive range of evidence-informed services across four specialties.
+        Dr. William Hendry, DACM, L.Ac., blends traditional Chinese medicine with functional medicine to address the root causes of your health concerns.
+      </p>
+
+      <div style="display:grid;gap:2.5rem">
+        ${categoryDefinitions.map(cat => `
+        <section class="reveal" aria-labelledby="cat-${cat.slug}">
+          <a href="/services/${cat.slug}" style="text-decoration:none;color:inherit">
+            <h2 id="cat-${cat.slug}" class="font-heading" style="font-size:1.25rem;font-weight:700;color:var(--color-primary);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem">
+              ${categoryIcons[cat.slug] ?? icons.leaf} ${cat.name}
+            </h2>
+          </a>
+          <p style="font-size:0.9375rem;color:var(--color-text-light);margin-bottom:1.25rem;line-height:1.65">${cat.metaDescription}</p>
+          <div class="grid-auto" style="gap:0.625rem">
+            ${(servicesByCategory.get(cat.slug) ?? []).map(s => `
+            <a href="/services/${s.slug}" class="related-card">
+              <div class="related-card__inner">
+                <span class="related-card__name">${s.name}</span>
+                <span class="related-card__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>`).join("")}
+          </div>
+          <a href="/services/${cat.slug}" class="btn btn-outline" style="margin-top:1rem;display:inline-flex;align-items:center;gap:0.4rem">
+            View all ${cat.name} services ${icons.arrowRight}
+          </a>
+        </section>`).join("")}
+      </div>
+
+      <div class="cta-box reveal" style="margin-top:4rem;text-align:center">
+        <h2 class="cta-box__title">Ready to Begin?</h2>
+        <p class="cta-box__text">Call us today to schedule your first appointment with Dr. Hendry. New patients welcome.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
+          <a href="tel:${NAP.phoneRaw}" class="btn btn-white">${icons.phone} ${NAP.phone}</a>
+          <a href="/contact" class="btn btn-outline-white">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
 }
 
 /* ============================================================

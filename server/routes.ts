@@ -4,7 +4,8 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, getBlogPostSEO, BASE_URL } from "./seo";
-import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact } from "./renderer";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub } from "./renderer";
+import { BLOG_301S, BLOG_410S } from "./blog-redirects";
 import { conditions, conditionCategories } from "./conditions";
 
 interface LinkableItem {
@@ -332,6 +333,7 @@ export async function registerRoutes(
      ============================================================ */
 
   function sendPage(res: any, html: string, url: string, status = 200): void {
+    html = html.replace(/info@ihpgreenville\.com/g, "<!--email_off-->info@ihpgreenville.com<!--/email_off-->");
     const seo = getSEOForUrl(url);
     if (seo) html = injectSEOIntoHTML(html, seo);
     res.status(status).set("Content-Type", "text/html").send(html);
@@ -559,94 +561,15 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
     }
   });
 
-  /* Trailing-slash and legacy URL redirects */
-  app.get("/services/", (req, res) => res.redirect(301, "/services"));
+  /* Services hub — handles both /services and /services/ without redirect */
+  app.get(/^\/services\/?$/, (req, res) => {
+    sendPage(res, renderServicesHub(), "/services");
+  });
   app.get("/conditions/digestive-issues", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
   app.get("/conditions/digestive-issues/", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
   // Cloudflare email obfuscation passthrough — prevents 404 on origin
   app.get("/cdn-cgi/l/email-protection", (_req, res) => res.redirect(301, "/contact"));
 
-  /* Old blog URL redirects — 301 to nearest relevant page */
-  const BLOG_301S: Record<string, string> = {
-    "/blog/acupuncture-for-back-pain": "/conditions/back-pain",
-    "/blog/dry-needling-and-acupuncture": "/services/dry-needling-therapy",
-    "/blog/cupping-how-does-it-work-what-is-it-good-for": "/services/cupping-therapy",
-    "/blog/ozone-therapy-demystified": "/services/ozone-therapy",
-    "/blog/berberine-for-gut-health": "/services/gut-health-testing",
-    "/blog/leaky-gut-made-simple": "/conditions/leaky-gut",
-    "/blog/what-is-prolotherapy-and-why-does-it-work": "/services/biopuncture-therapy",
-    "/blog/what-is-prolotherapy-2": "/services/biopuncture-therapy",
-    "/blog/what-is-prolotherapy": "/services/biopuncture-therapy",
-    "/blog/prolotherapy-joint-pain": "/services/biopuncture-therapy",
-    "/blog/prolotherapy-for-spinal-ligament-tightening-and-spondylolisthesis-reversal": "/services/biopuncture-therapy",
-    "/blog/laser-acupuncture-rejuvenation": "/services/cosmetic-acupuncture",
-    "/blog/does-acupuncture-hurt": "/services/acupuncture-therapy",
-    "/blog/biopuncture-for-knee-pain": "/services/biopuncture-therapy",
-    "/blog/meniscus-degeneration-and-preventive-maintenance-for-knee-health": "/conditions/knee-pain",
-    "/blog/why-rotator-cuff-injuries-stop-healing-after-40": "/conditions/shoulder-pain",
-    "/blog/berberine-and-the-metabolic-master-switch": "/services/gut-health-testing",
-    "/blog/intermittent-fasting": "/services/functional-medicine-consultation",
-    "/blog/covid-and-vitamin-d": "/services/long-covid-treatment",
-    "/blog/covid-gut-bacteria": "/services/long-covid-treatment",
-    "/blog/magnesium-the-master-commander": "/services/nutritional-counseling",
-    "/blog/vitamin-d": "/services/vitamin-therapy",
-    "/blog/vitamin-d-for-health": "/services/vitamin-therapy",
-    "/blog/how-is-your-vitamin-d-supplement-working-for-you": "/services/vitamin-supplementation",
-    "/blog/b12-injections": "/services/vitamin-therapy",
-    "/blog/vitamin-ks-many-benefits": "/services/vitamin-supplementation",
-    "/blog/collagen": "/services/nutritional-supplements",
-    "/blog/gaba-for-relaxation": "/services/natural-anxiety-treatment",
-    "/blog/microbes-memory-aging": "/services/gut-health-testing",
-    "/blog/our-microbiome-and-the-living-soil": "/services/gut-health-testing",
-    "/blog/how-to-treat-mold-illness-with-herbs-and-supplements": "/services/chinese-herbal-medicine",
-    "/blog/threat-perception-and-physical-health-managing-the-feedback-loop": "/conditions/anxiety-stress",
-    "/blog/threat-perception-and-physical-health-how-to-manage-the-feedback-loop": "/conditions/anxiety-stress",
-    "/blog/hidden-topical-toxins": "/services/detoxification-therapy",
-    "/blog/is-detoxification-necessary": "/services/detoxification-therapy",
-    "/blog/detoxification-for-health": "/services/detoxification-therapy",
-    "/blog/why-detoxify": "/services/detoxification-therapy",
-    "/blog/herbal-tale-of-caution": "/services/herb-drug-interaction-consultation",
-    "/blog/taking-chinese-herbs": "/services/chinese-herbal-medicine",
-    "/blog/chinese-herbs-viruses": "/services/chinese-herbal-medicine",
-    "/blog/monograph-black-seed-oil-nigella-sativa": "/services/herbal-supplements",
-    "/blog/astragalus-immune-builder": "/services/immune-system-support",
-    "/blog/dermal-needling-for-scars-and-signs-of-aging": "/services/cosmetic-acupuncture",
-    "/blog/what-is-dermal-needling": "/services/cosmetic-acupuncture",
-    "/blog/us-military-using-acupuncture-to-reduce-stress-and-pain": "/services/acupuncture-therapy",
-    "/blog/acupuncture-for-coronary-artery-disease-cad": "/services/acupuncture-therapy",
-    "/blog/sugar-blues-highs-and-lows": "/services/blood-sugar-support",
-    "/blog/concerned-about-bone-loss": "/services/nutritional-counseling",
-    "/blog/obesity-and-cancer": "/services/weight-loss-support",
-    "/blog/paleo-caveman-diet": "/services/nutritional-counseling",
-    "/blog/food-for-thought-meat": "/services/nutritional-counseling",
-    "/blog/give-your-immune-system-a-200-boost-in-just-20-minutes": "/services/immune-system-support",
-  };
-
-  /* Low-value old blog posts — 410 Gone (tell Google not to recrawl) */
-  const BLOG_410S = new Set([
-    "/blog/weekly-digestive-health-tips",
-    "/blog/weekly-digestive-health-tips-dietary-fiber",
-    "/blog/weekly-digestive-health-tips-stress",
-    "/blog/weekly-digestive-health-tips-2",
-    "/blog/weekly-digestive-health-tips-3",
-    "/blog/weekly-digestive-health-tips-4",
-    "/blog/weekly-digestive-health-tips-5",
-    "/blog/weekly-digestive-health-blog-hydration",
-    "/blog/weekly-digestive-health-tips-probiotics",
-    "/blog/weekly-product-spotlight",
-    "/blog/go-green",
-    "/blog/fish-in-a-bowl",
-    "/blog/tea-time",
-    "/blog/get-out-more",
-    "/blog/what-tea-is-right-for-me",
-    "/blog/tea-for-brain-health",
-    "/blog/nausea-wristband-uses-acupuncture-point",
-    "/blog/still-point-inducer",
-    "/blog/what-is-in-your-fish-oil",
-    "/blog/arsenic-in-rice",
-    "/blog/caught-a-cold",
-    "/blog/most-important-supplement-fact",
-  ]);
 
   app.get("/blog/:slug", (req, res, next) => {
     const path = `/blog/${req.params.slug}`;
