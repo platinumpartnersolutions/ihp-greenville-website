@@ -138,7 +138,7 @@ function renderNav(transparent = false): string {
               <a href="/services/nutritional-counseling" class="nav__dropdown-item" role="menuitem">Nutritional Counseling</a>
             </div>
           </div>
-          <a href="/services/" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Services</a>
+          <a href="/services" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Services</a>
         </div>
       </div>
 
@@ -258,7 +258,7 @@ function renderNav(transparent = false): string {
   <a href="/services/ozone-therapy" class="nav__mobile-sublink">Ozone Therapy</a>
   <a href="/services/infrared-sauna-therapy" class="nav__mobile-sublink">Infrared Sauna Therapy</a>
   <a href="/services/nutritional-counseling" class="nav__mobile-sublink">Nutritional Counseling</a>
-  <a href="/services/" class="nav__mobile-sublink">→ View All Services</a>
+  <a href="/services" class="nav__mobile-sublink">→ View All Services</a>
 
   <div class="nav__mobile-section">Conditions We Treat</div>
   <a href="/conditions/back-pain" class="nav__mobile-sublink">Back Pain</a>
@@ -348,6 +348,7 @@ function renderFooter(): string {
           <a href="/services/acupuncture-clinic-services" class="footer__link">Acupuncture Clinic Services</a>
           <a href="/services/chinese-medicine-clinic-services" class="footer__link">Chinese Medicine Clinic Services</a>
           <a href="/services/alternative-medicine-practitioner-services" class="footer__link">Alternative Medicine Practitioner Services</a>
+          <a href="/services" class="footer__link">→ View All 130+ Services</a>
           <a href="/blog" class="footer__link">Health Blog</a>
         </div>
       </div>
@@ -636,6 +637,12 @@ export function renderHome(): string {
               <p class="cat-card__desc">${cat.metaDescription.substring(0, 100)}…</p>
             </a>
           </div>`).join("")}
+        </div>
+
+        <div class="text-center reveal" style="margin-bottom:2.5rem">
+          <a href="/services" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem">
+            View All 130+ Services ${icons.arrowRight}
+          </a>
         </div>
 
         <div class="text-center" style="margin-bottom:1rem">

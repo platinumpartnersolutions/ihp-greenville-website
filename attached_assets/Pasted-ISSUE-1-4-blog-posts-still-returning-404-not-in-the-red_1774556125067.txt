@@ -1,0 +1,63 @@
+ISSUE 1 — 4 blog posts still returning 404 — not in the redirect/410 list
+These were missed in the first pass — add them now:
+/blog/cold-and-flu-season        → 410 Gone
+/blog/health-habit-success       → 410 Gone  
+/blog/is-fish-oil-alone-enough   → 410 Gone
+/blog/got-rocks                  → 410 Gone
+All four are low-value newsletter posts — 410 not 301.
+
+ISSUE 2 — /services hub page has no incoming internal links — canonical error
+The new services hub page at /services was just created this deploy and nothing links to it internally yet. The nav links to individual service pages but not to the hub itself. Fix: add a → View All Services link to /services in the footer alongside the existing service links. Also confirm the homepage services section card grid links to /services as its "View All" CTA — right now it may only link to the 4 category pages.
+
+ISSUE 3 — /services is missing from the sitemap
+The new hub page was created but never added to sitemap.xml. Add it at priority 0.9 — it sits above individual service pages in hierarchy. Also the entire conditions URL tree is still missing — all 35 condition pages plus /services need to be added. Full list to add:
+/services                                    priority 0.9
+/conditions/back-pain                        priority 0.8
+/conditions/neck-pain                        priority 0.8
+/conditions/knee-pain                        priority 0.8
+/conditions/hip-pain                         priority 0.8
+/conditions/shoulder-pain                    priority 0.8
+/conditions/sciatica                         priority 0.8
+/conditions/headaches-migraines              priority 0.8
+/conditions/fibromyalgia                     priority 0.8
+/conditions/neuropathy                       priority 0.8
+/conditions/sports-injuries                  priority 0.8
+/conditions/arthritis                        priority 0.8
+/conditions/chronic-illness                  priority 0.8
+/conditions/anxiety-stress                   priority 0.8
+/conditions/depression                       priority 0.8
+/conditions/insomnia                         priority 0.8
+/conditions/ptsd                             priority 0.8
+/conditions/brain-fog                        priority 0.8
+/conditions/fertility                        priority 0.8
+/conditions/pcos                             priority 0.8
+/conditions/menopause                        priority 0.8
+/conditions/perimenopause                    priority 0.8
+/conditions/hormone-imbalance                priority 0.8
+/conditions/hormonal-womens-health           priority 0.8
+/conditions/ibs-gut-issues                   priority 0.8
+/conditions/leaky-gut                        priority 0.8
+/conditions/autoimmune-disease               priority 0.8
+/conditions/hashimotos                       priority 0.8
+/conditions/thyroid-issues                   priority 0.8
+/conditions/chronic-fatigue                  priority 0.8
+/conditions/adrenal-fatigue                  priority 0.8
+/conditions/food-sensitivities               priority 0.8
+/conditions/weight-issues                    priority 0.8
+/conditions/pain-and-musculoskeletal         priority 0.8
+/conditions/neurological-mental-health       priority 0.8
+/conditions/digestive-immune                 priority 0.8
+/contact                                     priority 0.7
+The sitemap generation is clearly not auto-discovering condition pages or newly created hub pages — it needs to be updated to pull from the full route list dynamically so this never has to be done manually again. Have Replit add a sitemap auto-generation step that crawls all registered Express routes and adds them automatically.
+
+ISSUE 4 — Schema validation errors back at 193
+These disappeared in crawl 2 but are back at 193 in crawl 3. This means the condition pages and the new /services hub page were added without schema or with broken schema. The condition pages need MedicalCondition + FAQPage + BreadcrumbList schema. The services hub needs Service collection + BreadcrumbList schema. Run every new page through https://validator.schema.org and fix the errors. The most likely culprit: condition pages were built without the schema template that service pages use.
+
+ISSUE 5 — 3 slow pages
+These 3 service pages are loading slower than Ahrefs's threshold:
+
+/services/auricular-acupuncture
+/services/biopuncture-injections
+/services/pregnancy-acupuncture
+
+Check whether these pages have heavier content, larger images, or are hitting a rendering bottleneck specific to these routes. If all service pages use the same template the issue is likely page-specific content — check image sizes on these three pages specifically.

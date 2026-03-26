@@ -76,4 +76,8 @@ export const BLOG_410S = new Set<string>([
   "/blog/arsenic-in-rice",
   "/blog/caught-a-cold",
   "/blog/most-important-supplement-fact",
+  "/blog/cold-and-flu-season",
+  "/blog/health-habit-success",
+  "/blog/is-fish-oil-alone-enough",
+  "/blog/got-rocks",
 ]);

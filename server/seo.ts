@@ -613,9 +613,13 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
         "@context": "https://schema.org",
         "@type": "MedicalCondition",
         "name": name,
+        "url": pageUrl,
         "description": desc,
-        "relevantSpecialty": { "@type": "MedicalSpecialty", "name": "Acupuncture" },
-        "associatedAnatomy": { "@type": "AnatomicalSystem", "name": "Human body" }
+        "possibleTreatment": {
+          "@type": "MedicalTherapy",
+          "name": "Acupuncture and Functional Medicine",
+          "description": `Dr. William Hendry uses acupuncture and functional medicine to address ${name} at Integrative Health Partners in Greenville, SC.`
+        }
       },
       {
         "@context": "https://schema.org",
@@ -834,14 +838,30 @@ export function getSEOForUrl(url: string): PageSEO | null {
       description: "Explore our full range of acupuncture, Chinese medicine, and functional medicine services in Greenville, SC. New patients welcome. Call (864) 365-6156.",
       canonical: `${BASE_URL}/services`,
       ogType: "website",
-      schemas: [{
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` }
-        ]
-      }]
+      schemas: [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Acupuncture & Functional Medicine Services — Integrative Health Partners",
+          "description": "Complete list of acupuncture, Chinese medicine, and functional medicine services offered by Dr. William Hendry in Greenville, SC.",
+          "url": `${BASE_URL}/services`,
+          "numberOfItems": allServices.length,
+          "itemListElement": allServices.map((s, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": s.name,
+            "url": `${BASE_URL}/services/${s.slug}`
+          }))
+        }
+      ]
     };
   }
 
@@ -940,6 +960,12 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>${BASE_URL}/services</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>`;
 
   for (const cat of categoryDefinitions) {
