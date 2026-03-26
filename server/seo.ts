@@ -223,14 +223,14 @@ function getHomeSEO(): PageSEO {
           "@type": "OfferCatalog",
           "name": "Integrative Health Services",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acupuncture Therapy", "url": "https://www.ihpgreenville.com/services/acupuncture-therapy-greenville-sc" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry Needling", "url": "https://www.ihpgreenville.com/services/dry-needling-greenville-sc" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Functional Medicine", "url": "https://www.ihpgreenville.com/services/functional-medicine-greenville-sc" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electroacupuncture", "url": "https://www.ihpgreenville.com/services/electroacupuncture-greenville-sc" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chinese Herbal Medicine", "url": "https://www.ihpgreenville.com/services/chinese-herbal-medicine-greenville-sc" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acupuncture Injection Therapy", "url": "https://www.ihpgreenville.com/services/acupuncture-injection-therapy-greenville-sc" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ozone Therapy", "url": "https://www.ihpgreenville.com/services/ozone-therapy-greenville-sc" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Body Contouring", "url": "https://www.ihpgreenville.com/services/body-contouring-greenville-sc" } }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acupuncture Therapy", "url": `${BASE_URL}/services/acupuncture-therapy` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry Needling Therapy", "url": `${BASE_URL}/services/dry-needling-therapy` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Functional Medicine Consultation", "url": `${BASE_URL}/services/functional-medicine-consultation` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electroacupuncture", "url": `${BASE_URL}/services/electroacupuncture` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chinese Herbal Medicine", "url": `${BASE_URL}/services/chinese-herbal-medicine` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Biopuncture Therapy", "url": `${BASE_URL}/services/biopuncture-therapy` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ozone Therapy", "url": `${BASE_URL}/services/ozone-therapy` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cupping Therapy", "url": `${BASE_URL}/services/cupping-therapy` } }
           ]
         }
       },
@@ -514,40 +514,82 @@ function getConditionsHubSEO(): PageSEO {
   };
 }
 
+const conditionCategoryFAQs: Record<string, { q: string; a: string }[]> = {
+  "pain-and-musculoskeletal": [
+    { q: "Can acupuncture help with chronic pain that hasn't responded to other treatments?", a: "Yes. Many of our pain patients have already tried physical therapy, medications, and injections. Acupuncture works through mechanisms that these approaches don't reach — specifically, it modulates central pain sensitization, resolves deep myofascial restrictions, and addresses systemic inflammatory drivers. Dr. Hendry's multi-modal approach combining acupuncture with dry needling and functional medicine is particularly effective for complex, multi-year pain cases." },
+    { q: "What is dry needling and how does it differ from acupuncture?", a: "Dry needling targets specific myofascial trigger points using solid filiform needles to release muscle knots and restore normal neuromuscular function. Traditional acupuncture uses the same needles at mapped acupoints along meridian pathways to regulate the nervous system, reduce inflammation, and address systemic patterns. Dr. Hendry is trained in both and integrates them based on each patient's presentation — often using both modalities in a single treatment session for pain conditions." },
+    { q: "How long until I see results for my pain condition?", a: "Most patients notice measurable improvement within 3–5 sessions. Acute conditions often respond more quickly. Chronic conditions — especially those involving central sensitization, fibromyalgia, or longstanding structural damage — typically require 8–12 sessions for significant, lasting improvement. Dr. Hendry will give you a clear, honest timeline at your first visit based on your specific condition history." },
+    { q: "Do you treat sports injuries at Integrative Health Partners?", a: "Yes. We treat a wide range of sports and overuse injuries including rotator cuff issues, IT band syndrome, patellar tendinopathy, shin splints, plantar fasciitis, and muscle strains. Acupuncture and dry needling accelerate healing by improving local circulation, reducing inflammation, and releasing the neuromuscular tension patterns that develop around injury sites." },
+  ],
+  "neurological-mental-health": [
+    { q: "Can acupuncture help with anxiety and insomnia without medication?", a: "Acupuncture has strong evidence for both anxiety and insomnia as a standalone or adjunct treatment. It regulates the HPA axis, reduces cortisol, promotes melatonin secretion, and modulates GABA signaling — directly addressing the biological underpinnings of both conditions. Many patients see measurable improvement in sleep quality within 3–5 sessions." },
+    { q: "Is this treatment safe alongside medications for depression or anxiety?", a: "Yes. Acupuncture has an excellent safety profile and does not interact with psychiatric medications. Dr. Hendry communicates with your prescribing provider as appropriate and always prioritizes continuity of care. Herbal medicine requires more careful management alongside pharmaceuticals — Dr. Hendry performs a thorough herb-drug interaction assessment before recommending any herbal formulas." },
+    { q: "What does brain fog treatment look like at IHP?", a: "Brain fog typically involves multiple overlapping factors: sleep dysregulation, HPA axis dysfunction, nutritional deficiencies (particularly B12, D3, and omega-3s), gut microbiome imbalance, thyroid function, and neuroinflammation. Dr. Hendry uses functional medicine testing to identify your specific pattern and creates a targeted protocol addressing the root causes of your cognitive symptoms." },
+    { q: "Do you treat PTSD at Integrative Health Partners?", a: "Yes. Acupuncture has emerging clinical evidence for PTSD, particularly in regulating hyperarousal, improving sleep quality, and reducing autonomic nervous system dysregulation. Dr. Hendry's approach complements — and does not replace — trauma-focused psychotherapy. We coordinate with your mental health team to support nervous system regulation as part of a comprehensive care plan." },
+  ],
+  "hormonal-womens-health": [
+    { q: "Can acupuncture help with fertility?", a: "Yes. Acupuncture has documented effects on fertility — regulating the HPO axis, improving uterine blood flow, supporting ovarian function, and reducing stress hormones that suppress fertility. Dr. Hendry integrates acupuncture with Chinese herbal medicine and functional medicine testing to build a comprehensive fertility support protocol." },
+    { q: "What hormonal testing does Dr. Hendry offer that my primary care doctor doesn't?", a: "Dr. Hendry offers comprehensive functional hormone panels: full thyroid panels (including free T3, reverse T3, and thyroid antibodies), Dutch hormone testing for sex hormone metabolites, 4-point cortisol rhythm testing, and comprehensive nutrient testing that identifies deficiencies affecting hormonal synthesis and metabolism." },
+    { q: "How does acupuncture help with menopause symptoms?", a: "Multiple clinical trials have documented acupuncture's effectiveness for hot flashes, sleep disturbance, mood instability, and joint pain associated with menopause. Acupuncture regulates thermoregulatory centers in the hypothalamus and modulates the autonomic nervous system patterns that drive menopausal hot flashes and sleep disruption." },
+    { q: "Do you treat PCOS at Integrative Health Partners?", a: "Yes. PCOS is one of our core areas of expertise. Dr. Hendry's approach addresses the underlying insulin resistance, androgens, and inflammatory drivers of PCOS through functional medicine testing and targeted interventions — combined with acupuncture to regulate the HPO axis and menstrual cycle." },
+  ],
+  "digestive-immune": [
+    { q: "Can acupuncture help with IBS and digestive issues?", a: "Yes. Clinical evidence supports acupuncture for irritable bowel syndrome, reducing both visceral pain and bowel habit dysregulation. Acupuncture regulates the enteric nervous system, reduces intestinal inflammation, and modulates the gut-brain axis signaling that drives many IBS symptoms. It works well alongside dietary and microbiome interventions to provide multi-mechanism digestive support." },
+    { q: "What does a functional medicine gut evaluation look like at IHP?", a: "Dr. Hendry uses advanced testing including comprehensive stool analysis (microbiome, pathogen screening, digestive enzyme function), intestinal permeability assessment, SIBO breath testing, comprehensive food sensitivity panels, and inflammatory markers. The results inform a targeted protocol matched to your gut's actual biology." },
+    { q: "How does Dr. Hendry treat autoimmune disease?", a: "Autoimmune conditions require identifying and removing the environmental triggers that activate immune dysregulation — common triggers include gut permeability, specific food antigens, microbial imbalances, heavy metal burden, and chronic low-grade infections. Dr. Hendry's root-cause approach often significantly reduces symptoms and inflammatory markers." },
+    { q: "Do you treat Hashimoto's thyroiditis at Integrative Health Partners?", a: "Yes. Dr. Hendry uses comprehensive thyroid panels plus full functional gut evaluation to identify the autoimmune triggers underlying each patient's Hashimoto's. Treatment typically involves gut healing, dietary modifications, targeted supplementation, and acupuncture for thyroid regulation and immune modulation." },
+  ],
+};
+
 function getConditionCategorySEO(slug: string, name: string, desc: string): PageSEO {
   const pageUrl = `${BASE_URL}/conditions/${slug}`;
   const catData = conditionCategoryMap.get(slug);
   const catConditions = catData
     ? catData.conditionSlugs.map(cs => conditions.find(c => c.slug === cs)).filter(Boolean)
     : [];
+  const faqs = conditionCategoryFAQs[slug] || [];
+
+  const schemas: object[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` },
+        { "@type": "ListItem", "position": 3, "name": name, "item": pageUrl }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": `${name} Conditions Treated in Greenville, SC`,
+      "itemListElement": (catConditions as ConditionData[]).map((c, i: number) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": c.name,
+        "url": `${BASE_URL}/conditions/${c.slug}`
+      }))
+    }
+  ];
+
+  if (faqs.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+      }))
+    });
+  }
 
   return {
     title: `${name} in Greenville, SC | IHP`,
     description: desc,
     canonical: pageUrl,
     ogType: "website",
-    schemas: [
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` },
-          { "@type": "ListItem", "position": 3, "name": name, "item": pageUrl }
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": `${name} Conditions Treated in Greenville, SC`,
-        "itemListElement": (catConditions as ConditionData[]).map((c, i: number) => ({
-          "@type": "ListItem",
-          "position": i + 1,
-          "name": c.name,
-          "url": `${BASE_URL}/conditions/${c.slug}`
-        }))
-      }
-    ]
+    schemas
   };
 }
 
