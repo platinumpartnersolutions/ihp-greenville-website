@@ -87,58 +87,58 @@ function renderNav(transparent = false): string {
           <div class="nav__dropdown-grid nav__dropdown-grid--4col">
             <div class="nav__dropdown-col nav__dropdown-col--divider">
               <span class="nav__dropdown-col-label">Needling</span>
-              <a href="/services/acupuncture-therapy" class="nav__dropdown-item" role="menuitem">Acupuncture Therapy</a>
-              <a href="/services/dry-needling-therapy" class="nav__dropdown-item" role="menuitem">Dry Needling</a>
-              <a href="/services/electroacupuncture" class="nav__dropdown-item" role="menuitem">Electroacupuncture</a>
-              <a href="/services/medical-acupuncture" class="nav__dropdown-item" role="menuitem">Medical Acupuncture</a>
-              <a href="/services/auricular-acupuncture" class="nav__dropdown-item" role="menuitem">Auricular Acupuncture</a>
-              <a href="/services/scalp-acupuncture" class="nav__dropdown-item" role="menuitem">Scalp Acupuncture</a>
-              <a href="/services/fertility-acupuncture" class="nav__dropdown-item" role="menuitem">Fertility Acupuncture</a>
-              <a href="/services/acupuncture-for-anxiety" class="nav__dropdown-item" role="menuitem">Acupuncture for Anxiety</a>
-              <a href="/services/acupuncture-for-migraines" class="nav__dropdown-item" role="menuitem">Acupuncture for Migraines</a>
-              <a href="/services/biopuncture-therapy" class="nav__dropdown-item" role="menuitem">Biopuncture Therapy</a>
+              <a href="/services/acupuncture-therapy/" class="nav__dropdown-item" role="menuitem">Acupuncture Therapy</a>
+              <a href="/services/dry-needling-therapy/" class="nav__dropdown-item" role="menuitem">Dry Needling</a>
+              <a href="/services/electroacupuncture/" class="nav__dropdown-item" role="menuitem">Electroacupuncture</a>
+              <a href="/services/medical-acupuncture/" class="nav__dropdown-item" role="menuitem">Medical Acupuncture</a>
+              <a href="/services/auricular-acupuncture/" class="nav__dropdown-item" role="menuitem">Auricular Acupuncture</a>
+              <a href="/services/scalp-acupuncture/" class="nav__dropdown-item" role="menuitem">Scalp Acupuncture</a>
+              <a href="/services/fertility-acupuncture/" class="nav__dropdown-item" role="menuitem">Fertility Acupuncture</a>
+              <a href="/services/acupuncture-for-anxiety/" class="nav__dropdown-item" role="menuitem">Acupuncture for Anxiety</a>
+              <a href="/services/acupuncture-for-migraines/" class="nav__dropdown-item" role="menuitem">Acupuncture for Migraines</a>
+              <a href="/services/biopuncture-therapy/" class="nav__dropdown-item" role="menuitem">Biopuncture Therapy</a>
             </div>
             <div class="nav__dropdown-col nav__dropdown-col--divider">
               <span class="nav__dropdown-col-label">Body &amp; Pain</span>
-              <a href="/services/back-pain-treatment" class="nav__dropdown-item" role="menuitem">Back Pain Treatment</a>
-              <a href="/services/neck-pain-treatment" class="nav__dropdown-item" role="menuitem">Neck Pain Treatment</a>
-              <a href="/services/knee-pain-treatment" class="nav__dropdown-item" role="menuitem">Knee Pain Treatment</a>
-              <a href="/services/sciatica-treatment" class="nav__dropdown-item" role="menuitem">Sciatica Treatment</a>
-              <a href="/services/shoulder-pain-treatment" class="nav__dropdown-item" role="menuitem">Shoulder Pain Treatment</a>
-              <a href="/services/hip-pain-treatment" class="nav__dropdown-item" role="menuitem">Hip Pain Treatment</a>
-              <a href="/services/fibromyalgia-treatment" class="nav__dropdown-item" role="menuitem">Fibromyalgia Treatment</a>
-              <a href="/services/neuropathy-treatment" class="nav__dropdown-item" role="menuitem">Neuropathy Treatment</a>
-              <a href="/services/sports-injury-treatment" class="nav__dropdown-item" role="menuitem">Sports Injury Treatment</a>
-              <a href="/services/trigger-point-therapy" class="nav__dropdown-item" role="menuitem">Trigger Point Therapy</a>
+              <a href="/services/back-pain-treatment/" class="nav__dropdown-item" role="menuitem">Back Pain Treatment</a>
+              <a href="/services/neck-pain-treatment/" class="nav__dropdown-item" role="menuitem">Neck Pain Treatment</a>
+              <a href="/services/knee-pain-treatment/" class="nav__dropdown-item" role="menuitem">Knee Pain Treatment</a>
+              <a href="/services/sciatica-treatment/" class="nav__dropdown-item" role="menuitem">Sciatica Treatment</a>
+              <a href="/services/shoulder-pain-treatment/" class="nav__dropdown-item" role="menuitem">Shoulder Pain Treatment</a>
+              <a href="/services/hip-pain-treatment/" class="nav__dropdown-item" role="menuitem">Hip Pain Treatment</a>
+              <a href="/services/fibromyalgia-treatment/" class="nav__dropdown-item" role="menuitem">Fibromyalgia Treatment</a>
+              <a href="/services/neuropathy-treatment/" class="nav__dropdown-item" role="menuitem">Neuropathy Treatment</a>
+              <a href="/services/sports-injury-treatment/" class="nav__dropdown-item" role="menuitem">Sports Injury Treatment</a>
+              <a href="/services/trigger-point-therapy/" class="nav__dropdown-item" role="menuitem">Trigger Point Therapy</a>
             </div>
             <div class="nav__dropdown-col nav__dropdown-col--divider">
               <span class="nav__dropdown-col-label">Chinese Medicine</span>
-              <a href="/services/cupping-therapy" class="nav__dropdown-item" role="menuitem">Cupping Therapy</a>
-              <a href="/services/gua-sha-treatment" class="nav__dropdown-item" role="menuitem">Gua Sha</a>
-              <a href="/services/moxibustion-therapy" class="nav__dropdown-item" role="menuitem">Moxibustion</a>
-              <a href="/services/chinese-herbal-medicine" class="nav__dropdown-item" role="menuitem">Chinese Herbal Medicine</a>
-              <a href="/services/custom-herbal-formulations" class="nav__dropdown-item" role="menuitem">Custom Herbal Formulations</a>
-              <a href="/services/herbal-consultation" class="nav__dropdown-item" role="menuitem">Herbal Consultation</a>
-              <a href="/services/herb-drug-interaction-consultation" class="nav__dropdown-item" role="menuitem">Herb-Drug Consultation</a>
-              <a href="/services/ibs-treatment" class="nav__dropdown-item" role="menuitem">IBS Treatment</a>
-              <a href="/services/natural-anxiety-treatment" class="nav__dropdown-item" role="menuitem">Natural Anxiety Treatment</a>
-              <a href="/services/insomnia-treatment" class="nav__dropdown-item" role="menuitem">Insomnia Treatment</a>
+              <a href="/services/cupping-therapy/" class="nav__dropdown-item" role="menuitem">Cupping Therapy</a>
+              <a href="/services/gua-sha-treatment/" class="nav__dropdown-item" role="menuitem">Gua Sha</a>
+              <a href="/services/moxibustion-therapy/" class="nav__dropdown-item" role="menuitem">Moxibustion</a>
+              <a href="/services/chinese-herbal-medicine/" class="nav__dropdown-item" role="menuitem">Chinese Herbal Medicine</a>
+              <a href="/services/custom-herbal-formulations/" class="nav__dropdown-item" role="menuitem">Custom Herbal Formulations</a>
+              <a href="/services/herbal-consultation/" class="nav__dropdown-item" role="menuitem">Herbal Consultation</a>
+              <a href="/services/herb-drug-interaction-consultation/" class="nav__dropdown-item" role="menuitem">Herb-Drug Consultation</a>
+              <a href="/services/ibs-treatment/" class="nav__dropdown-item" role="menuitem">IBS Treatment</a>
+              <a href="/services/natural-anxiety-treatment/" class="nav__dropdown-item" role="menuitem">Natural Anxiety Treatment</a>
+              <a href="/services/insomnia-treatment/" class="nav__dropdown-item" role="menuitem">Insomnia Treatment</a>
             </div>
             <div class="nav__dropdown-col">
               <span class="nav__dropdown-col-label">Functional Medicine</span>
-              <a href="/services/functional-medicine-consultation" class="nav__dropdown-item" role="menuitem">Functional Medicine</a>
-              <a href="/services/hormone-testing" class="nav__dropdown-item" role="menuitem">Hormone Testing</a>
-              <a href="/services/thyroid-testing" class="nav__dropdown-item" role="menuitem">Thyroid Testing</a>
-              <a href="/services/adrenal-fatigue-treatment" class="nav__dropdown-item" role="menuitem">Adrenal Fatigue Treatment</a>
-              <a href="/services/gut-health-testing" class="nav__dropdown-item" role="menuitem">Gut Health Testing</a>
-              <a href="/services/food-sensitivity-testing" class="nav__dropdown-item" role="menuitem">Food Sensitivity Testing</a>
-              <a href="/services/leaky-gut-treatment" class="nav__dropdown-item" role="menuitem">Leaky Gut Treatment</a>
-              <a href="/services/ozone-therapy" class="nav__dropdown-item" role="menuitem">Ozone Therapy</a>
-              <a href="/services/infrared-sauna-therapy" class="nav__dropdown-item" role="menuitem">Infrared Sauna Therapy</a>
-              <a href="/services/nutritional-counseling" class="nav__dropdown-item" role="menuitem">Nutritional Counseling</a>
+              <a href="/services/functional-medicine-consultation/" class="nav__dropdown-item" role="menuitem">Functional Medicine</a>
+              <a href="/services/hormone-testing/" class="nav__dropdown-item" role="menuitem">Hormone Testing</a>
+              <a href="/services/thyroid-testing/" class="nav__dropdown-item" role="menuitem">Thyroid Testing</a>
+              <a href="/services/adrenal-fatigue-treatment/" class="nav__dropdown-item" role="menuitem">Adrenal Fatigue Treatment</a>
+              <a href="/services/gut-health-testing/" class="nav__dropdown-item" role="menuitem">Gut Health Testing</a>
+              <a href="/services/food-sensitivity-testing/" class="nav__dropdown-item" role="menuitem">Food Sensitivity Testing</a>
+              <a href="/services/leaky-gut-treatment/" class="nav__dropdown-item" role="menuitem">Leaky Gut Treatment</a>
+              <a href="/services/ozone-therapy/" class="nav__dropdown-item" role="menuitem">Ozone Therapy</a>
+              <a href="/services/infrared-sauna-therapy/" class="nav__dropdown-item" role="menuitem">Infrared Sauna Therapy</a>
+              <a href="/services/nutritional-counseling/" class="nav__dropdown-item" role="menuitem">Nutritional Counseling</a>
             </div>
           </div>
-          <a href="/services" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Services</a>
+          <a href="/services/" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Services</a>
         </div>
       </div>
 
@@ -150,43 +150,43 @@ function renderNav(transparent = false): string {
         <div class="nav__dropdown-menu nav__dropdown-menu--wide" role="menu">
           <div class="nav__dropdown-grid">
             <div class="nav__dropdown-col">
-              <a href="/conditions/back-pain" class="nav__dropdown-item" role="menuitem">Back Pain</a>
-              <a href="/conditions/neck-pain" class="nav__dropdown-item" role="menuitem">Neck Pain</a>
-              <a href="/conditions/knee-pain" class="nav__dropdown-item" role="menuitem">Knee Pain</a>
-              <a href="/conditions/hip-pain" class="nav__dropdown-item" role="menuitem">Hip Pain</a>
-              <a href="/conditions/shoulder-pain" class="nav__dropdown-item" role="menuitem">Shoulder Pain</a>
-              <a href="/conditions/sciatica" class="nav__dropdown-item" role="menuitem">Sciatica</a>
-              <a href="/conditions/headaches-migraines" class="nav__dropdown-item" role="menuitem">Headaches &amp; Migraines</a>
-              <a href="/conditions/fibromyalgia" class="nav__dropdown-item" role="menuitem">Fibromyalgia</a>
-              <a href="/conditions/neuropathy" class="nav__dropdown-item" role="menuitem">Neuropathy</a>
-              <a href="/conditions/sports-injuries" class="nav__dropdown-item" role="menuitem">Sports Injuries</a>
+              <a href="/conditions/back-pain/" class="nav__dropdown-item" role="menuitem">Back Pain</a>
+              <a href="/conditions/neck-pain/" class="nav__dropdown-item" role="menuitem">Neck Pain</a>
+              <a href="/conditions/knee-pain/" class="nav__dropdown-item" role="menuitem">Knee Pain</a>
+              <a href="/conditions/hip-pain/" class="nav__dropdown-item" role="menuitem">Hip Pain</a>
+              <a href="/conditions/shoulder-pain/" class="nav__dropdown-item" role="menuitem">Shoulder Pain</a>
+              <a href="/conditions/sciatica/" class="nav__dropdown-item" role="menuitem">Sciatica</a>
+              <a href="/conditions/headaches-migraines/" class="nav__dropdown-item" role="menuitem">Headaches &amp; Migraines</a>
+              <a href="/conditions/fibromyalgia/" class="nav__dropdown-item" role="menuitem">Fibromyalgia</a>
+              <a href="/conditions/neuropathy/" class="nav__dropdown-item" role="menuitem">Neuropathy</a>
+              <a href="/conditions/sports-injuries/" class="nav__dropdown-item" role="menuitem">Sports Injuries</a>
             </div>
             <div class="nav__dropdown-col">
-              <a href="/conditions/anxiety-stress" class="nav__dropdown-item" role="menuitem">Anxiety &amp; Stress</a>
-              <a href="/conditions/depression" class="nav__dropdown-item" role="menuitem">Depression</a>
-              <a href="/conditions/insomnia" class="nav__dropdown-item" role="menuitem">Insomnia</a>
-              <a href="/conditions/ptsd" class="nav__dropdown-item" role="menuitem">PTSD</a>
-              <a href="/conditions/brain-fog" class="nav__dropdown-item" role="menuitem">Brain Fog</a>
-              <a href="/conditions/fertility" class="nav__dropdown-item" role="menuitem">Fertility Support</a>
-              <a href="/conditions/pcos" class="nav__dropdown-item" role="menuitem">PCOS</a>
-              <a href="/conditions/menopause" class="nav__dropdown-item" role="menuitem">Menopause</a>
-              <a href="/conditions/hormone-imbalance" class="nav__dropdown-item" role="menuitem">Hormone Imbalance</a>
-              <a href="/conditions/perimenopause" class="nav__dropdown-item" role="menuitem">Perimenopause</a>
+              <a href="/conditions/anxiety-stress/" class="nav__dropdown-item" role="menuitem">Anxiety &amp; Stress</a>
+              <a href="/conditions/depression/" class="nav__dropdown-item" role="menuitem">Depression</a>
+              <a href="/conditions/insomnia/" class="nav__dropdown-item" role="menuitem">Insomnia</a>
+              <a href="/conditions/ptsd/" class="nav__dropdown-item" role="menuitem">PTSD</a>
+              <a href="/conditions/brain-fog/" class="nav__dropdown-item" role="menuitem">Brain Fog</a>
+              <a href="/conditions/fertility/" class="nav__dropdown-item" role="menuitem">Fertility Support</a>
+              <a href="/conditions/pcos/" class="nav__dropdown-item" role="menuitem">PCOS</a>
+              <a href="/conditions/menopause/" class="nav__dropdown-item" role="menuitem">Menopause</a>
+              <a href="/conditions/hormone-imbalance/" class="nav__dropdown-item" role="menuitem">Hormone Imbalance</a>
+              <a href="/conditions/perimenopause/" class="nav__dropdown-item" role="menuitem">Perimenopause</a>
             </div>
             <div class="nav__dropdown-col">
-              <a href="/conditions/ibs-gut-issues" class="nav__dropdown-item" role="menuitem">IBS &amp; Gut Issues</a>
-              <a href="/conditions/chronic-fatigue" class="nav__dropdown-item" role="menuitem">Chronic Fatigue</a>
-              <a href="/conditions/autoimmune-disease" class="nav__dropdown-item" role="menuitem">Autoimmune Disease</a>
-              <a href="/conditions/hashimotos" class="nav__dropdown-item" role="menuitem">Hashimoto's</a>
-              <a href="/conditions/thyroid-issues" class="nav__dropdown-item" role="menuitem">Thyroid Issues</a>
-              <a href="/conditions/food-sensitivities" class="nav__dropdown-item" role="menuitem">Food Sensitivities</a>
-              <a href="/conditions/leaky-gut" class="nav__dropdown-item" role="menuitem">Leaky Gut</a>
-              <a href="/conditions/adrenal-fatigue" class="nav__dropdown-item" role="menuitem">Adrenal Fatigue</a>
-              <a href="/conditions/chronic-illness" class="nav__dropdown-item" role="menuitem">Chronic Illness</a>
-              <a href="/conditions/weight-issues" class="nav__dropdown-item" role="menuitem">Weight Issues</a>
+              <a href="/conditions/ibs-gut-issues/" class="nav__dropdown-item" role="menuitem">IBS &amp; Gut Issues</a>
+              <a href="/conditions/chronic-fatigue/" class="nav__dropdown-item" role="menuitem">Chronic Fatigue</a>
+              <a href="/conditions/autoimmune-disease/" class="nav__dropdown-item" role="menuitem">Autoimmune Disease</a>
+              <a href="/conditions/hashimotos/" class="nav__dropdown-item" role="menuitem">Hashimoto's</a>
+              <a href="/conditions/thyroid-issues/" class="nav__dropdown-item" role="menuitem">Thyroid Issues</a>
+              <a href="/conditions/food-sensitivities/" class="nav__dropdown-item" role="menuitem">Food Sensitivities</a>
+              <a href="/conditions/leaky-gut/" class="nav__dropdown-item" role="menuitem">Leaky Gut</a>
+              <a href="/conditions/adrenal-fatigue/" class="nav__dropdown-item" role="menuitem">Adrenal Fatigue</a>
+              <a href="/conditions/chronic-illness/" class="nav__dropdown-item" role="menuitem">Chronic Illness</a>
+              <a href="/conditions/weight-issues/" class="nav__dropdown-item" role="menuitem">Weight Issues</a>
             </div>
           </div>
-          <a href="/conditions" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Conditions</a>
+          <a href="/conditions/" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Conditions</a>
         </div>
       </div>
 
@@ -196,12 +196,12 @@ function renderNav(transparent = false): string {
           <span class="nav__dropdown-chevron">${icons.chevronDown}</span>
         </button>
         <div class="nav__dropdown-menu" role="menu">
-          <a href="/about" class="nav__dropdown-item nav__dropdown-item--primary" role="menuitem">About Integrative Health Partners</a>
-          <a href="/dr-hendry" class="nav__dropdown-item" role="menuitem">Dr. William Hendry, DAOM</a>
+          <a href="/about/" class="nav__dropdown-item nav__dropdown-item--primary" role="menuitem">About Integrative Health Partners</a>
+          <a href="/dr-hendry/" class="nav__dropdown-item" role="menuitem">Dr. William Hendry, DAOM</a>
         </div>
       </div>
 
-      <a href="/blog" class="nav__link" role="listitem">Blog</a>
+      <a href="/blog/" class="nav__link" role="listitem">Blog</a>
     </div>
 
     <a href="tel:${NAP.phoneRaw}" class="nav__cta">${icons.phone} ${NAP.phone}</a>
@@ -215,87 +215,87 @@ function renderNav(transparent = false): string {
 <div id="nav-mobile" class="nav__mobile" role="dialog" aria-label="Mobile navigation">
   <div class="nav__mobile-section">Navigation</div>
   <a href="/" class="nav__mobile-link">Home</a>
-  <a href="/blog" class="nav__mobile-link">Blog</a>
+  <a href="/blog/" class="nav__mobile-link">Blog</a>
 
   <div class="nav__mobile-section">Services</div>
-  <a href="/services/acupuncture-therapy" class="nav__mobile-sublink">Acupuncture Therapy</a>
-  <a href="/services/dry-needling-therapy" class="nav__mobile-sublink">Dry Needling</a>
-  <a href="/services/electroacupuncture" class="nav__mobile-sublink">Electroacupuncture</a>
-  <a href="/services/medical-acupuncture" class="nav__mobile-sublink">Medical Acupuncture</a>
-  <a href="/services/auricular-acupuncture" class="nav__mobile-sublink">Auricular Acupuncture</a>
-  <a href="/services/scalp-acupuncture" class="nav__mobile-sublink">Scalp Acupuncture</a>
-  <a href="/services/fertility-acupuncture" class="nav__mobile-sublink">Fertility Acupuncture</a>
-  <a href="/services/acupuncture-for-anxiety" class="nav__mobile-sublink">Acupuncture for Anxiety</a>
-  <a href="/services/acupuncture-for-migraines" class="nav__mobile-sublink">Acupuncture for Migraines</a>
-  <a href="/services/biopuncture-therapy" class="nav__mobile-sublink">Biopuncture Therapy</a>
-  <a href="/services/back-pain-treatment" class="nav__mobile-sublink">Back Pain Treatment</a>
-  <a href="/services/neck-pain-treatment" class="nav__mobile-sublink">Neck Pain Treatment</a>
-  <a href="/services/knee-pain-treatment" class="nav__mobile-sublink">Knee Pain Treatment</a>
-  <a href="/services/sciatica-treatment" class="nav__mobile-sublink">Sciatica Treatment</a>
-  <a href="/services/shoulder-pain-treatment" class="nav__mobile-sublink">Shoulder Pain Treatment</a>
-  <a href="/services/hip-pain-treatment" class="nav__mobile-sublink">Hip Pain Treatment</a>
-  <a href="/services/fibromyalgia-treatment" class="nav__mobile-sublink">Fibromyalgia Treatment</a>
-  <a href="/services/neuropathy-treatment" class="nav__mobile-sublink">Neuropathy Treatment</a>
-  <a href="/services/sports-injury-treatment" class="nav__mobile-sublink">Sports Injury Treatment</a>
-  <a href="/services/trigger-point-therapy" class="nav__mobile-sublink">Trigger Point Therapy</a>
-  <a href="/services/cupping-therapy" class="nav__mobile-sublink">Cupping Therapy</a>
-  <a href="/services/gua-sha-treatment" class="nav__mobile-sublink">Gua Sha</a>
-  <a href="/services/moxibustion-therapy" class="nav__mobile-sublink">Moxibustion</a>
-  <a href="/services/chinese-herbal-medicine" class="nav__mobile-sublink">Chinese Herbal Medicine</a>
-  <a href="/services/custom-herbal-formulations" class="nav__mobile-sublink">Custom Herbal Formulations</a>
-  <a href="/services/herbal-consultation" class="nav__mobile-sublink">Herbal Consultation</a>
-  <a href="/services/herb-drug-interaction-consultation" class="nav__mobile-sublink">Herb-Drug Consultation</a>
-  <a href="/services/ibs-treatment" class="nav__mobile-sublink">IBS Treatment</a>
-  <a href="/services/natural-anxiety-treatment" class="nav__mobile-sublink">Natural Anxiety Treatment</a>
-  <a href="/services/insomnia-treatment" class="nav__mobile-sublink">Insomnia Treatment</a>
-  <a href="/services/functional-medicine-consultation" class="nav__mobile-sublink">Functional Medicine</a>
-  <a href="/services/hormone-testing" class="nav__mobile-sublink">Hormone Testing</a>
-  <a href="/services/thyroid-testing" class="nav__mobile-sublink">Thyroid Testing</a>
-  <a href="/services/adrenal-fatigue-treatment" class="nav__mobile-sublink">Adrenal Fatigue Treatment</a>
-  <a href="/services/gut-health-testing" class="nav__mobile-sublink">Gut Health Testing</a>
-  <a href="/services/food-sensitivity-testing" class="nav__mobile-sublink">Food Sensitivity Testing</a>
-  <a href="/services/leaky-gut-treatment" class="nav__mobile-sublink">Leaky Gut Treatment</a>
-  <a href="/services/ozone-therapy" class="nav__mobile-sublink">Ozone Therapy</a>
-  <a href="/services/infrared-sauna-therapy" class="nav__mobile-sublink">Infrared Sauna Therapy</a>
-  <a href="/services/nutritional-counseling" class="nav__mobile-sublink">Nutritional Counseling</a>
-  <a href="/services" class="nav__mobile-sublink">→ View All Services</a>
+  <a href="/services/acupuncture-therapy/" class="nav__mobile-sublink">Acupuncture Therapy</a>
+  <a href="/services/dry-needling-therapy/" class="nav__mobile-sublink">Dry Needling</a>
+  <a href="/services/electroacupuncture/" class="nav__mobile-sublink">Electroacupuncture</a>
+  <a href="/services/medical-acupuncture/" class="nav__mobile-sublink">Medical Acupuncture</a>
+  <a href="/services/auricular-acupuncture/" class="nav__mobile-sublink">Auricular Acupuncture</a>
+  <a href="/services/scalp-acupuncture/" class="nav__mobile-sublink">Scalp Acupuncture</a>
+  <a href="/services/fertility-acupuncture/" class="nav__mobile-sublink">Fertility Acupuncture</a>
+  <a href="/services/acupuncture-for-anxiety/" class="nav__mobile-sublink">Acupuncture for Anxiety</a>
+  <a href="/services/acupuncture-for-migraines/" class="nav__mobile-sublink">Acupuncture for Migraines</a>
+  <a href="/services/biopuncture-therapy/" class="nav__mobile-sublink">Biopuncture Therapy</a>
+  <a href="/services/back-pain-treatment/" class="nav__mobile-sublink">Back Pain Treatment</a>
+  <a href="/services/neck-pain-treatment/" class="nav__mobile-sublink">Neck Pain Treatment</a>
+  <a href="/services/knee-pain-treatment/" class="nav__mobile-sublink">Knee Pain Treatment</a>
+  <a href="/services/sciatica-treatment/" class="nav__mobile-sublink">Sciatica Treatment</a>
+  <a href="/services/shoulder-pain-treatment/" class="nav__mobile-sublink">Shoulder Pain Treatment</a>
+  <a href="/services/hip-pain-treatment/" class="nav__mobile-sublink">Hip Pain Treatment</a>
+  <a href="/services/fibromyalgia-treatment/" class="nav__mobile-sublink">Fibromyalgia Treatment</a>
+  <a href="/services/neuropathy-treatment/" class="nav__mobile-sublink">Neuropathy Treatment</a>
+  <a href="/services/sports-injury-treatment/" class="nav__mobile-sublink">Sports Injury Treatment</a>
+  <a href="/services/trigger-point-therapy/" class="nav__mobile-sublink">Trigger Point Therapy</a>
+  <a href="/services/cupping-therapy/" class="nav__mobile-sublink">Cupping Therapy</a>
+  <a href="/services/gua-sha-treatment/" class="nav__mobile-sublink">Gua Sha</a>
+  <a href="/services/moxibustion-therapy/" class="nav__mobile-sublink">Moxibustion</a>
+  <a href="/services/chinese-herbal-medicine/" class="nav__mobile-sublink">Chinese Herbal Medicine</a>
+  <a href="/services/custom-herbal-formulations/" class="nav__mobile-sublink">Custom Herbal Formulations</a>
+  <a href="/services/herbal-consultation/" class="nav__mobile-sublink">Herbal Consultation</a>
+  <a href="/services/herb-drug-interaction-consultation/" class="nav__mobile-sublink">Herb-Drug Consultation</a>
+  <a href="/services/ibs-treatment/" class="nav__mobile-sublink">IBS Treatment</a>
+  <a href="/services/natural-anxiety-treatment/" class="nav__mobile-sublink">Natural Anxiety Treatment</a>
+  <a href="/services/insomnia-treatment/" class="nav__mobile-sublink">Insomnia Treatment</a>
+  <a href="/services/functional-medicine-consultation/" class="nav__mobile-sublink">Functional Medicine</a>
+  <a href="/services/hormone-testing/" class="nav__mobile-sublink">Hormone Testing</a>
+  <a href="/services/thyroid-testing/" class="nav__mobile-sublink">Thyroid Testing</a>
+  <a href="/services/adrenal-fatigue-treatment/" class="nav__mobile-sublink">Adrenal Fatigue Treatment</a>
+  <a href="/services/gut-health-testing/" class="nav__mobile-sublink">Gut Health Testing</a>
+  <a href="/services/food-sensitivity-testing/" class="nav__mobile-sublink">Food Sensitivity Testing</a>
+  <a href="/services/leaky-gut-treatment/" class="nav__mobile-sublink">Leaky Gut Treatment</a>
+  <a href="/services/ozone-therapy/" class="nav__mobile-sublink">Ozone Therapy</a>
+  <a href="/services/infrared-sauna-therapy/" class="nav__mobile-sublink">Infrared Sauna Therapy</a>
+  <a href="/services/nutritional-counseling/" class="nav__mobile-sublink">Nutritional Counseling</a>
+  <a href="/services/" class="nav__mobile-sublink">→ View All Services</a>
 
   <div class="nav__mobile-section">Conditions We Treat</div>
-  <a href="/conditions/back-pain" class="nav__mobile-sublink">Back Pain</a>
-  <a href="/conditions/neck-pain" class="nav__mobile-sublink">Neck Pain</a>
-  <a href="/conditions/knee-pain" class="nav__mobile-sublink">Knee Pain</a>
-  <a href="/conditions/hip-pain" class="nav__mobile-sublink">Hip Pain</a>
-  <a href="/conditions/shoulder-pain" class="nav__mobile-sublink">Shoulder Pain</a>
-  <a href="/conditions/sciatica" class="nav__mobile-sublink">Sciatica</a>
-  <a href="/conditions/headaches-migraines" class="nav__mobile-sublink">Headaches &amp; Migraines</a>
-  <a href="/conditions/fibromyalgia" class="nav__mobile-sublink">Fibromyalgia</a>
-  <a href="/conditions/neuropathy" class="nav__mobile-sublink">Neuropathy</a>
-  <a href="/conditions/sports-injuries" class="nav__mobile-sublink">Sports Injuries</a>
-  <a href="/conditions/anxiety-stress" class="nav__mobile-sublink">Anxiety &amp; Stress</a>
-  <a href="/conditions/depression" class="nav__mobile-sublink">Depression</a>
-  <a href="/conditions/insomnia" class="nav__mobile-sublink">Insomnia</a>
-  <a href="/conditions/ptsd" class="nav__mobile-sublink">PTSD</a>
-  <a href="/conditions/brain-fog" class="nav__mobile-sublink">Brain Fog</a>
-  <a href="/conditions/fertility" class="nav__mobile-sublink">Fertility Support</a>
-  <a href="/conditions/pcos" class="nav__mobile-sublink">PCOS</a>
-  <a href="/conditions/menopause" class="nav__mobile-sublink">Menopause</a>
-  <a href="/conditions/hormone-imbalance" class="nav__mobile-sublink">Hormone Imbalance</a>
-  <a href="/conditions/perimenopause" class="nav__mobile-sublink">Perimenopause</a>
-  <a href="/conditions/ibs-gut-issues" class="nav__mobile-sublink">IBS &amp; Gut Issues</a>
-  <a href="/conditions/chronic-fatigue" class="nav__mobile-sublink">Chronic Fatigue</a>
-  <a href="/conditions/autoimmune-disease" class="nav__mobile-sublink">Autoimmune Disease</a>
-  <a href="/conditions/hashimotos" class="nav__mobile-sublink">Hashimoto's</a>
-  <a href="/conditions/thyroid-issues" class="nav__mobile-sublink">Thyroid Issues</a>
-  <a href="/conditions/food-sensitivities" class="nav__mobile-sublink">Food Sensitivities</a>
-  <a href="/conditions/leaky-gut" class="nav__mobile-sublink">Leaky Gut</a>
-  <a href="/conditions/adrenal-fatigue" class="nav__mobile-sublink">Adrenal Fatigue</a>
-  <a href="/conditions/chronic-illness" class="nav__mobile-sublink">Chronic Illness</a>
-  <a href="/conditions/weight-issues" class="nav__mobile-sublink">Weight Issues</a>
-  <a href="/conditions" class="nav__mobile-sublink">→ View All Conditions</a>
+  <a href="/conditions/back-pain/" class="nav__mobile-sublink">Back Pain</a>
+  <a href="/conditions/neck-pain/" class="nav__mobile-sublink">Neck Pain</a>
+  <a href="/conditions/knee-pain/" class="nav__mobile-sublink">Knee Pain</a>
+  <a href="/conditions/hip-pain/" class="nav__mobile-sublink">Hip Pain</a>
+  <a href="/conditions/shoulder-pain/" class="nav__mobile-sublink">Shoulder Pain</a>
+  <a href="/conditions/sciatica/" class="nav__mobile-sublink">Sciatica</a>
+  <a href="/conditions/headaches-migraines/" class="nav__mobile-sublink">Headaches &amp; Migraines</a>
+  <a href="/conditions/fibromyalgia/" class="nav__mobile-sublink">Fibromyalgia</a>
+  <a href="/conditions/neuropathy/" class="nav__mobile-sublink">Neuropathy</a>
+  <a href="/conditions/sports-injuries/" class="nav__mobile-sublink">Sports Injuries</a>
+  <a href="/conditions/anxiety-stress/" class="nav__mobile-sublink">Anxiety &amp; Stress</a>
+  <a href="/conditions/depression/" class="nav__mobile-sublink">Depression</a>
+  <a href="/conditions/insomnia/" class="nav__mobile-sublink">Insomnia</a>
+  <a href="/conditions/ptsd/" class="nav__mobile-sublink">PTSD</a>
+  <a href="/conditions/brain-fog/" class="nav__mobile-sublink">Brain Fog</a>
+  <a href="/conditions/fertility/" class="nav__mobile-sublink">Fertility Support</a>
+  <a href="/conditions/pcos/" class="nav__mobile-sublink">PCOS</a>
+  <a href="/conditions/menopause/" class="nav__mobile-sublink">Menopause</a>
+  <a href="/conditions/hormone-imbalance/" class="nav__mobile-sublink">Hormone Imbalance</a>
+  <a href="/conditions/perimenopause/" class="nav__mobile-sublink">Perimenopause</a>
+  <a href="/conditions/ibs-gut-issues/" class="nav__mobile-sublink">IBS &amp; Gut Issues</a>
+  <a href="/conditions/chronic-fatigue/" class="nav__mobile-sublink">Chronic Fatigue</a>
+  <a href="/conditions/autoimmune-disease/" class="nav__mobile-sublink">Autoimmune Disease</a>
+  <a href="/conditions/hashimotos/" class="nav__mobile-sublink">Hashimoto's</a>
+  <a href="/conditions/thyroid-issues/" class="nav__mobile-sublink">Thyroid Issues</a>
+  <a href="/conditions/food-sensitivities/" class="nav__mobile-sublink">Food Sensitivities</a>
+  <a href="/conditions/leaky-gut/" class="nav__mobile-sublink">Leaky Gut</a>
+  <a href="/conditions/adrenal-fatigue/" class="nav__mobile-sublink">Adrenal Fatigue</a>
+  <a href="/conditions/chronic-illness/" class="nav__mobile-sublink">Chronic Illness</a>
+  <a href="/conditions/weight-issues/" class="nav__mobile-sublink">Weight Issues</a>
+  <a href="/conditions/" class="nav__mobile-sublink">→ View All Conditions</a>
 
   <div class="nav__mobile-section">About</div>
-  <a href="/about" class="nav__mobile-sublink">About Integrative Health Partners</a>
-  <a href="/dr-hendry" class="nav__mobile-sublink">Dr. William Hendry, DAOM</a>
+  <a href="/about/" class="nav__mobile-sublink">About Integrative Health Partners</a>
+  <a href="/dr-hendry/" class="nav__mobile-sublink">Dr. William Hendry, DAOM</a>
 
   <a href="tel:${NAP.phoneRaw}" class="nav__mobile-cta">${icons.phone} Call ${NAP.phone}</a>
 </div>`;
@@ -344,21 +344,21 @@ function renderFooter(): string {
       <div>
         <p class="footer__col-title">Services</p>
         <div class="footer__links">
-          <a href="/services/acupuncturist-services" class="footer__link">Acupuncturist Services</a>
-          <a href="/services/acupuncture-clinic-services" class="footer__link">Acupuncture Clinic Services</a>
-          <a href="/services/chinese-medicine-clinic-services" class="footer__link">Chinese Medicine Clinic Services</a>
-          <a href="/services/alternative-medicine-practitioner-services" class="footer__link">Alternative Medicine Practitioner Services</a>
-          <a href="/services" class="footer__link">→ View All 130+ Services</a>
-          <a href="/blog" class="footer__link">Health Blog</a>
+          <a href="/services/acupuncturist-services/" class="footer__link">Acupuncturist Services</a>
+          <a href="/services/acupuncture-clinic-services/" class="footer__link">Acupuncture Clinic Services</a>
+          <a href="/services/chinese-medicine-clinic-services/" class="footer__link">Chinese Medicine Clinic Services</a>
+          <a href="/services/alternative-medicine-practitioner-services/" class="footer__link">Alternative Medicine Practitioner Services</a>
+          <a href="/services/" class="footer__link">→ View All 130+ Services</a>
+          <a href="/blog/" class="footer__link">Health Blog</a>
         </div>
       </div>
 
       <div>
         <p class="footer__col-title">About</p>
         <div class="footer__links">
-          <a href="/about" class="footer__link">About Our Practice</a>
-          <a href="/dr-hendry" class="footer__link">Dr. William Hendry</a>
-          <a href="/contact" class="footer__link">Contact &amp; Directions</a>
+          <a href="/about/" class="footer__link">About Our Practice</a>
+          <a href="/dr-hendry/" class="footer__link">Dr. William Hendry</a>
+          <a href="/contact/" class="footer__link">Contact &amp; Directions</a>
           <a href="https://share.google/TYarboIHpqlhU6odK" target="_blank" rel="noopener noreferrer" class="footer__link">⭐ Leave a Google Review</a>
         </div>
       </div>
@@ -366,11 +366,11 @@ function renderFooter(): string {
       <div>
         <p class="footer__col-title">Conditions We Treat</p>
         <div class="footer__links">
-          <a href="/conditions/pain-and-musculoskeletal" class="footer__link">Pain &amp; Musculoskeletal</a>
-          <a href="/conditions/neurological-mental-health" class="footer__link">Neurological &amp; Mental Health</a>
-          <a href="/conditions/hormonal-womens-health" class="footer__link">Hormonal &amp; Women's Health</a>
-          <a href="/conditions/digestive-immune" class="footer__link">Digestive &amp; Immune</a>
-          <a href="/conditions" class="footer__link">View All Conditions</a>
+          <a href="/conditions/pain-and-musculoskeletal/" class="footer__link">Pain &amp; Musculoskeletal</a>
+          <a href="/conditions/neurological-mental-health/" class="footer__link">Neurological &amp; Mental Health</a>
+          <a href="/conditions/hormonal-womens-health/" class="footer__link">Hormonal &amp; Women's Health</a>
+          <a href="/conditions/digestive-immune/" class="footer__link">Digestive &amp; Immune</a>
+          <a href="/conditions/" class="footer__link">View All Conditions</a>
         </div>
       </div>
     </div>
@@ -512,7 +512,7 @@ export function renderHome(): string {
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:1rem" class="reveal">
               <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Schedule a Consultation</a>
-              <a href="/dr-hendry" class="btn btn-outline">Full Credentials</a>
+              <a href="/dr-hendry/" class="btn btn-outline">Full Credentials</a>
             </div>
           </div>
         </div>
@@ -557,7 +557,7 @@ export function renderHome(): string {
           </div>
 
           <div class="text-center reveal">
-            <a href="/services/functional-medicine-consultation" class="btn btn-primary">Learn About Functional Medicine ${icons.arrowRight}</a>
+            <a href="/services/functional-medicine-consultation/" class="btn btn-primary">Learn About Functional Medicine ${icons.arrowRight}</a>
           </div>
         </div>
       </div>
@@ -583,7 +583,7 @@ export function renderHome(): string {
             { name: "Gut, Immune & Chronic Illness", slug: "digestive-immune", count: 10, desc: "IBS, leaky gut, autoimmune disease, chronic fatigue, Hashimoto's" },
           ].map((cat, i) => `
           <div class="reveal" style="transition-delay:${i * 0.08}s">
-            <a href="/conditions/${cat.slug}" class="cat-card">
+            <a href="/conditions/${cat.slug}/" class="cat-card">
               <div class="cat-card__header">
                 <span class="cat-card__badge cat-card__badge--secondary">Conditions</span>
                 <span class="cat-card__arrow">${icons.arrowRight}</span>
@@ -598,7 +598,7 @@ export function renderHome(): string {
         <div class="grid-auto sm:grid-2 md:grid-3 lg:grid-4" style="margin-bottom:2rem">
           ${conditionHighlights.map((c, i) => `
           <div class="reveal" style="transition-delay:${Math.min(i * 0.04, 0.4)}s">
-            <a href="/conditions/${c.slug}" class="svc-list-link">
+            <a href="/conditions/${c.slug}/" class="svc-list-link">
               <div class="svc-list-link__inner">
                 <span class="svc-list-link__name">${c.name}</span>
                 <span class="svc-list-link__arrow">${icons.arrowRight}</span>
@@ -608,7 +608,7 @@ export function renderHome(): string {
         </div>
 
         <div class="text-center reveal">
-          <a href="/conditions" class="btn btn-primary">View All 30+ Conditions ${icons.arrowRight}</a>
+          <a href="/conditions/" class="btn btn-primary">View All 30+ Conditions ${icons.arrowRight}</a>
         </div>
       </div>
     </section>
@@ -627,7 +627,7 @@ export function renderHome(): string {
         <div class="grid-auto md:grid-2 lg:grid-4" style="margin-bottom:3rem">
           ${categoryDefinitions.map((cat, i) => `
           <div class="reveal" style="transition-delay:${i * 0.08}s">
-            <a href="/services/${cat.slug}" class="cat-card">
+            <a href="/services/${cat.slug}/" class="cat-card">
               <div class="cat-card__header">
                 <span class="cat-card__badge ${cat.isPrimary ? "cat-card__badge--primary" : "cat-card__badge--secondary"}">${cat.isPrimary ? "Primary" : "Specialty"}</span>
                 <span class="cat-card__arrow">${icons.arrowRight}</span>
@@ -640,7 +640,7 @@ export function renderHome(): string {
         </div>
 
         <div class="text-center reveal" style="margin-bottom:2.5rem">
-          <a href="/services" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem">
+          <a href="/services/" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem">
             View All 130+ Services ${icons.arrowRight}
           </a>
         </div>
@@ -651,7 +651,7 @@ export function renderHome(): string {
         <div class="grid-auto md:grid-2 lg:grid-3" style="margin-bottom:2.5rem">
           ${featuredServices.map((svc, i) => `
           <div class="reveal" style="transition-delay:${i * 0.07}s">
-            <a href="/services/${svc.slug}" class="svc-overview-card">
+            <a href="/services/${svc.slug}/" class="svc-overview-card">
               <div class="svc-overview-card__icon">${svc.icon}</div>
               <h3 class="svc-overview-card__title">${svc.name}</h3>
               <p class="svc-overview-card__text">${svc.text}</p>
@@ -909,7 +909,7 @@ export function renderCategory(catSlug: string): string | null {
         <div class="grid-auto sm:grid-2 md:grid-3" style="margin-bottom:3rem">
           ${catServices.map((svc, i) => `
           <div class="reveal" style="transition-delay:${Math.min(i * 0.04, 0.4)}s">
-            <a href="/services/${svc.slug}" class="svc-list-link">
+            <a href="/services/${svc.slug}/" class="svc-list-link">
               <div class="svc-list-link__inner">
                 <span class="svc-list-link__name">${svc.name}</span>
                 <span class="svc-list-link__arrow">${icons.arrowRight}</span>
@@ -947,7 +947,7 @@ export function renderCategory(catSlug: string): string | null {
           <h2 class="font-heading" style="font-size:1.125rem;font-weight:600;color:var(--color-muted);margin-bottom:1rem">Explore Our Other Service Areas</h2>
           <div class="grid-auto sm:grid-2 md:grid-3 lg:grid-3">
             ${otherCats.map(oc => `
-            <a href="/services/${oc.slug}" class="other-cat-card reveal">
+            <a href="/services/${oc.slug}/" class="other-cat-card reveal">
               <div class="other-cat-card__title">${oc.name} Services</div>
               <div class="other-cat-card__count">${oc.serviceNames.length} services</div>
               <span class="other-cat-card__link">View services ${icons.arrowRight}</span>
@@ -1084,7 +1084,7 @@ export function renderService(svcSlug: string): string | null {
 
       <div class="main-sidebar">
         <article>
-          <a href="/services/${cat.slug}" class="tag tag--link" style="margin-bottom:1rem;display:inline-block">${cat.name} Services</a>
+          <a href="/services/${cat.slug}/" class="tag tag--link" style="margin-bottom:1rem;display:inline-block">${cat.name} Services</a>
           <h1 class="section-title reveal" style="margin-bottom:1.25rem">${service.name} in Greenville, SC</h1>
           <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2rem" class="reveal reveal-delay-1">
             ${service.metaDescription}
@@ -1119,7 +1119,7 @@ export function renderService(svcSlug: string): string | null {
             </h2>
             <div class="grid-auto sm:grid-2">
               ${relatedServices.map(rs => `
-              <a href="/services/${rs.slug}" class="related-card reveal">
+              <a href="/services/${rs.slug}/" class="related-card reveal">
                 <div class="related-card__inner">
                   <span class="related-card__name">${rs.name}</span>
                   <span class="related-card__arrow">${icons.arrowRight}</span>
@@ -1186,9 +1186,9 @@ export function renderService(svcSlug: string): string | null {
             <p class="sidebar-card__title">Browse ${cat.name} Services</p>
             ${cat.serviceNames.slice(0, 8).map(svcName => {
               const svcSl = createSlug(svcName);
-              return `<a href="/services/${svcSl}" class="sidebar-link">${svcName}</a>`;
+              return `<a href="/services/${svcSl}/" class="sidebar-link">${svcName}</a>`;
             }).join("")}
-            <a href="/services/${cat.slug}" class="text-link" style="font-size:0.875rem;font-weight:500;display:block;margin-top:0.75rem">
+            <a href="/services/${cat.slug}/" class="text-link" style="font-size:0.875rem;font-weight:500;display:block;margin-top:0.75rem">
               View all ${cat.serviceNames.length} services →
             </a>
           </div>
@@ -1242,7 +1242,7 @@ export function renderBlogIndex(posts: BlogPost[]): string {
           const excerpt = post.excerpt ? stripHtml(post.excerpt).substring(0, 180) : "";
           return `
           <article class="reveal" style="transition-delay:${Math.min(i * 0.06, 0.5)}s">
-            <a href="/blog/${post.slug}" class="blog-card">
+            <a href="/blog/${post.slug}/" class="blog-card">
               <div class="blog-card__meta">
                 <span>${icons.calendar} ${formatDate(post.pubDate)}</span>
                 ${post.creator ? `<span>${icons.user} ${post.creator}</span>` : ""}
@@ -1272,7 +1272,13 @@ export function renderBlogIndex(posts: BlogPost[]): string {
    ============================================================ */
 export function renderBlogPost(post: BlogPost): string {
   const excerpt = post.excerpt ? stripHtml(post.excerpt).substring(0, 160) : "";
-  return `${renderHead(`${post.title} | Integrative Health Partners`, excerpt)}
+  const shortTitle = (() => {
+    const suffix = " | IHP Greenville";
+    const full = `${post.title} | Integrative Health Partners`;
+    const short = `${post.title}${suffix}`;
+    return full.length > 60 ? short : full;
+  })();
+  return `${renderHead(shortTitle, excerpt)}
 <body data-page="blog-post">
   ${renderNav(false)}
 
@@ -1326,7 +1332,7 @@ export function renderBlogPost(post: BlogPost): string {
       <hr class="divider" />
 
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
-        <a href="/blog" class="back-link">${icons.arrowLeft} Back to Blog</a>
+        <a href="/blog/" class="back-link">${icons.arrowLeft} Back to Blog</a>
         <a href="tel:${NAP.phoneRaw}" class="btn btn-primary btn-sm">${icons.phone} ${NAP.phone}</a>
       </div>
 
@@ -1382,7 +1388,7 @@ export function renderConditionsHub(): string {
         <div class="grid-auto md:grid-2 lg:grid-4" style="margin-bottom:4rem">
           ${conditionCategories.map((cat, i) => `
           <div class="reveal" style="transition-delay:${i * 0.08}s">
-            <a href="/conditions/${cat.slug}" class="cat-card">
+            <a href="/conditions/${cat.slug}/" class="cat-card">
               <div class="cat-card__header">
                 <span class="cat-card__badge cat-card__badge--secondary">Conditions</span>
                 <span class="cat-card__arrow">${icons.arrowRight}</span>
@@ -1400,7 +1406,7 @@ export function renderConditionsHub(): string {
           <div class="grid-auto sm:grid-2 md:grid-3 lg:grid-4">
             ${allConditions.map((cond, i) => `
             <div class="reveal" style="transition-delay:${Math.min(i * 0.03, 0.5)}s">
-              <a href="/conditions/${cond.slug}" class="svc-list-link">
+              <a href="/conditions/${cond.slug}/" class="svc-list-link">
                 <div class="svc-list-link__inner">
                   <span class="svc-list-link__name">${cond.name}</span>
                   <span class="svc-list-link__arrow">${icons.arrowRight}</span>
@@ -1547,7 +1553,7 @@ export function renderConditionCategory(catSlug: string): string | null {
         <div class="grid-auto sm:grid-2 md:grid-3" style="margin-bottom:3rem">
           ${catConditions.map((cond, i) => `
           <div class="reveal" style="transition-delay:${Math.min(i * 0.05, 0.4)}s">
-            <a href="/conditions/${cond.slug}" class="svc-list-link">
+            <a href="/conditions/${cond.slug}/" class="svc-list-link">
               <div class="svc-list-link__inner">
                 <span class="svc-list-link__name">${cond.name}</span>
                 <span class="svc-list-link__arrow">${icons.arrowRight}</span>
@@ -1600,7 +1606,7 @@ export function renderConditionCategory(catSlug: string): string | null {
           </h2>
           <div class="grid-auto sm:grid-2 md:grid-3">
             ${otherCats.map(oc => `
-            <a href="/conditions/${oc.slug}" class="other-cat-card reveal">
+            <a href="/conditions/${oc.slug}/" class="other-cat-card reveal">
               <div class="other-cat-card__title">${oc.shortName}</div>
               <div class="other-cat-card__count">${oc.conditionSlugs.length} conditions</div>
               <span class="other-cat-card__link">View conditions ${icons.arrowRight}</span>
@@ -1703,7 +1709,7 @@ export function renderCondition(condSlug: string): string | null {
                 const svcData = serviceMap.get(s);
                 const name = svcData ? svcData.name : s.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
                 return `
-              <a href="/services/${s}" class="related-card reveal">
+              <a href="/services/${s}/" class="related-card reveal">
                 <div class="related-card__inner">
                   <span class="related-card__name">${name}</span>
                   <span class="related-card__arrow">${icons.arrowRight}</span>
@@ -1736,7 +1742,7 @@ export function renderCondition(condSlug: string): string | null {
             </h2>
             <div class="grid-auto sm:grid-2">
               ${relatedConditions.map(rc => `
-              <a href="/conditions/${rc.slug}" class="related-card reveal">
+              <a href="/conditions/${rc.slug}/" class="related-card reveal">
                 <div class="related-card__inner">
                   <span class="related-card__name">${rc.name}</span>
                   <span class="related-card__arrow">${icons.arrowRight}</span>
@@ -1793,8 +1799,8 @@ export function renderCondition(condSlug: string): string | null {
           <div class="sidebar-card">
             <p class="sidebar-card__title">Explore All Conditions</p>
             ${conditionCategories.map(cc => `
-            <a href="/conditions/${cc.slug}" class="sidebar-link">${cc.shortName}</a>`).join("")}
-            <a href="/conditions" class="text-link" style="font-size:0.875rem;font-weight:500;display:block;margin-top:0.75rem">
+            <a href="/conditions/${cc.slug}/" class="sidebar-link">${cc.shortName}</a>`).join("")}
+            <a href="/conditions/" class="text-link" style="font-size:0.875rem;font-weight:500;display:block;margin-top:0.75rem">
               View all conditions →
             </a>
           </div>
@@ -1845,20 +1851,20 @@ export function renderAbout(): string {
           <section class="content-section">
             <h2>A Different Kind of Practice</h2>
             <p>Integrative Health Partners was founded on a simple but powerful conviction: most chronic health conditions have an identifiable root cause — and finding it changes everything. When patients arrive at our Greenville, SC practice, many have already spent years managing symptoms without resolution. Our job is to stop the cycle.</p>
-            <p>Led by <a href="/dr-hendry" class="internal-link">Dr. William Hendry, DAOM</a>, our practice blends traditional Chinese medicine — refined over 2,000 years — with modern functional medicine diagnostics. The result is a comprehensive, patient-centered approach that addresses not just what you feel, but <em>why</em> you feel it.</p>
+            <p>Led by <a href="/dr-hendry/" class="internal-link">Dr. William Hendry, DAOM</a>, our practice blends traditional Chinese medicine — refined over 2,000 years — with modern functional medicine diagnostics. The result is a comprehensive, patient-centered approach that addresses not just what you feel, but <em>why</em> you feel it.</p>
           </section>
 
           <section class="content-section">
             <h2>Our Philosophy of Care</h2>
             <p>Conventional medicine excels at crisis care. Functional and integrative medicine excels at <em>chronic care</em> — the persistent conditions that don't resolve with a pill or a procedure. At Integrative Health Partners, we use both lenses.</p>
-            <p>Every new patient begins with a thorough intake that explores not just their chief complaint, but their entire health history: diet, sleep, stress, environment, medications, and prior treatments. From this foundation, Dr. Hendry builds an individualized treatment plan that may include <a href="/services/acupuncture-therapy" class="internal-link">acupuncture therapy</a>, <a href="/services/chinese-herbal-medicine" class="internal-link">Chinese herbal medicine</a>, <a href="/services/functional-medicine-consultation" class="internal-link">functional medicine consultation</a>, and targeted nutritional support.</p>
+            <p>Every new patient begins with a thorough intake that explores not just their chief complaint, but their entire health history: diet, sleep, stress, environment, medications, and prior treatments. From this foundation, Dr. Hendry builds an individualized treatment plan that may include <a href="/services/acupuncture-therapy/" class="internal-link">acupuncture therapy</a>, <a href="/services/chinese-herbal-medicine/" class="internal-link">Chinese herbal medicine</a>, <a href="/services/functional-medicine-consultation/" class="internal-link">functional medicine consultation</a>, and targeted nutritional support.</p>
             <p>We believe in transparency. You will always understand what we are doing and why — and we will track your progress with measurable outcomes at every step.</p>
           </section>
 
           <section class="content-section">
             <h2>In-House Herbal Pharmacy</h2>
             <p>One of the most distinctive features of our practice is our full in-house herbal pharmacy. Many acupuncture clinics refer patients elsewhere for Chinese herbal formulas, creating delays and gaps in care. We stock an extensive formulary of professional-grade, tested herbal medicines on site.</p>
-            <p>Dr. Hendry prescribes custom herbal formulations tailored to each patient's constitution and condition — not a one-size-fits-all supplement. Our pharmacy includes classical formulas, granule extracts, and single-herb preparations. Every product meets rigorous quality standards for purity and potency. For patients managing complex conditions like <a href="/conditions/autoimmune-disease" class="internal-link">autoimmune disease</a>, <a href="/conditions/hormone-imbalance" class="internal-link">hormone imbalance</a>, or <a href="/conditions/chronic-fatigue" class="internal-link">chronic fatigue</a>, the herbal pharmacy is an essential component of the healing process.</p>
+            <p>Dr. Hendry prescribes custom herbal formulations tailored to each patient's constitution and condition — not a one-size-fits-all supplement. Our pharmacy includes classical formulas, granule extracts, and single-herb preparations. Every product meets rigorous quality standards for purity and potency. For patients managing complex conditions like <a href="/conditions/autoimmune-disease/" class="internal-link">autoimmune disease</a>, <a href="/conditions/hormone-imbalance/" class="internal-link">hormone imbalance</a>, or <a href="/conditions/chronic-fatigue/" class="internal-link">chronic fatigue</a>, the herbal pharmacy is an essential component of the healing process.</p>
           </section>
 
           <figure class="clinic-photo-card reveal">
@@ -1871,8 +1877,8 @@ export function renderAbout(): string {
             <ul class="styled-list">
               <li>${icons.checkCircle} <strong>Hospital-level expertise:</strong> Dr. Hendry held hospital privileges at Prisma Health for 9 years — rare for an acupuncturist — and participated in a landmark 3-year Emergency Department study on needle-based alternatives to opioids.</li>
               <li>${icons.checkCircle} <strong>Doctoral-level training:</strong> Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine, representing the highest academic credential in the field.</li>
-              <li>${icons.checkCircle} <strong>Published researcher:</strong> With 5 peer-reviewed publications and 52 citations, Dr. Hendry brings an evidence base to every clinical decision. Learn more on the <a href="/dr-hendry" class="internal-link">Dr. Hendry page</a>.</li>
-              <li>${icons.checkCircle} <strong>Full-spectrum integrative care:</strong> Acupuncture, herbal medicine, functional medicine diagnostics, <a href="/services/ozone-therapy" class="internal-link">ozone therapy</a>, injection therapy, and nutritional counseling — all under one roof.</li>
+              <li>${icons.checkCircle} <strong>Published researcher:</strong> With 5 peer-reviewed publications and 52 citations, Dr. Hendry brings an evidence base to every clinical decision. Learn more on the <a href="/dr-hendry/" class="internal-link">Dr. Hendry page</a>.</li>
+              <li>${icons.checkCircle} <strong>Full-spectrum integrative care:</strong> Acupuncture, herbal medicine, functional medicine diagnostics, <a href="/services/ozone-therapy/" class="internal-link">ozone therapy</a>, injection therapy, and nutritional counseling — all under one roof.</li>
               <li>${icons.checkCircle} <strong>In-house herbal pharmacy:</strong> Professional-grade herbs dispensed at the time of your appointment — no waiting, no third-party sourcing.</li>
             </ul>
           </section>
@@ -1904,7 +1910,7 @@ export function renderAbout(): string {
             <p class="cta-box__text">Discover what's really driving your health challenges. Dr. Hendry will conduct a comprehensive evaluation and build a treatment plan designed around your specific needs.</p>
             <div class="cta-box__actions">
               <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
-              <a href="/dr-hendry" class="btn btn-outline">Meet Dr. Hendry</a>
+              <a href="/dr-hendry/" class="btn btn-outline">Meet Dr. Hendry</a>
             </div>
           </div>
 
@@ -1932,7 +1938,7 @@ export function renderAbout(): string {
             <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin-bottom:0.75rem">
               Dr. William Hendry, DAOM holds a doctorate in acupuncture and oriental medicine and is NCCAOM board-certified with 25+ years of clinical experience.
             </p>
-            <a href="/dr-hendry" class="sidebar-link">${icons.arrowRight} Full Credentials &amp; Biography</a>
+            <a href="/dr-hendry/" class="sidebar-link">${icons.arrowRight} Full Credentials &amp; Biography</a>
           </div>
 
           <div class="sidebar-card">
@@ -1948,10 +1954,10 @@ export function renderAbout(): string {
           <div class="sidebar-card">
             <p class="sidebar-card__title">Our Services</p>
             <div class="footer__links" style="gap:0.375rem">
-              <a href="/services/acupuncturist-services" class="sidebar-link">${icons.arrowRight} Acupuncturist Services</a>
-              <a href="/services/acupuncture-clinic-services" class="sidebar-link">${icons.arrowRight} Acupuncture Clinic</a>
-              <a href="/services/chinese-medicine-clinic-services" class="sidebar-link">${icons.arrowRight} Chinese Medicine</a>
-              <a href="/services/alternative-medicine-practitioner-services" class="sidebar-link">${icons.arrowRight} Alternative Medicine</a>
+              <a href="/services/acupuncturist-services/" class="sidebar-link">${icons.arrowRight} Acupuncturist Services</a>
+              <a href="/services/acupuncture-clinic-services/" class="sidebar-link">${icons.arrowRight} Acupuncture Clinic</a>
+              <a href="/services/chinese-medicine-clinic-services/" class="sidebar-link">${icons.arrowRight} Chinese Medicine</a>
+              <a href="/services/alternative-medicine-practitioner-services/" class="sidebar-link">${icons.arrowRight} Alternative Medicine</a>
             </div>
           </div>
         </aside>
@@ -2061,7 +2067,7 @@ export function renderDrHendry(): string {
           <section class="content-section">
             <h2>25+ Years of Clinical Excellence</h2>
             <p>Dr. Hendry began his formal training in acupuncture and oriental medicine in the late 1990s and graduated with his Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine in December 2008 — completing the highest academic credential available in the field. He passed his NCCAOM board examinations and has maintained active board certification ever since, with his current certification valid through August 2029.</p>
-            <p>Over more than 25 years, Dr. Hendry has treated thousands of patients across a wide range of conditions — from <a href="/conditions/back-pain" class="internal-link">chronic back pain</a> and <a href="/conditions/fibromyalgia" class="internal-link">fibromyalgia</a> to <a href="/conditions/fertility" class="internal-link">fertility challenges</a>, <a href="/conditions/anxiety-stress" class="internal-link">anxiety and stress</a>, and complex chronic illnesses. His approach is both disciplined and creative: grounded in the classical literature of Chinese medicine, yet continuously informed by the latest functional medicine research.</p>
+            <p>Over more than 25 years, Dr. Hendry has treated thousands of patients across a wide range of conditions — from <a href="/conditions/back-pain/" class="internal-link">chronic back pain</a> and <a href="/conditions/fibromyalgia/" class="internal-link">fibromyalgia</a> to <a href="/conditions/fertility/" class="internal-link">fertility challenges</a>, <a href="/conditions/anxiety-stress/" class="internal-link">anxiety and stress</a>, and complex chronic illnesses. His approach is both disciplined and creative: grounded in the classical literature of Chinese medicine, yet continuously informed by the latest functional medicine research.</p>
             <p>He holds active licenses in both South Carolina (ACUP141) and Florida (AP2646), and is a certified Injection Therapy practitioner — enabling him to offer biopuncture and nutrient injection therapies unavailable at most acupuncture clinics.</p>
           </section>
 
@@ -2092,8 +2098,8 @@ export function renderDrHendry(): string {
           <section class="content-section">
             <h2>Philosophy of Care</h2>
             <p>Dr. Hendry's clinical philosophy is built on a foundational belief: the body has an extraordinary capacity to heal itself when given the right conditions. His role — as he sees it — is to remove obstacles, restore balance, and support the body's innate intelligence. That philosophy translates into personalized, whole-person care that respects each patient's unique history, constitution, and goals.</p>
-            <p>He is equally at home working with a patient navigating <a href="/conditions/autoimmune-disease" class="internal-link">autoimmune disease</a> as he is treating a high-performance athlete recovering from a <a href="/conditions/sports-injuries" class="internal-link">sports injury</a>. Whether prescribing a classical herbal formula or interpreting functional blood chemistry, Dr. Hendry brings the same rigor, curiosity, and compassion to every patient encounter.</p>
-            <p>His membership in the <strong>American Academy of Ozone Therapy (AAOT)</strong> reflects his commitment to staying at the frontier of integrative medicine, including emerging therapies like <a href="/services/ozone-therapy" class="internal-link">medical ozone therapy</a> that are gaining traction in evidence-based circles.</p>
+            <p>He is equally at home working with a patient navigating <a href="/conditions/autoimmune-disease/" class="internal-link">autoimmune disease</a> as he is treating a high-performance athlete recovering from a <a href="/conditions/sports-injuries/" class="internal-link">sports injury</a>. Whether prescribing a classical herbal formula or interpreting functional blood chemistry, Dr. Hendry brings the same rigor, curiosity, and compassion to every patient encounter.</p>
+            <p>His membership in the <strong>American Academy of Ozone Therapy (AAOT)</strong> reflects his commitment to staying at the frontier of integrative medicine, including emerging therapies like <a href="/services/ozone-therapy/" class="internal-link">medical ozone therapy</a> that are gaining traction in evidence-based circles.</p>
           </section>
 
           <section class="content-section">
@@ -2117,7 +2123,7 @@ export function renderDrHendry(): string {
             <p class="cta-box__text">New patients are welcome. Call us to schedule your initial consultation and find out what's really behind your health challenges.</p>
             <div class="cta-box__actions">
               <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
-              <a href="/about" class="btn btn-outline">About Our Practice</a>
+              <a href="/about/" class="btn btn-outline">About Our Practice</a>
             </div>
           </div>
 
@@ -2326,10 +2332,10 @@ export function renderContact(): string {
           <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.5rem;margin-bottom:1.5rem">
             <h3 class="font-display" style="font-size:1.125rem;margin-bottom:0.875rem">About Our Practice</h3>
             <div style="display:flex;flex-direction:column;gap:0.5rem">
-              <a href="/about" class="internal-link">About Integrative Health Partners</a>
-              <a href="/dr-hendry" class="internal-link">Dr. William Hendry, DAOM</a>
-              <a href="/conditions" class="internal-link">Conditions We Treat</a>
-              <a href="/services/acupuncturist-services" class="internal-link">Acupuncturist Services</a>
+              <a href="/about/" class="internal-link">About Integrative Health Partners</a>
+              <a href="/dr-hendry/" class="internal-link">Dr. William Hendry, DAOM</a>
+              <a href="/conditions/" class="internal-link">Conditions We Treat</a>
+              <a href="/services/acupuncturist-services/" class="internal-link">Acupuncturist Services</a>
             </div>
           </div>
 
@@ -2401,7 +2407,7 @@ export function renderServicesHub(): string {
       <div style="display:grid;gap:2.5rem">
         ${categoryDefinitions.map(cat => `
         <section class="reveal" aria-labelledby="cat-${cat.slug}">
-          <a href="/services/${cat.slug}" style="text-decoration:none;color:inherit">
+          <a href="/services/${cat.slug}/" style="text-decoration:none;color:inherit">
             <h2 id="cat-${cat.slug}" class="font-heading" style="font-size:1.25rem;font-weight:700;color:var(--color-primary);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem">
               ${categoryIcons[cat.slug] ?? icons.leaf} ${cat.name}
             </h2>
@@ -2409,14 +2415,14 @@ export function renderServicesHub(): string {
           <p style="font-size:0.9375rem;color:var(--color-text-light);margin-bottom:1.25rem;line-height:1.65">${cat.metaDescription}</p>
           <div class="grid-auto" style="gap:0.625rem">
             ${(servicesByCategory.get(cat.slug) ?? []).map(s => `
-            <a href="/services/${s.slug}" class="related-card">
+            <a href="/services/${s.slug}/" class="related-card">
               <div class="related-card__inner">
                 <span class="related-card__name">${s.name}</span>
                 <span class="related-card__arrow">${icons.arrowRight}</span>
               </div>
             </a>`).join("")}
           </div>
-          <a href="/services/${cat.slug}" class="btn btn-outline" style="margin-top:1rem;display:inline-flex;align-items:center;gap:0.4rem">
+          <a href="/services/${cat.slug}/" class="btn btn-outline" style="margin-top:1rem;display:inline-flex;align-items:center;gap:0.4rem">
             View all ${cat.name} services ${icons.arrowRight}
           </a>
         </section>`).join("")}
@@ -2427,7 +2433,7 @@ export function renderServicesHub(): string {
         <p class="cta-box__text">Call us today to schedule your first appointment with Dr. Hendry. New patients welcome.</p>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
           <a href="tel:${NAP.phoneRaw}" class="btn btn-white">${icons.phone} ${NAP.phone}</a>
-          <a href="/contact" class="btn btn-outline-white">Contact Us</a>
+          <a href="/contact/" class="btn btn-outline-white">Contact Us</a>
         </div>
       </div>
     </div>

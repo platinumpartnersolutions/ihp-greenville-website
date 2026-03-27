@@ -220,7 +220,7 @@ export async function registerRoutes(
         .filter(post => !BLOG_410S.has(`/blog/${post.slug}`))
         .map(post => {
           const lastmod = post.pubDate ? new Date(post.pubDate).toISOString().split('T')[0] : today;
-          return `\n  <url>\n    <loc>${BASE_URL}/blog/${post.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>never</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+          return `\n  <url>\n    <loc>${BASE_URL}/blog/${post.slug}/</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>never</changefreq>\n    <priority>0.6</priority>\n  </url>`;
         }).join('');
       sitemap = sitemap.replace('</urlset>', `${blogPostUrls}\n</urlset>`);
       res.set("Content-Type", "application/xml").send(sitemap);
@@ -590,9 +590,12 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
       if (!post) return res.status(404).set("Content-Type", "text/html").send(render404());
 
       let html = renderBlogPost(post);
-      const cleanExcerpt = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, "").substring(0, 160) : "";
+      // Build meta description: prefer excerpt, fall back to first 160 chars of content
+      const rawDesc = post.excerpt || post.content || "";
+      const cleanExcerpt = rawDesc.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().substring(0, 155);
+      const metaDesc = cleanExcerpt || `${post.title} — expert health article from Integrative Health Partners in Greenville, SC.`;
       const dateStr = post.pubDate ? (typeof post.pubDate === "string" ? post.pubDate : post.pubDate.toISOString()) : undefined;
-      const blogSEO = getBlogPostSEO(post.title, cleanExcerpt, post.slug, dateStr);
+      const blogSEO = getBlogPostSEO(post.title, metaDesc, post.slug, dateStr);
       html = injectSEOIntoHTML(html, blogSEO);
       res.set("Content-Type", "text/html").send(html);
     } catch (error) {

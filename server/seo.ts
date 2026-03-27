@@ -19,7 +19,7 @@ const NAP = {
   phone: "(864) 365-6156",
   phoneRaw: "+1-864-365-6156",
   email: "info@ihpgreenville.com",
-  url: BASE_URL,
+  url: `${BASE_URL}/`,
   latitude: "34.862258",
   longitude: "-82.382482"
 };
@@ -203,7 +203,7 @@ function getHomeSEO(): PageSEO {
           { "@type": "City", "name": "Greenville", "sameAs": "https://en.wikipedia.org/wiki/Greenville,_South_Carolina" },
           { "@type": "City", "name": "Spartanburg", "sameAs": "https://en.wikipedia.org/wiki/Spartanburg,_South_Carolina" },
           { "@type": "City", "name": "Anderson", "sameAs": "https://en.wikipedia.org/wiki/Anderson,_South_Carolina" },
-          { "@type": "State", "name": "Upstate South Carolina" }
+          { "@type": "AdministrativeArea", "name": "Upstate South Carolina" }
         ],
         "medicalSpecialty": ["Acupuncture", "Traditional Chinese Medicine", "Integrative Medicine"],
         "aggregateRating": {
@@ -230,14 +230,14 @@ function getHomeSEO(): PageSEO {
           "@type": "OfferCatalog",
           "name": "Integrative Health Services",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acupuncture Therapy", "url": `${BASE_URL}/services/acupuncture-therapy` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry Needling Therapy", "url": `${BASE_URL}/services/dry-needling-therapy` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Functional Medicine Consultation", "url": `${BASE_URL}/services/functional-medicine-consultation` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electroacupuncture", "url": `${BASE_URL}/services/electroacupuncture` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chinese Herbal Medicine", "url": `${BASE_URL}/services/chinese-herbal-medicine` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Biopuncture Therapy", "url": `${BASE_URL}/services/biopuncture-therapy` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ozone Therapy", "url": `${BASE_URL}/services/ozone-therapy` } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cupping Therapy", "url": `${BASE_URL}/services/cupping-therapy` } }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acupuncture Therapy", "url": `${BASE_URL}/services/acupuncture-therapy/` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry Needling Therapy", "url": `${BASE_URL}/services/dry-needling-therapy/` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Functional Medicine Consultation", "url": `${BASE_URL}/services/functional-medicine-consultation/` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electroacupuncture", "url": `${BASE_URL}/services/electroacupuncture/` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chinese Herbal Medicine", "url": `${BASE_URL}/services/chinese-herbal-medicine/` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Biopuncture Therapy", "url": `${BASE_URL}/services/biopuncture-therapy/` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ozone Therapy", "url": `${BASE_URL}/services/ozone-therapy/` } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cupping Therapy", "url": `${BASE_URL}/services/cupping-therapy/` } }
           ]
         }
       },
@@ -319,7 +319,7 @@ function getCategorySEO(slug: string): PageSEO | null {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
           { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services/` },
           { "@type": "ListItem", "position": 3, "name": `${cat.name} Services`, "item": pageUrl }
         ]
@@ -379,7 +379,7 @@ function getServiceSEO(slug: string): PageSEO | null {
       "description": service.metaDescription,
       "howPerformed": `${service.name} performed by Dr. William Hendry, DAOM at Integrative Health Partners in Greenville, SC`,
       "bodyLocation": "Varies by condition",
-      "procedureType": { "@type": "MedicalProcedureType", "name": "TherapeuticProcedure" },
+      "procedureType": "http://schema.org/TherapeuticProcedure",
       "performer": { "@type": "Physician", "name": "Dr. William Hendry, DAOM", "url": `${BASE_URL}/dr-hendry/` },
       "location": {
         "@type": "MedicalBusiness",
@@ -392,7 +392,7 @@ function getServiceSEO(slug: string): PageSEO | null {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
         { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": `${BASE_URL}/services/${cat.slug}/` },
         { "@type": "ListItem", "position": 3, "name": service.name, "item": pageUrl }
       ]
@@ -431,7 +431,7 @@ function getBlogSEO(): PageSEO {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
           { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog/` }
         ]
       },
@@ -453,7 +453,13 @@ function getBlogSEO(): PageSEO {
 
 function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublished?: string): PageSEO {
   return {
-    title: title.length <= 60 ? title : title.substring(0, 57) + "...",
+    title: (() => {
+      const suffix = " | IHP Greenville";
+      const withBrand = `${title}${suffix}`;
+      if (withBrand.length <= 60) return withBrand;
+      if (title.length <= 60) return title;
+      return title.substring(0, 57) + "...";
+    })(),
     description: excerpt.substring(0, 160),
     canonical: `${BASE_URL}/blog/${slug}/`,
     ogType: "article",
@@ -462,7 +468,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
           { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog/` },
           { "@type": "ListItem", "position": 3, "name": title, "item": `${BASE_URL}/blog/${slug}/` }
         ]
@@ -504,7 +510,7 @@ function getConditionsHubSEO(): PageSEO {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
           { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions/` }
         ]
       },
@@ -563,7 +569,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
         { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions/` },
         { "@type": "ListItem", "position": 3, "name": name, "item": pageUrl }
       ]
@@ -626,7 +632,7 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
           { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions/` },
           { "@type": "ListItem", "position": 3, "name": catName, "item": `${BASE_URL}/conditions/${catSlug}/` },
           { "@type": "ListItem", "position": 4, "name": name, "item": pageUrl }
@@ -672,7 +678,7 @@ function getAboutSEO(): PageSEO {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
           { "@type": "ListItem", "position": 2, "name": "About", "item": `${BASE_URL}/about/` }
         ]
       },
@@ -753,7 +759,7 @@ function getDrHendrySEO(): PageSEO {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
           { "@type": "ListItem", "position": 2, "name": "Dr. William Hendry", "item": `${BASE_URL}/dr-hendry/` }
         ]
       },
@@ -802,7 +808,7 @@ function getContactSEO(): PageSEO {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
           { "@type": "ListItem", "position": 2, "name": "Contact", "item": `${BASE_URL}/contact/` }
         ]
       }
@@ -844,7 +850,7 @@ export function getSEOForUrl(url: string): PageSEO | null {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
             { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services/` }
           ]
         },
