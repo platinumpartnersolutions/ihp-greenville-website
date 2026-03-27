@@ -173,7 +173,9 @@ console.log("\n── Blog posts ──");
 let blogOk = 0;
 for (const post of liveBlogPosts) {
   let raw         = renderBlogPost(post);
-  const cleanExc  = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, "").substring(0, 160) : "";
+  const rawDesc   = (post as any).metaDescription || post.excerpt || post.content || "";
+  const cleanExc  = rawDesc.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().substring(0, 155)
+                    || `${post.title} — expert health article from Integrative Health Partners in Greenville, SC.`;
   const dateStr   = post.pubDate instanceof Date ? post.pubDate.toISOString() : String(post.pubDate);
   const blogSEO   = getBlogPostSEO(post.title, cleanExc, post.slug, dateStr);
   if (!blogSEO.canonical.endsWith("/")) blogSEO.canonical += "/";

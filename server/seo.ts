@@ -480,6 +480,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
         "description": excerpt.substring(0, 160),
         "url": `${BASE_URL}/blog/${slug}/`,
         ...(datePublished ? { "datePublished": datePublished } : {}),
+        "image": `${BASE_URL}/assets/ogImage.png`,
         "author": {
           "@type": "Person",
           "name": "Dr. William Hendry",
@@ -488,10 +489,10 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
           "url": `${BASE_URL}/dr-hendry/`
         },
         "publisher": {
-          "@type": "MedicalBusiness",
+          "@type": "Organization",
           "name": NAP.name,
-          "url": NAP.url,
-          "logo": { "@type": "ImageObject", "url": `${NAP.url}/favicon.png` }
+          "url": BASE_URL,
+          "logo": { "@type": "ImageObject", "url": `${BASE_URL}/assets/ogImage.png`, "width": 1200, "height": 630 }
         },
         "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}/` }
       }
