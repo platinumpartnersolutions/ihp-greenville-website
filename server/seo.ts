@@ -287,7 +287,7 @@ function getCategorySEO(slug: string): PageSEO | null {
   const cat = categoryMap.get(slug);
   if (!cat) return null;
 
-  const pageUrl = `${BASE_URL}/services/${slug}`;
+  const pageUrl = `${BASE_URL}/services/${slug}/`;
   const firstThreeServices = cat.serviceNames.slice(0, 3).map(s => s.toLowerCase()).join(", ");
 
   return {
@@ -320,7 +320,7 @@ function getCategorySEO(slug: string): PageSEO | null {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services/` },
           { "@type": "ListItem", "position": 3, "name": `${cat.name} Services`, "item": pageUrl }
         ]
       },
@@ -357,7 +357,7 @@ function getServiceSEO(slug: string): PageSEO | null {
   const cat = categoryMap.get(service.categorySlug);
   if (!cat) return null;
 
-  const pageUrl = `${BASE_URL}/services/${slug}`;
+  const pageUrl = `${BASE_URL}/services/${slug}/`;
 
   const baseSlug = slug.replace(/-greenville-sc$/, "");
   const content = serviceContentMap.get(baseSlug);
@@ -380,7 +380,7 @@ function getServiceSEO(slug: string): PageSEO | null {
       "howPerformed": `${service.name} performed by Dr. William Hendry, DAOM at Integrative Health Partners in Greenville, SC`,
       "bodyLocation": "Varies by condition",
       "procedureType": { "@type": "MedicalProcedureType", "name": "TherapeuticProcedure" },
-      "performer": { "@type": "Physician", "name": "Dr. William Hendry, DAOM", "url": `${BASE_URL}/dr-hendry` },
+      "performer": { "@type": "Physician", "name": "Dr. William Hendry, DAOM", "url": `${BASE_URL}/dr-hendry/` },
       "location": {
         "@type": "MedicalBusiness",
         "name": NAP.name,
@@ -393,7 +393,7 @@ function getServiceSEO(slug: string): PageSEO | null {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": `${BASE_URL}/services/${cat.slug}` },
+        { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": `${BASE_URL}/services/${cat.slug}/` },
         { "@type": "ListItem", "position": 3, "name": service.name, "item": pageUrl }
       ]
     },
@@ -424,7 +424,7 @@ function getBlogSEO(): PageSEO {
   return {
     title: "Health Blog | Acupuncture & Functional Medicine Greenville SC | IHP",
     description: "Health & wellness insights from IHP in Greenville, SC. Expert articles on acupuncture, functional medicine, Chinese herbs, and holistic health.",
-    canonical: `${BASE_URL}/blog`,
+    canonical: `${BASE_URL}/blog/`,
     ogType: "website",
     schemas: [
       {
@@ -432,7 +432,7 @@ function getBlogSEO(): PageSEO {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` }
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog/` }
         ]
       },
       {
@@ -440,7 +440,7 @@ function getBlogSEO(): PageSEO {
         "@type": "Blog",
         "name": "Integrative Health Partners Blog",
         "description": "Expert health and wellness insights on acupuncture, functional medicine, Chinese medicine, and holistic health from Dr. William Hendry in Greenville, SC.",
-        "url": `${BASE_URL}/blog`,
+        "url": `${BASE_URL}/blog/`,
         "publisher": {
           "@type": "MedicalBusiness",
           "name": NAP.name,
@@ -455,7 +455,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
   return {
     title: title.length <= 60 ? title : title.substring(0, 57) + "...",
     description: excerpt.substring(0, 160),
-    canonical: `${BASE_URL}/blog/${slug}`,
+    canonical: `${BASE_URL}/blog/${slug}/`,
     ogType: "article",
     schemas: [
       {
@@ -463,8 +463,8 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` },
-          { "@type": "ListItem", "position": 3, "name": title, "item": `${BASE_URL}/blog/${slug}` }
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog/` },
+          { "@type": "ListItem", "position": 3, "name": title, "item": `${BASE_URL}/blog/${slug}/` }
         ]
       },
       {
@@ -472,14 +472,14 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
         "@type": "Article",
         "headline": title,
         "description": excerpt.substring(0, 160),
-        "url": `${BASE_URL}/blog/${slug}`,
+        "url": `${BASE_URL}/blog/${slug}/`,
         ...(datePublished ? { "datePublished": datePublished } : {}),
         "author": {
           "@type": "Person",
           "name": "Dr. William Hendry",
           "honorificSuffix": "DAOM",
           "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
-          "url": `${BASE_URL}/dr-hendry`
+          "url": `${BASE_URL}/dr-hendry/`
         },
         "publisher": {
           "@type": "MedicalBusiness",
@@ -487,7 +487,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
           "url": NAP.url,
           "logo": { "@type": "ImageObject", "url": `${NAP.url}/favicon.png` }
         },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}` }
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}/` }
       }
     ]
   };
@@ -497,7 +497,7 @@ function getConditionsHubSEO(): PageSEO {
   return {
     title: "Conditions We Treat in Greenville, SC | IHP",
     description: "Acupuncture & functional medicine for 30+ conditions in Greenville, SC — pain, hormonal, neurological, gut & immune. Dr. Hendry, DAOM. Call (864) 365-6156.",
-    canonical: `${BASE_URL}/conditions`,
+    canonical: `${BASE_URL}/conditions/`,
     ogType: "website",
     schemas: [
       {
@@ -505,7 +505,7 @@ function getConditionsHubSEO(): PageSEO {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` }
+          { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions/` }
         ]
       },
       {
@@ -516,7 +516,7 @@ function getConditionsHubSEO(): PageSEO {
           "@type": "ListItem",
           "position": i + 1,
           "name": c.name,
-          "url": `${BASE_URL}/conditions/${c.slug}`
+          "url": `${BASE_URL}/conditions/${c.slug}/`
         }))
       }
     ]
@@ -551,7 +551,7 @@ const conditionCategoryFAQs: Record<string, { q: string; a: string }[]> = {
 };
 
 function getConditionCategorySEO(slug: string, name: string, desc: string): PageSEO {
-  const pageUrl = `${BASE_URL}/conditions/${slug}`;
+  const pageUrl = `${BASE_URL}/conditions/${slug}/`;
   const catData = conditionCategoryMap.get(slug);
   const catConditions = catData
     ? catData.conditionSlugs.map(cs => conditions.find(c => c.slug === cs)).filter(Boolean)
@@ -564,7 +564,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` },
+        { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions/` },
         { "@type": "ListItem", "position": 3, "name": name, "item": pageUrl }
       ]
     },
@@ -576,7 +576,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
         "@type": "ListItem",
         "position": i + 1,
         "name": c.name,
-        "url": `${BASE_URL}/conditions/${c.slug}`
+        "url": `${BASE_URL}/conditions/${c.slug}/`
       }))
     }
   ];
@@ -603,7 +603,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
 }
 
 function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: string, catName: string, faqs: { q: string; a: string }[]): PageSEO {
-  const pageUrl = `${BASE_URL}/conditions/${slug}`;
+  const pageUrl = `${BASE_URL}/conditions/${slug}/`;
   return {
     title: `${name} Treatment in Greenville, SC | IHP`,
     description: trim160(desc),
@@ -627,8 +627,8 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions` },
-          { "@type": "ListItem", "position": 3, "name": catName, "item": `${BASE_URL}/conditions/${catSlug}` },
+          { "@type": "ListItem", "position": 2, "name": "Conditions We Treat", "item": `${BASE_URL}/conditions/` },
+          { "@type": "ListItem", "position": 3, "name": catName, "item": `${BASE_URL}/conditions/${catSlug}/` },
           { "@type": "ListItem", "position": 4, "name": name, "item": pageUrl }
         ]
       },
@@ -649,7 +649,7 @@ function getAboutSEO(): PageSEO {
   return {
     title: "About IHP | Acupuncture & Functional Medicine Greenville SC",
     description: "Integrative Health Partners — Greenville SC's root-cause health practice. Acupuncture, functional medicine, in-house herbal pharmacy. Call (864) 365-6156.",
-    canonical: `${BASE_URL}/about`,
+    canonical: `${BASE_URL}/about/`,
     ogType: "website",
     schemas: [
       {
@@ -673,7 +673,7 @@ function getAboutSEO(): PageSEO {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "About", "item": `${BASE_URL}/about` }
+          { "@type": "ListItem", "position": 2, "name": "About", "item": `${BASE_URL}/about/` }
         ]
       },
       {
@@ -696,7 +696,7 @@ function getDrHendrySEO(): PageSEO {
   return {
     title: "Dr. William Hendry, DAOM | Acupuncturist Greenville SC | IHP",
     description: "Dr. William Hendry, DAOM — NCCAOM #114498, 25+ yrs clinical exp. Co-author: Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
-    canonical: `${BASE_URL}/dr-hendry`,
+    canonical: `${BASE_URL}/dr-hendry/`,
     ogType: "profile",
     schemas: [
       {
@@ -754,7 +754,7 @@ function getDrHendrySEO(): PageSEO {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Dr. William Hendry", "item": `${BASE_URL}/dr-hendry` }
+          { "@type": "ListItem", "position": 2, "name": "Dr. William Hendry", "item": `${BASE_URL}/dr-hendry/` }
         ]
       },
       {
@@ -777,7 +777,7 @@ function getContactSEO(): PageSEO {
   return {
     title: "Contact IHP | Acupuncture Appointment Greenville, SC",
     description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
-    canonical: `${BASE_URL}/contact`,
+    canonical: `${BASE_URL}/contact/`,
     ogType: "website",
     schemas: [
       {
@@ -803,7 +803,7 @@ function getContactSEO(): PageSEO {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-          { "@type": "ListItem", "position": 2, "name": "Contact", "item": `${BASE_URL}/contact` }
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": `${BASE_URL}/contact/` }
         ]
       }
     ]
@@ -837,7 +837,7 @@ export function getSEOForUrl(url: string): PageSEO | null {
     return {
       title: "Services | Acupuncture & Functional Medicine | IHP Greenville",
       description: "Explore our full range of acupuncture, Chinese medicine, and functional medicine services in Greenville, SC. New patients welcome. Call (864) 365-6156.",
-      canonical: `${BASE_URL}/services`,
+      canonical: `${BASE_URL}/services/`,
       ogType: "website",
       schemas: [
         {
@@ -845,7 +845,7 @@ export function getSEOForUrl(url: string): PageSEO | null {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-            { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` }
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services/` }
           ]
         },
         {
@@ -853,13 +853,13 @@ export function getSEOForUrl(url: string): PageSEO | null {
           "@type": "ItemList",
           "name": "Acupuncture & Functional Medicine Services — Integrative Health Partners",
           "description": "Complete list of acupuncture, Chinese medicine, and functional medicine services offered by Dr. William Hendry in Greenville, SC.",
-          "url": `${BASE_URL}/services`,
+          "url": `${BASE_URL}/services/`,
           "numberOfItems": allServices.length,
           "itemListElement": allServices.map((s, i) => ({
             "@type": "ListItem",
             "position": i + 1,
             "name": s.name,
-            "url": `${BASE_URL}/services/${s.slug}`
+            "url": `${BASE_URL}/services/${s.slug}/`
           }))
         }
       ]
@@ -963,7 +963,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${BASE_URL}/services</loc>
+    <loc>${BASE_URL}/services/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -972,7 +972,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   for (const cat of categoryDefinitions) {
     xml += `
   <url>
-    <loc>${BASE_URL}/services/${cat.slug}</loc>
+    <loc>${BASE_URL}/services/${cat.slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -982,7 +982,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   for (const service of allServices) {
     xml += `
   <url>
-    <loc>${BASE_URL}/services/${service.slug}</loc>
+    <loc>${BASE_URL}/services/${service.slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -991,7 +991,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
 
   xml += `
   <url>
-    <loc>${BASE_URL}/conditions</loc>
+    <loc>${BASE_URL}/conditions/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -1000,7 +1000,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   for (const slug of conditionCatSlugs) {
     xml += `
   <url>
-    <loc>${BASE_URL}/conditions/${slug}</loc>
+    <loc>${BASE_URL}/conditions/${slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1010,7 +1010,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   for (const slug of conditionSlugs) {
     xml += `
   <url>
-    <loc>${BASE_URL}/conditions/${slug}</loc>
+    <loc>${BASE_URL}/conditions/${slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1019,7 +1019,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
 
   xml += `
   <url>
-    <loc>${BASE_URL}/about</loc>
+    <loc>${BASE_URL}/about/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1027,7 +1027,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
 
   xml += `
   <url>
-    <loc>${BASE_URL}/dr-hendry</loc>
+    <loc>${BASE_URL}/dr-hendry/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1035,7 +1035,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
 
   xml += `
   <url>
-    <loc>${BASE_URL}/contact</loc>
+    <loc>${BASE_URL}/contact/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1043,7 +1043,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
 
   xml += `
   <url>
-    <loc>${BASE_URL}/blog</loc>
+    <loc>${BASE_URL}/blog/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
