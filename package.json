@@ -9,7 +9,10 @@
     "build": "tsx script/build.ts",
     "start": "NODE_ENV=production node dist/index.cjs",
     "check": "tsc",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "build:server": "tsx script/build.ts",
+    "build:static": "tsx script/generate-static.ts",
+    "export-blog": "tsx script/export-blog-json.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
