@@ -1,0 +1,288 @@
+CONVERT IHPGREENVILLE.COM TO A FULLY STATIC SITE — DEPLOY TO NETLIFY, ELIMINATE RAILWAY
+You are converting the ihpgreenville.com Express/TypeScript server-side rendered site into a fully static site. The output is a /dist folder of plain HTML files that deploys to Netlify. After this is complete, Railway is no longer needed — no server, no database at runtime, no ongoing hosting cost.
+
+UNDERSTAND WHAT YOU ARE BUILDING
+A static site generator is a build script that runs once and produces HTML files. The script:
+
+Reads all content (service data, condition data, blog posts) from source files
+Runs the existing renderer functions against that content
+Writes the output to /dist/[path]/index.html for every page
+Generates sitemap.xml, robots.txt, llms.txt as real files in /dist
+Copies all static assets (CSS, JS, images, fonts) to /dist
+
+The resulting /dist folder contains everything the site needs. Netlify serves it directly with zero server involvement.
+
+STEP 1 — EXPORT ALL CONTENT FROM RAILWAY TO SOURCE FILES
+Before touching any code, export all dynamic content to static source files that the build script can read. These files live in the repo permanently — they replace the database.
+Blog posts — export from Railway PostgreSQL to /content/blog/:
+Write a one-time script scripts/export-content.ts that:
+
+Connects to the Railway DATABASE_URL
+Queries all blog posts that are NOT in BLOG_410S
+For each post writes a file at /content/blog/[slug].json containing:
+
+json{
+  "slug": "acupuncture-for-back-pain",
+  "title": "Acupuncture for Back Pain",
+  "pubDate": "2024-03-15T00:00:00Z",
+  "author": "Integrative Health Partners",
+  "excerpt": "...",
+  "content": "...",
+  "categories": ["acupuncture", "pain"]
+}
+Run npx ts-node scripts/export-content.ts now and confirm 53 JSON files are created in /content/blog/.
+Service data and condition data are already in the codebase as TypeScript data files — confirm their exact file paths and that they contain all 130 services and 35 conditions. If they're embedded in route handlers instead of standalone data files, extract them to /content/services.ts and /content/conditions.ts now.
+
+STEP 2 — BUILD THE STATIC SITE GENERATOR
+Create scripts/build.ts — this is the core build script. It must:
+2a. Set up the output directory:
+typescriptimport fs from 'fs-extra';
+import path from 'path';
+
+const DIST = path.resolve(__dirname, '../dist');
+await fs.emptyDir(DIST);
+2b. Define a helper to write each page:
+typescriptasync function writePage(urlPath: string, html: string) {
+  // /services/acupuncture-therapy → dist/services/acupuncture-therapy/index.html
+  // / → dist/index.html
+  const filePath = urlPath === '/' 
+    ? path.join(DIST, 'index.html')
+    : path.join(DIST, urlPath.replace(/^\//, ''), 'index.html');
+  await fs.ensureDir(path.dirname(filePath));
+  await fs.writeFile(filePath, html, 'utf8');
+  console.log(`✓ ${urlPath}`);
+}
+2c. Reuse the existing renderer functions exactly as-is. Do not rewrite the renderers. Import them directly:
+typescriptimport { renderHomepage } from '../server/renderer';
+import { renderServicePage } from '../server/renderer';
+import { renderConditionPage } from '../server/renderer';
+import { renderBlogPost } from '../server/renderer';
+// etc.
+The renderers already produce complete HTML strings. The build script just calls them and writes the output to files.
+2d. Generate every page:
+typescript// Homepage
+await writePage('/', renderHomepage());
+
+// Static pages
+await writePage('/about', renderAboutPage());
+await writePage('/dr-hendry', renderDrHendryPage());
+await writePage('/contact', renderContactPage());
+await writePage('/blog', renderBlogIndex(allBlogPosts));
+await writePage('/services', renderServicesHub());
+await writePage('/conditions', renderConditionsHub());
+
+// Service category hubs
+await writePage('/services/acupuncturist-services', renderCategoryPage('acupuncturist-services'));
+await writePage('/services/acupuncture-clinic-services', renderCategoryPage('acupuncture-clinic-services'));
+await writePage('/services/chinese-medicine-clinic-services', renderCategoryPage('chinese-medicine-clinic-services'));
+await writePage('/services/alternative-medicine-practitioner-services', renderCategoryPage('alternative-medicine-practitioner-services'));
+
+// All 130 service pages
+for (const service of allServices) {
+  await writePage(`/services/${service.slug}`, renderServicePage(service));
+}
+
+// All 35 condition pages
+for (const condition of allConditions) {
+  await writePage(`/conditions/${condition.slug}`, renderConditionPage(condition));
+}
+
+// Condition category hubs
+await writePage('/conditions/pain-and-musculoskeletal', renderConditionCategory('pain-and-musculoskeletal'));
+await writePage('/conditions/neurological-mental-health', renderConditionCategory('neurological-mental-health'));
+await writePage('/conditions/hormonal-womens-health', renderConditionCategory('hormonal-womens-health'));
+await writePage('/conditions/digestive-immune', renderConditionCategory('digestive-immune'));
+
+// All 53 blog posts
+const blogPosts = await loadBlogPosts(); // reads from /content/blog/*.json
+for (const post of blogPosts) {
+  await writePage(`/blog/${post.slug}`, renderBlogPost(post));
+}
+2e. Generate sitemap.xml as a real file:
+typescriptconst sitemapUrls = [
+  { url: '/', priority: '1.0', changefreq: 'weekly' },
+  { url: '/services', priority: '0.9', changefreq: 'monthly' },
+  { url: '/conditions', priority: '0.9', changefreq: 'monthly' },
+  { url: '/about', priority: '0.8', changefreq: 'monthly' },
+  { url: '/dr-hendry', priority: '0.8', changefreq: 'monthly' },
+  { url: '/blog', priority: '0.8', changefreq: 'weekly' },
+  { url: '/contact', priority: '0.7', changefreq: 'monthly' },
+  // 4 service category hubs at 0.9
+  // 130 service pages at 0.7
+  // 35 condition pages at 0.8
+  // 4 condition category hubs at 0.8
+  // 53 blog posts at 0.6, changefreq: 'never'
+];
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls.map(({url, priority, changefreq}) => `  <url>
+    <loc>https://www.ihpgreenville.com${url}</loc>
+    <priority>${priority}</priority>
+    <changefreq>${changefreq}</changefreq>
+  </url>`).join('\n')}
+</urlset>`;
+
+await fs.writeFile(path.join(DIST, 'sitemap.xml'), sitemap, 'utf8');
+2f. Write robots.txt, llms.txt as real files:
+typescriptawait fs.writeFile(path.join(DIST, 'robots.txt'), 
+  `User-agent: *\nAllow: /\nSitemap: https://www.ihpgreenville.com/sitemap.xml`, 'utf8');
+
+// llms.txt — generate from all pages with descriptions
+const llmsTxt = generateLlmsTxt(allServices, allConditions, allBlogPosts);
+await fs.writeFile(path.join(DIST, 'llms.txt'), llmsTxt, 'utf8');
+```
+
+**2g. Handle 410 Gone pages:**
+
+For every slug in BLOG_410S, write a minimal HTML file that returns the right status. On Netlify this is handled via `_redirects` not via HTML files:
+```
+# In dist/_redirects
+/blog/go-green    /410.html    410
+/blog/fish-in-a-bowl    /410.html    410
+# ... all 26 entries
+Write a dist/410.html page with the same site header/footer and "This content has been permanently removed." message.
+2h. Copy static assets:
+typescriptawait fs.copy(path.resolve(__dirname, '../public'), DIST, { overwrite: true });
+2i. Add a build script to package.json:
+json"scripts": {
+  "build": "npx ts-node scripts/build.ts",
+  "dev": "npx ts-node server/index.ts"
+}
+
+STEP 3 — CONFIGURE NETLIFY
+Create netlify.toml in the project root:
+toml[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/blog/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/services/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+```
+
+Create `dist/_redirects` for the 410 blog posts and for the HTTP to HTTPS redirect:
+```
+# HTTP to HTTPS (Netlify handles this automatically but explicit is fine)
+http://www.ihpgreenville.com/* https://www.ihpgreenville.com/:splat 301!
+
+# 410 Gone posts
+/blog/go-green              /410.html  410
+/blog/fish-in-a-bowl        /410.html  410
+/blog/tea-time              /410.html  410
+/blog/got-rocks             /410.html  410
+/blog/cold-and-flu-season   /410.html  410
+/blog/health-habit-success  /410.html  410
+/blog/is-fish-oil-alone-enough /410.html 410
+/blog/weekly-digestive-health-tips /410.html 410
+/blog/weekly-digestive-health-tips-stress /410.html 410
+/blog/weekly-digestive-health-blog-hydration /410.html 410
+/blog/weekly-digestive-health-tips-dietary-fiber /410.html 410
+/blog/weekly-digestive-health-tips-2 /410.html 410
+/blog/weekly-product-spotlight /410.html 410
+/blog/nausea-wristband-uses-acupuncture-point /410.html 410
+/blog/still-point-inducer   /410.html  410
+/blog/caught-a-cold         /410.html  410
+/blog/get-out-more          /410.html  410
+/blog/what-is-in-your-fish-oil /410.html 410
+/blog/arsenic-in-rice       /410.html  410
+/blog/what-tea-is-right-for-me /410.html 410
+/blog/tea-for-brain-health  /410.html  410
+/blog/most-important-supplement-fact /410.html 410
+/blog/weekly-digestive-health-tips-3 /410.html 410
+/blog/weekly-digestive-health-tips-4 /410.html 410
+/blog/weekly-digestive-health-tips-5 /410.html 410
+/blog/food-for-thought-meat /410.html 410
+
+# 404 catch-all
+/*  /404.html  404
+```
+
+---
+
+**STEP 4 — RUN THE BUILD LOCALLY AND VERIFY**
+
+Run `npm run build` and confirm:
+```
+□ dist/ folder created
+□ dist/index.html exists and contains the H1 "Acupuncture & Functional Medicine in Greenville, SC"
+□ dist/services/acupuncture-therapy/index.html exists
+□ dist/services/dry-needling-therapy/index.html exists
+□ dist/conditions/back-pain/index.html exists
+□ dist/blog/acupuncture-for-back-pain/index.html exists
+□ dist/sitemap.xml exists and contains all expected URLs
+□ dist/robots.txt exists
+□ dist/llms.txt exists
+□ dist/_redirects exists with all 26 410 entries
+□ dist/410.html exists
+□ Total file count in dist/ — report the number
+□ Build completes with zero errors
+```
+
+Report the total file count and any errors before proceeding.
+
+---
+
+**STEP 5 — DEPLOY TO NETLIFY**
+
+Connect the GitHub repo to Netlify:
+1. Go to netlify.com → New site from Git → select the ihpgreenville repo
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+4. Deploy
+
+After deploy completes, verify these URLs on the Netlify domain:
+```
+[netlify-subdomain].netlify.app/                              → 200
+[netlify-subdomain].netlify.app/services/acupuncture-therapy  → 200
+[netlify-subdomain].netlify.app/conditions/back-pain          → 200
+[netlify-subdomain].netlify.app/blog/acupuncture-for-back-pain → 200
+[netlify-subdomain].netlify.app/blog/go-green                 → 410
+[netlify-subdomain].netlify.app/sitemap.xml                   → 200, valid XML
+
+STEP 6 — SWITCH THE DOMAIN
+Once Netlify is confirmed working on the subdomain:
+
+In Netlify: Site settings → Domain management → Add custom domain → ihpgreenville.com
+In your domain registrar: Update nameservers to Netlify's nameservers OR add the Netlify DNS records
+Netlify auto-provisions SSL via Let's Encrypt — no manual certificate setup needed
+Verify https://www.ihpgreenville.com resolves to Netlify
+
+
+STEP 7 — SHUT DOWN RAILWAY
+Only after confirming the live domain is fully working on Netlify:
+
+Cancel the Railway PostgreSQL database service
+Cancel the Railway web service
+The /content/blog/*.json files in the repo are now the permanent home of the blog content — the database is no longer needed
+
+
+WHAT CHANGES FOR FUTURE CONTENT UPDATES
+When Dr. Hendry wants to add a new blog post:
+
+Create /content/blog/new-post-slug.json with the post content
+Push to GitHub
+Netlify auto-builds and deploys in ~60 seconds
+The new post is live
+
+No database, no server, no Railway, no manual deploys. Just a file and a git push.
+
+DO NOT PROCEED PAST STEP 4 WITHOUT REPORTING THE BUILD OUTPUT. Show me the file count and any errors from the local build before touching Netlify or the domain.
