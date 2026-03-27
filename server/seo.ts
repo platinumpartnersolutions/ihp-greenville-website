@@ -453,7 +453,7 @@ function getBlogSEO(): PageSEO {
 
 function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublished?: string): PageSEO {
   return {
-    title: `${title} | Integrative Health Partners`,
+    title: title.length <= 60 ? title : title.substring(0, 57) + "...",
     description: excerpt.substring(0, 160),
     canonical: `${BASE_URL}/blog/${slug}`,
     ogType: "article",

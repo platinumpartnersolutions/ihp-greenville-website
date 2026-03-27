@@ -1,4 +1,5 @@
-import { writeFileSync, mkdirSync, cpSync, rmSync, existsSync, readdirSync, readFileSync } from "fs";
+import { writeFileSync, mkdirSync, cpSync, rmSync, existsSync, readdirSync, readFileSync, statSync } from "fs";
+import { execFileSync } from "child_process";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -22,20 +23,61 @@ const PUBLIC = path.resolve(ROOT, "public");
 const ASSETS = path.resolve(ROOT, "attached_assets");
 const CONTENT_BLOG = path.resolve(ROOT, "content/blog");
 
+/* ─── The 6 heavy images that get WebP conversion ─────────────────────────── */
+const WEBP_IMAGES = [
+  "/images/dr-hendry.jpg",
+  "/images/clinic/exterior.jpg",
+  "/images/clinic/waiting.jpg",
+  "/images/clinic/pharmacy.jpg",
+  "/images/clinic/room1.jpg",
+  "/images/clinic/hallway.jpg",
+];
+
 /* ─── helpers ─────────────────────────────────────────────────────────────── */
 
+/** Replace the 6 heavy JPG paths with their WebP equivalents in HTML. */
+function swapToWebp(html: string): string {
+  for (const jpg of WEBP_IMAGES) html = html.split(jpg).join(jpg.replace(".jpg", ".webp"));
+  return html;
+}
+
+/** Add alt attribute to any <img> tag that is missing one entirely. */
+function ensureImgAlt(html: string, defaultAlt: string): string {
+  const escaped = defaultAlt.replace(/"/g, "&quot;");
+  return html.replace(/<img\b([^>]*)>/gi, (_m, attrs: string) =>
+    /\balt\s*=/i.test(attrs) ? _m : `<img${attrs} alt="${escaped}">`
+  );
+}
+
+/**
+ * Rewrite every internal href="/path" → href="/path/" so that Netlify's
+ * canonical URL (always with trailing slash) matches every link on the page.
+ * Skips: root "/", paths that already end with "/", and paths with a file
+ * extension (.xml, .txt, .css, .js, .jpg, .webp, etc.).
+ */
+function addTrailingSlashes(html: string): string {
+  return html.replace(/\bhref="(\/[^"#?]*)"/g, (_m, p: string) => {
+    if (p === "/" || p.endsWith("/") || /\.[a-z]{2,6}$/i.test(p)) return _m;
+    return `href="${p}/"`;
+  });
+}
+
 function writePage(urlPath: string, html: string): void {
-  const rel   = urlPath === "/" ? "index.html" : `${urlPath.replace(/^\//, "")}/index.html`;
-  const file  = path.join(DIST, rel);
+  const rel  = urlPath === "/" ? "index.html" : `${urlPath.replace(/^\//, "")}/index.html`;
+  const file = path.join(DIST, rel);
   mkdirSync(path.dirname(file), { recursive: true });
-  writeFileSync(file, html, "utf8");
+  writeFileSync(file, addTrailingSlashes(html), "utf8");
   process.stdout.write(`  ✓ ${urlPath}\n`);
 }
 
+/** Normalise SEO canonical to trailing-slash form, inject, then write. */
 function buildPage(urlPath: string, rawHtml: string): void {
   const seo = getSEOForUrl(urlPath);
-  const html = seo ? injectSEOIntoHTML(rawHtml, seo) : rawHtml;
-  writePage(urlPath, html);
+  if (seo) {
+    if (!seo.canonical.endsWith("/")) seo.canonical += "/";
+    rawHtml = injectSEOIntoHTML(rawHtml, seo);
+  }
+  writePage(urlPath, swapToWebp(rawHtml));
 }
 
 function loadBlogPosts(): BlogPost[] {
@@ -130,11 +172,14 @@ console.log(`  → ${condOk} condition pages OK, ${condFail} warnings`);
 console.log("\n── Blog posts ──");
 let blogOk = 0;
 for (const post of liveBlogPosts) {
-  const raw       = renderBlogPost(post);
+  let raw         = renderBlogPost(post);
   const cleanExc  = post.excerpt ? post.excerpt.replace(/<[^>]*>/g, "").substring(0, 160) : "";
   const dateStr   = post.pubDate instanceof Date ? post.pubDate.toISOString() : String(post.pubDate);
   const blogSEO   = getBlogPostSEO(post.title, cleanExc, post.slug, dateStr);
-  const html      = injectSEOIntoHTML(raw, blogSEO);
+  if (!blogSEO.canonical.endsWith("/")) blogSEO.canonical += "/";
+  let html        = injectSEOIntoHTML(raw, blogSEO);
+  html            = ensureImgAlt(html, post.title);
+  html            = swapToWebp(html);
   writePage(`/blog/${post.slug}`, html);
   blogOk++;
 }
@@ -208,14 +253,15 @@ for (const post of liveBlogPosts) {
 
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapUrls.map(({ loc, priority, changefreq, lastmod }) =>
-  `  <url>
-    <loc>${BASE_URL}${loc}</loc>
+${sitemapUrls.map(({ loc, priority, changefreq, lastmod }) => {
+  const canonical = loc === "/" ? `${BASE_URL}/` : `${BASE_URL}${loc}/`;
+  return `  <url>
+    <loc>${canonical}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-  </url>`
-).join("\n")}
+  </url>`;
+}).join("\n")}
 </urlset>`;
 
 writeFileSync(path.join(DIST, "sitemap.xml"), sitemapXml, "utf8");
@@ -375,12 +421,27 @@ if (existsSync(ASSETS)) {
   console.log("  ✓ attached_assets/ → dist/assets/");
 }
 
+/* ─── WEBP IMAGE OPTIMIZATION ──────────────────────────────────────────────── */
+
+console.log("\n── WebP image optimization ──");
+for (const jpg of WEBP_IMAGES) {
+  const src  = path.join(DIST, jpg);
+  const dest = path.join(DIST, jpg.replace(".jpg", ".webp"));
+  if (!existsSync(src)) { console.warn(`  WARN: ${src} not found, skipping`); continue; }
+  try {
+    execFileSync("magick", [src, "-resize", "800x>", "-quality", "45", dest]);
+    const kb = Math.round(statSync(dest).size / 1024);
+    console.log(`  ✓ ${jpg.replace(".jpg", ".webp")} → ${kb}KB`);
+  } catch (e) {
+    console.warn(`  WARN: magick failed for ${jpg}: ${(e as Error).message}`);
+  }
+}
+
 /* ─── SUMMARY ──────────────────────────────────────────────────────────────── */
 
-import { readdirSync as rds } from "fs";
 function countFiles(dir: string): number {
   let count = 0;
-  for (const entry of rds(dir, { withFileTypes: true })) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
     if (entry.isDirectory()) count += countFiles(path.join(dir, entry.name));
     else count++;
   }
