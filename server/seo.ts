@@ -239,7 +239,12 @@ function getHomeSEO(): PageSEO {
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ozone Therapy", "url": `${BASE_URL}/services/ozone-therapy/` } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cupping Therapy", "url": `${BASE_URL}/services/cupping-therapy/` } }
           ]
-        }
+        },
+        "sameAs": [
+          "https://www.google.com/maps/place/Integrative+Health+Partners/",
+          "https://www.facebook.com/ihpgreenville",
+          "https://www.yelp.com/biz/integrative-health-partners-greenville"
+        ]
       },
       {
         "@context": "https://schema.org",
@@ -278,6 +283,21 @@ function getHomeSEO(): PageSEO {
           { "@type": "Question", "name": "Do you offer ozone therapy and injection therapy in Greenville, SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry is certified in Injection Therapy and is a member of the American Academy of Ozone Therapy (AAOT). We offer medical ozone therapy, biopuncture, and nutrient injection therapies that most clinics cannot provide." } },
           { "@type": "Question", "name": "Do you accept insurance for acupuncture?", "acceptedAnswer": { "@type": "Answer", "text": "Integrative Health Partners is a cash-pay practice and does not bill insurance directly. This allows Dr. Hendry to spend more quality time with each patient and deliver genuinely personalized care — free from insurance restrictions. We provide itemized superbills you can submit to your insurance for potential out-of-network reimbursement. Call (864) 365-6156 to discuss your situation." } }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Integrative Health Partners",
+        "url": BASE_URL,
+        "description": "Acupuncture & functional medicine in Greenville, SC — Dr. William Hendry, DAOM",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": `${BASE_URL}/blog/?q={search_term_string}`
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
     ]
   };
@@ -370,6 +390,7 @@ function getServiceSEO(slug: string): PageSEO | null {
         { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156.` },
       ];
 
+  const today = new Date().toISOString().split('T')[0];
   const schemas: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
@@ -380,12 +401,17 @@ function getServiceSEO(slug: string): PageSEO | null {
       "howPerformed": `${service.name} performed by Dr. William Hendry, DAOM at Integrative Health Partners in Greenville, SC`,
       "bodyLocation": "Varies by condition",
       "procedureType": "http://schema.org/TherapeuticProcedure",
+      "dateModified": today,
       "performer": { "@type": "Physician", "name": "Dr. William Hendry, DAOM", "url": `${BASE_URL}/dr-hendry/` },
       "location": {
         "@type": "MedicalBusiness",
         "name": NAP.name,
         "address": { "@type": "PostalAddress", "streetAddress": NAP.streetAddress, "addressLocality": NAP.city, "addressRegion": NAP.state, "postalCode": NAP.postalCode },
         "telephone": NAP.phoneRaw
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".service-hero__title", ".service-hero__subtitle", ".service-content > p:first-of-type"]
       }
     },
     {
@@ -451,7 +477,8 @@ function getBlogSEO(): PageSEO {
   };
 }
 
-function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublished?: string): PageSEO {
+function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublished?: string, dateModified?: string): PageSEO {
+  const today = new Date().toISOString().split('T')[0];
   return {
     title: (() => {
       const suffix = " | IHP Greenville";
@@ -475,17 +502,24 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
       },
       {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": ["BlogPosting", "Article"],
         "headline": title,
         "description": excerpt.substring(0, 160),
         "url": `${BASE_URL}/blog/${slug}/`,
         ...(datePublished ? { "datePublished": datePublished } : {}),
+        "dateModified": dateModified || datePublished || today,
         "image": `${BASE_URL}/assets/ogImage.png`,
         "author": {
           "@type": "Person",
           "name": "Dr. William Hendry",
           "honorificSuffix": "DAOM",
           "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
+          "url": `${BASE_URL}/dr-hendry/`,
+          "sameAs": ["https://www.researchgate.net/profile/William-Hendry-4"]
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Dr. William Hendry, DAOM",
           "url": `${BASE_URL}/dr-hendry/`
         },
         "publisher": {
@@ -494,7 +528,13 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
           "url": BASE_URL,
           "logo": { "@type": "ImageObject", "url": `${BASE_URL}/assets/ogImage.png`, "width": 1200, "height": 630 }
         },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}/` }
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}/` },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".blog-post__title", ".blog-post__excerpt", ".blog-post__body > p:first-of-type"]
+        },
+        "isPartOf": { "@type": "Blog", "url": `${BASE_URL}/blog/` },
+        "about": { "@type": "MedicalBusiness", "name": NAP.name, "url": NAP.url }
       }
     ]
   };
@@ -611,6 +651,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
 
 function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: string, catName: string, faqs: { q: string; a: string }[]): PageSEO {
   const pageUrl = `${BASE_URL}/conditions/${slug}/`;
+  const today = new Date().toISOString().split('T')[0];
   return {
     title: `${name} Treatment in Greenville, SC | IHP`,
     description: trim160(desc),
@@ -623,6 +664,11 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
         "name": name,
         "url": pageUrl,
         "description": desc,
+        "dateModified": today,
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".condition-hero__title", ".condition-hero__subtitle", ".condition-content > p:first-of-type"]
+        },
         "possibleTreatment": {
           "@type": "MedicalTherapy",
           "name": "Acupuncture and Functional Medicine",
@@ -817,6 +863,44 @@ function getContactSEO(): PageSEO {
   };
 }
 
+function getPrivacySEO(): PageSEO {
+  return {
+    title: "Privacy Policy | Integrative Health Partners Greenville, SC",
+    description: "Privacy Policy for Integrative Health Partners — how we collect, use, and protect your personal information. Greenville, SC acupuncture practice.",
+    canonical: `${BASE_URL}/privacy/`,
+    ogType: "website",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
+          { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": `${BASE_URL}/privacy/` }
+        ]
+      }
+    ]
+  };
+}
+
+function getDisclaimerSEO(): PageSEO {
+  return {
+    title: "Medical Disclaimer | Integrative Health Partners Greenville, SC",
+    description: "Medical disclaimer for Integrative Health Partners. This website is for informational purposes only and does not constitute medical advice or diagnosis.",
+    canonical: `${BASE_URL}/disclaimer/`,
+    ogType: "website",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
+          { "@type": "ListItem", "position": 2, "name": "Medical Disclaimer", "item": `${BASE_URL}/disclaimer/` }
+        ]
+      }
+    ]
+  };
+}
+
 export function getSEOForUrl(url: string): PageSEO | null {
   const path = url.split('?')[0].replace(/\/$/, '') || '/';
 
@@ -838,6 +922,33 @@ export function getSEOForUrl(url: string): PageSEO | null {
 
   if (path === '/contact') {
     return getContactSEO();
+  }
+
+  if (path === '/privacy') {
+    return getPrivacySEO();
+  }
+
+  if (path === '/disclaimer') {
+    return getDisclaimerSEO();
+  }
+
+  if (path === '/sitemap.html' || path === '/sitemap') {
+    return {
+      title: "Site Map | Integrative Health Partners Greenville, SC",
+      description: "HTML site map for Integrative Health Partners — all services, conditions, and pages for our acupuncture and functional medicine practice in Greenville, SC.",
+      canonical: `${BASE_URL}/sitemap.html`,
+      ogType: "website",
+      schemas: [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
+            { "@type": "ListItem", "position": 2, "name": "Site Map", "item": `${BASE_URL}/sitemap.html` }
+          ]
+        }
+      ]
+    };
   }
 
   if (path === '/services') {
@@ -1057,6 +1168,22 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   </url>`;
 
   xml += `
+  <url>
+    <loc>${BASE_URL}/privacy/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>`;
+
+  xml += `
+  <url>
+    <loc>${BASE_URL}/disclaimer/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>`;
+
+  xml += `
 </urlset>`;
 
   return xml;
@@ -1068,6 +1195,7 @@ Allow: /
 
 Sitemap: ${BASE_URL}/sitemap.xml
 
+# ── AI / LLM crawlers — explicitly allowed for AI Overviews & LLM indexing ──
 User-agent: GPTBot
 Allow: /
 
@@ -1075,6 +1203,21 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Anthropic-Web-Crawl
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
 Allow: /
 `;
 }

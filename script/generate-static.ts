@@ -7,6 +7,7 @@ import {
   renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost,
   render404, renderConditionsHub, renderConditionCategory, renderCondition,
   renderAbout, renderDrHendry, renderContact, renderServicesHub,
+  renderPrivacy, renderDisclaimer, renderSitemapHtml,
 } from "../server/renderer";
 import {
   allServices, categoryDefinitions, BASE_URL,
@@ -119,6 +120,8 @@ buildPage("/",           renderHome());
 buildPage("/about",      renderAbout());
 buildPage("/dr-hendry",  renderDrHendry());
 buildPage("/contact",    renderContact());
+buildPage("/privacy",    renderPrivacy());
+buildPage("/disclaimer", renderDisclaimer());
 buildPage("/services",   renderServicesHub());
 buildPage("/conditions", renderConditionsHub());
 buildPage("/blog",       (() => {
@@ -186,6 +189,17 @@ for (const post of liveBlogPosts) {
   blogOk++;
 }
 console.log(`  → ${blogOk} blog posts written`);
+
+/* ─── HTML Sitemap ──────────────────────────────────────────────────────────── */
+
+console.log("\n── HTML Sitemap ──");
+{
+  const sitemapHtml = renderSitemapHtml(liveBlogPosts.map(p => ({ title: p.title, slug: p.slug })));
+  const sitemapSeo = getSEOForUrl("/sitemap.html");
+  const sitemapFinal = sitemapSeo ? injectSEOIntoHTML(swapToWebp(sitemapHtml), sitemapSeo) : swapToWebp(sitemapHtml);
+  writeFileSync(path.join(DIST, "sitemap.html"), addTrailingSlashes(sitemapFinal), "utf8");
+  console.log("  ✓ sitemap.html");
+}
 
 /* ─── 404 / 410 pages ──────────────────────────────────────────────────────── */
 

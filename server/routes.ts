@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, getBlogPostSEO, BASE_URL } from "./seo";
-import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub } from "./renderer";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub, renderPrivacy, renderDisclaimer, renderSitemapHtml } from "./renderer";
 import { BLOG_301S, BLOG_410S } from "./blog-redirects";
 import { conditions, conditionCategories } from "./conditions";
 
@@ -382,6 +382,26 @@ export async function registerRoutes(
 
   app.get("/contact", (req, res) => {
     sendPage(res, renderContact(), req.originalUrl);
+  });
+
+  app.get("/privacy", (req, res) => {
+    sendPage(res, renderPrivacy(), req.originalUrl);
+  });
+
+  app.get("/disclaimer", (req, res) => {
+    sendPage(res, renderDisclaimer(), req.originalUrl);
+  });
+
+  app.get("/sitemap.html", async (req, res) => {
+    try {
+      const posts = await storage.getAllBlogPosts();
+      const filteredPosts = posts
+        .filter((p: any) => !BLOG_410S.has(`/blog/${p.slug}`))
+        .map((p: any) => ({ title: p.title, slug: p.slug }));
+      sendPage(res, renderSitemapHtml(filteredPosts), req.originalUrl);
+    } catch {
+      sendPage(res, renderSitemapHtml([]), req.originalUrl);
+    }
   });
 
   app.get("/llms.txt", async (_req, res) => {

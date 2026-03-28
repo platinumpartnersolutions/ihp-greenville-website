@@ -378,6 +378,11 @@ function renderFooter(): string {
     <div class="footer__bottom">
       <p>&copy; ${new Date().getFullYear()} Integrative Health Partners. All rights reserved.</p>
       <p>319 Wade Hampton Blvd, Ste A, Greenville, SC 29609 &nbsp;&bull;&nbsp; <a href="tel:${NAP.phoneRaw}" style="color:inherit">${NAP.phone}</a></p>
+      <p style="margin-top:0.5rem;font-size:0.75rem">
+        <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy Policy</a>
+        &nbsp;&bull;&nbsp;
+        <a href="/disclaimer/" style="color:inherit;text-decoration:underline">Medical Disclaimer</a>
+      </p>
     </div>
   </div>
 </footer>`;
@@ -1298,9 +1303,13 @@ export function renderBlogPost(post: BlogPost): string {
         </div>` : ""}
       </header>
 
-      <div class="prose blog-post-content">
+      <div class="prose blog-post-content" id="blog-post-body">
         ${autoLink(post.content || `<p>${excerpt}</p>`, `/blog/${post.slug}`)}
       </div>
+
+      <aside style="margin-top:2rem;margin-bottom:2rem;padding:1rem 1.25rem;background:var(--color-bg-alt,#f8f8f8);border-left:3px solid var(--color-primary,#2563eb);border-radius:0.375rem;font-size:0.8125rem;color:var(--color-muted)" role="note" aria-label="Medical disclaimer">
+        <strong>Medical Disclaimer:</strong> This article is for informational and educational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional before making changes to your health regimen. <a href="/disclaimer/" style="color:var(--color-primary)">Read our full disclaimer.</a>
+      </aside>
 
       ${(() => {
         const links = getBlogSiteLinks(post.slug);
@@ -2435,6 +2444,222 @@ export function renderServicesHub(): string {
           <a href="tel:${NAP.phoneRaw}" class="btn btn-white">${icons.phone} ${NAP.phone}</a>
           <a href="/contact/" class="btn btn-outline-white">Contact Us</a>
         </div>
+      </div>
+    </div>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   PRIVACY POLICY PAGE  (/privacy)
+   ============================================================ */
+export function renderPrivacy(): string {
+  const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  return `${renderHead("Privacy Policy | Integrative Health Partners Greenville, SC", "Privacy Policy for Integrative Health Partners — how we collect, use, and protect your personal information.")}
+<body data-page="privacy">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="container-narrow" style="padding-top:2rem;padding-bottom:5rem">
+      ${renderBreadcrumbs([{ name: "Privacy Policy" }])}
+
+      <h1 class="section-title" style="margin-bottom:0.5rem">Privacy Policy</h1>
+      <p style="color:var(--color-muted);font-size:0.875rem;margin-bottom:2.5rem">Last updated: ${today}</p>
+
+      <div class="prose">
+        <h2>1. Introduction</h2>
+        <p>Integrative Health Partners ("IHP," "we," "us," or "our") operates the website at <a href="${BASE_URL}">${BASE_URL}</a>. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or contact us. Please read this policy carefully. If you disagree with its terms, please discontinue use of this site.</p>
+
+        <h2>2. Information We Collect</h2>
+        <h3>Information You Provide Directly</h3>
+        <ul>
+          <li>Name, phone number, and email address when you contact us or request an appointment</li>
+          <li>Health-related information you voluntarily share in inquiry forms or messages</li>
+        </ul>
+        <h3>Information Collected Automatically</h3>
+        <ul>
+          <li>IP address, browser type, operating system, referring URLs, and pages visited</li>
+          <li>Cookies and similar tracking technologies (see Section 5)</li>
+        </ul>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Respond to your inquiries and schedule appointments</li>
+          <li>Provide healthcare services and follow up on treatment</li>
+          <li>Improve our website and services</li>
+          <li>Send administrative communications related to your care</li>
+          <li>Comply with applicable laws and regulations</li>
+        </ul>
+        <p>We do <strong>not</strong> sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+
+        <h2>4. HIPAA Notice</h2>
+        <p>As a healthcare provider, Integrative Health Partners is subject to the Health Insurance Portability and Accountability Act (HIPAA). Protected Health Information (PHI) collected in connection with your care is governed by our separate <strong>Notice of Privacy Practices</strong>, which is provided to patients at the time of service. This website Privacy Policy governs information collected through this website only.</p>
+
+        <h2>5. Cookies</h2>
+        <p>Our website may use cookies and similar technologies to enhance your browsing experience and analyze site traffic. These are small data files placed on your device. You can instruct your browser to refuse all cookies or indicate when a cookie is being sent. However, some features of our website may not function properly without cookies.</p>
+
+        <h2>6. Third-Party Services</h2>
+        <p>Our website may use third-party services including Google Analytics (for site usage analytics), Google Maps (for location display), and Cloudflare (for security and performance). These services have their own privacy policies governing their use of your data.</p>
+
+        <h2>7. Data Security</h2>
+        <p>We implement administrative, technical, and physical security measures to protect your personal information. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+        <h2>8. Children's Privacy</h2>
+        <p>Our website is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately.</p>
+
+        <h2>9. Your Rights</h2>
+        <p>Depending on your location, you may have the right to access, correct, or delete personal information we hold about you. To exercise these rights, please contact us at <a href="mailto:${NAP.email}">${NAP.email}</a> or call <a href="tel:${NAP.phoneRaw}">${NAP.phone}</a>.</p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. The updated version will be indicated by an updated "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
+
+        <h2>11. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy, please contact us:</p>
+        <address style="font-style:normal;line-height:1.8">
+          <strong>Integrative Health Partners</strong><br>
+          319 Wade Hampton Blvd, Ste A<br>
+          Greenville, SC 29609<br>
+          Phone: <a href="tel:${NAP.phoneRaw}">${NAP.phone}</a><br>
+          Email: <a href="mailto:${NAP.email}">${NAP.email}</a>
+        </address>
+      </div>
+    </div>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   MEDICAL DISCLAIMER PAGE  (/disclaimer)
+   ============================================================ */
+export function renderDisclaimer(): string {
+  const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  return `${renderHead("Medical Disclaimer | Integrative Health Partners Greenville, SC", "Medical disclaimer for Integrative Health Partners — this website is for informational purposes only and does not constitute medical advice.")}
+<body data-page="disclaimer">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="container-narrow" style="padding-top:2rem;padding-bottom:5rem">
+      ${renderBreadcrumbs([{ name: "Medical Disclaimer" }])}
+
+      <h1 class="section-title" style="margin-bottom:0.5rem">Medical Disclaimer</h1>
+      <p style="color:var(--color-muted);font-size:0.875rem;margin-bottom:2.5rem">Last updated: ${today}</p>
+
+      <div class="prose">
+        <div style="padding:1.25rem 1.5rem;background:var(--color-bg-alt,#f8f8f8);border-left:4px solid var(--color-primary,#2563eb);border-radius:0.375rem;margin-bottom:2rem">
+          <p style="margin:0;font-weight:600">The information provided on this website is for informational and educational purposes only. It does not constitute medical advice, diagnosis, or treatment, and should not replace consultation with a qualified healthcare professional.</p>
+        </div>
+
+        <h2>1. Not Medical Advice</h2>
+        <p>The content on this website — including articles, blog posts, service descriptions, condition information, and all other materials — is provided for general informational and educational purposes only. This information is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+        <p>Always seek the advice of your physician, licensed acupuncturist, or other qualified healthcare provider with any questions you may have regarding a medical condition or treatment. Never disregard professional medical advice or delay seeking it because of something you have read on this website.</p>
+
+        <h2>2. No Doctor-Patient Relationship</h2>
+        <p>Viewing or using this website does not create a doctor-patient or practitioner-patient relationship between you and Integrative Health Partners or Dr. William Hendry. A professional relationship is only established through a formal intake process and mutual agreement.</p>
+
+        <h2>3. Individual Results Vary</h2>
+        <p>Treatment outcomes and results discussed on this website reflect general information and individual patient experiences. Results vary significantly based on individual health history, condition severity, compliance with treatment recommendations, and many other factors. No specific outcome is guaranteed.</p>
+
+        <h2>4. Emergency Situations</h2>
+        <p>If you are experiencing a medical emergency, call 911 or go to your nearest emergency room immediately. Do not use this website to seek emergency medical advice.</p>
+
+        <h2>5. Integrative &amp; Complementary Medicine</h2>
+        <p>Acupuncture, Chinese herbal medicine, functional medicine, and other integrative therapies discussed on this site are complementary approaches that may work alongside — but should not replace — conventional medical care for serious conditions. Always inform all of your healthcare providers about all treatments and supplements you are using.</p>
+
+        <h2>6. Research References</h2>
+        <p>Where research studies, clinical trials, or scientific publications are referenced on this website, such references are provided for informational context only. Individual clinical results may differ from study findings. Research in acupuncture and integrative medicine continues to evolve.</p>
+
+        <h2>7. Scope of Practice</h2>
+        <p>Dr. William Hendry is a licensed acupuncturist (SC License ACUP141) and Doctor of Acupuncture and Oriental Medicine (DAOM). He is not a medical doctor (MD) or osteopathic physician (DO) and does not practice conventional Western medicine. Services provided at Integrative Health Partners are within the lawful scope of acupuncture and Oriental medicine practice in South Carolina.</p>
+
+        <h2>8. Contact Us</h2>
+        <p>If you have questions about treatments or whether care at Integrative Health Partners is appropriate for your situation, please contact us directly — we are happy to discuss your needs:</p>
+        <address style="font-style:normal;line-height:1.8">
+          <strong>Integrative Health Partners</strong><br>
+          319 Wade Hampton Blvd, Ste A<br>
+          Greenville, SC 29609<br>
+          Phone: <a href="tel:${NAP.phoneRaw}">${NAP.phone}</a><br>
+          Email: <a href="mailto:${NAP.email}">${NAP.email}</a>
+        </address>
+      </div>
+    </div>
+  </main>
+
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   HTML SITEMAP PAGE  (/sitemap.html)
+   ============================================================ */
+export function renderSitemapHtml(blogPosts: { title: string; slug: string }[] = []): string {
+  const corePages = [
+    { name: "Home", href: "/" },
+    { name: "About IHP", href: "/about/" },
+    { name: "Dr. William Hendry", href: "/dr-hendry/" },
+    { name: "Contact & Directions", href: "/contact/" },
+    { name: "Health Blog", href: "/blog/" },
+  ];
+
+  const categoryPages = categoryDefinitions.map(c => ({ name: `${c.name} Services`, href: `/services/${c.slug}/` }));
+  const conditionCatPages = [
+    { name: "Pain & Musculoskeletal", href: "/conditions/pain-and-musculoskeletal/" },
+    { name: "Neurological & Mental Health", href: "/conditions/neurological-mental-health/" },
+    { name: "Hormonal & Women's Health", href: "/conditions/hormonal-womens-health/" },
+    { name: "Digestive & Immune", href: "/conditions/digestive-immune/" },
+  ];
+
+  return `${renderHead("Site Map | Integrative Health Partners Greenville, SC", "Complete site map for Integrative Health Partners — all services, conditions, and pages.")}
+<body data-page="sitemap">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="container-narrow" style="padding-top:2rem;padding-bottom:5rem">
+      ${renderBreadcrumbs([{ name: "Site Map" }])}
+      <h1 class="section-title" style="margin-bottom:2rem">Site Map</h1>
+
+      <div class="prose">
+        <h2>Core Pages</h2>
+        <ul>
+          ${corePages.map(p => `<li><a href="${p.href}">${p.name}</a></li>`).join("\n          ")}
+        </ul>
+
+        <h2>Services</h2>
+        <h3>Service Categories</h3>
+        <ul>
+          ${categoryPages.map(p => `<li><a href="${p.href}">${p.name}</a></li>`).join("\n          ")}
+        </ul>
+        <h3>All Individual Services (130+)</h3>
+        <ul>
+          ${allServices.map(s => `<li><a href="/services/${s.slug}/">${s.name}</a></li>`).join("\n          ")}
+        </ul>
+
+        <h2>Conditions We Treat</h2>
+        <h3>Condition Categories</h3>
+        <ul>
+          ${conditionCatPages.map(p => `<li><a href="${p.href}">${p.name}</a></li>`).join("\n          ")}
+        </ul>
+
+        <h2>Blog Posts</h2>
+        <ul>
+          ${blogPosts.map(p => `<li><a href="/blog/${p.slug}/">${p.title}</a></li>`).join("\n          ")}
+        </ul>
+
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/disclaimer/">Medical Disclaimer</a></li>
+        </ul>
       </div>
     </div>
   </main>
