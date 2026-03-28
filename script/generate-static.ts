@@ -246,6 +246,8 @@ const sitemapUrls: Array<{ loc: string; priority: string; changefreq: string; la
   { loc: "/dr-hendry", priority: "0.8", changefreq: "monthly", lastmod: today },
   { loc: "/blog",      priority: "0.8", changefreq: "weekly",  lastmod: today },
   { loc: "/contact",   priority: "0.7", changefreq: "monthly", lastmod: today },
+  { loc: "/privacy",   priority: "0.3", changefreq: "yearly",  lastmod: today },
+  { loc: "/disclaimer",priority: "0.3", changefreq: "yearly",  lastmod: today },
 ];
 
 for (const cat of categoryDefinitions)

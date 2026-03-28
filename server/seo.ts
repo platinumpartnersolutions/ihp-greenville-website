@@ -198,14 +198,13 @@ function getHomeSEO(): PageSEO {
           "latitude": 34.86488989304498,
           "longitude": -82.38281488216316
         },
-        "openingHours": ["Mo-Fr 09:00-17:00"],
+        "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }],
         "areaServed": [
           { "@type": "City", "name": "Greenville", "sameAs": "https://en.wikipedia.org/wiki/Greenville,_South_Carolina" },
           { "@type": "City", "name": "Spartanburg", "sameAs": "https://en.wikipedia.org/wiki/Spartanburg,_South_Carolina" },
           { "@type": "City", "name": "Anderson", "sameAs": "https://en.wikipedia.org/wiki/Anderson,_South_Carolina" },
           { "@type": "AdministrativeArea", "name": "Upstate South Carolina" }
         ],
-        "medicalSpecialty": ["Acupuncture", "Traditional Chinese Medicine", "Integrative Medicine"],
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
@@ -254,7 +253,6 @@ function getHomeSEO(): PageSEO {
         "honorificSuffix": "DAOM, Dipl. O.M. (NCCAOM)®",
         "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
         "worksFor": { "@type": "MedicalBusiness", "name": NAP.name },
-        "medicalSpecialty": ["Acupuncture","Oriental Medicine","Functional Medicine","Integrative Medicine"],
         "memberOf": [
           { "@type": "Organization", "name": "Prisma Health" },
           { "@type": "Organization", "name": "American Academy of Ozone Therapy" }
@@ -320,7 +318,7 @@ function getCategorySEO(slug: string): PageSEO | null {
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
         "name": NAP.name,
-        "image": `${NAP.url}/favicon.png`,
+        "image": `${BASE_URL}/favicon.svg`,
         "description": `${cat.name} services in Greenville, SC.`,
         "address": {
           "@type": "PostalAddress",
@@ -400,7 +398,7 @@ function getServiceSEO(slug: string): PageSEO | null {
       "description": service.metaDescription,
       "howPerformed": `${service.name} performed by Dr. William Hendry, DAOM at Integrative Health Partners in Greenville, SC`,
       "bodyLocation": "Varies by condition",
-      "procedureType": "http://schema.org/TherapeuticProcedure",
+      "procedureType": "https://schema.org/NoninvasiveProcedure",
       "dateModified": today,
       "performer": { "@type": "Physician", "name": "Dr. William Hendry, DAOM", "url": `${BASE_URL}/dr-hendry/` },
       "location": {
@@ -467,6 +465,7 @@ function getBlogSEO(): PageSEO {
         "name": "Integrative Health Partners Blog",
         "description": "Expert health and wellness insights on acupuncture, functional medicine, Chinese medicine, and holistic health from Dr. William Hendry in Greenville, SC.",
         "url": `${BASE_URL}/blog/`,
+        "author": { "@type": "Person", "name": "Dr. William Hendry", "honorificSuffix": "DAOM", "url": `${BASE_URL}/dr-hendry/` },
         "publisher": {
           "@type": "MedicalBusiness",
           "name": NAP.name,
@@ -508,7 +507,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
         "url": `${BASE_URL}/blog/${slug}/`,
         ...(datePublished ? { "datePublished": datePublished } : {}),
         "dateModified": dateModified || datePublished || today,
-        "image": `${BASE_URL}/assets/ogImage.png`,
+        "image": `${BASE_URL}/images/dr-hendry.jpg`,
         "author": {
           "@type": "Person",
           "name": "Dr. William Hendry",
@@ -526,7 +525,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
           "@type": "Organization",
           "name": NAP.name,
           "url": BASE_URL,
-          "logo": { "@type": "ImageObject", "url": `${BASE_URL}/assets/ogImage.png`, "width": 1200, "height": 630 }
+          "logo": { "@type": "ImageObject", "url": `${BASE_URL}/assets/logo.svg`, "width": 280, "height": 50 }
         },
         "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}/` },
         "speakable": {
@@ -774,7 +773,6 @@ function getDrHendrySEO(): PageSEO {
           "telephone": NAP.phoneRaw,
           "url": NAP.url
         },
-        "medicalSpecialty": ["Acupuncture", "Oriental Medicine", "Functional Medicine", "Integrative Medicine"],
         "hasCredential": [
           {
             "@type": "EducationalOccupationalCredential",

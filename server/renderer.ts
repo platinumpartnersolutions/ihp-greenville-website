@@ -45,6 +45,8 @@ function renderHead(title = "Integrative Health Partners | Greenville, SC", desc
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <title>${title}</title>
   <meta name="description" content="${desc}" />
   <link rel="canonical" href="${BASE_URL}" />
@@ -52,13 +54,14 @@ function renderHead(title = "Integrative Health Partners | Greenville, SC", desc
   <meta property="og:description" content="${desc}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${BASE_URL}" />
-  <meta property="og:image" content="${BASE_URL}/assets/ogImage.png" />
+  <meta property="og:image" content="${BASE_URL}/images/dr-hendry.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${desc}" />
-  <meta name="twitter:image" content="${BASE_URL}/assets/ogImage.png" />
+  <meta name="twitter:image" content="${BASE_URL}/images/dr-hendry.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="/css/style.css" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>`;
 }
@@ -1250,6 +1253,13 @@ export function renderBlogIndex(posts: BlogPost[]): string {
           Insights on acupuncture, functional medicine, and natural health from Dr. William Hendry
           and the team at Integrative Health Partners in Greenville, SC.
         </p>
+      </div>
+
+      <div style="background:var(--color-primary-light);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:2rem;display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem;align-items:center" class="reveal">
+        <span style="font-weight:700;color:var(--color-primary);white-space:nowrap">${icons.award} Classic Reads:</span>
+        <a href="/blog/red-wine-for-health/" style="color:var(--color-primary);text-decoration:underline;text-underline-offset:3px">Red Wine for Heart Health</a>
+        <a href="/blog/magnesium-the-master-commander/" style="color:var(--color-primary);text-decoration:underline;text-underline-offset:3px">Magnesium: The Master Commander</a>
+        <a href="/blog/does-acupuncture-hurt/" style="color:var(--color-primary);text-decoration:underline;text-underline-offset:3px">Does Acupuncture Hurt?</a>
       </div>
 
       ${posts.length === 0 ? `

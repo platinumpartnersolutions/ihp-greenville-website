@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 50">
+  <rect width="280" height="50" fill="white"/>
+  <circle cx="25" cy="25" r="22" fill="#2F814A"/>
+  <text x="25" y="32" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="16" fill="white">IHP</text>
+  <text x="58" y="34" font-family="Georgia,serif" font-weight="700" font-size="20" fill="#2F814A">Integrative Health Partners</text>
+</svg>
