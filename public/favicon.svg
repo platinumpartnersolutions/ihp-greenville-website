@@ -1,4 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="50" fill="#2F814A"/>
-  <text x="50" y="67" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="42" fill="white">IHP</text>
+  <!-- Light green background -->
+  <circle cx="50" cy="50" r="50" fill="#8CC87A"/>
+  <!-- Dark green yin-yang half -->
+  <path d="M50,0 A50,50 0 0,1 50,100 A25,25 0 0,1 50,50 A25,25 0 0,0 50,0 Z" fill="#2D6B3C"/>
+  <!-- Accent dots (upper left) -->
+  <circle cx="22" cy="26" r="4" fill="#6EBB6E" opacity="0.85"/>
+  <circle cx="30" cy="23" r="3" fill="#6EBB6E" opacity="0.85"/>
+  <!-- ihp text -->
+  <text x="30" y="62" font-family="Georgia,serif" font-weight="700" font-size="34" fill="white">ihp</text>
 </svg>

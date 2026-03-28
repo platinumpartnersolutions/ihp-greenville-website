@@ -318,7 +318,7 @@ function getCategorySEO(slug: string): PageSEO | null {
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
         "name": NAP.name,
-        "image": `${BASE_URL}/favicon.svg`,
+        "image": `${BASE_URL}/assets/favicon.png`,
         "description": `${cat.name} services in Greenville, SC.`,
         "address": {
           "@type": "PostalAddress",
@@ -525,7 +525,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
           "@type": "Organization",
           "name": NAP.name,
           "url": BASE_URL,
-          "logo": { "@type": "ImageObject", "url": `${BASE_URL}/assets/logo.svg`, "width": 280, "height": 50 }
+          "logo": { "@type": "ImageObject", "url": `${BASE_URL}/assets/ihp-publisher-logo.svg`, "width": 300, "height": 52 }
         },
         "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}/` },
         "speakable": {
