@@ -478,34 +478,47 @@ export function renderHome(): string {
     <!-- Section 1: E-E-A-T Credentials -->
     <section class="section section--card" aria-labelledby="credentials-heading">
       <div class="container">
-        <div class="two-col provider-section-grid">
-          <div class="provider-img-wrap reveal">
-            <img src="/images/dr-hendry.jpg"
-              alt="Dr. William Hendry, DAOM — Board-Certified Acupuncturist and Functional Medicine Practitioner in Greenville, SC"
-              class="provider-img" width="170" height="170" loading="lazy" />
-            <div class="provider-badge-overlay" aria-label="Dr. Hendry's degree">
-              <div class="provider-badge-overlay__degree">DAOM</div>
-              <div class="provider-badge-overlay__sub">Doctor of Acupuncture &amp; Oriental Medicine</div>
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:3.5rem;align-items:start" class="provider-section-grid">
+
+          <!-- Portrait card -->
+          <div class="reveal" style="display:flex;flex-direction:column;gap:0">
+            <div style="border-radius:0.875rem;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.10);border:1px solid var(--color-border)">
+              <img src="/images/dr-hendry.jpg"
+                alt="Dr. William Hendry, DAOM — Board-Certified Acupuncturist and Functional Medicine Practitioner in Greenville, SC"
+                style="width:100%;height:auto;display:block;object-fit:cover"
+                width="300" height="360" loading="lazy" />
+              <div style="background:var(--color-card);padding:1.125rem 1.25rem;border-top:1px solid var(--color-border)">
+                <p style="font-family:var(--font-heading);font-weight:700;font-size:1.0625rem;color:var(--color-foreground);margin:0 0 0.2rem">Dr. William Hendry</p>
+                <p style="font-size:0.8125rem;color:var(--color-primary);font-weight:600;margin:0 0 0.5rem">DAOM · Dipl. O.M. (NCCAOM)®</p>
+                <p style="font-size:0.75rem;color:var(--color-muted);margin:0;line-height:1.5">Board-Certified Acupuncturist<br>Functional Medicine Practitioner<br>Greenville, SC</p>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.375rem;margin-top:1rem">
+              <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--color-muted);padding:0.5rem 0.75rem;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.5rem">
+                ${icons.shield}<span>SC License <strong>ACUP141</strong></span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--color-muted);padding:0.5rem 0.75rem;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.5rem">
+                ${icons.award}<span>NCCAOM <strong>#114498</strong></span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--color-muted);padding:0.5rem 0.75rem;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.5rem">
+                ${icons.check}<span>NPI <strong>1417184045</strong></span>
+              </div>
             </div>
           </div>
+
+          <!-- Bio / credentials -->
           <div>
             <span class="section-label reveal">Meet Your Provider</span>
             <h2 class="section-title reveal reveal-delay-1" id="credentials-heading">Dr. William Hendry, DAOM</h2>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.875rem 0 1.25rem" class="reveal reveal-delay-2">
-              <span class="provider-cred-tag">Dipl. O.M. (NCCAOM)®</span>
-              <span class="provider-cred-tag">NCCAOM #114498</span>
-              <span class="provider-cred-tag">SC ACUP141</span>
-              <span class="provider-cred-tag">NPI 1417184045</span>
-            </div>
 
-            <div class="highlight-box highlight-box--compact reveal reveal-delay-2">
+            <div class="highlight-box highlight-box--compact reveal reveal-delay-2" style="margin-top:1.25rem">
               <strong>${icons.award} Prisma Health — 3-Year Opioid Alternative Study</strong>
               <p style="margin:0.5rem 0 0;font-size:0.9375rem;line-height:1.65">
                 Dr. Hendry co-authored a landmark 3-year Emergency Department study at Prisma Health on needling techniques as non-opioid alternatives for acute pain management — earning 9 years of hospital privileges, a distinction extremely rare among acupuncturists.
               </p>
             </div>
 
-            <div style="display:flex;flex-direction:column;gap:0.875rem;margin:1.5rem 0 2rem">
+            <div style="display:flex;flex-direction:column;gap:0.875rem;margin:1.75rem 0 2rem">
               ${[
                 "25+ years clinical experience in acupuncture and integrative medicine",
                 "5 peer-reviewed research publications, 52 citations",
@@ -520,6 +533,7 @@ export function renderHome(): string {
               <a href="/dr-hendry/" class="btn btn-outline">Full Credentials</a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -2181,13 +2195,16 @@ export function renderDrHendry(): string {
         </div>
 
         <aside class="sidebar">
-          <div class="sidebar-card" style="text-align:center">
+          <div style="border-radius:0.875rem;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);border:1px solid var(--color-border);margin-bottom:1.5rem">
             <img src="/images/dr-hendry.jpg"
               alt="Dr. William Hendry, DAOM — Acupuncturist and Functional Medicine Practitioner, Greenville SC"
-              class="dr-headshot" loading="lazy" />
-            <p style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-foreground);margin-top:0.75rem">Dr. William Hendry</p>
-            <p style="font-size:0.8125rem;color:var(--color-muted);margin-top:0.25rem">DAOM, Dipl. O.M. (NCCAOM)®</p>
-            <p style="font-size:0.75rem;color:var(--color-muted);margin-top:0.125rem">Greenville, SC</p>
+              style="width:100%;height:auto;display:block;object-fit:cover"
+              width="320" height="380" loading="lazy" />
+            <div style="padding:1rem 1.125rem;background:var(--color-card);border-top:1px solid var(--color-border)">
+              <p style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-foreground);margin:0 0 0.2rem">Dr. William Hendry</p>
+              <p style="font-size:0.8125rem;color:var(--color-primary);font-weight:600;margin:0 0 0.4rem">DAOM · Dipl. O.M. (NCCAOM)®</p>
+              <p style="font-size:0.75rem;color:var(--color-muted);margin:0;line-height:1.5">Integrative Health Partners<br>Greenville, SC</p>
+            </div>
           </div>
 
           <div class="sidebar-card">
