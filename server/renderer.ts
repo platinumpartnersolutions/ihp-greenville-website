@@ -1988,29 +1988,54 @@ export function renderAbout(): string {
 export function renderDrHendry(): string {
   const publications = [
     {
-      title: "Evaluating the Effects of Acupuncture in the Treatment of Taxane Induced Peripheral Neuropathy",
-      venue: "Prisma Health Patient Engagement Studio",
-      url: "https://academics.prismahealth.org/research-and-innovation/research-development/resources/patient-engagement-studio/main-studio"
+      title: "Emergency Department Alternatives to Opioids: Adapting and Implementing Proven Therapies in Practice",
+      authors: "Floyd SB, McGarby S, Cordero Romero S, Garrison S, Walker K, Hendry W, Moschella PC",
+      venue: "International Journal of Environmental Research and Public Health — Jan 2023",
+      doi: "10.3390/ijerph20021206",
+      pmid: "36673962",
+      url: "https://pubmed.ncbi.nlm.nih.gov/36673962/",
+      summary: "3-year Prisma Health Emergency Department study demonstrating that implementing acupuncture and needle-based alternatives (ED-ALTO) reduced opioid prescriptions and morphine milligram equivalents for comparable diagnoses.",
+      citations: "36"
     },
     {
-      title: "Symptom Management Among Cancer Survivors: HRV Biofeedback",
-      venue: "Peer-Reviewed Journal — June 2020",
-      url: "https://www.researchgate.net/profile/William-Hendry-4"
+      title: "Symptom Management Among Cancer Survivors: Randomized Pilot Intervention Trial of Heart Rate Variability Biofeedback",
+      authors: "Burch JB, Ginsberg JP, McLain AC, Franco R, Stokes S, Susko K, Hendry W, Crowley E, Christ A, Hanna J, Anderson A, Hébert JR, O'Rourke MA",
+      venue: "Applied Psychophysiology and Biofeedback — Jun 2020, 45(2):99–108",
+      doi: "10.1007/s10484-020-09462-3",
+      pmid: "32358782",
+      url: "https://pubmed.ncbi.nlm.nih.gov/32358782/",
+      summary: "Randomized, wait-list-controlled pilot trial showing HRV biofeedback training significantly reduced sleep disturbance symptoms among cancer survivors, with positive trends for stress, fatigue, PTSD, and depression.",
+      citations: "14"
     },
     {
-      title: "Use of HRV Biofeedback for Symptom Management Among Cancer Survivors",
-      venue: "Peer-Reviewed Journal — May 2017",
-      url: "https://www.researchgate.net/profile/William-Hendry-4"
+      title: "Use of Heart Rate Variability (HRV) Biofeedback for Symptom Management Among Cancer Survivors",
+      authors: "O'Rourke MA, Franco RA, Sofge J, Ginsberg J, Susko K, Crowley E, Anderson A, Christ A, Hanna J, Hendry W, Burch J",
+      venue: "Journal of Clinical Oncology — May 2017, 35(15 Suppl):10099",
+      doi: "10.1200/JCO.2017.35.15_suppl.10099",
+      pmid: "",
+      url: "https://ascopubs.org/doi/10.1200/JCO.2017.35.15_suppl.10099",
+      summary: "ASCO annual meeting presentation of the feasibility trial: HRV biofeedback for autonomic dysfunction and late cancer treatment effects including pain, fatigue, stress, and depression. 179 screened, 34 enrolled, 31 completed.",
+      citations: ""
     },
     {
-      title: "HRV Training for Symptom Control in Cancer Survivors",
-      venue: "Peer-Reviewed Journal — February 2017",
-      url: "https://www.researchgate.net/profile/William-Hendry-4"
+      title: "Evaluating the Effects of Acupuncture in the Treatment of Taxane-Induced Peripheral Neuropathy",
+      authors: "Hendry W et al.",
+      venue: "Prisma Health Patient Engagement Studio — Clinical Research",
+      doi: "",
+      pmid: "",
+      url: "https://www.researchgate.net/profile/William-Hendry-4",
+      summary: "Clinical study evaluating acupuncture as an intervention for taxane-induced peripheral neuropathy (TIPN), a common dose-limiting side effect of chemotherapy in cancer patients.",
+      citations: ""
     },
     {
       title: "Neurogenesis: Implications for Integrative Care of Neurological Conditions",
+      authors: "Hendry W",
       venue: "Peer-Reviewed Journal — November 2013",
-      url: "https://www.researchgate.net/profile/William-Hendry-4"
+      doi: "",
+      pmid: "",
+      url: "https://www.researchgate.net/profile/William-Hendry-4",
+      summary: "Review examining the implications of neurogenesis research for integrative and acupuncture-based care of neurological conditions.",
+      citations: ""
     }
   ];
 
@@ -2069,7 +2094,11 @@ export function renderDrHendry(): string {
               <p>Dr. Hendry served as a co-investigator on a landmark <strong>3-year research study conducted at the Prisma Health Emergency Department</strong> — one of the leading health systems in South Carolina. The study examined <strong>needling techniques as non-opioid alternatives for acute pain management</strong> in an emergency care setting.</p>
               <p>The study, titled <em>"Alternatives to Opiates,"</em> represented a direct clinical response to the opioid crisis and demonstrated that acupuncture and dry needling can provide meaningful, measurable pain relief without the risks associated with opioid analgesics. For Dr. Hendry, this research was not abstract — it was applied at the bedside, in real time, with emergency patients.</p>
               <p>This work earned Dr. Hendry a 9-year appointment with hospital privileges at Prisma Health — an exceptional distinction for an acupuncturist, and a testament to the level of trust the medical community placed in his clinical judgment and skill.</p>
-              <p><a href="https://academics.prismahealth.org/research-and-innovation/research-development/resources/patient-engagement-studio/main-studio" target="_blank" rel="noopener noreferrer" class="internal-link">View Prisma Health Research ${icons.externalLink}</a></p>
+              <p>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/36673962/" target="_blank" rel="noopener noreferrer" class="internal-link">Read on PubMed — PMID 36673962 ${icons.externalLink}</a>
+                &nbsp;&bull;&nbsp;
+                <a href="https://doi.org/10.3390/ijerph20021206" target="_blank" rel="noopener noreferrer" class="internal-link">DOI: 10.3390/ijerph20021206 ${icons.externalLink}</a>
+              </p>
             </div>
           </section>
 
@@ -2082,18 +2111,31 @@ export function renderDrHendry(): string {
 
           <section class="content-section">
             <h2>Research &amp; Publications</h2>
-            <p>Dr. Hendry has authored or co-authored 5 peer-reviewed research publications with a combined 52 citations. His research spans acupuncture for chemotherapy-induced neuropathy, HRV biofeedback for cancer survivor symptom management, and the neuroscience of integrative care.</p>
-            <div class="publications-list">
+            <p>Dr. Hendry has authored or co-authored 5 peer-reviewed research publications with a combined 52 citations. His research spans acupuncture as a non-opioid pain alternative in emergency medicine, HRV biofeedback for cancer survivor symptom management, acupuncture for chemotherapy-induced neuropathy, and the neuroscience of integrative care.</p>
+            <div class="publications-list" itemscope itemtype="https://schema.org/ItemList">
               ${publications.map((pub, i) => `
-              <div class="publication-item">
+              <div class="publication-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ScholarlyArticle">
                 <span class="publication-number">${i + 1}</span>
                 <div class="publication-content">
-                  <p class="publication-title"><a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="internal-link">${pub.title} ${icons.externalLink}</a></p>
-                  <p class="publication-venue">${pub.venue}</p>
+                  <p class="publication-title">
+                    <a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="internal-link" itemprop="url">
+                      <span itemprop="name">${pub.title}</span> ${icons.externalLink}
+                    </a>
+                  </p>
+                  <p class="publication-venue" style="font-size:0.8125rem;color:var(--color-muted);margin:0.2rem 0 0.3rem">
+                    <em itemprop="isPartOf">${pub.venue}</em>
+                  </p>
+                  <p style="font-size:0.8rem;color:var(--color-muted);margin:0 0 0.35rem" itemprop="author">${pub.authors}</p>
+                  ${pub.summary ? `<p style="font-size:0.8125rem;color:var(--color-muted);margin:0 0 0.35rem;line-height:1.55" itemprop="description">${pub.summary}</p>` : ''}
+                  <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.25rem">
+                    ${pub.pmid ? `<a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}/" target="_blank" rel="noopener noreferrer" class="tag tag--link" style="font-size:0.75rem">PubMed ${icons.externalLink}</a>` : ''}
+                    ${pub.doi ? `<a href="https://doi.org/${pub.doi}" target="_blank" rel="noopener noreferrer" class="tag tag--link" style="font-size:0.75rem">DOI: ${pub.doi} ${icons.externalLink}</a>` : ''}
+                    ${pub.citations ? `<span class="tag" style="font-size:0.75rem">${pub.citations} citations</span>` : ''}
+                  </div>
                 </div>
               </div>`).join('')}
             </div>
-            <p style="margin-top:1.25rem">
+            <p style="margin-top:1.5rem">
               <a href="https://www.researchgate.net/profile/William-Hendry-4" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View ResearchGate Profile ${icons.externalLink}</a>
             </p>
           </section>

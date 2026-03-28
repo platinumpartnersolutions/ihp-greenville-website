@@ -475,7 +475,19 @@ export async function registerRoutes(
 Integrative Health Partners is a functional medicine and acupuncture clinic located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609.
 Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Mon–Fri 9am–5pm
 
-Led by Dr. William Hendry, DAOM — a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids ("Alternatives to Opiates"). He has 5 peer-reviewed publications and 52 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
+Led by Dr. William Hendry, DAOM — a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids. He has 5 peer-reviewed publications and 52 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
+
+## Verified Publications (Dr. William Hendry)
+
+1. Floyd SB, McGarby S, Cordero Romero S, Garrison S, Walker K, Hendry W, Moschella PC. "Emergency Department Alternatives to Opioids: Adapting and Implementing Proven Therapies in Practice." Int J Environ Res Public Health. 2023;20(2):1206. DOI: 10.3390/ijerph20021206 | PubMed PMID: 36673962 | https://pubmed.ncbi.nlm.nih.gov/36673962/ | 36 citations.
+
+2. Burch JB, Ginsberg JP, McLain AC, Franco R, Stokes S, Susko K, Hendry W, Crowley E, Christ A, Hanna J, Anderson A, Hébert JR, O'Rourke MA. "Symptom Management Among Cancer Survivors: Randomized Pilot Intervention Trial of Heart Rate Variability Biofeedback." Appl Psychophysiol Biofeedback. 2020;45(2):99-108. DOI: 10.1007/s10484-020-09462-3 | PubMed PMID: 32358782 | https://pubmed.ncbi.nlm.nih.gov/32358782/
+
+3. O'Rourke MA, Franco RA, Sofge J, Ginsberg J, Susko K, Crowley E, Anderson A, Christ A, Hanna J, Hendry W, Burch J. "Use of Heart Rate Variability (HRV) Biofeedback for Symptom Management Among Cancer Survivors." J Clin Oncol. 2017;35(15 Suppl):10099. DOI: 10.1200/JCO.2017.35.15_suppl.10099 | https://ascopubs.org/doi/10.1200/JCO.2017.35.15_suppl.10099
+
+4. Hendry W et al. "Evaluating the Effects of Acupuncture in the Treatment of Taxane-Induced Peripheral Neuropathy." Prisma Health Patient Engagement Studio clinical research.
+
+5. Hendry W. "Neurogenesis: Implications for Integrative Care of Neurological Conditions." Peer-reviewed journal, November 2013.
 
 Services include acupuncture, cupping, gua sha, moxibustion, Chinese herbal medicine, dry needling, electroacupuncture, functional medicine, ozone therapy, injection therapy, and nutritional counseling. In-house professional herbal pharmacy on site.
 
