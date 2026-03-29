@@ -23,6 +23,11 @@ export function Navigation() {
     setServicesOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   const textColor = isHome && !scrolled ? "text-white" : "text-foreground";
 
   return (
@@ -137,7 +142,8 @@ export function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass border-t border-white/10"
+            className="lg:hidden glass border-t border-white/10 overflow-y-auto"
+            style={{ maxHeight: "calc(100dvh - var(--nav-height, 4rem))" }}
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               <div className="border-b border-border pb-4">

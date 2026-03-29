@@ -191,11 +191,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 .nav__mobile {
-  position: fixed; top: var(--nav-height); left: 0; right: 0;
+  position: fixed; top: var(--nav-height); left: 0; right: 0; bottom: 0;
   background: white; border-bottom: 1px solid var(--color-border);
   padding: 1rem 1.5rem 1.5rem; z-index: 99; box-shadow: var(--shadow-lg);
   transform: translateY(-100%); transition: transform var(--transition);
   pointer-events: none; opacity: 0;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  max-height: calc(100dvh - var(--nav-height));
 }
 .nav__mobile.open { transform: translateY(0); pointer-events: all; opacity: 1; }
 .nav__mobile-section {
