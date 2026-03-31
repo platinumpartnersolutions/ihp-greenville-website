@@ -697,6 +697,54 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
   };
 }
 
+function getFunctionalMedicineSEO(): PageSEO {
+  return {
+    title: "Functional Medicine in Greenville, SC | Integrative Health Partners",
+    description: "Root-cause functional and integrative medicine in Greenville, SC. Dr. William Hendry combines advanced lab testing, acupuncture, and herbal medicine to resolve chronic conditions. Call (864) 365-6156.",
+    canonical: `${BASE_URL}/functional-medicine-greenville-sc/`,
+    ogType: "website",
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": NAP.name,
+        "description": "Functional and integrative medicine practice offering root-cause diagnostics, acupuncture, and herbal medicine in Greenville, SC.",
+        "medicalSpecialty": "https://schema.org/IntegrativeAndComplementaryMedicine",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": NAP.streetAddress,
+          "addressLocality": NAP.city,
+          "addressRegion": NAP.state,
+          "postalCode": NAP.postalCode,
+          "addressCountry": "US"
+        },
+        "telephone": NAP.phoneRaw,
+        "url": NAP.url
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
+          { "@type": "ListItem", "position": 2, "name": "Functional Medicine in Greenville, SC", "item": `${BASE_URL}/functional-medicine-greenville-sc/` }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What's the difference between functional medicine and naturopathic medicine?", "acceptedAnswer": { "@type": "Answer", "text": "Both look for root causes rather than masking symptoms, but they differ in training and tools. Dr. Hendry's training is in Oriental medicine (DAOM) combined with functional medicine principles and advanced diagnostics, drawing on traditional Chinese medicine's 2,000-year history of pattern-based diagnosis alongside modern laboratory testing." } },
+          { "@type": "Question", "name": "Do I need a referral to see a functional medicine practitioner in Greenville?", "acceptedAnswer": { "@type": "Answer", "text": "No referral is needed. You can call (864) 365-6156 or email info@ihpgreenville.com to schedule directly." } },
+          { "@type": "Question", "name": "Does insurance cover functional medicine?", "acceptedAnswer": { "@type": "Answer", "text": "Integrative Health Partners is a cash-pay practice. We provide itemized superbills for potential out-of-network reimbursement. Standard lab work is often covered by insurance; the consultation fee typically is not." } },
+          { "@type": "Question", "name": "How long before I see results from functional medicine?", "acceptedAnswer": { "@type": "Answer", "text": "Most patients notice meaningful improvement within 6–10 weeks of following a complete protocol. Longstanding chronic conditions typically require 3–6 months to shift substantially." } },
+          { "@type": "Question", "name": "What lab tests does functional medicine use that my GP doesn't order?", "acceptedAnswer": { "@type": "Answer", "text": "Full thyroid panels (TSH, free T3, free T4, reverse T3, TPO and TG antibodies), fasting insulin and HOMA-IR, 4-point cortisol rhythm, complete sex hormone panels, advanced inflammatory markers, gut microbiome analysis, intestinal permeability testing, food sensitivity panels, and nutritional deficiency screening." } },
+          { "@type": "Question", "name": "Is Dr. Hendry a medical doctor?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) — not an MD degree. He is NCCAOM board-certified (#114498) and practiced with hospital privileges at Prisma Health for nine years, participating in clinical research on needle-based alternatives to opioids." } }
+        ]
+      }
+    ]
+  };
+}
+
 function getAboutSEO(): PageSEO {
   return {
     title: "About IHP | Acupuncture & Functional Medicine Greenville SC",
@@ -908,6 +956,10 @@ export function getSEOForUrl(url: string): PageSEO | null {
 
   if (path === '/blog') {
     return getBlogSEO();
+  }
+
+  if (path === '/functional-medicine-greenville-sc') {
+    return getFunctionalMedicineSEO();
   }
 
   if (path === '/about') {

@@ -2767,3 +2767,202 @@ export function render404(): string {
 </body>
 </html>`;
 }
+
+/* ============================================================
+   Functional Medicine Hub Page
+   /functional-medicine-greenville-sc/
+   ============================================================ */
+export function renderFunctionalMedicineHub(): string {
+  const hubFaqs = [
+    {
+      q: "What's the difference between functional medicine and naturopathic medicine?",
+      a: "Both look for root causes rather than masking symptoms, but they differ in training and tools. Naturopathic doctors complete a 4-year naturopathic medical program. Dr. Hendry's training is in Oriental medicine (DAOM) combined with functional medicine principles and advanced diagnostics. His approach draws on traditional Chinese medicine's 2,000-year history of pattern-based diagnosis alongside modern laboratory testing — a combination naturopathic training doesn't typically include."
+    },
+    {
+      q: "Do I need a referral to see a functional medicine practitioner in Greenville?",
+      a: "No referral is needed. You can call (864) 365-6156 or email info@ihpgreenville.com to schedule directly. If you've been referred by a physician, we welcome the collaboration and will communicate with your referring provider as appropriate."
+    },
+    {
+      q: "Does insurance cover functional medicine?",
+      a: "Integrative Health Partners is a cash-pay practice. We don't bill insurance directly, but we provide itemized superbills you can submit for potential out-of-network reimbursement. Standard lab work ordered through functional medicine is often covered by insurance — the consultation fee typically is not. Many patients find the investment worthwhile given that addressing root causes tends to reduce total healthcare spending over time."
+    },
+    {
+      q: "How long before I see results from functional medicine?",
+      a: "It depends on the condition and how long it has been present. Most patients notice meaningful improvement in energy, cognitive clarity, and symptom burden within 6–10 weeks of following a complete protocol. Longstanding chronic conditions — autoimmune disease, hormone dysregulation, complex digestive dysfunction — typically require 3–6 months to shift substantially, with ongoing monitoring and protocol refinement along the way."
+    },
+    {
+      q: "What lab tests does functional medicine use that my GP doesn't order?",
+      a: "Standard annual labs screen for pathology. Functional medicine testing goes further: full thyroid panels (TSH, free T3, free T4, reverse T3, TPO and TG antibodies), fasting insulin and HOMA-IR, 4-point cortisol rhythm, complete sex hormone panels, advanced inflammatory markers (hs-CRP, homocysteine, ferritin), gut microbiome analysis, intestinal permeability testing, food sensitivity panels, and nutritional deficiency screening. Many patients have completely normal standard labs while having significant dysfunction that these functional markers reveal."
+    },
+    {
+      q: "Is Dr. Hendry a medical doctor?",
+      a: "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) — the doctoral-level credential in Oriental medicine — not an MD degree. He is NCCAOM board-certified (#114498) and practiced with hospital privileges at Prisma Health for nine years, where he participated in clinical research on needle-based alternatives to opioids in the Emergency Department. He applies functional medicine diagnostic principles alongside his Oriental medicine training, giving him a distinctly broad clinical perspective that most single-modality practitioners don't have."
+    },
+  ];
+
+  const hubConditions = [
+    { name: "Hormone Imbalance", slug: "hormone-imbalance" },
+    { name: "Hashimoto's Thyroid", slug: "hashimotos" },
+    { name: "Chronic Fatigue", slug: "chronic-fatigue" },
+    { name: "IBS & Gut Issues", slug: "ibs-gut-issues" },
+    { name: "Leaky Gut", slug: "leaky-gut" },
+    { name: "PCOS", slug: "pcos" },
+    { name: "Adrenal Fatigue", slug: "adrenal-fatigue" },
+    { name: "Brain Fog", slug: "brain-fog" },
+    { name: "Weight Issues", slug: "weight-issues" },
+    { name: "Autoimmune Disease", slug: "autoimmune-disease" },
+    { name: "Thyroid Issues", slug: "thyroid-issues" },
+    { name: "Lyme Disease", slug: "lyme-disease" },
+  ];
+
+  const hubServices = [
+    { name: "Functional Medicine Consultation", slug: "functional-medicine-consultation" },
+    { name: "Functional Medicine Testing", slug: "functional-medicine-testing" },
+    { name: "Integrative Medicine Consultation", slug: "integrative-medicine-consultation" },
+    { name: "Holistic Health Assessment", slug: "holistic-health-assessment" },
+    { name: "Hormone Testing", slug: "hormone-testing" },
+    { name: "Thyroid Testing", slug: "thyroid-testing" },
+    { name: "Adrenal Testing", slug: "adrenal-testing" },
+    { name: "Gut Health Testing", slug: "gut-health-testing" },
+  ];
+
+  return `${renderHead(
+    "Functional Medicine in Greenville, SC | Integrative Health Partners",
+    "Root-cause functional and integrative medicine in Greenville, SC. Dr. William Hendry combines advanced lab testing, acupuncture, and herbal medicine to resolve chronic conditions. Call (864) 365-6156."
+  )}
+<body data-page="functional-medicine-hub">
+  ${renderNav(false)}
+  <main class="page-top">
+    <div class="page-hero page-hero--green">
+      <div class="container">
+        ${renderBreadcrumbs([{ name: "Functional Medicine in Greenville, SC" }])}
+        <h1 class="page-hero__title font-display">Functional Medicine in Greenville, SC</h1>
+        <p class="page-hero__subtitle">Root-cause diagnostics and integrative treatment for chronic conditions that conventional care manages but doesn't resolve</p>
+      </div>
+    </div>
+    <div class="container section">
+      <div class="main-sidebar">
+        <div class="main-content">
+
+          <section class="content-section">
+            <h2>What Functional Medicine Actually Means Here</h2>
+            <p>A lot of practices use the phrase "functional medicine" loosely. At Integrative Health Partners, it means something specific: when a patient arrives with fatigue, brain fog, weight that won't shift, and labs their GP called "normal" — Dr. Hendry doesn't start with a diagnosis and a matching treatment. He starts with a question: <em>what's actually driving this?</em></p>
+            <p>The answer usually lives in the interconnections between systems that conventional medicine evaluates separately — how gut dysbiosis is affecting immune regulation, how subclinical thyroid dysfunction is slowing metabolism, how chronically elevated cortisol is disrupting sleep and creating insulin resistance, how nutritional deficiencies are impairing the enzymes behind neurotransmitter production. Standard lab panels miss most of this. Functional medicine testing is designed to find it.</p>
+            <p><a href="/dr-hendry/" class="internal-link">Dr. William Hendry, DAOM</a> brings a perspective that is genuinely unusual in Upstate South Carolina: doctoral-level training in Oriental medicine — a system that has been identifying and treating patterns of systemic dysfunction for over 2,000 years — combined with modern functional medicine diagnostics, a full <a href="/services/chinese-herbal-medicine/" class="internal-link">in-house herbal pharmacy</a>, and the clinical background of nine years practicing alongside physicians at Prisma Health. Patients here aren't choosing between traditional and modern medicine. They get both.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>How This Differs From a Standard Primary Care Visit</h2>
+            <p>The difference isn't which tests get ordered — it's what the results mean and what gets done with them. A TSH of 3.2 falls within the standard reference range, so a conventional provider marks it normal and moves on. A functional evaluation looks at free T3, free T4, reverse T3, and thyroid antibodies together — and recognizes that a TSH of 3.2 with low free T3, elevated reverse T3, and positive TPO antibodies tells a completely different story: early Hashimoto's autoimmune thyroid disease with impaired T4-to-T3 conversion. The patient has been symptomatic for years. The standard labs were "normal." Nothing was done.</p>
+            <p>This pattern repeats across every functional system. Fasting glucose of 94 is technically normal; fasting insulin of 18 reveals insulin resistance years before glucose becomes a problem. A ferritin of 12 falls within the reference range; for a patient with brain fog and persistent fatigue, it explains exactly what's happening. Functional medicine uses the same diagnostic tools as conventional medicine — blood work, sometimes imaging — but interprets them through a different lens: not "is pathology present?" but "is this person's physiology working the way it should, and if not, exactly where and why?"</p>
+            <p>The result is that patients who've spent years being told their tests are fine often leave their first follow-up appointment with a clear explanation for everything they've been experiencing — and a specific, logical plan to address it.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>What the Process Looks Like</h2>
+            <ol style="padding-left:0;list-style:none">
+              <li style="display:flex;gap:1rem;margin-bottom:1.25rem"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.875rem">1</span><div><strong>90-minute intake consultation</strong> — Dr. Hendry reviews your complete health history, symptom patterns, prior labs, medications, diet, sleep, stress, and environmental exposures. This is not a 15-minute appointment.</div></li>
+              <li style="display:flex;gap:1rem;margin-bottom:1.25rem"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.875rem">2</span><div><strong>Targeted functional lab testing</strong> — Based on the intake findings, Dr. Hendry orders testing designed for your specific presentation using functional reference ranges — the range associated with optimal health, not merely the absence of diagnosed disease.</div></li>
+              <li style="display:flex;gap:1rem;margin-bottom:1.25rem"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.875rem">3</span><div><strong>Results review and protocol delivery</strong> — At a dedicated follow-up appointment, Dr. Hendry walks through your results in plain language, explains the mechanisms behind what's found, and delivers a comprehensive, personalized treatment protocol.</div></li>
+              <li style="display:flex;gap:1rem;margin-bottom:1.25rem"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.875rem">4</span><div><strong>Integrated treatment</strong> — The protocol typically combines dietary adjustments, targeted supplementation, <a href="/services/chinese-herbal-medicine/" class="internal-link">Chinese herbal medicine</a> from our in-house pharmacy, <a href="/services/acupuncture-therapy/" class="internal-link">acupuncture</a>, and lifestyle modifications calibrated to the specific lab findings and clinical picture.</div></li>
+              <li style="display:flex;gap:1rem;margin-bottom:1.25rem"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.875rem">5</span><div><strong>Progress monitoring</strong> — Labs are repeated at 3–6 months to document objective changes and refine the protocol based on your response. The goal is measurable improvement, not indefinite management.</div></li>
+            </ol>
+            <p>The process begins with a <a href="/services/functional-medicine-consultation/" class="internal-link">functional medicine consultation</a>. Lab work is ordered through standard clinical labs — most basic panels are covered by insurance, and we provide documentation for submission of advanced panels.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>Conditions This Approach Addresses</h2>
+            <p>Functional and integrative medicine is most valuable for conditions that fall between the cracks of conventional care — problems that are clearly real but don't show up cleanly on standard tests, or that have a diagnosis but no satisfying treatment. These often include hormonal dysfunction, chronic digestive disorders, immune dysregulation, fatigue-dominant presentations, and complex multi-system conditions where several physiological systems are disrupted simultaneously.</p>
+            <div class="grid-auto sm:grid-2" style="margin-top:1.25rem">
+              ${hubConditions.map(c => `
+              <a href="/conditions/${c.slug}/" class="related-card reveal">
+                <div class="related-card__inner">
+                  <span class="related-card__name">${c.name}</span>
+                  <span class="related-card__arrow">${icons.arrowRight}</span>
+                </div>
+              </a>`).join("")}
+            </div>
+            <p style="margin-top:1rem;color:var(--color-muted)">These conditions frequently co-occur and share underlying drivers. A patient with PCOS often has insulin resistance, gut dysbiosis, adrenal dysfunction, and thyroid disruption simultaneously. Treating each in isolation rarely produces lasting results. Addressing them as a connected system does.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>Dr. Hendry's Background in Integrative Medicine</h2>
+            <p>Dr. William Hendry holds the Doctor of Acupuncture and Oriental Medicine degree — the doctoral-level credential in the field — and is NCCAOM board-certified (#114498) with 25 years of clinical experience. He practiced with hospital privileges at Prisma Health for nine years, where he co-authored a landmark three-year study on needling techniques as alternatives to opioids in the Emergency Department. That research has been presented at national medical conferences and accumulated 52 citations in the clinical literature.</p>
+            <p>His in-house herbal pharmacy is among the most complete in Upstate South Carolina — meaning patients receive same-day dispensing of professional-grade Chinese herbal formulas, not referrals to a health food store supplement aisle. His Injection Therapy certification allows him to administer high-dose nutrient injections as part of functional protocols — a service most integrative practices in the region don't offer.</p>
+            <p>What this background produces is a clinician who can read the functional medicine literature critically, order and interpret advanced labs accurately, and build a treatment protocol that draws on the full spectrum of integrative medicine — acupuncture, Chinese herbs, targeted supplementation, and dietary intervention — rather than defaulting to a single tool.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>What the Evidence Shows</h2>
+            <p>A 2019 study in the <em>Journal of Alternative and Complementary Medicine</em> compared outcomes for patients seen at a functional medicine center versus a primary care clinic within the same health system. At six months, functional medicine patients reported significantly greater improvement in health-related quality of life — a finding that held across diagnoses and patient demographics. The researchers attributed the difference to the comprehensive assessment model, time spent with patients, and the emphasis on root-cause intervention over symptom management alone.</p>
+            <p>Acupuncture's role within integrative medicine is increasingly well-characterized: research published in journals including JAMA, the BMJ, and <em>Nature Reviews Neuroscience</em> shows acupuncture modulates inflammatory cytokines, HPA axis activity, gut motility, and autonomic nervous system tone — the same physiological systems that functional medicine protocols address through supplementation and dietary intervention. Using both approaches simultaneously targets the same dysfunction through complementary mechanisms, which is part of why the integrated model tends to produce more durable outcomes than either modality alone.</p>
+          </section>
+
+          <section class="content-section">
+            <h2>Frequently Asked Questions</h2>
+            ${hubFaqs.map(faq => `
+            <div class="faq-item reveal">
+              <button class="faq-btn" aria-expanded="false">${faq.q}<span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span></button>
+              <div class="faq-body"><div class="faq-content">${faq.a}</div></div>
+            </div>`).join("")}
+          </section>
+
+          <div style="margin-top:2rem">
+            <h2 class="font-heading" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">Related Services</h2>
+            <div class="grid-auto sm:grid-2">
+              ${hubServices.map(s => `
+              <a href="/services/${s.slug}/" class="related-card reveal">
+                <div class="related-card__inner">
+                  <span class="related-card__name">${s.name}</span>
+                  <span class="related-card__arrow">${icons.arrowRight}</span>
+                </div>
+              </a>`).join("")}
+            </div>
+          </div>
+
+          <div class="cta-box" style="margin-top:2.5rem">
+            <h3 class="cta-box__title">Ready to find out what's actually going on?</h3>
+            <p class="cta-box__text">A functional medicine consultation starts with a thorough history and ends with a clear, specific plan. Call to schedule with Dr. Hendry — new patients welcome.</p>
+            <div class="cta-box__actions">
+              <a href="tel:${NAP.phoneRaw}" class="btn btn-primary">${icons.phone} Call ${NAP.phone}</a>
+              <a href="/contact/" class="btn btn-secondary">Send a Message</a>
+            </div>
+          </div>
+
+        </div>
+        <aside class="sidebar">
+          <div class="cta-box">
+            <h3 class="cta-box__title">Schedule a Consultation</h3>
+            <p class="cta-box__text">New patients welcome. No referral needed.</p>
+            <a href="tel:${NAP.phoneRaw}" class="btn btn-white btn-full">${icons.phone} ${NAP.phone}</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Why Dr. Hendry?</p>
+            <div class="check-list">
+              <div class="check-item">${icons.check}<span>25+ years clinical experience</span></div>
+              <div class="check-item">${icons.check}<span>NCCAOM board-certified #114498</span></div>
+              <div class="check-item">${icons.check}<span>Hospital privileges — Prisma Health (9 yrs)</span></div>
+              <div class="check-item">${icons.check}<span>5 peer-reviewed research publications</span></div>
+              <div class="check-item">${icons.check}<span>Full in-house herbal pharmacy</span></div>
+              <div class="check-item">${icons.check}<span>Injection therapy certified</span></div>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem">${NAP.streetAddress}<br>${NAP.city}, ${NAP.state} ${NAP.postalCode}</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem">Mon–Fri, 9am–5pm</p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">Get Directions ${icons.externalLink}</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Conditions We Treat</p>
+            ${conditionCategories.map(cc => `<a href="/conditions/${cc.slug}/" class="sidebar-link">${cc.shortName}</a>`).join("")}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}

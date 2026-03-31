@@ -8,6 +8,7 @@ import {
   render404, renderConditionsHub, renderConditionCategory, renderCondition,
   renderAbout, renderDrHendry, renderContact, renderServicesHub,
   renderPrivacy, renderDisclaimer, renderSitemapHtml,
+  renderFunctionalMedicineHub,
 } from "../server/renderer";
 import {
   allServices, categoryDefinitions, BASE_URL,
@@ -117,6 +118,7 @@ console.log(`\nLoaded ${allBlogPosts.length} blog posts (${liveBlogPosts.length}
 
 console.log("── Core pages ──");
 buildPage("/",           renderHome());
+buildPage("/functional-medicine-greenville-sc", renderFunctionalMedicineHub());
 buildPage("/about",      renderAbout());
 buildPage("/dr-hendry",  renderDrHendry());
 buildPage("/contact",    renderContact());
@@ -239,8 +241,9 @@ console.log("\n── sitemap.xml ──");
 const today = new Date().toISOString().split("T")[0];
 
 const sitemapUrls: Array<{ loc: string; priority: string; changefreq: string; lastmod?: string }> = [
-  { loc: "/",          priority: "1.0", changefreq: "weekly",  lastmod: today },
-  { loc: "/services",  priority: "0.9", changefreq: "monthly", lastmod: today },
+  { loc: "/",                                    priority: "1.0", changefreq: "weekly",  lastmod: today },
+  { loc: "/functional-medicine-greenville-sc",   priority: "0.85", changefreq: "monthly", lastmod: today },
+  { loc: "/services",                            priority: "0.9", changefreq: "monthly", lastmod: today },
   { loc: "/conditions",priority: "0.9", changefreq: "monthly", lastmod: today },
   { loc: "/about",     priority: "0.8", changefreq: "monthly", lastmod: today },
   { loc: "/dr-hendry", priority: "0.8", changefreq: "monthly", lastmod: today },
