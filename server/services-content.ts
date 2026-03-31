@@ -648,6 +648,7 @@ const standardContents: ServiceContent[] = [
       { q: "Does insurance cover fertility acupuncture?", a: "Some plans cover acupuncture but not specifically for fertility. Check with your insurer. Some fertility-specific insurance plans may cover integrative fertility support." },
       { q: "Where is fertility acupuncture in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["prenatal-acupuncture", "pregnancy-acupuncture", "acupuncture-therapy", "chinese-herbal-medicine", "hormone-testing", "hormonal-imbalance-treatment"],
   },
   {
     slug: "prenatal-acupuncture",
@@ -666,6 +667,7 @@ const standardContents: ServiceContent[] = [
       { q: "Can acupuncture help prepare for labor?", a: "Yes. Labor preparation acupuncture in the final weeks of pregnancy aims to ripen the cervix, reduce anxiety, position the baby optimally, and support efficient labor when the body is ready." },
       { q: "Where is prenatal acupuncture in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["fertility-acupuncture", "pregnancy-acupuncture", "acupuncture-therapy", "chinese-herbal-medicine", "hormone-testing"],
   },
   {
     slug: "pregnancy-acupuncture",
@@ -705,6 +707,7 @@ Clinical evidence strongly supports acupuncture for anxiety. Multiple systematic
       { q: "Can Dr. Hendry prescribe herbal medicine for anxiety?", a: "Yes. Chinese herbal formulas for anxiety (such as Xiao Yao San for Liver Qi Stagnation or Tian Wang Bu Xin Dan for Heart Yin Deficiency) are among the most evidence-supported herbal interventions for anxiety. Dr. Hendry prescribes from our in-house pharmacy." },
       { q: "Where is acupuncture for anxiety in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["acupuncture-for-stress-relief", "acupuncture-for-insomnia", "acupuncture-therapy", "chinese-herbal-medicine", "holistic-health-assessment", "functional-medicine-consultation"],
   },
   {
     slug: "acupuncture-for-stress-relief",
@@ -724,6 +727,7 @@ Clinical evidence strongly supports acupuncture for anxiety. Multiple systematic
       { q: "How does stress affect physical health?", a: "Chronic stress drives cortisol dysregulation which impairs immunity, disrupts sleep, degrades gut integrity, suppresses thyroid function, and contributes to metabolic syndrome, cardiovascular disease, and autoimmune conditions. Treating stress is therefore foundational to treating most chronic diseases." },
       { q: "Where is stress relief acupuncture in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["acupuncture-for-anxiety", "acupuncture-for-insomnia", "acupuncture-therapy", "chinese-herbal-medicine", "holistic-health-assessment"],
   },
   {
     slug: "acupuncture-for-insomnia",
@@ -743,6 +747,7 @@ Clinical evidence strongly supports acupuncture for anxiety. Multiple systematic
       { q: "What dietary changes help insomnia?", a: "Blood sugar stability is critical for uninterrupted sleep — night wakings at 2–3 AM often reflect hypoglycemic dips. Limiting alcohol (which disrupts REM sleep), avoiding caffeine after noon, and eating a small protein-containing snack before bed are evidence-based interventions Dr. Hendry discusses with every insomnia patient." },
       { q: "Where is acupuncture for insomnia in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["acupuncture-for-anxiety", "acupuncture-for-stress-relief", "acupuncture-therapy", "chinese-herbal-medicine", "holistic-health-assessment"],
   },
   {
     slug: "acupuncture-for-migraines",
@@ -934,6 +939,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Do you treat sacroiliac joint pain?", a: "Yes — SI joint dysfunction is a common diagnosis at IHP, treated with a combination of acupuncture, dry needling of the sacral attachments, and functional medicine assessment for systemic inflammation." },
       { q: "Where is lower back pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["back-pain-treatment", "sciatica-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy", "trigger-point-therapy"],
   },
   {
     slug: "upper-back-pain-treatment",
@@ -953,6 +959,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Can upper back pain cause headaches?", a: "Yes — upper trapezius trigger points reliably refer pain to the side of the head and temple. Treating these trigger points often simultaneously resolves both upper back pain and associated headaches." },
       { q: "Where is upper back pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["back-pain-treatment", "neck-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy", "trigger-point-therapy"],
   },
   {
     slug: "chronic-back-pain-treatment",
@@ -990,6 +997,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Should I also see a chiropractor for sciatica?", a: "For certain causes of sciatica (disc herniation, facet involvement), chiropractic spinal manipulation combined with acupuncture and dry needling produces better outcomes than either alone. Dr. Hendry is happy to coordinate with chiropractic care." },
       { q: "Where is sciatica treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["back-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "lower-back-pain-treatment", "cupping-therapy", "trigger-point-therapy"],
   },
   {
     slug: "sciatic-nerve-pain-treatment",
@@ -1027,6 +1035,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Can dry needling be used in the neck?", a: "Yes — dry needling of the cervical paraspinals and upper trapezius is highly effective for neck pain. Dr. Hendry uses it with precise anatomical knowledge of the cervical region to ensure safety." },
       { q: "Where is neck pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["upper-back-pain-treatment", "shoulder-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy", "trigger-point-therapy"],
   },
   {
     slug: "shoulder-pain-treatment",
@@ -1046,6 +1055,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Is dry needling used for shoulder pain?", a: "Yes — particularly for infraspinatus, supraspinatus, and subscapularis trigger points that generate the characteristic referred pain patterns of rotator cuff dysfunction." },
       { q: "Where is shoulder pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["neck-pain-treatment", "frozen-shoulder-treatment", "dry-needling-therapy", "acupuncture-therapy", "trigger-point-therapy", "acupressure-therapy"],
   },
   {
     slug: "frozen-shoulder-treatment",
@@ -1065,6 +1075,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Is manipulation under anesthesia better than acupuncture?", a: "Manipulation under anesthesia breaks adhesions forcefully and quickly but can cause significant post-procedure pain and rarely causes fracture. Acupuncture progressively dissolves adhesions and reduces inflammation over multiple sessions — more gradual but with less risk." },
       { q: "Where is frozen shoulder treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["shoulder-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "trigger-point-therapy", "cupping-therapy", "electroacupuncture"],
   },
   {
     slug: "knee-pain-treatment",
@@ -1083,6 +1094,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Does Dr. Hendry treat runner's knee?", a: "Yes — patellofemoral pain syndrome (runner's knee) responds well to acupuncture and dry needling of the quadriceps, combined with VMO strengthening guidance." },
       { q: "Where is knee pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["hip-pain-treatment", "joint-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "prolotherapy", "cupping-therapy"],
   },
   {
     slug: "hip-pain-treatment",
@@ -1101,6 +1113,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Is piriformis syndrome causing my hip pain?", a: "Piriformis trigger points are among the most common drivers of deep buttock and lateral hip pain, and they also compress the sciatic nerve. Dr. Hendry palpates the piriformis at your first appointment — if it reproduces your symptoms, dry needling produces rapid relief." },
       { q: "Where is hip pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["knee-pain-treatment", "joint-pain-treatment", "sciatica-treatment", "dry-needling-therapy", "acupuncture-therapy", "cupping-therapy"],
   },
   {
     slug: "joint-pain-treatment",
@@ -1120,6 +1133,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Can functional medicine prevent joint degeneration?", a: "Yes — identifying and addressing the inflammatory and nutritional drivers of joint degeneration (omega-3 deficiency, vitamin D deficiency, gut dysbiosis-driven systemic inflammation) can significantly slow or halt cartilage loss." },
       { q: "Where is joint pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["knee-pain-treatment", "hip-pain-treatment", "arthritis-pain-treatment", "dry-needling-therapy", "acupuncture-therapy", "prolotherapy"],
   },
   {
     slug: "arthritis-pain-treatment",
@@ -1139,6 +1153,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Can I use acupuncture alongside my rheumatologist's treatment?", a: "Yes — Dr. Hendry actively collaborates with rheumatologists. Acupuncture and functional medicine do not interfere with biologics or DMARDs and can significantly reduce the dose required for symptom control." },
       { q: "Where is arthritis pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["joint-pain-treatment", "acupuncture-therapy", "dry-needling-therapy", "functional-medicine-consultation", "nutritional-supplements", "cupping-therapy"],
   },
   {
     slug: "fibromyalgia-treatment",
@@ -1158,6 +1173,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How many sessions are needed for fibromyalgia?", a: "Fibromyalgia is a chronic condition requiring a longer treatment commitment — most patients require 16–24 sessions over 4–6 months for meaningful lasting improvement, followed by monthly maintenance." },
       { q: "Where is fibromyalgia treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["chronic-pain-management", "acupuncture-therapy", "dry-needling-therapy", "functional-medicine-consultation", "trigger-point-therapy", "holistic-health-assessment"],
   },
   {
     slug: "chronic-pain-management",
@@ -1177,6 +1193,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Will Dr. Hendry coordinate with my pain management doctor?", a: "Yes — Dr. Hendry actively collaborates with pain management physicians and can document his assessment and treatment protocols for the medical team." },
       { q: "Where is chronic pain management in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["fibromyalgia-treatment", "acupuncture-therapy", "dry-needling-therapy", "functional-medicine-consultation", "trigger-point-therapy", "ozone-therapy"],
   },
   {
     slug: "neuropathy-treatment",
@@ -1196,6 +1213,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Can you treat chemotherapy-induced neuropathy?", a: "Yes — Dr. Hendry has specific protocols for CIPN developed from his Prisma Health research. Early intervention during chemotherapy produces better outcomes than beginning treatment after the chemotherapy course is complete." },
       { q: "Where is neuropathy treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["peripheral-neuropathy-treatment", "acupuncture-therapy", "electroacupuncture", "functional-medicine-consultation", "vitamin-therapy", "holistic-health-assessment"],
   },
   {
     slug: "peripheral-neuropathy-treatment",
@@ -1609,6 +1627,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "When should I start treatment in my cycle?", a: "Treatment is most effective when started 7–10 days before the expected menstrual onset. However, starting at any point in the cycle is beneficial." },
       { q: "Where is menstrual pain treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["pms-treatment", "hormone-testing", "chinese-herbal-medicine", "acupuncture-therapy", "hormonal-imbalance-treatment", "nutritional-counseling"],
   },
   {
     slug: "pms-treatment",
@@ -1628,6 +1647,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Can PMS cause chronic health problems?", a: "Severe, longstanding PMS/PMDD correlates with underlying hormonal imbalance, nutritional depletion, and chronic stress that contribute to longer-term health issues if not addressed. Treating PMS at its root is also prevention." },
       { q: "Where is PMS treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["menstrual-pain-treatment", "hormone-testing", "chinese-herbal-medicine", "acupuncture-therapy", "hormonal-imbalance-treatment", "nutritional-counseling"],
   },
   {
     slug: "menopause-treatment",
@@ -1647,6 +1667,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Does Dr. Hendry assess adrenal function for menopause patients?", a: "Yes — the adrenal glands produce the main source of sex hormones after menopause (via DHEA conversion). Poor adrenal reserve significantly worsens menopausal symptoms. Dr. Hendry evaluates and supports adrenal function as part of every menopause protocol." },
       { q: "Where is menopause treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["hormone-testing", "hormonal-imbalance-treatment", "chinese-herbal-medicine", "acupuncture-therapy", "nutritional-counseling", "functional-medicine-consultation"],
   },
   {
     slug: "hot-flash-treatment",
@@ -1723,6 +1744,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Does the gut microbiome affect other health conditions?", a: "Yes — the gut microbiome influences immune regulation, neurotransmitter production, hormone metabolism, and inflammation throughout the body. Gut dysbiosis (imbalanced microbiome) contributes to autoimmune disease, mood disorders, hormonal imbalance, skin conditions, and chronic fatigue." },
       { q: "Where is digestive issues treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["ibs-treatment", "leaky-gut-treatment", "gut-health-testing", "food-sensitivity-testing", "acid-reflux-treatment", "nutritional-counseling"],
   },
   {
     slug: "ibs-treatment",
@@ -1742,6 +1764,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How many sessions for IBS?", a: "8–12 sessions of acupuncture alongside 3–6 months of dietary and supplement protocol. IBS is a chronic condition requiring sustained intervention for lasting improvement." },
       { q: "Where is IBS treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["leaky-gut-treatment", "gut-health-testing", "food-sensitivity-testing", "acid-reflux-treatment", "digestive-issues-treatment", "nutritional-counseling"],
   },
   {
     slug: "acid-reflux-treatment",
@@ -1761,6 +1784,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How many sessions for acid reflux?", a: "6–12 sessions alongside dietary modification. H. pylori or SIBO treatment (if found) has its own protocol timeline." },
       { q: "Where is acid reflux treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["digestive-issues-treatment", "ibs-treatment", "leaky-gut-treatment", "gut-health-testing", "nutritional-counseling", "functional-medicine-consultation"],
   },
   {
     slug: "allergy-treatment",
@@ -1951,6 +1975,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How many sessions for immune support?", a: "For ongoing immune maintenance: monthly acupuncture and seasonal herbal adjustment. For immune rehabilitation after illness or during cancer treatment: weekly sessions with specific protocols." },
       { q: "Where is immune system support in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["autoimmune-disease-treatment", "functional-medicine-consultation", "ozone-therapy", "vitamin-therapy", "nutritional-counseling", "gut-health-testing"],
   },
   {
     slug: "functional-medicine-testing",
@@ -2027,6 +2052,8 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Is salivary cortisol better than blood cortisol?", a: "For assessing the HPA axis pattern through the day, yes — a 4-point salivary cortisol curve (morning, noon, afternoon, evening) reveals the cortisol rhythm. A single morning blood cortisol tells only part of the story." },
       { q: "Where is hormone testing in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["functional-medicine-consultation", "thyroid-testing", "adrenal-testing", "hormonal-imbalance-treatment", "functional-medicine-testing", "holistic-health-assessment"],
+    research: `Comprehensive thyroid evaluation beyond TSH is supported by research showing that free T3 and reverse T3 ratios predict clinical outcomes better than TSH alone. A 2016 study in Thyroid found that free T3 was the strongest predictor of well-being and metabolic rate in hypothyroid patients. Gärtner et al. (2002) in the Journal of Clinical Endocrinology & Metabolism demonstrated that selenium supplementation significantly reduced thyroid antibody levels in Hashimoto's patients — a finding that requires antibody testing to identify the patients who would benefit.`,
   },
   {
     slug: "hormonal-imbalance-treatment",
@@ -2046,6 +2073,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Do I need bioidentical hormones?", a: "Not necessarily — many hormonal imbalances can be corrected through functional medicine support (nutrients, dietary changes, herbal medicine) without exogenous hormones. When hormones are appropriate, Dr. Hendry refers to physicians specializing in bioidentical hormone replacement." },
       { q: "Where is hormonal imbalance treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["hormone-testing", "thyroid-testing", "functional-medicine-consultation", "menopause-treatment", "pms-treatment", "nutritional-counseling"],
   },
   {
     slug: "thyroid-testing",
@@ -2065,6 +2093,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Can acupuncture help thyroid conditions?", a: "Acupuncture modulates the HPA axis (which influences HPT axis function), reduces autoimmune inflammatory cytokines, and supports the Chinese medicine Kidney Yang pattern corresponding to hypothyroid physiology." },
       { q: "Where is thyroid testing in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["hormone-testing", "functional-medicine-consultation", "functional-medicine-testing", "adrenal-testing", "holistic-health-assessment", "integrative-medicine-consultation"],
   },
   {
     slug: "thyroid-disorder-treatment",
@@ -2103,6 +2132,8 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Does caffeine worsen adrenal fatigue?", a: "Yes — caffeine forces cortisol release through HPA axis stimulation, temporarily relieving fatigue but depleting adrenal reserve further. Dr. Hendry commonly recommends caffeine reduction or elimination as part of adrenal recovery protocols." },
       { q: "Where is adrenal fatigue treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["adrenal-testing", "hormone-testing", "thyroid-testing", "functional-medicine-consultation", "holistic-health-assessment", "integrative-medicine-consultation"],
+    research: `HPA axis dysregulation — the functional medicine model underlying adrenal fatigue — has substantial research support in the context of chronic stress and chronic illness. Fries et al. (2009) in Psychoneuroendocrinology documented blunted cortisol awakening response in patients with chronic fatigue and burnout. Research on adaptogenic herbs used in adrenal support protocols — ashwagandha, rhodiola, and eleuthero — demonstrates statistically significant reductions in cortisol and fatigue scores in randomized controlled trials.`,
   },
   {
     slug: "adrenal-testing",
@@ -2122,6 +2153,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "What happens after adrenal testing?", a: "A dedicated results consultation where Dr. Hendry explains your specific cortisol pattern and builds a targeted HPA axis restoration protocol." },
       { q: "Where is adrenal testing in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["hormone-testing", "thyroid-testing", "adrenal-fatigue-treatment", "functional-medicine-consultation", "functional-medicine-testing", "holistic-health-assessment"],
   },
   {
     slug: "inflammatory-marker-testing",
@@ -2160,6 +2192,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Does insurance cover food sensitivity testing?", a: "Usually not — it is typically self-pay. Some HSA/FSA plans cover it. Dr. Hendry discusses costs before ordering." },
       { q: "Where is food sensitivity testing in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["gut-health-testing", "leaky-gut-treatment", "ibs-treatment", "digestive-issues-treatment", "functional-medicine-consultation", "nutritional-counseling"],
   },
   {
     slug: "nutritional-deficiency-testing",
@@ -2198,6 +2231,8 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Does insurance cover gut health testing?", a: "Comprehensive stool PCR panels are typically self-pay. Basic stool culture and H. pylori testing may be insurance-covered. Dr. Hendry discusses costs before ordering." },
       { q: "Where is gut health testing in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["leaky-gut-treatment", "ibs-treatment", "food-sensitivity-testing", "digestive-issues-treatment", "functional-medicine-consultation", "nutritional-counseling"],
+    research: `The gut microbiome's role in systemic health is one of the most rapidly advancing areas of medicine. Sonnenburg and Bäckhed (2016) in Nature documented how microbiome composition influences immune function, metabolism, and neurological health through multiple mechanisms including short-chain fatty acid production and vagal nerve signaling. Research on intestinal permeability (Fasano, 2012, Annals of the New York Academy of Sciences) established the leaky gut model's role in autoimmune disease, demonstrating that intestinal barrier dysfunction precedes and contributes to autoimmune activation.`,
   },
   {
     slug: "leaky-gut-treatment",
@@ -2217,6 +2252,8 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "What Chinese herbs support gut healing?", a: "Si Jun Zi Tang (Four Gentlemen) for Spleen Qi Deficiency (the constitutional driver of leaky gut in Chinese medicine); Bai Shao for intestinal spasm; and Huang Qi for immune and mucosal support." },
       { q: "Where is leaky gut treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["gut-health-testing", "ibs-treatment", "food-sensitivity-testing", "digestive-issues-treatment", "nutritional-counseling", "functional-medicine-consultation"],
+    research: `The leaky gut model — increased intestinal permeability allowing bacterial endotoxins and undigested food particles into systemic circulation — has been validated in peer-reviewed research across multiple conditions. Fasano (2012) in Annals of the New York Academy of Sciences established zonulin as the primary regulator of intestinal tight junctions and demonstrated its role in autoimmune disease pathogenesis. Research on L-glutamine, zinc carnosine, and specific probiotic strains shows meaningful restoration of intestinal barrier function in clinical trials, providing a mechanistic basis for the nutritional interventions used in leaky gut treatment.`,
   },
   {
     slug: "digestive-health-treatment",
@@ -2255,6 +2292,8 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How many sessions for autoimmune disease?", a: "Autoimmune disease is a chronic condition requiring long-term management. Active treatment: 3–6 months of weekly to biweekly sessions. Maintenance: monthly, indefinitely." },
       { q: "Where is autoimmune disease treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["functional-medicine-consultation", "functional-medicine-testing", "gut-health-testing", "leaky-gut-treatment", "holistic-health-assessment", "immune-system-support"],
+    research: `The gut-autoimmune connection has strong research backing: Fasano's research (Annals NYAS, 2012) established that intestinal permeability is a prerequisite for autoimmune disease development in genetically susceptible individuals. Research on acupuncture's immunomodulatory effects — including a 2020 systematic review in Frontiers in Immunology — shows acupuncture regulates T-regulatory cell function and inflammatory cytokine profiles, directly relevant to autoimmune conditions. Dietary and lifestyle interventions targeting the microbiome have shown documented benefit in conditions including Hashimoto's, rheumatoid arthritis, and inflammatory bowel disease.`,
   },
   {
     slug: "root-cause-analysis",
@@ -2312,6 +2351,8 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How long for meaningful weight loss?", a: "Metabolic correction (insulin resistance, thyroid, cortisol) typically produces noticeable weight improvement within 4–8 weeks. Sustained, meaningful weight loss over 3–6 months is the typical timeline for complex cases." },
       { q: "Where is weight loss support in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["blood-sugar-support", "metabolism-support", "natural-diabetes-support", "functional-medicine-consultation", "nutritional-counseling", "hormone-testing"],
+    research: `Insulin resistance as the primary driver of metabolic weight gain is well-established: research by Lustig et al. and published in Nature Reviews Endocrinology documents how hyperinsulinemia drives adipogenesis and blocks lipolysis through direct cellular signaling. Berberine, a primary herb in functional medicine weight management protocols, demonstrated equivalent efficacy to metformin in a head-to-head trial (Zhang et al., 2008, Journal of Clinical Endocrinology & Metabolism) for reducing fasting blood glucose and insulin. A 2017 meta-analysis in Obesity Reviews confirmed acupuncture's statistically significant effects on BMI, waist circumference, and metabolic markers in overweight patients.`,
   },
   {
     slug: "metabolism-support",
@@ -2331,6 +2372,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How many sessions for metabolism support?", a: "Metabolic correction typically requires 3–6 months of intervention. Lab retesting at 3 months confirms objective metabolic improvement." },
       { q: "Where is metabolism support in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["weight-loss-support", "blood-sugar-support", "natural-diabetes-support", "functional-medicine-consultation", "nutritional-counseling", "thyroid-testing"],
   },
   {
     slug: "high-blood-pressure-support",
@@ -2369,6 +2411,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How does acupuncture affect blood sugar?", a: "Multiple studies show acupuncture improves insulin sensitivity, reduces fasting glucose, and lowers HbA1c in type 2 diabetes patients. The mechanism involves AMPK activation in peripheral tissues and improved pancreatic blood flow." },
       { q: "Where is blood sugar support in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["weight-loss-support", "metabolism-support", "natural-diabetes-support", "functional-medicine-consultation", "nutritional-counseling", "hormone-testing"],
   },
   {
     slug: "natural-diabetes-support",
@@ -2388,6 +2431,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "What is the best diet for diabetes?", a: "Low-carbohydrate diets (under 50–100g carbohydrates/day) produce the most dramatic blood glucose improvements. Time-restricted eating (16:8 intermittent fasting) improves insulin sensitivity independently of caloric restriction. Mediterranean diet is associated with best cardiovascular outcomes in diabetes." },
       { q: "Where is natural diabetes support in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["blood-sugar-support", "weight-loss-support", "metabolism-support", "functional-medicine-consultation", "nutritional-counseling", "hormone-testing"],
   },
   {
     slug: "long-covid-treatment",
@@ -2407,6 +2451,8 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How many sessions for long COVID?", a: "Long COVID is highly variable — some patients respond rapidly (6–8 sessions), while others with severe multi-system involvement require 20+ sessions over 4–6 months." },
       { q: "Where is long COVID treatment in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["post-covid-recovery", "ozone-therapy", "functional-medicine-consultation", "chronic-fatigue-treatment", "immune-system-support", "vitamin-therapy"],
+    research: `Post-COVID syndrome (Long COVID) involves documented neuroinflammation, mitochondrial dysfunction, and gut microbiome disruption. Davis et al. (2021, Nature Medicine) characterized the multi-organ involvement and symptom persistence in Long COVID across a large international cohort. Research on ozone therapy for post-viral fatigue syndromes — including a 2019 study in International Immunopharmacology — shows ozone modulates oxidative stress pathways and mitochondrial function relevant to the fatigue and cognitive symptoms that dominate Long COVID presentation.`,
   },
   {
     slug: "post-covid-recovery",
@@ -2426,6 +2472,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Should I pace during post-COVID recovery?", a: "For patients with post-exertional malaise (PEM) — where symptoms worsen after exertion — pacing is essential. Dr. Hendry provides specific pacing guidance to avoid triggering PEM flares while gradually building activity tolerance." },
       { q: "Where is post-COVID recovery support in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["long-covid-treatment", "ozone-therapy", "functional-medicine-consultation", "immune-system-support", "chronic-fatigue-treatment", "vitamin-therapy"],
   },
   {
     slug: "ozone-steam-sauna",
@@ -2540,6 +2587,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "How many sessions for detoxification therapy?", a: "Active detox protocols run 4–8 weeks, combining multiple modalities 3–5x/week. Maintenance detox is recommended seasonally or annually for ongoing toxin exposure." },
       { q: "Where is detoxification therapy in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["heavy-metal-detox", "ozone-therapy", "infrared-sauna-therapy", "functional-medicine-consultation", "nutritional-counseling", "vitamin-therapy"],
   },
   {
     slug: "heavy-metal-detox",
@@ -2559,6 +2607,7 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Should I remove mercury amalgam fillings?", a: "If you have heavy mercury burden from amalgam fillings, removal with a mercury-safe (SMART protocol) dentist, timed during a non-active immune challenge, can significantly reduce ongoing exposure. Dr. Hendry recommends coordinating removal with a heavy metal detox protocol." },
       { q: "Where is heavy metal detox in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
+    relatedServiceSlugs: ["detoxification-therapy", "ozone-therapy", "functional-medicine-testing", "functional-medicine-consultation", "nutritional-supplements", "vitamin-therapy"],
   },
   {
     slug: "vitamin-therapy",
