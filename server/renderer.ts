@@ -130,7 +130,8 @@ function renderNav(transparent = false): string {
             </div>
             <div class="nav__dropdown-col">
               <span class="nav__dropdown-col-label">Functional Medicine</span>
-              <a href="/services/functional-medicine-consultation/" class="nav__dropdown-item" role="menuitem">Functional Medicine</a>
+              <a href="/functional-medicine-greenville-sc/" class="nav__dropdown-item nav__dropdown-item--primary" role="menuitem">About Functional Medicine</a>
+              <a href="/services/functional-medicine-consultation/" class="nav__dropdown-item" role="menuitem">Consultation</a>
               <a href="/services/hormone-testing/" class="nav__dropdown-item" role="menuitem">Hormone Testing</a>
               <a href="/services/thyroid-testing/" class="nav__dropdown-item" role="menuitem">Thyroid Testing</a>
               <a href="/services/adrenal-fatigue-treatment/" class="nav__dropdown-item" role="menuitem">Adrenal Fatigue Treatment</a>
@@ -252,7 +253,8 @@ function renderNav(transparent = false): string {
   <a href="/services/ibs-treatment/" class="nav__mobile-sublink">IBS Treatment</a>
   <a href="/services/natural-anxiety-treatment/" class="nav__mobile-sublink">Natural Anxiety Treatment</a>
   <a href="/services/insomnia-treatment/" class="nav__mobile-sublink">Insomnia Treatment</a>
-  <a href="/services/functional-medicine-consultation/" class="nav__mobile-sublink">Functional Medicine</a>
+  <a href="/functional-medicine-greenville-sc/" class="nav__mobile-sublink" style="font-weight:600">About Functional Medicine</a>
+  <a href="/services/functional-medicine-consultation/" class="nav__mobile-sublink">Consultation</a>
   <a href="/services/hormone-testing/" class="nav__mobile-sublink">Hormone Testing</a>
   <a href="/services/thyroid-testing/" class="nav__mobile-sublink">Thyroid Testing</a>
   <a href="/services/adrenal-fatigue-treatment/" class="nav__mobile-sublink">Adrenal Fatigue Treatment</a>

@@ -213,7 +213,7 @@ function getHomeSEO(): PageSEO {
           "worstRating": "1"
         },
         "employee": {
-          "@type": "Physician",
+          "@type": "Person",
           "name": "Dr. William Hendry",
           "givenName": "William",
           "familyName": "Hendry",
@@ -247,7 +247,7 @@ function getHomeSEO(): PageSEO {
       },
       {
         "@context": "https://schema.org",
-        "@type": "Physician",
+        "@type": "Person",
         "name": "Dr. William Hendry",
         "honorificPrefix": "Dr.",
         "honorificSuffix": "DAOM, Dipl. O.M. (NCCAOM)®",
@@ -400,16 +400,11 @@ function getServiceSEO(slug: string): PageSEO | null {
       "bodyLocation": "Varies by condition",
       "procedureType": "https://schema.org/NoninvasiveProcedure",
       "dateModified": today,
-      "performer": { "@type": "Physician", "name": "Dr. William Hendry, DAOM", "url": `${BASE_URL}/dr-hendry/` },
       "location": {
         "@type": "MedicalBusiness",
         "name": NAP.name,
         "address": { "@type": "PostalAddress", "streetAddress": NAP.streetAddress, "addressLocality": NAP.city, "addressRegion": NAP.state, "postalCode": NAP.postalCode },
         "telephone": NAP.phoneRaw
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".service-hero__title", ".service-hero__subtitle", ".service-content > p:first-of-type"]
       }
     },
     {
@@ -664,10 +659,6 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
         "url": pageUrl,
         "description": desc,
         "dateModified": today,
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [".condition-hero__title", ".condition-hero__subtitle", ".condition-content > p:first-of-type"]
-        },
         "possibleTreatment": {
           "@type": "MedicalTherapy",
           "name": "Acupuncture and Functional Medicine",
@@ -700,7 +691,7 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
 function getFunctionalMedicineSEO(): PageSEO {
   return {
     title: "Functional Medicine in Greenville, SC | Integrative Health Partners",
-    description: "Root-cause functional and integrative medicine in Greenville, SC. Dr. William Hendry combines advanced lab testing, acupuncture, and herbal medicine to resolve chronic conditions. Call (864) 365-6156.",
+    description: "Functional & integrative medicine in Greenville, SC. Root-cause testing, acupuncture, herbal medicine. Dr. William Hendry, DAOM. Call (864) 365-6156.",
     canonical: `${BASE_URL}/functional-medicine-greenville-sc/`,
     ogType: "website",
     schemas: [
@@ -709,7 +700,7 @@ function getFunctionalMedicineSEO(): PageSEO {
         "@type": "MedicalBusiness",
         "name": NAP.name,
         "description": "Functional and integrative medicine practice offering root-cause diagnostics, acupuncture, and herbal medicine in Greenville, SC.",
-        "medicalSpecialty": "https://schema.org/IntegrativeAndComplementaryMedicine",
+        "medicalSpecialty": { "@id": "https://schema.org/IntegrativeAndComplementaryMedicine" },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": NAP.streetAddress,
@@ -801,7 +792,7 @@ function getDrHendrySEO(): PageSEO {
     schemas: [
       {
         "@context": "https://schema.org",
-        "@type": "Physician",
+        "@type": "Person",
         "name": "Dr. William Hendry",
         "honorificPrefix": "Dr.",
         "honorificSuffix": "DAOM, Dipl. O.M. (NCCAOM)®",
