@@ -96,7 +96,7 @@ function loadBlogPosts(): BlogPost[] {
       slug:       raw.slug,
       link:       raw.link       || "",
       pubDate:    raw.pubDate    ? new Date(raw.pubDate) : new Date(),
-      creator:    raw.creator    || "Integrative Health Partners",
+      creator:    raw.creator    || "Dr. William Hendry, DAOM",
       excerpt:    raw.excerpt    || "",
       content:    raw.content    || "",
       categories: raw.categories || [],
