@@ -441,7 +441,7 @@ function getServiceSEO(slug: string): PageSEO | null {
 
 function getBlogSEO(): PageSEO {
   return {
-    title: "Health Blog | Acupuncture & Functional Medicine Greenville SC | IHP",
+    title: "Integrative Health Blog | Greenville SC | IHP",
     description: "Health & wellness insights from IHP in Greenville, SC. Expert articles on acupuncture, functional medicine, Chinese herbs, and holistic health.",
     canonical: `${BASE_URL}/blog/`,
     ogType: "website",
@@ -647,7 +647,7 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
   const pageUrl = `${BASE_URL}/conditions/${slug}/`;
   const today = new Date().toISOString().split('T')[0];
   return {
-    title: `${name} Treatment in Greenville, SC | IHP`,
+    title: `${name}: Causes & Care | IHP Greenville`,
     description: trim160(desc),
     canonical: pageUrl,
     ogType: "website",
@@ -690,7 +690,7 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
 
 function getFunctionalMedicineSEO(): PageSEO {
   return {
-    title: "Functional Medicine in Greenville, SC | Integrative Health Partners",
+    title: "Functional Medicine in Greenville, SC | IHP",
     description: "Functional & integrative medicine in Greenville, SC. Root-cause testing, acupuncture, herbal medicine. Dr. William Hendry, DAOM. Call (864) 365-6156.",
     canonical: `${BASE_URL}/functional-medicine-greenville-sc/`,
     ogType: "website",
