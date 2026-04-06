@@ -502,7 +502,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
         "url": `${BASE_URL}/blog/${slug}/`,
         ...(datePublished ? { "datePublished": datePublished } : {}),
         "dateModified": dateModified || datePublished || today,
-        "image": `${BASE_URL}/images/dr-hendry.jpg`,
+        "image": `${BASE_URL}/images/dr-hendry.webp`,
         "author": {
           "@type": "Person",
           "name": "Dr. William Hendry",

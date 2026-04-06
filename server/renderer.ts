@@ -55,15 +55,18 @@ function renderHead(title = "Integrative Health Partners | Greenville, SC", desc
   <meta property="og:description" content="${desc}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${BASE_URL}" />
-  <meta property="og:image" content="${BASE_URL}/images/dr-hendry.jpg" />
+  <meta property="og:image" content="${BASE_URL}/assets/ogImage.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${desc}" />
-  <meta name="twitter:image" content="${BASE_URL}/images/dr-hendry.jpg" />
+  <meta name="twitter:image" content="${BASE_URL}/assets/ogImage.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="/css/style.css" />
+  <link rel="preload" as="style" href="/css/style.css" fetchpriority="high" />
   <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" /></noscript>
 </head>`;
 }
 
@@ -455,7 +458,7 @@ export function renderHome(): string {
     <!-- Hero -->
     <section class="hero" aria-label="Welcome to Integrative Health Partners">
       <div class="hero__bg">
-        <video class="hero__video" autoplay muted loop playsinline preload="none" aria-hidden="true">
+        <video class="hero__video" autoplay muted loop playsinline preload="none" poster="/images/clinic/exterior.webp" aria-hidden="true">
           <source src="/assets/Untitled_design_1768148669244.mp4" type="video/mp4" />
         </video>
         <div class="hero__overlay" aria-hidden="true"></div>
