@@ -223,7 +223,7 @@ function getHomeSEO(): PageSEO {
             { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Doctor of Acupuncture and Oriental Medicine (DAOM)" },
             { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "NCCAOM Diplomate of Oriental Medicine" }
           ],
-          "worksFor": { "@type": "MedicalBusiness", "name": "Integrative Health Partners" }
+          "worksFor": { "@type": "Organization", "name": "Integrative Health Partners" }
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -252,7 +252,7 @@ function getHomeSEO(): PageSEO {
         "honorificPrefix": "Dr.",
         "honorificSuffix": "DAOM, Dipl. O.M. (NCCAOM)®",
         "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
-        "worksFor": { "@type": "MedicalBusiness", "name": NAP.name },
+        "worksFor": { "@type": "Organization", "name": NAP.name },
         "memberOf": [
           { "@type": "Organization", "name": "Prisma Health" },
           { "@type": "Organization", "name": "American Academy of Ozone Therapy" }
@@ -462,7 +462,7 @@ function getBlogSEO(): PageSEO {
         "url": `${BASE_URL}/blog/`,
         "author": { "@type": "Person", "name": "Dr. William Hendry", "honorificSuffix": "DAOM", "url": `${BASE_URL}/dr-hendry/` },
         "publisher": {
-          "@type": "MedicalBusiness",
+          "@type": "Organization",
           "name": NAP.name,
           "url": NAP.url
         }
@@ -523,12 +523,8 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
           "logo": { "@type": "ImageObject", "url": `${BASE_URL}/assets/ihp-publisher-logo.svg`, "width": 300, "height": 52 }
         },
         "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}/` },
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [".blog-post__title", ".blog-post__excerpt", ".blog-post__body > p:first-of-type"]
-        },
         "isPartOf": { "@type": "Blog", "url": `${BASE_URL}/blog/` },
-        "about": { "@type": "MedicalBusiness", "name": NAP.name, "url": NAP.url }
+        "about": { "@type": "Organization", "name": NAP.name, "url": NAP.url }
       }
     ]
   };
