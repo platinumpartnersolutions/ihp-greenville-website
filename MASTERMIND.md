@@ -25,6 +25,12 @@
 - Auth stack: express-session → Passport local → bcryptjs (all packages already installed)
 - TipTap outputs clean HTML; saved to `blog_posts.content` column via hidden `#content-input` textarea
 
+**Admin panel URL:**
+https://www.ihpgreenville.com/admin (proxied via Netlify → Railway)
+
+**Railway direct URL:**
+https://ihp-greenville-website-production.up.railway.app/admin
+
 **To activate on Railway:**
 1. Set `SESSION_SECRET` env var to a long random string
 2. Set `NETLIFY_DEPLOY_HOOK` env var to the Netlify deploy hook URL
