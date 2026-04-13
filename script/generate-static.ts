@@ -414,6 +414,10 @@ console.log("  ✓ llms.txt");
 /* ─── _REDIRECTS (Netlify) ─────────────────────────────────────────────────── */
 
 const redirectLines: string[] = [
+  "# Proxy /admin to Railway server (must be first — before catch-all)",
+  "/admin  https://ihp-greenville-website-production.up.railway.app/admin  200",
+  "/admin/*  https://ihp-greenville-website-production.up.railway.app/admin/:splat  200",
+  "",
   "# 410 Gone — permanently retired blog posts",
 ];
 for (const slug of BLOG_410S) {
