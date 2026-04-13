@@ -1,12 +1,39 @@
 # 🧠 MASTERMIND — IHP Greenville Website Knowledge Base
 > This file is referenced before every change, plan, or response. Updated continuously.
-> Last updated: 2026-04-06
+> Last updated: 2026-04-13
 > **Rule:** This file is updated after every session with new learnings, fixes, and decisions.
 
 ---
 
 ## 🎯 MOST RECENT TASK
 > **Update this section immediately after every task. If lost or confused, read this first.**
+
+**Task:** Build admin panel with TipTap editor for Dr. Hendry to manage blog posts.
+
+**What was built:**
+- `server/admin-routes.ts` — Full admin panel: login page ("Welcome Dr. Hendry"), posts list, new/edit post with TipTap editor, rebuild trigger (POSTs to `NETLIFY_DEPLOY_HOOK`)
+- `server/admin-auth.ts` — Passport.js local strategy with bcrypt
+- `client/admin/editor.ts` — TipTap client with H2, H3, Bold, Italic, Bullet, Ordered, Quote, HR, Link, Undo/Redo toolbar
+- `scripts/build-admin.ts` — esbuild bundles TipTap to `public/admin/editor.js`
+- `server/index.ts` — Wired: express-session (PgSession store in `session` table), passport, `/admin` router
+- First-time setup at `/admin/setup` (creates initial admin user — checks no users exist first)
+
+**Architecture decisions:**
+- Flash messages replaced with `?error=1` query param (avoids `connect-flash` dependency)
+- Session stored in PostgreSQL `session` table (auto-created in `ensureSchema()`)
+- `SESSION_SECRET` env var — falls back to dev default if not set
+- Auth stack: express-session → Passport local → bcryptjs (all packages already installed)
+- TipTap outputs clean HTML; saved to `blog_posts.content` column via hidden `#content-input` textarea
+
+**To activate on Railway:**
+1. Set `SESSION_SECRET` env var to a long random string
+2. Set `NETLIFY_DEPLOY_HOOK` env var to the Netlify deploy hook URL
+3. Navigate to `https://[server-url]/admin/setup` to create Dr. Hendry's login
+4. Then login at `https://[server-url]/admin/login`
+
+**Status:** ✅ Complete — committed 5962fbc, pushed to main — 2026-04-13
+
+---
 
 **Task:** Fix "Google rich results validation error" on homepage, blog index, and all 53 blog posts.
 
