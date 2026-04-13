@@ -5,6 +5,19 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Proxy /admin to Railway server (keeps URL as ihpgreenville.com/admin)
+[[redirects]]
+  from = "/admin"
+  to = "https://ihp-greenville-website-production.up.railway.app/admin"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "https://ihp-greenville-website-production.up.railway.app/admin/:splat"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
