@@ -8,6 +8,55 @@
 ## 🎯 MOST RECENT TASK
 > **Update this section immediately after every task. If lost or confused, read this first.**
 
+**Task:** Fix "Google rich results validation error" on homepage, blog index, and all 53 blog posts.
+
+**Root cause:** Two distinct schema bugs:
+1. **MedicalBusiness without `address`** — Google requires ALL instances of `MedicalBusiness`/`LocalBusiness` on a page to have a `address` property for the Local Business rich result feature. Nested/secondary `MedicalBusiness` references (inside `worksFor`, `publisher`, `about`) were missing `address`, triggering the error on every page that referenced them.
+2. **`speakable` on BlogPosting/Article** — `speakable` is only valid on `WebPage` and `NewsArticle` types. Using it on `Article`/`BlogPosting` is an invalid property that triggers validation errors.
+
+**Fixes in `server/seo.ts`:**
+- Homepage `employee.worksFor`: `MedicalBusiness` → `Organization`
+- Homepage standalone `Person.worksFor`: `MedicalBusiness` → `Organization`
+- Blog index `publisher`: `MedicalBusiness` → `Organization`
+- Blog posts `about`: `MedicalBusiness` → `Organization`
+- Blog posts: removed `speakable` from BlogPosting/Article schema entirely
+
+**⚠️ Rule going forward:** Any `MedicalBusiness` schema that is a nested/secondary reference (not the main entity of the page) MUST either have full `address` or be changed to `Organization`. The validator checks ALL instances, not just the main one.
+
+**Status:** ✅ Complete — committed 07d785c, pushed to main — 2026-04-08
+
+---
+
+**Task:** Google Search Console — sitemap resubmission + priority URL indexing requests.
+
+**What was done:**
+- Resubmitted `https://www.ihpgreenville.com/sitemap.xml` in GSC → Sitemaps tab. Got "Sitemap submitted successfully." GSC now knows about all new pages from recent deploys (FM hub, Lyme disease, title fixes, schema fixes).
+- Checked indexing status and requested indexing for all priority pages:
+
+| URL | GSC Status | Action Taken |
+|-----|-----------|--------------|
+| `/` (homepage) | Already indexed | None needed |
+| `/functional-medicine-greenville-sc/` | **Already indexed ✅** | None needed |
+| `/services/functional-medicine-consultation/` | **Already indexed ✅** | None needed |
+| `/conditions/lyme-disease/` | Discovered - not indexed | ✅ Indexing requested |
+| `/services/acupuncture-therapy/` | URL unknown to Google | ✅ Indexing requested |
+| `/dr-hendry/` | Discovered - not indexed | ✅ Indexing requested |
+| `/conditions/` | Discovered - not indexed | ✅ Indexing requested |
+
+**Key findings from GSC audit:**
+- 56 pages currently indexed (out of 325 total)
+- 132 "Discovered - currently not indexed" — normal for new site, resolved via indexing requests
+- 69 "Crawled - currently not indexed" — potential thin content issue, needs investigation
+- 13 pages returning 404 — need to identify and fix/redirect
+- 52 pages returning redirects — likely Netlify trailing-slash redirects (expected)
+- "No referring sitemaps detected" on some pages during inspection = GSC hasn't re-read updated sitemap yet (NOT a real issue — acupuncture-therapy IS in sitemap, confirmed 135 service pages present)
+
+**CLAUDE.md updated:** Made MASTERMIND update requirement non-negotiable and more emphatic per user instruction.
+
+**Status:** ✅ Complete — 2026-04-06
+
+---
+
 **Task:** Fix 15 duplicate meta titles + 3 over-length titles sitewide.
 
 **Root cause:** `getConditionPageSEO()` in `server/seo.ts` generated `${name} Treatment in Greenville, SC | IHP` for ALL condition pages — identical to the corresponding service page titles (e.g., both `/conditions/adrenal-fatigue/` and `/services/adrenal-fatigue-treatment/` had "Adrenal Fatigue Treatment in Greenville, SC | IHP"). Google can't differentiate which page to rank. Blog index and FM Hub titles were also 67 chars (limit is 65).
@@ -315,7 +364,15 @@ Homepage (domain authority anchor)
 - [x] FM hub page added to desktop + mobile nav
 - [x] MASTERMIND.md created — persistent knowledge base
 
+### ✅ Completed — Google Search Console
+- [x] Sitemap resubmitted (`/sitemap.xml`) — GSC confirmed "Sitemap submitted successfully" Apr 6
+- [x] Indexing requested for: `/conditions/lyme-disease/`, `/services/acupuncture-therapy/`, `/dr-hendry/`, `/conditions/`
+- [x] Confirmed already-indexed: `/`, `/functional-medicine-greenville-sc/`, `/services/functional-medicine-consultation/`
+- [x] GSC audit findings documented (56 indexed, 132 discovered/not-indexed, 69 crawled/not-indexed, 13 404s, 52 redirects)
+
 ### 🔲 Planned / On Hold
+- [ ] **Investigate 13 GSC 404 pages** — identify which URLs return 404 and fix/redirect (go to GSC → Pages → Not indexed → "Not found (404)")
+- [ ] **Investigate 69 "Crawled - currently not indexed" pages** — check if thin content issue (go to GSC → Pages → Not indexed → "Crawled - currently not indexed")
 - [ ] Add `research` sections to ~25 functional medicine cluster pages (hormone-testing, thyroid-testing, adrenal-testing, gut-health-testing, leaky-gut-treatment, weight-loss-support, etc.)
 - [ ] Add internal links TO FM hub from homepage "Our Services" section
 - [ ] Add internal links TO FM hub from relevant blog posts (via routes.ts autolinker)

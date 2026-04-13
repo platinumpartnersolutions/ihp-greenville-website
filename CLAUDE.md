@@ -9,11 +9,20 @@ Before answering any question or making any change, read `MASTERMIND.md` in this
 - All known issues (resolved and active)
 - Progress tracker
 
-**After completing any task, update `MASTERMIND.md`:**
-1. Add a new entry at the top of `## 🎯 MOST RECENT TASK`
-2. Update the `## 📈 PROGRESS TRACKER` (move completed items to ✅, add new planned items)
-3. Update `Last updated:` date at the top
-4. Add any new lessons to `## 🐛 KNOWN ISSUES & HARD-LEARNED LESSONS`
+## 🔴 NON-NEGOTIABLE: Update MASTERMIND.md after EVERY task
+
+**This is not optional. After completing ANY task — no matter how small — you MUST update `MASTERMIND.md` before considering the task done:**
+
+1. Add a new entry at the top of `## 🎯 MOST RECENT TASK` with:
+   - What the task was
+   - Root cause (if a bug fix)
+   - Exactly what was changed and in which files
+   - Current status (✅ Complete / 🔲 In Progress)
+2. Update `## 📈 PROGRESS TRACKER` — move completed items to ✅, add new planned items
+3. Update `Last updated:` date at the top to today's date
+4. Add any new lessons, gotchas, or rules to `## 🐛 KNOWN ISSUES & HARD-LEARNED LESSONS`
+
+**If you finish a task without updating MASTERMIND.md, you have not finished the task.**
 
 ## Build Command
 ```
