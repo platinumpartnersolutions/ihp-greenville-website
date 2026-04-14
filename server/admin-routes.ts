@@ -123,7 +123,8 @@ const css = `
   .tiptap-editor ul, .tiptap-editor ol { margin: 10px 0 16px 26px; }
   .tiptap-editor li { margin-bottom: 5px; }
   .tiptap-editor blockquote { border-left: 3px solid var(--primary); margin: 20px 0; padding: 10px 20px; color: var(--muted); font-style: italic; font-family: var(--font-display); font-size: 17px; background: var(--primary-light); border-radius: 0 6px 6px 0; }
-  .tiptap-editor a { color: var(--primary); text-decoration: underline; }
+  .tiptap-editor a { color: var(--primary) !important; text-decoration: underline !important; cursor: pointer; font-weight: 500; }
+  .tiptap-editor a:hover { color: var(--primary-dark) !important; background: var(--primary-light); border-radius: 2px; }
   .tiptap-editor hr { border: none; border-top: 2px solid var(--border); margin: 24px 0; }
   .tiptap-editor p.is-empty::before { content: attr(data-placeholder); color: #d1d5db; pointer-events: none; font-style: italic; }
   .editor-word-count { padding: 8px 20px; font-family: var(--font-heading); font-size: 11px; color: #d1d5db; border-top: 1px solid #f3f4f6; text-align: right; letter-spacing: .03em; }

@@ -76,7 +76,15 @@ function initEditor() {
     element: editorEl,
     extensions: [
       StarterKit,
-      Link.configure({ openOnClick: false, HTMLAttributes: { rel: 'noopener noreferrer', target: '_blank' } }),
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+        HTMLAttributes: {
+          rel: 'noopener noreferrer',
+          target: '_blank',
+          style: 'color: #2F814A; text-decoration: underline; cursor: pointer;',
+        },
+      }),
       Image,
     ],
     content: contentInput.value || '',
