@@ -459,7 +459,7 @@ export function renderHome(): string {
     <section class="hero" aria-label="Welcome to Integrative Health Partners">
       <div class="hero__bg">
         <video class="hero__video" autoplay muted loop playsinline preload="none" poster="/images/clinic/exterior.webp" aria-hidden="true">
-          <source src="/assets/Untitled_design_1768148669244.mp4" type="video/mp4" />
+          <source src="/images/hero-video.mp4" type="video/mp4" />
         </video>
         <div class="hero__overlay" aria-hidden="true"></div>
       </div>
