@@ -86,6 +86,13 @@ After your intake, Dr. Hendry will share his diagnostic findings and explain the
       { q: "Where is acupuncture available in Greenville, SC?", a: "Integrative Health Partners is located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156 or email info@ihpgreenville.com to schedule. We serve patients from Greenville, Taylors, Greer, Mauldin, Simpsonville, and throughout Upstate South Carolina." },
     ],
     relatedServiceSlugs: ["dry-needling-therapy", "electroacupuncture", "cupping-therapy", "moxibustion-therapy", "chinese-herbal-medicine"],
+    photos: [
+      { src: "/images/clinic/treatment-room-1.jpg", alt: "Acupuncture treatment room at Integrative Health Partners Greenville SC — blue treatment table with TDP mineral heat lamp and scalp acupuncture charts on wall", caption: "Prepared treatment room with TDP mineral heat lamp — one of several private rooms at IHP" },
+      { src: "/images/clinic/treatment-room-2.jpg", alt: "Acupuncture treatment table at IHP Greenville with TDP heat lamp and head, face and scalp acupuncture point charts — professional clinical setting", caption: "Sterile, private treatment rooms with clinical acupuncture reference charts" },
+      { src: "/images/clinic/treatment-needles.jpg", alt: "Acupuncture treatment room sideboard at Integrative Health Partners — multiple gauge needle boxes, electroacupuncture stimulator, glass cupping cups, and clinical Chinese painting", caption: "Professional-grade sterile needles, electroacupuncture unit, and cupping tools used at IHP" },
+      { src: "/images/clinic/treatment-room-3.jpg", alt: "Private acupuncture treatment room at IHP Greenville — TDP mineral lamp beside treatment table with full meridian and acupoint chart on wall, natural light from window", caption: "Quiet, private treatment rooms designed for deep therapeutic rest" },
+      { src: "/images/clinic/physician-art.jpg", alt: "Classical Chinese physician painting in treatment room at Integrative Health Partners Greenville — traditional Chinese medicine art with anatomical skull model in foreground", caption: "Honoring 2,000 years of Chinese medicine — classical physician art at IHP" },
+    ],
   },
 
   /* ============================================================
@@ -304,8 +311,8 @@ He then modifies the base formula by adding or subtracting individual herbs to a
     ],
     relatedServiceSlugs: ["herbal-consultation", "herbal-supplements", "custom-herbal-formulations", "functional-medicine-consultation", "acupuncture-therapy"],
     photos: [
-      { src: "/images/clinic/pharmacy-shelves.jpg", alt: "In-house professional Chinese herbal pharmacy at Integrative Health Partners — hundreds of pharmaceutical-grade herb formulas dispensed on-site in Greenville, SC", caption: "IHP's full in-house herbal pharmacy — formulas dispensed at your appointment" },
-      { src: "/images/clinic/chinese-plate.jpg", alt: "Traditional Chinese blue and white porcelain decorative plate at Integrative Health Partners clinic — reflecting the practice's roots in classical Chinese medicine", caption: "Traditional Chinese porcelain at IHP — where 2,000 years of medicine meets modern science" },
+      { src: "/images/clinic/pharmacy-shelves.jpg", alt: "Full in-house Chinese herbal pharmacy at Integrative Health Partners Greenville SC — wall of pharmaceutical-grade herb formula bottles, bulk herbs, and specialty supplements dispensed on-site by Dr. Hendry", caption: "Hundreds of professional-grade herbal formulas — dispensed at your appointment, not ordered online" },
+      { src: "/images/clinic/chinese-plate.jpg", alt: "Traditional Chinese blue and white porcelain decorative plate at Integrative Health Partners clinic Greenville SC — reflecting the practice's roots in classical Chinese medicine", caption: "Classical Chinese medicine art throughout the IHP clinic" },
     ],
   },
 

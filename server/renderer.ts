@@ -2398,6 +2398,25 @@ export function renderContact(): string {
             </a>
           </div>
 
+          <!-- Inside the Clinic -->
+          <div class="reveal" style="margin-bottom:2rem">
+            <h2 class="font-display" style="font-size:1.375rem;margin-bottom:1rem">Inside the Clinic</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
+              <figure style="margin:0">
+                <img src="/images/clinic/waiting-area.jpg" alt="Waiting area at Integrative Health Partners Greenville SC — two chairs beneath a large traditional Chinese mountain landscape painting, with health resource table" loading="lazy" width="600" height="400" style="width:100%;height:180px;object-fit:cover;border-radius:0.5rem;display:block" />
+                <figcaption style="font-size:0.75rem;color:var(--color-muted);margin-top:0.375rem;text-align:center">Welcoming waiting area</figcaption>
+              </figure>
+              <figure style="margin:0">
+                <img src="/images/clinic/reception.jpg" alt="Reception desk at Integrative Health Partners Greenville SC — viewed through service window, with supplement shelving visible in background" loading="lazy" width="600" height="400" style="width:100%;height:180px;object-fit:cover;border-radius:0.5rem;display:block" />
+                <figcaption style="font-size:0.75rem;color:var(--color-muted);margin-top:0.375rem;text-align:center">Front desk — call or walk in</figcaption>
+              </figure>
+              <figure style="margin:0" style="grid-column:1/-1">
+                <img src="/images/clinic/hallway-chalkboard.jpg" alt="IHP clinic hallway in Greenville SC with chalkboard sign listing Acupuncture, Chinese Herbs, and Functional Medicine services and phone number 365-6156" loading="lazy" width="1200" height="400" style="width:100%;height:180px;object-fit:cover;border-radius:0.5rem;display:block" />
+                <figcaption style="font-size:0.75rem;color:var(--color-muted);margin-top:0.375rem;text-align:center">Three disciplines, one practitioner — Acupuncture · Chinese Herbs · Functional Medicine</figcaption>
+              </figure>
+            </div>
+          </div>
+
           <!-- Review Link -->
           <div style="background:linear-gradient(135deg,var(--color-primary),var(--color-accent));border-radius:0.75rem;padding:1.75rem;margin-bottom:2rem;color:#fff;text-align:center" class="reveal">
             <h2 class="font-display" style="font-size:1.375rem;margin-bottom:0.75rem;color:#fff">Enjoyed Your Visit?</h2>
