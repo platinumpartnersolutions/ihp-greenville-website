@@ -2275,6 +2275,17 @@ export function renderDrHendry(): string {
               <div class="footer__contact-row">${icons.mapPin}<span>319 Wade Hampton Blvd<br>Ste A, Greenville SC</span></div>
             </div>
           </div>
+
+          <div class="sidebar-card" style="padding:0;overflow:hidden">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--color-border)">
+              <img src="/images/clinic/fergus-1.jpg" alt="Fergus, Dr. Hendry's Irish Setter — the friendly clinic dog at Integrative Health Partners, Greenville SC" loading="lazy" width="200" height="200" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" />
+              <img src="/images/clinic/fergus-2.jpg" alt="Fergus smiling at Integrative Health Partners clinic — Dr. Hendry's dog and unofficial clinic mascot" loading="lazy" width="200" height="200" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" />
+            </div>
+            <div style="padding:0.75rem 1rem;background:var(--color-card)">
+              <p style="font-family:var(--font-heading);font-weight:700;font-size:0.9375rem;color:var(--color-foreground);margin:0 0 0.2rem">Meet Fergus</p>
+              <p style="font-size:0.8125rem;color:var(--color-muted);margin:0;line-height:1.5">Dr. Hendry's Irish Setter and unofficial clinic mascot. You may meet him on your visit.</p>
+            </div>
+          </div>
         </aside>
       </div>
     </div>
