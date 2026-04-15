@@ -1099,6 +1099,19 @@ export function renderService(svcSlug: string): string | null {
       </div>`
     : "";
 
+  const photosHtml = content && content.photos && content.photos.length > 0
+    ? `<div class="reveal" style="margin-top:2.5rem;margin-bottom:2rem">
+        <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1.25rem">Inside Our ${service.name} Suite</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem">
+          ${content.photos.map(p => `
+          <figure style="margin:0">
+            <img src="${p.src}" alt="${p.alt}" loading="lazy" width="600" height="400" style="width:100%;height:220px;object-fit:cover;border-radius:0.5rem;display:block" />
+            ${p.caption ? `<figcaption style="font-size:0.8125rem;color:var(--color-muted);margin-top:0.375rem;text-align:center">${p.caption}</figcaption>` : ""}
+          </figure>`).join("")}
+        </div>
+      </div>`
+    : "";
+
   return `${renderHead(service.metaTitle, service.metaDescription)}
 <body data-page="service">
   ${renderNav(false)}
@@ -1127,6 +1140,7 @@ export function renderService(svcSlug: string): string | null {
           ${timelineHtml}
           ${firstApptHtml}
           ${whyDrHendryHtml}
+          ${photosHtml}
 
           <h2 class="font-display reveal" style="font-size:1.75rem;margin-top:2.5rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
           ${faqItems.map(faq => `

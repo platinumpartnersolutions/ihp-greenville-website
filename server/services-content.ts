@@ -18,6 +18,7 @@ export interface ServiceContent {
   costInfo?: string;
   timeline?: { label: string; desc: string }[];
   relatedServiceSlugs?: string[];
+  photos?: { src: string; alt: string; caption?: string }[];
 }
 
 export const serviceContentMap = new Map<string, ServiceContent>();
@@ -2618,6 +2619,12 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
       { q: "Where is ozone steam sauna in Greenville, SC?", a: "Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156." },
     ],
     relatedServiceSlugs: ["ozone-therapy", "ozone-sauna-therapy", "ozone-detoxification", "medical-ozone-therapy", "infrared-sauna-therapy"],
+    photos: [
+      { src: "/images/clinic/ozone-sauna-pod.jpg", alt: "Ozone steam sauna cabinet at Integrative Health Partners, Greenville SC — patient sits inside with head outside the chamber", caption: "IHP's ozone steam sauna cabinet — head remains outside at all times" },
+      { src: "/images/clinic/ozone-sauna-controls.jpg", alt: "Digital control panel on the ozone steam sauna unit at IHP — programmable session settings with blue LCD display", caption: "Programmable digital controls for temperature and session timing" },
+      { src: "/images/clinic/ozone-sauna-room.jpg", alt: "Ozone therapy room at Integrative Health Partners with himalayan salt lamp and fresh towels — relaxing clinical environment", caption: "Dedicated ozone therapy room at IHP" },
+      { src: "/images/clinic/ozone-sauna-interior.jpg", alt: "Interior of the ozone sauna cabinet with blue chromotherapy LED lighting and ozone delivery system", caption: "Chromotherapy LED lighting inside the ozone chamber" },
+    ],
   },
   {
     slug: "ozone-sauna-therapy",
