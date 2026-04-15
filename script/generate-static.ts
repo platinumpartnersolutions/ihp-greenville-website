@@ -431,9 +431,12 @@ redirectLines.push("# 301 redirects — foundational link campaign anchor URLs (
 redirectLines.push("# Backlinks were built to old/wrong slugs — redirect to correct pages to recover link equity");
 redirectLines.push("/services/acupuncture  /services/acupuncture-therapy  301");
 redirectLines.push("/services/dry-needling  /services/dry-needling-therapy  301");
-redirectLines.push("/services/acupuncture-injection-therapy  /services/biopuncture-therapy  301");
 redirectLines.push("/services/integrative-functional-medicine  /services/integrative-medicine-consultation  301");
-redirectLines.push("/services/body-contour  /services/cosmetic-acupuncture  301");
+redirectLines.push("# NOTE: /services/body-contour and /services/acupuncture-injection-therapy");
+redirectLines.push("# are real service pages — served as static files, no redirect needed");
+redirectLines.push("");
+redirectLines.push("# 301 redirect — dsnews.co.uk guest post links to wrong path for FM hub");
+redirectLines.push("/services/functional-medicine-greenville-sc  /functional-medicine-greenville-sc  301");
 redirectLines.push("");
 redirectLines.push("# 404 catch-all");
 redirectLines.push("/*  /404.html  404");

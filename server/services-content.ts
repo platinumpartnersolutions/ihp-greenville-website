@@ -2942,6 +2942,81 @@ Back pain is not a single condition — it encompasses herniated disc pain (radi
     ],
     relatedServiceSlugs: ["nutritional-counseling", "nutrition-therapy", "whole-food-supplements", "functional-medicine-consultation", "holistic-health-assessment"],
   },
+  {
+    slug: "body-contour",
+    opening: `Ultimate Body Contour at Integrative Health Partners in Greenville, SC combines two powerful technologies in a single FDA-cleared device: low-frequency ultrasound and radio frequency (RF) energy. This non-invasive treatment is designed to reduce abdominal circumference, smooth cellulite, tighten and tone skin, and sculpt targeted areas of the body — without surgery, needles, or recovery time.
+
+Unlike devices that rely solely on heat to affect fat tissue, Ultimate Contour's low-frequency ultrasound mechanically disrupts fat cells at a cellular level, providing precise, controlled results with less energy and greater patient comfort. The RF component works simultaneously to tighten and firm the overlying skin — addressing both fat volume and skin laxity in the same session. Many patients notice measurable circumference reduction after their very first treatment.
+
+At Integrative Health Partners, body contouring is not offered as a standalone cosmetic service. Dr. Hendry integrates it within a broader functional medicine and nutritional framework — so the results you achieve are supported by the foundational changes happening inside your body at the same time.`,
+    howItWorks: `Before beginning a body contour series, Dr. Hendry conducts a consultation to assess your goals, relevant health history, and any contraindications. Treatment areas are mapped and baseline measurements are taken. A typical series consists of 6 to 12 sessions, spaced approximately one week apart, with each session targeting the same area(s) to build progressive results.
+
+During each session, a conductive gel is applied to the treatment area and the device handpiece is moved in slow, methodical passes over the skin. The low-frequency ultrasound creates a gentle vibration sensation — distinctly different from the heat-based discomfort associated with some other body contouring modalities. The RF component may produce mild warmth. Most patients describe the experience as relaxing. Each session runs approximately 30 to 60 minutes depending on the area(s) treated.
+
+After treatment, no downtime is required. You may resume normal activities immediately. Staying well-hydrated supports the body's natural clearance of disrupted fat cell contents. Results build progressively across the series, with many patients seeing measurable circumference reductions and visibly smoother skin texture within the first few sessions.`,
+    howItWorksSteps: [
+      "Initial consultation: goals, health history, contraindication screening, and baseline measurements",
+      "Treatment area mapping and gel application",
+      "Low-frequency ultrasound passes: mechanical disruption of fat cell membranes",
+      "Simultaneous radio frequency energy: skin tightening and collagen stimulation",
+      "Post-treatment measurements and hydration guidance",
+      "Typically 6–12 sessions, spaced weekly, for full results",
+      "Optional integration with nutritional and metabolic support for sustained outcomes"
+    ],
+    conditionsTreated: [
+      { name: "Abdominal Circumference Reduction", slug: "weight-loss-support" },
+      { name: "Cellulite", slug: "weight-loss-support" },
+      { name: "Loose or Lax Skin", slug: "weight-loss-support" },
+      { name: "Body Sculpting", slug: "weight-loss-support" },
+      { name: "Post-Pregnancy Body Changes", slug: "weight-loss-support" },
+    ],
+    firstAppointment: `Your first body contour appointment includes a thorough consultation before any treatment begins. Wear comfortable clothing that allows easy access to the treatment area. Drink plenty of water on the day of your appointment — good hydration supports treatment efficacy and the body's post-treatment clearance processes. Avoid applying lotions or oils to the treatment area before your session. Bring any questions about your goals or concerns; Dr. Hendry will review what is and is not realistic to expect and give you an honest timeline based on your presentation.`,
+    whyDrHendry: `At IHP, body contouring is embedded within an integrative healthcare model — not offered as an isolated cosmetic service. Dr. Hendry's functional medicine background means that every patient who begins a body contour series may also benefit from metabolic assessment, nutritional guidance, and targeted supplementation to support sustainable results. Addressing surface-level body composition changes while simultaneously supporting hormonal balance, blood sugar regulation, and systemic inflammation is a fundamentally different approach from a medical spa offering the same device. The result is not just a smaller waistline measurement — it is a body that is better equipped to maintain that change.`,
+    faqs: [
+      { q: "How many sessions do I need?", a: "Most patients complete a series of 6 to 12 sessions spaced approximately one week apart. Results build progressively — each session adds to the outcomes of the last. The exact number depends on your goals, the area(s) being treated, and how your body responds. Dr. Hendry will give you a realistic estimate at your consultation." },
+      { q: "Is Ultimate Contour painful?", a: "No. Most patients describe the treatment as comfortable — the sensation is a gentle vibration from the ultrasound component and mild warmth from the radio frequency. There is no discomfort, bruising, or tenderness afterward. You can return to normal activities immediately following each session." },
+      { q: "How is this different from CoolSculpting?", a: "CoolSculpting uses controlled freezing (cryolipolysis) to destroy fat cells. Ultimate Contour uses low-frequency ultrasound to mechanically disrupt fat cells — a different mechanism that does not rely on freezing tissue. Because it does not use extreme cold, there is no risk of paradoxical adipose hyperplasia (a rare but serious CoolSculpting complication) and no post-treatment numbness. Ultimate Contour is also FDA-cleared and simultaneously tightens skin via radio frequency, which CoolSculpting does not do." },
+      { q: "Where on the body can Ultimate Contour be used?", a: "Ultimate Contour may be used on the abdomen, flanks (love handles), thighs, buttocks, upper arms, and the face and jawline for contouring and tightening. Treatment areas are selected based on your individual goals and assessed at your consultation." },
+      { q: "When will I see results?", a: "Many patients notice measurable circumference reduction after their first session. Visible skin tightening and cellulite smoothing typically become more apparent over the course of the series. Full results are generally assessed 4 to 6 weeks after completing the full treatment series, as the body continues processing disrupted fat cells and producing new collagen." },
+    ],
+    relatedServiceSlugs: ["weight-loss-support", "holistic-health-assessment", "functional-medicine-consultation", "natural-diabetes-support", "cosmetic-acupuncture"],
+  },
+  {
+    slug: "acupuncture-injection-therapy",
+    opening: `Acupuncture Injection Therapy (AIT) is a specialized clinical technique that combines the diagnostic precision of acupuncture point selection with the direct therapeutic delivery of injectable compounds. Where traditional acupuncture uses a solid filiform needle to stimulate a point, AIT uses a fine hypodermic needle to deliver a therapeutic substance — such as vitamin B12, amino acids, or other nutritional and regenerative compounds — directly into the acupoint, trigger point, or area of dysfunction.
+
+At Integrative Health Partners in Greenville, SC, Dr. William Hendry performs AIT as part of his Injection Therapy certification through the American Association of Orthopaedic Therapists (AAOT). His 25+ years of needle expertise, combined with formal injection therapy training and hospital privileges at Prisma Health, make him exceptionally qualified to perform this technique safely and effectively. AIT is particularly valuable for patients with chronic pain, neurological symptoms, energy deficiency, or musculoskeletal conditions where direct nutrient delivery and acupoint stimulation may accelerate healing beyond what needling alone can achieve.`,
+    howItWorks: `AIT begins with a comprehensive assessment — Dr. Hendry evaluates your pattern of imbalance using both Chinese medical and Western functional frameworks, identifying which points, trigger points, or tissue zones are appropriate for injection and which therapeutic compound best matches your presentation. This diagnostic precision distinguishes AIT from generic vitamin injection services.
+
+The injection itself uses a very fine gauge needle — much smaller than a standard hypodermic — to deliver small volumes of the selected compound (typically 0.1 to 0.5 mL per point) at multiple sites in a single session. The procedure is minimally uncomfortable: patients typically describe a brief pinch at each injection site, similar to a routine blood draw. Sessions run 30 to 45 minutes. A post-treatment protocol is provided, and Dr. Hendry monitors your response across sessions to adjust the compound selection and point strategy as needed.`,
+    howItWorksSteps: [
+      "Comprehensive diagnostic assessment: Chinese medical pattern and functional medicine evaluation",
+      "Identification of target acupoints, trigger points, or tissue zones for injection",
+      "Selection of therapeutic compound matched to your specific presentation",
+      "Precise injection of small volumes at each target site using fine-gauge needle",
+      "Post-treatment protocol: hydration, movement, and activity guidance",
+      "Response monitoring and compound/point strategy adjustment across sessions",
+    ],
+    conditionsTreated: [
+      { name: "Chronic Pain", slug: "back-pain" },
+      { name: "Neuropathy", slug: "neuropathy" },
+      { name: "Muscle Trigger Points", slug: "trigger-point-dry-needling" },
+      { name: "Energy Deficiency & Fatigue", slug: "chronic-fatigue" },
+      { name: "Vitamin B12 Deficiency", slug: "chronic-fatigue" },
+      { name: "Sports Injuries", slug: "sports-injuries" },
+      { name: "Joint Pain", slug: "hip-pain" },
+    ],
+    firstAppointment: `Inform Dr. Hendry of all current medications — particularly blood thinners or anticoagulants — and any known allergies, including allergies to anesthetics or injectable compounds. Wear loose clothing for easy access to treatment sites. Avoid anti-inflammatory medications (ibuprofen, aspirin, naproxen) for 24 hours before and after treatment where possible, as they may blunt the therapeutic response. Mild temporary soreness or local warmth at injection sites is normal and typically resolves within 24 to 48 hours.`,
+    whyDrHendry: `Dr. Hendry holds formal Injection Therapy certification and is a member of the American Association of Orthopaedic Therapists (AAOT) — a credential that requires specialized training in the safe administration of therapeutic injectables, anatomy of injection sites, and clinical protocols for injection therapy. Combined with his Doctor of Acupuncture and Oriental Medicine (DAOM) degree, his 25+ years of clinical needle expertise, and his 9-year tenure on staff at Prisma Health with hospital privileges, he brings a level of anatomical precision and clinical judgment to injection therapy that is rare in any setting. His published research on needling as an alternative to opioids in emergency pain management further demonstrates his ability to apply injectable and needle-based therapies at the highest clinical standard.`,
+    faqs: [
+      { q: "What is injected during AIT?", a: "The compound depends on your specific condition and presentation. Dr. Hendry may use vitamin B12, amino acid complexes, procaine, or other therapeutic and nutritional compounds. He selects the appropriate substance based on your Chinese medical pattern, functional medicine assessment, and treatment goals, and discusses the rationale with you before every session." },
+      { q: "Is AIT the same as biopuncture?", a: "No — though both are injection-based acupuncture techniques, they use different compounds and address different indications. Biopuncture uses homeopathic biological agents (such as Traumeel or Zeel) to stimulate the body's self-regulatory healing response. AIT at IHP uses nutritional and therapeutic compounds (such as B12, amino acids, and procaine) at acupoints and trigger points. The two techniques can be complementary and may be used together within a treatment plan." },
+      { q: "Does AIT hurt?", a: "Most patients experience a brief pinch at each injection site — similar in sensation to a routine injection or blood draw. Because Dr. Hendry uses very fine gauge needles and injects small volumes at each point, the procedure is generally well-tolerated. Any post-treatment soreness at injection sites is typically mild and resolves within 24 to 48 hours." },
+      { q: "How many AIT treatments are needed?", a: "The number of sessions depends on the condition being treated. Acute issues such as a recent sports injury or single-point trigger point may respond in 2 to 4 sessions. Chronic conditions — including long-standing neuropathy, persistent fatigue, or multi-site pain — typically require 6 to 8 sessions, with response monitored and the protocol adjusted as treatment progresses." },
+      { q: "Is Dr. Hendry certified for injection therapy?", a: "Yes. Dr. Hendry holds formal Injection Therapy certification and is an active member of the American Association of Orthopaedic Therapists (AAOT), which requires specialized training in therapeutic injection techniques. His hospital privileges at Prisma Health and 25+ years of clinical needle expertise further support his qualifications to perform AIT safely and effectively." },
+    ],
+    relatedServiceSlugs: ["biopuncture-therapy", "biopuncture-injections", "acupuncture-therapy", "dry-needling-therapy", "trigger-point-dry-needling"],
+  },
 ];
 
 contents.forEach(c => serviceContentMap.set(c.slug, c));
