@@ -427,6 +427,14 @@ redirectLines.push("");
 redirectLines.push("# 301 redirect — digestive-issues → ibs-gut-issues");
 redirectLines.push("/conditions/digestive-issues  /conditions/ibs-gut-issues  301");
 redirectLines.push("");
+redirectLines.push("# 301 redirects — foundational link campaign anchor URLs (Mar 2026)");
+redirectLines.push("# Backlinks were built to old/wrong slugs — redirect to correct pages to recover link equity");
+redirectLines.push("/services/acupuncture  /services/acupuncture-therapy  301");
+redirectLines.push("/services/dry-needling  /services/dry-needling-therapy  301");
+redirectLines.push("/services/acupuncture-injection-therapy  /services/biopuncture-therapy  301");
+redirectLines.push("/services/integrative-functional-medicine  /services/integrative-medicine-consultation  301");
+redirectLines.push("/services/body-contour  /services/cosmetic-acupuncture  301");
+redirectLines.push("");
 redirectLines.push("# 404 catch-all");
 redirectLines.push("/*  /404.html  404");
 
