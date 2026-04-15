@@ -1976,10 +1976,10 @@ export function renderAbout(): string {
         <aside class="sidebar">
           <div class="sidebar-card" style="padding:0;overflow:hidden">
             <div class="sidebar-photo">
-              <img src="/images/clinic/waiting.jpg" alt="Waiting area at Integrative Health Partners — peaceful setting with traditional Chinese landscape art" loading="lazy" width="400" height="180" />
+              <img src="/images/clinic/lamp.jpg" alt="Gooseneck exterior lamp above the entrance of Integrative Health Partners clinic at 319 Wade Hampton Blvd, Greenville SC" loading="lazy" width="400" height="180" />
             </div>
             <div style="padding:0.875rem 1.25rem">
-              <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.6">Our welcoming waiting area at 319 Wade Hampton Blvd, Ste A, Greenville, SC.</p>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.6">319 Wade Hampton Blvd, Ste A, Greenville, SC — look for the brick building with the gooseneck lamp.</p>
             </div>
           </div>
 
@@ -2364,11 +2364,21 @@ export function renderContact(): string {
             </iframe>
           </div>
 
-          <!-- Clinic Photo -->
-          <figure class="clinic-photo-card reveal" style="margin-bottom:2rem">
-            <img src="/images/clinic/waiting.jpg" alt="Waiting area at Integrative Health Partners — comfortable and decorated with traditional Chinese landscape art" loading="lazy" width="800" height="260" />
-            <figcaption>Our welcoming waiting area — a peaceful environment to begin your healing journey at Integrative Health Partners, Greenville, SC.</figcaption>
-          </figure>
+          <!-- Clinic Exterior Photos -->
+          <div class="reveal" style="margin-bottom:2rem">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem">
+              <figure style="margin:0">
+                <img src="/images/clinic/sign.jpg" alt="Integrative Health Partners sign at 319 Wade Hampton Blvd, Greenville SC — IHP logo with phone number 864-365-6156" loading="lazy" width="600" height="450" style="width:100%;height:200px;object-fit:cover;border-radius:0.5rem;display:block" />
+              </figure>
+              <figure style="margin:0">
+                <img src="/images/clinic/entrance.jpg" alt="Front entrance of Integrative Health Partners clinic in Greenville, SC — glass door with gooseneck lamp and covered entryway" loading="lazy" width="600" height="450" style="width:100%;height:200px;object-fit:cover;border-radius:0.5rem;display:block" />
+              </figure>
+            </div>
+            <figure style="margin:0">
+              <img src="/images/clinic/entrance-wide.jpg" alt="Exterior of Integrative Health Partners at 319 Wade Hampton Blvd, Greenville SC — brick building with clinic entrance and surrounding greenery" loading="lazy" width="1200" height="450" style="width:100%;height:200px;object-fit:cover;border-radius:0.5rem;display:block" />
+              <figcaption style="font-size:0.8125rem;color:var(--color-muted);margin-top:0.5rem;text-align:center">319 Wade Hampton Blvd, Ste A, Greenville, SC — look for the IHP sign on the brick building</figcaption>
+            </figure>
+          </div>
 
           <!-- Driving Directions -->
           <div style="background:var(--color-card);border:1px solid var(--color-border);border-radius:0.75rem;padding:1.75rem;margin-bottom:2rem" class="reveal">

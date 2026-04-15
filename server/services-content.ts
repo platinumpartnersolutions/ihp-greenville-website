@@ -303,6 +303,10 @@ He then modifies the base formula by adding or subtracting individual herbs to a
       { q: "Where can I get Chinese herbal medicine in Greenville, SC?", a: "Integrative Health Partners (319 Wade Hampton Blvd, Ste A, Greenville, SC 29609) offers Chinese herbal medicine consultations and in-house dispensing. Call (864) 365-6156 to schedule an appointment with Dr. William Hendry." },
     ],
     relatedServiceSlugs: ["herbal-consultation", "herbal-supplements", "custom-herbal-formulations", "functional-medicine-consultation", "acupuncture-therapy"],
+    photos: [
+      { src: "/images/clinic/pharmacy-shelves.jpg", alt: "In-house professional Chinese herbal pharmacy at Integrative Health Partners — hundreds of pharmaceutical-grade herb formulas dispensed on-site in Greenville, SC", caption: "IHP's full in-house herbal pharmacy — formulas dispensed at your appointment" },
+      { src: "/images/clinic/chinese-plate.jpg", alt: "Traditional Chinese blue and white porcelain decorative plate at Integrative Health Partners clinic — reflecting the practice's roots in classical Chinese medicine", caption: "Traditional Chinese porcelain at IHP — where 2,000 years of medicine meets modern science" },
+    ],
   },
 
   /* ============================================================
