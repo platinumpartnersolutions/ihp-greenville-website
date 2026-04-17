@@ -398,14 +398,7 @@ function getServiceSEO(slug: string): PageSEO | null {
       "description": service.metaDescription,
       "howPerformed": `${service.name} performed by Dr. William Hendry, DAOM at Integrative Health Partners in Greenville, SC`,
       "bodyLocation": "Varies by condition",
-      "procedureType": "https://schema.org/NoninvasiveProcedure",
-      "dateModified": today,
-      "location": {
-        "@type": "MedicalBusiness",
-        "name": NAP.name,
-        "address": { "@type": "PostalAddress", "streetAddress": NAP.streetAddress, "addressLocality": NAP.city, "addressRegion": NAP.state, "postalCode": NAP.postalCode },
-        "telephone": NAP.phoneRaw
-      }
+      "procedureType": "https://schema.org/NoninvasiveProcedure"
     },
     {
       "@context": "https://schema.org",
@@ -641,7 +634,6 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
 
 function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: string, catName: string, faqs: { q: string; a: string }[]): PageSEO {
   const pageUrl = `${BASE_URL}/conditions/${slug}/`;
-  const today = new Date().toISOString().split('T')[0];
   return {
     title: `${name}: Causes & Care | IHP Greenville`,
     description: trim160(desc),
@@ -654,7 +646,6 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
         "name": name,
         "url": pageUrl,
         "description": desc,
-        "dateModified": today,
         "possibleTreatment": {
           "@type": "MedicalTherapy",
           "name": "Acupuncture and Functional Medicine",

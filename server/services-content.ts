@@ -2982,11 +2982,11 @@ After treatment, no downtime is required. You may resume normal activities immed
       "Optional integration with nutritional and metabolic support for sustained outcomes"
     ],
     conditionsTreated: [
-      { name: "Abdominal Circumference Reduction", slug: "weight-loss-support" },
-      { name: "Cellulite", slug: "weight-loss-support" },
-      { name: "Loose or Lax Skin", slug: "weight-loss-support" },
-      { name: "Body Sculpting", slug: "weight-loss-support" },
-      { name: "Post-Pregnancy Body Changes", slug: "weight-loss-support" },
+      { name: "Abdominal Circumference Reduction", slug: "weight-issues" },
+      { name: "Cellulite", slug: "weight-issues" },
+      { name: "Loose or Lax Skin", slug: "weight-issues" },
+      { name: "Body Sculpting", slug: "weight-issues" },
+      { name: "Post-Pregnancy Body Changes", slug: "weight-issues" },
     ],
     firstAppointment: `Your first body contour appointment includes a thorough consultation before any treatment begins. Wear comfortable clothing that allows easy access to the treatment area. Drink plenty of water on the day of your appointment — good hydration supports treatment efficacy and the body's post-treatment clearance processes. Avoid applying lotions or oils to the treatment area before your session. Bring any questions about your goals or concerns; Dr. Hendry will review what is and is not realistic to expect and give you an honest timeline based on your presentation.`,
     whyDrHendry: `At IHP, body contouring is embedded within an integrative healthcare model — not offered as an isolated cosmetic service. Dr. Hendry's functional medicine background means that every patient who begins a body contour series may also benefit from metabolic assessment, nutritional guidance, and targeted supplementation to support sustainable results. Addressing surface-level body composition changes while simultaneously supporting hormonal balance, blood sugar regulation, and systemic inflammation is a fundamentally different approach from a medical spa offering the same device. The result is not just a smaller waistline measurement — it is a body that is better equipped to maintain that change.`,
@@ -3018,7 +3018,7 @@ The injection itself uses a very fine gauge needle — much smaller than a stand
     conditionsTreated: [
       { name: "Chronic Pain", slug: "back-pain" },
       { name: "Neuropathy", slug: "neuropathy" },
-      { name: "Muscle Trigger Points", slug: "trigger-point-dry-needling" },
+      { name: "Muscle Trigger Points", slug: "fibromyalgia" },
       { name: "Energy Deficiency & Fatigue", slug: "chronic-fatigue" },
       { name: "Vitamin B12 Deficiency", slug: "chronic-fatigue" },
       { name: "Sports Injuries", slug: "sports-injuries" },
