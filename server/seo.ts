@@ -388,7 +388,6 @@ function getServiceSEO(slug: string): PageSEO | null {
         { q: `Where is ${service.name} available in Greenville, SC?`, a: `${service.name} is available at Integrative Health Partners, 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156.` },
       ];
 
-  const today = new Date().toISOString().split('T')[0];
   const schemas: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
@@ -504,11 +503,6 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
           "url": `${BASE_URL}/dr-hendry/`,
           "sameAs": ["https://www.researchgate.net/profile/William-Hendry-4"]
         },
-        "creator": {
-          "@type": "Person",
-          "name": "Dr. William Hendry, DAOM",
-          "url": `${BASE_URL}/dr-hendry/`
-        },
         "publisher": {
           "@type": "Organization",
           "name": NAP.name,
@@ -546,7 +540,7 @@ function getConditionsHubSEO(): PageSEO {
           "@type": "ListItem",
           "position": i + 1,
           "name": c.name,
-          "url": `${BASE_URL}/conditions/${c.slug}/`
+          "item": `${BASE_URL}/conditions/${c.slug}/`
         }))
       }
     ]
@@ -606,7 +600,7 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
         "@type": "ListItem",
         "position": i + 1,
         "name": c.name,
-        "url": `${BASE_URL}/conditions/${c.slug}/`
+        "item": `${BASE_URL}/conditions/${c.slug}/`
       }))
     }
   ];
@@ -1005,7 +999,7 @@ export function getSEOForUrl(url: string): PageSEO | null {
             "@type": "ListItem",
             "position": i + 1,
             "name": s.name,
-            "url": `${BASE_URL}/services/${s.slug}/`
+            "item": `${BASE_URL}/services/${s.slug}/`
           }))
         }
       ]
