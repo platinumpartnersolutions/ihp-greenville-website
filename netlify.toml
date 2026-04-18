@@ -5,6 +5,19 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Force HTTP → HTTPS (eliminates the split index Google has between http:// and https://)
+[[redirects]]
+  from = "http://www.ihpgreenville.com/*"
+  to = "https://www.ihpgreenville.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://ihpgreenville.com/*"
+  to = "https://www.ihpgreenville.com/:splat"
+  status = 301
+  force = true
+
 # Proxy /admin to Railway server (keeps URL as ihpgreenville.com/admin)
 [[redirects]]
   from = "/admin"
