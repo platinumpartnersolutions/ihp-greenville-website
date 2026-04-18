@@ -565,8 +565,25 @@ export function renderHome(): string {
     </section>
 
     <!-- Philosophy / Approach Section -->
-    <section class="section" aria-labelledby="approach-heading">
-      <div class="container">
+    <section class="section section--botanical" aria-labelledby="approach-heading">
+      <!-- Botanical corner: drooping branch top-right -->
+      <svg width="340" height="420" viewBox="0 0 340 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;top:0;right:0;pointer-events:none;opacity:0.09;z-index:0">
+        <path d="M340 0 C300 30 260 55 220 90 C180 125 155 165 140 210 C125 255 128 300 122 380" stroke="#2F814A" stroke-width="1.5"/>
+        <ellipse cx="270" cy="52" rx="30" ry="13" fill="#2F814A" transform="rotate(-38,270,52)"/>
+        <ellipse cx="228" cy="98" rx="32" ry="14" fill="#2F814A" transform="rotate(-12,228,98)"/>
+        <ellipse cx="194" cy="145" rx="28" ry="12" fill="#2F814A" transform="rotate(22,194,145)"/>
+        <ellipse cx="168" cy="195" rx="29" ry="13" fill="#2F814A" transform="rotate(-28,168,195)"/>
+        <ellipse cx="150" cy="248" rx="26" ry="11" fill="#2F814A" transform="rotate(14,150,248)"/>
+        <ellipse cx="138" cy="302" rx="22" ry="10" fill="#2F814A" transform="rotate(-20,138,302)"/>
+        <ellipse cx="300" cy="28" rx="18" ry="8" fill="#2F814A" transform="rotate(18,300,28)"/>
+        <ellipse cx="248" cy="74" rx="19" ry="8" fill="#2F814A" transform="rotate(52,248,74)"/>
+        <ellipse cx="208" cy="122" rx="18" ry="8" fill="#2F814A" transform="rotate(-48,208,122)"/>
+        <ellipse cx="179" cy="172" rx="17" ry="7" fill="#2F814A" transform="rotate(38,179,172)"/>
+        <circle cx="284" cy="44" r="4.5" fill="#2F814A" opacity="0.6"/>
+        <circle cx="216" cy="110" r="4" fill="#2F814A" opacity="0.6"/>
+        <circle cx="182" cy="158" r="3.5" fill="#2F814A" opacity="0.6"/>
+      </svg>
+      <div class="container" style="position:relative;z-index:1">
         <div style="max-width:56rem;margin-inline:auto">
           <div class="text-center" style="margin-bottom:3rem">
             <span class="section-label reveal">Our Philosophy</span>
@@ -609,8 +626,26 @@ export function renderHome(): string {
     </section>
 
     <!-- Section 2: Conditions We Treat -->
-    <section class="section" aria-labelledby="conditions-heading">
-      <div class="container">
+    <section class="section section--botanical" aria-labelledby="conditions-heading">
+      <!-- Botanical corner: rising branch bottom-left -->
+      <svg width="310" height="400" viewBox="0 0 310 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;bottom:0;left:0;pointer-events:none;opacity:0.09;z-index:0">
+        <path d="M0 400 C35 355 75 318 110 278 C145 238 172 195 195 150 C218 105 228 65 248 0" stroke="#2F814A" stroke-width="1.5"/>
+        <ellipse cx="48" cy="366" rx="30" ry="13" fill="#2F814A" transform="rotate(32,48,366)"/>
+        <ellipse cx="88" cy="325" rx="32" ry="14" fill="#2F814A" transform="rotate(-18,88,325)"/>
+        <ellipse cx="122" cy="283" rx="28" ry="12" fill="#2F814A" transform="rotate(14,122,283)"/>
+        <ellipse cx="152" cy="240" rx="29" ry="13" fill="#2F814A" transform="rotate(-32,152,240)"/>
+        <ellipse cx="178" cy="195" rx="26" ry="11" fill="#2F814A" transform="rotate(18,178,195)"/>
+        <ellipse cx="202" cy="148" rx="24" ry="10" fill="#2F814A" transform="rotate(-22,202,148)"/>
+        <ellipse cx="224" cy="100" rx="22" ry="9" fill="#2F814A" transform="rotate(12,224,100)"/>
+        <ellipse cx="20" cy="384" rx="18" ry="8" fill="#2F814A" transform="rotate(-25,20,384)"/>
+        <ellipse cx="68" cy="346" rx="19" ry="8" fill="#2F814A" transform="rotate(55,68,346)"/>
+        <ellipse cx="105" cy="302" rx="18" ry="8" fill="#2F814A" transform="rotate(-45,105,302)"/>
+        <ellipse cx="138" cy="260" rx="17" ry="7" fill="#2F814A" transform="rotate(40,138,260)"/>
+        <circle cx="65" cy="335" r="4.5" fill="#2F814A" opacity="0.6"/>
+        <circle cx="138" cy="270" r="4" fill="#2F814A" opacity="0.6"/>
+        <circle cx="190" cy="170" r="3.5" fill="#2F814A" opacity="0.6"/>
+      </svg>
+      <div class="container" style="position:relative;z-index:1">
         <div class="text-center" style="margin-bottom:3rem">
           <span class="section-label reveal">What We Help With</span>
           <h2 class="section-title reveal reveal-delay-1" id="conditions-heading">Conditions We Treat in Greenville, SC</h2>
