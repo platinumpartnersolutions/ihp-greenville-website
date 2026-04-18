@@ -206,7 +206,7 @@ const categoryMap = new Map<string, CategoryData>();
 
 const svcDescTemplates: Record<string, (name: string) => string> = {
   "acupuncturist-services":
-    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — NCCAOM-certified, 25+ yrs experience, hospital-credentialed. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — NCBAHM-certified, 25+ yrs experience, hospital-credentialed. Call (864) 365-6156.`,
   "acupuncture-clinic-services":
     (n) => `${n} at IHP Greenville — expert acupuncture for chronic pain and musculoskeletal issues. Dr. Hendry, DAOM. Call (864) 365-6156.`,
   "chinese-medicine-clinic-services":
@@ -309,10 +309,10 @@ function getHomeSEO(): PageSEO {
           "givenName": "William",
           "familyName": "Hendry",
           "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
-          "description": "DAOM with 25 years of experience in Chinese herbal medicine and 16 years serving Greenville SC. Hospital privileges at Prisma Health. Co-author of a 3-year clinical study on acupuncture as an opioid alternative. NCCAOM Diplomate of Oriental Medicine.",
+          "description": "DAOM with 25 years of experience in Chinese herbal medicine and 16 years serving Greenville SC. Hospital privileges at Prisma Health. Co-author of a 3-year clinical study on acupuncture as an opioid alternative. NCBAHM Diplomate of Oriental Medicine.",
           "hasCredential": [
             { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Doctor of Acupuncture and Oriental Medicine (DAOM)" },
-            { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "NCCAOM Diplomate of Oriental Medicine" }
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "NCBAHM Diplomate of Oriental Medicine" }
           ],
           "worksFor": { "@type": "Organization", "name": "Integrative Health Partners" }
         },
@@ -343,7 +343,7 @@ function getHomeSEO(): PageSEO {
         "@type": "Person",
         "name": "Dr. William Hendry",
         "honorificPrefix": "Dr.",
-        "honorificSuffix": "DAOM, Dipl. O.M. (NCCAOM)®",
+        "honorificSuffix": "DAOM, Dipl. O.M. (NCBAHM)®",
         "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
         "worksFor": { "@type": "Organization", "name": NAP.name },
         "memberOf": [
@@ -352,7 +352,7 @@ function getHomeSEO(): PageSEO {
         ],
         "hasCredential": [
           { "@type": "EducationalOccupationalCredential", "name": "Doctor of Acupuncture and Oriental Medicine (DAOM)", "recognizedBy": { "@type": "Organization", "name": "East West College of Natural Medicine" } },
-          { "@type": "EducationalOccupationalCredential", "name": "Diplomate of Oriental Medicine", "identifier": "114498", "recognizedBy": { "@type": "Organization", "name": "NCCAOM" } }
+          { "@type": "EducationalOccupationalCredential", "name": "Diplomate of Oriental Medicine", "identifier": "114498", "recognizedBy": { "@type": "Organization", "name": "NCBAHM" } }
         ],
         "identifier": [
           { "@type": "PropertyValue", "name": "NPI", "value": "1417184045" },
@@ -813,7 +813,7 @@ function getFunctionalMedicineSEO(): PageSEO {
           { "@type": "Question", "name": "Does insurance cover functional medicine?", "acceptedAnswer": { "@type": "Answer", "text": "Integrative Health Partners is a cash-pay practice. We provide itemized superbills for potential out-of-network reimbursement. Standard lab work is often covered by insurance; the consultation fee typically is not." } },
           { "@type": "Question", "name": "How long before I see results from functional medicine?", "acceptedAnswer": { "@type": "Answer", "text": "Most patients notice meaningful improvement within 6–10 weeks of following a complete protocol. Longstanding chronic conditions typically require 3–6 months to shift substantially." } },
           { "@type": "Question", "name": "What lab tests does functional medicine use that my GP doesn't order?", "acceptedAnswer": { "@type": "Answer", "text": "Full thyroid panels (TSH, free T3, free T4, reverse T3, TPO and TG antibodies), fasting insulin and HOMA-IR, 4-point cortisol rhythm, complete sex hormone panels, advanced inflammatory markers, gut microbiome analysis, intestinal permeability testing, food sensitivity panels, and nutritional deficiency screening." } },
-          { "@type": "Question", "name": "Is Dr. Hendry a medical doctor?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) — not an MD degree. He is NCCAOM board-certified (#114498) and practiced with hospital privileges at Prisma Health for nine years, participating in clinical research on needle-based alternatives to opioids." } },
+          { "@type": "Question", "name": "Is Dr. Hendry a medical doctor?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) — not an MD degree. He is NCBAHM board-certified (#114498) and practiced with hospital privileges at Prisma Health for nine years, participating in clinical research on needle-based alternatives to opioids." } },
           { "@type": "Question", "name": "What is the downside of functional medicine?", "acceptedAnswer": { "@type": "Answer", "text": "Functional medicine is almost always cash-pay — insurance does not cover the consultation, and specialty functional lab panels are often not reimbursable. The time commitment is real: initial consultations run 60–90 minutes, follow-ups are regular, and meaningful improvement typically requires 3–6 months of consistent effort. This approach also demands active participation — dietary changes, sleep optimization, and lifestyle modifications are core to the protocol, not optional extras. Functional medicine is not appropriate for acute emergencies or conditions requiring immediate medical or surgical intervention." } },
           { "@type": "Question", "name": "What is the average cost of a functional medicine doctor?", "acceptedAnswer": { "@type": "Answer", "text": "Integrative Health Partners is a cash-pay practice. Initial new patient consultations are longer and more comprehensive than a standard office visit; follow-up appointments are shorter and priced accordingly. Lab costs vary depending on which panels are ordered. We provide itemized superbills so you can submit for out-of-network reimbursement if you carry PPO coverage. Call (864) 365-6156 for current pricing." } },
           { "@type": "Question", "name": "Do functional medicine doctors treat diabetes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — type 2 diabetes and insulin resistance are well-suited to the functional medicine approach, which targets underlying drivers: chronic inflammation, gut microbiome disruption, sleep dysregulation, and nutrient insufficiencies. We measure fasting insulin and HOMA-IR to detect insulin resistance before blood sugar becomes diagnostic. Protocols include dietary intervention, targeted supplementation, and lifestyle modification — often alongside conventional medications rather than in place of them. Type 1 diabetes has a different autoimmune origin, but functional medicine can still address immune and gut permeability factors associated with autoimmune progression." } }
@@ -873,7 +873,7 @@ function getAboutSEO(): PageSEO {
 function getDrHendrySEO(): PageSEO {
   return {
     title: "Dr. William Hendry, DAOM | Acupuncturist Greenville SC | IHP",
-    description: "Dr. William Hendry, DAOM — NCCAOM #114498, 25+ yrs clinical exp. Co-author: Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
+    description: "Dr. William Hendry, DAOM — NCBAHM #114498, 25+ yrs clinical exp. Co-author: Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
     canonical: `${BASE_URL}/dr-hendry/`,
     ogType: "profile",
     schemas: [
@@ -882,7 +882,7 @@ function getDrHendrySEO(): PageSEO {
         "@type": "Person",
         "name": "Dr. William Hendry",
         "honorificPrefix": "Dr.",
-        "honorificSuffix": "DAOM, Dipl. O.M. (NCCAOM)®",
+        "honorificSuffix": "DAOM, Dipl. O.M. (NCBAHM)®",
         "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
         "description": "Dr. William Hendry is a board-certified acupuncturist and functional medicine practitioner in Greenville, SC with 25+ years of clinical experience, hospital privileges at Prisma Health, and 5 peer-reviewed research publications.",
         "worksFor": {
@@ -910,7 +910,7 @@ function getDrHendrySEO(): PageSEO {
             "@type": "EducationalOccupationalCredential",
             "name": "Diplomate of Oriental Medicine (Dipl. O.M.)",
             "credentialCategory": "certification",
-            "recognizedBy": { "@type": "Organization", "name": "NCCAOM", "url": "https://www.nccaom.org" },
+            "recognizedBy": { "@type": "Organization", "name": "NCBAHM", "url": "https://www.nccaom.org" },
             "identifier": "114498"
           }
         ],
@@ -918,7 +918,7 @@ function getDrHendrySEO(): PageSEO {
           { "@type": "PropertyValue", "name": "NPI", "value": "1417184045" },
           { "@type": "PropertyValue", "name": "SC License", "value": "ACUP141" },
           { "@type": "PropertyValue", "name": "FL License", "value": "AP2646" },
-          { "@type": "PropertyValue", "name": "NCCAOM", "value": "114498" }
+          { "@type": "PropertyValue", "name": "NCBAHM", "value": "114498" }
         ],
         "memberOf": [
           { "@type": "Organization", "name": "Prisma Health" },
@@ -939,11 +939,11 @@ function getDrHendrySEO(): PageSEO {
         "@type": "FAQPage",
         "mainEntity": [
           { "@type": "Question", "name": "What is Dr. Hendry's highest academic credential?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine, which is the highest academic degree available in the acupuncture and oriental medicine field. He graduated in December 2008." } },
-          { "@type": "Question", "name": "Is Dr. Hendry board certified?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry holds NCCAOM (National Certification Commission for Acupuncture and Oriental Medicine) board certification as a Diplomate of Oriental Medicine — certificate #114498. His certification is valid through August 31, 2029." } },
+          { "@type": "Question", "name": "Is Dr. Hendry board certified?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry holds NCBAHM (National Certification Board for Acupuncture and Herbal Medicine) board certification as a Diplomate of Oriental Medicine — certificate #114498. His certification is valid through August 31, 2029." } },
           { "@type": "Question", "name": "Has Dr. Hendry published research?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry has authored or co-authored 5 peer-reviewed research publications with a combined 52 citations. His research includes the Prisma Health opioid alternative study, HRV biofeedback for cancer survivors, and neurogenesis in integrative care." } },
           { "@type": "Question", "name": "What is Dr. Hendry's hospital experience?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Hendry held hospital privileges at Prisma Health for 9 years — an exceptional distinction for an acupuncturist. During that time, he co-investigated a 3-year study using needling techniques as alternatives to opioid pain management in the Emergency Department." } },
           { "@type": "Question", "name": "Does Dr. Hendry offer injection therapies?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry is a certified Injection Therapy practitioner, enabling him to offer biopuncture and nutrient injection therapies. These treatments involve micro-injections of natural substances at specific points to support healing — a service unavailable at most acupuncture clinics." } },
-          { "@type": "Question", "name": "How can I verify Dr. Hendry's credentials?", "acceptedAnswer": { "@type": "Answer", "text": "You can verify his NCCAOM certification via the official NCCAOM digital badge, his NPI number (1417184045) through the NPI database, and his South Carolina license (ACUP141) through the SC Department of Labor, Licensing and Regulation website." } }
+          { "@type": "Question", "name": "How can I verify Dr. Hendry's credentials?", "acceptedAnswer": { "@type": "Answer", "text": "You can verify his NCBAHM certification via the official NCBAHM digital badge, his NPI number (1417184045) through the NPI database, and his South Carolina license (ACUP141) through the SC Department of Labor, Licensing and Regulation website." } }
         ]
       }
     ]

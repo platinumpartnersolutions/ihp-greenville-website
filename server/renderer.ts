@@ -394,6 +394,7 @@ function renderFooter(): string {
         &nbsp;&bull;&nbsp;
         <a href="/disclaimer/" style="color:inherit;text-decoration:underline">Medical Disclaimer</a>
       </p>
+      <p style="margin-top:0.5rem;font-size:0.7rem;opacity:0.6">Site by <a href="https://www.platinumpartnersolutions.com" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">Platinum Partner Solutions</a></p>
     </div>
   </div>
 </footer>`;
@@ -481,8 +482,7 @@ export function renderHome(): string {
         <div class="hero__overlay" aria-hidden="true"></div>
       </div>
       <div class="hero__content">
-        <p class="hero__eyebrow reveal">Serving Greenville, Spartanburg, Anderson &amp; Upstate SC</p>
-        <h1 class="hero__h1 reveal reveal-delay-1 font-display">
+        <h1 class="hero__h1 reveal font-display">
           Acupuncture &amp; <em>Functional Medicine</em> in Greenville, SC
         </h1>
         <p class="hero__subtitle reveal reveal-delay-2">
@@ -515,7 +515,7 @@ export function renderHome(): string {
                 width="300" height="360" loading="lazy" />
               <div style="background:var(--color-card);padding:1.125rem 1.25rem;border-top:1px solid var(--color-border)">
                 <p style="font-family:var(--font-heading);font-weight:700;font-size:1.0625rem;color:var(--color-foreground);margin:0 0 0.2rem">Dr. William Hendry</p>
-                <p style="font-size:0.8125rem;color:var(--color-primary);font-weight:600;margin:0 0 0.5rem">DAOM · Dipl. O.M. (NCCAOM)®</p>
+                <p style="font-size:0.8125rem;color:var(--color-primary);font-weight:600;margin:0 0 0.5rem">DAOM · Dipl. O.M. (NCBAHM)®</p>
                 <p style="font-size:0.75rem;color:var(--color-muted);margin:0;line-height:1.5">Board-Certified Acupuncturist<br>Functional Medicine Practitioner<br>Greenville, SC</p>
               </div>
             </div>
@@ -524,7 +524,7 @@ export function renderHome(): string {
                 ${icons.shield}<span>SC License <strong>ACUP141</strong></span>
               </div>
               <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--color-muted);padding:0.5rem 0.75rem;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.5rem">
-                ${icons.award}<span>NCCAOM <strong>#114498</strong></span>
+                ${icons.award}<span>NCBAHM <strong>#114498</strong></span>
               </div>
               <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--color-muted);padding:0.5rem 0.75rem;background:var(--color-card);border:1px solid var(--color-border);border-radius:0.5rem">
                 ${icons.check}<span>NPI <strong>1417184045</strong></span>
@@ -548,7 +548,7 @@ export function renderHome(): string {
               ${[
                 "25+ years clinical experience in acupuncture and integrative medicine",
                 "5 peer-reviewed research publications, 52 citations",
-                "NCCAOM board-certified Diplomate of Oriental Medicine",
+                "NCBAHM board-certified Diplomate of Oriental Medicine",
                 "Injection Therapy certified · AAOT member",
                 "In-house professional herbal pharmacy on site"
               ].map(item => `
@@ -720,7 +720,7 @@ export function renderHome(): string {
             ${[
               { icon: icons.award, title: "Hospital-Level Clinical Credentials", body: "9 years of hospital privileges at Prisma Health — one of South Carolina's leading health systems — reflect the trust placed in Dr. Hendry's clinical judgment by the broader medical community." },
               { icon: icons.shield, title: "Published Opioid Alternative Research", body: "Co-author of a 3-year Prisma Health ER study examining needling as a non-opioid pain solution. 5 peer-reviewed publications and 52 citations across acupuncture, HRV biofeedback, and integrative oncology." },
-              { icon: icons.leaf, title: "Doctoral Training + NCCAOM Certification", body: "Dr. Hendry's DAOM (East West College of Natural Medicine, 2008) represents the highest academic credential in acupuncture. NCCAOM board-certified (Cert. #114498), valid through August 2029." },
+              { icon: icons.leaf, title: "Doctoral Training + NCBAHM Certification", body: "Dr. Hendry's DAOM (East West College of Natural Medicine, 2008) represents the highest academic credential in acupuncture. NCBAHM board-certified (Cert. #114498), valid through August 2029." },
               { icon: icons.book, title: "In-House Herbal Pharmacy", body: "Full professional herbal pharmacy on site — custom formulas dispensed same-day, not referred out. Classical formulas, granule extracts, and single-herb preparations meet strict purity and potency standards." },
               { icon: icons.activity, title: "Full-Spectrum Integrative Therapies", body: "Acupuncture, dry needling, Chinese herbal medicine, functional medicine, ozone therapy, injection therapy (biopuncture), and nutritional counseling — all under one roof in Greenville, SC." },
               { icon: icons.heart, title: "Root-Cause, Whole-Person Approach", body: "No symptom suppression. Every patient begins with a comprehensive intake covering health history, diet, sleep, stress, and environment. Treatment plans are built on understanding, not assumption." },
@@ -1225,7 +1225,7 @@ export function renderService(svcSlug: string): string | null {
             <p class="sidebar-card__title">Why Choose Dr. Hendry?</p>
             <div class="check-list">
               <div class="check-item">${icons.check}<span>25+ years clinical experience</span></div>
-              <div class="check-item">${icons.check}<span>NCCAOM board-certified</span></div>
+              <div class="check-item">${icons.check}<span>NCBAHM board-certified</span></div>
               <div class="check-item">${icons.check}<span>Hospital privileges — Prisma Health</span></div>
               <div class="check-item">${icons.check}<span>5 research publications</span></div>
               <div class="check-item">${icons.check}<span>New patients welcome</span></div>
@@ -1492,7 +1492,7 @@ export function renderConditionsHub(): string {
           <div style="max-width:44rem;margin-inline:auto;text-align:center">
             <h2 class="font-display" style="font-size:1.75rem;margin-bottom:1rem">Why Integrative Health Partners?</h2>
             <p style="color:var(--color-muted);line-height:1.75;margin-bottom:1.5rem">
-              Dr. William Hendry brings 25+ years of clinical experience, NCCAOM board certification,
+              Dr. William Hendry brings 25+ years of clinical experience, NCBAHM board certification,
               hospital privileges at Prisma Health, and 5 research publications to every patient consultation.
               His dual training in Oriental medicine and functional medicine means your condition is evaluated
               from every angle — and treated at its root.
@@ -1860,7 +1860,7 @@ export function renderCondition(condSlug: string): string | null {
             <p class="sidebar-card__title">Why Choose Dr. Hendry?</p>
             <div class="check-list">
               <div class="check-item">${icons.check}<span>25+ years clinical experience</span></div>
-              <div class="check-item">${icons.check}<span>NCCAOM board-certified</span></div>
+              <div class="check-item">${icons.check}<span>NCBAHM board-certified</span></div>
               <div class="check-item">${icons.check}<span>Hospital privileges — Prisma Health</span></div>
               <div class="check-item">${icons.check}<span>5 research publications</span></div>
               <div class="check-item">${icons.check}<span>Dual Oriental &amp; functional medicine training</span></div>
@@ -2007,7 +2007,7 @@ export function renderAbout(): string {
               class="dr-headshot" loading="lazy" />
             <p class="sidebar-card__title" style="margin-top:0.75rem">Meet Dr. Hendry</p>
             <p style="font-size:0.9375rem;color:var(--color-muted);line-height:1.65;margin-bottom:0.75rem">
-              Dr. William Hendry, DAOM holds a doctorate in acupuncture and oriental medicine and is NCCAOM board-certified with 25+ years of clinical experience.
+              Dr. William Hendry, DAOM holds a doctorate in acupuncture and oriental medicine and is NCBAHM board-certified with 25+ years of clinical experience.
             </p>
             <a href="/dr-hendry/" class="sidebar-link">${icons.arrowRight} Full Credentials &amp; Biography</a>
           </div>
@@ -2104,8 +2104,8 @@ export function renderDrHendry(): string {
   const credentials = [
     { label: "Degree", value: "Doctor of Acupuncture and Oriental Medicine (DAOM)" },
     { label: "Institution", value: "East West College of Natural Medicine (Graduated December 2008)" },
-    { label: "NCCAOM Certification", value: "Dipl. O.M. (NCCAOM)® — Certificate #114498" },
-    { label: "NCCAOM Valid Through", value: "August 31, 2029" },
+    { label: "NCBAHM Certification", value: "Dipl. O.M. (NCBAHM)® — Certificate #114498" },
+    { label: "NCBAHM Valid Through", value: "August 31, 2029" },
     { label: "NPI Number", value: "1417184045 (Active since June 22, 2009)" },
     { label: "SC License", value: "ACUP141 (Expires September 30, 2027)" },
     { label: "FL License", value: "AP2646" },
@@ -2115,7 +2115,7 @@ export function renderDrHendry(): string {
     { label: "Research Publications", value: "5 peer-reviewed studies | 52 citations" },
   ];
 
-  const html = `${renderHead("Dr. William Hendry, DAOM | Integrative Health Partners Greenville, SC", "Dr. William Hendry — DAOM, NCCAOM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.")}
+  const html = `${renderHead("Dr. William Hendry, DAOM | Integrative Health Partners Greenville, SC", "Dr. William Hendry — DAOM, NCBAHM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.")}
 <body data-page="dr-hendry">
   ${renderNav(false)}
 
@@ -2142,7 +2142,7 @@ export function renderDrHendry(): string {
               </div>`).join('')}
             </div>
             <p style="margin-top:1rem;font-size:0.9375rem;color:var(--color-muted)">
-              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="internal-link">Verify NCCAOM Badge ${icons.externalLink}</a>
+              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="internal-link">Verify NCBAHM Badge ${icons.externalLink}</a>
               &nbsp;&bull;&nbsp;
               <a href="https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx" target="_blank" rel="noopener noreferrer" class="internal-link">Verify NPI ${icons.externalLink}</a>
               &nbsp;&bull;&nbsp;
@@ -2166,7 +2166,7 @@ export function renderDrHendry(): string {
 
           <section class="content-section">
             <h2>25+ Years of Clinical Excellence</h2>
-            <p>Dr. Hendry began his formal training in acupuncture and oriental medicine in the late 1990s and graduated with his Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine in December 2008 — completing the highest academic credential available in the field. He passed his NCCAOM board examinations and has maintained active board certification ever since, with his current certification valid through August 2029.</p>
+            <p>Dr. Hendry began his formal training in acupuncture and oriental medicine in the late 1990s and graduated with his Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine in December 2008 — completing the highest academic credential available in the field. He passed his NCBAHM board examinations and has maintained active board certification ever since, with his current certification valid through August 2029.</p>
             <p>Over more than 25 years, Dr. Hendry has treated thousands of patients across a wide range of conditions — from <a href="/conditions/back-pain/" class="internal-link">chronic back pain</a> and <a href="/conditions/fibromyalgia/" class="internal-link">fibromyalgia</a> to <a href="/conditions/fertility/" class="internal-link">fertility challenges</a>, <a href="/conditions/anxiety-stress/" class="internal-link">anxiety and stress</a>, and complex chronic illnesses. His approach is both disciplined and creative: grounded in the classical literature of Chinese medicine, yet continuously informed by the latest functional medicine research.</p>
             <p>He holds active licenses in both South Carolina (ACUP141) and Florida (AP2646), and is a certified Injection Therapy practitioner — enabling him to offer biopuncture and nutrient injection therapies unavailable at most acupuncture clinics.</p>
           </section>
@@ -2219,11 +2219,11 @@ export function renderDrHendry(): string {
             <h2>Frequently Asked Questions About Dr. Hendry</h2>
             ${[
               { q: "What is Dr. Hendry's highest academic credential?", a: "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) from East West College of Natural Medicine, which is the highest academic degree available in the acupuncture and oriental medicine field. He graduated in December 2008." },
-              { q: "Is Dr. Hendry board certified?", a: "Yes. Dr. Hendry holds NCCAOM (National Certification Commission for Acupuncture and Oriental Medicine) board certification as a Diplomate of Oriental Medicine — certificate #114498. His certification is valid through August 31, 2029." },
+              { q: "Is Dr. Hendry board certified?", a: "Yes. Dr. Hendry holds NCBAHM (National Certification Board for Acupuncture and Herbal Medicine) board certification as a Diplomate of Oriental Medicine — certificate #114498. His certification is valid through August 31, 2029." },
               { q: "Has Dr. Hendry published research?", a: "Yes. Dr. Hendry has authored or co-authored 5 peer-reviewed research publications with a combined 52 citations. His research includes the Prisma Health opioid alternative study, HRV biofeedback for cancer survivors, and neurogenesis in integrative care." },
               { q: "What is Dr. Hendry's hospital experience?", a: "Dr. Hendry held hospital privileges at Prisma Health for 9 years — an exceptional distinction for an acupuncturist. During that time, he co-investigated a 3-year study using needling techniques as alternatives to opioid pain management in the Emergency Department." },
               { q: "Does Dr. Hendry offer injection therapies?", a: "Yes. Dr. Hendry is a certified Injection Therapy practitioner, enabling him to offer biopuncture and nutrient injection therapies. These treatments involve micro-injections of natural substances at specific points to support healing — a service unavailable at most acupuncture clinics." },
-              { q: "How can I verify Dr. Hendry's credentials?", a: "You can verify his NCCAOM certification via the official NCCAOM digital badge, his NPI number (1417184045) through the NPI database, and his South Carolina license (ACUP141) through the SC Department of Labor, Licensing and Regulation website." },
+              { q: "How can I verify Dr. Hendry's credentials?", a: "You can verify his NCBAHM certification via the official NCBAHM digital badge, his NPI number (1417184045) through the NPI database, and his South Carolina license (ACUP141) through the SC Department of Labor, Licensing and Regulation website." },
             ].map(faq => `
             <div class="faq-item reveal">
               <button class="faq-btn" aria-expanded="false">${faq.q}<span class="faq-chevron" aria-hidden="true">${icons.chevronDown}</span></button>
@@ -2250,7 +2250,7 @@ export function renderDrHendry(): string {
               width="320" height="380" loading="lazy" />
             <div style="padding:1rem 1.125rem;background:var(--color-card);border-top:1px solid var(--color-border)">
               <p style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--color-foreground);margin:0 0 0.2rem">Dr. William Hendry</p>
-              <p style="font-size:0.8125rem;color:var(--color-primary);font-weight:600;margin:0 0 0.4rem">DAOM · Dipl. O.M. (NCCAOM)®</p>
+              <p style="font-size:0.8125rem;color:var(--color-primary);font-weight:600;margin:0 0 0.4rem">DAOM · Dipl. O.M. (NCBAHM)®</p>
               <p style="font-size:0.75rem;color:var(--color-muted);margin:0;line-height:1.5">Integrative Health Partners<br>Greenville, SC</p>
             </div>
           </div>
@@ -2258,7 +2258,7 @@ export function renderDrHendry(): string {
           <div class="sidebar-card">
             <p class="sidebar-card__title">Board Certifications</p>
             <div class="footer__links" style="gap:0.5rem">
-              <div class="sidebar-cred">${icons.award} NCCAOM Dipl. O.M. #114498</div>
+              <div class="sidebar-cred">${icons.award} NCBAHM Dipl. O.M. #114498</div>
               <div class="sidebar-cred">${icons.shield} SC License ACUP141</div>
               <div class="sidebar-cred">${icons.shield} FL License AP2646</div>
               <div class="sidebar-cred">${icons.check} Injection Therapy Certified</div>
@@ -2269,8 +2269,8 @@ export function renderDrHendry(): string {
           <div class="sidebar-card">
             <p class="sidebar-card__title">Verify Credentials</p>
             <div class="footer__links" style="gap:0.5rem">
-              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} NCCAOM Badge</a>
-              <a href="https://directory.ncbahm.org/FAP/PractitionerDetail?AgencyClientId=ssLe-Z5Nnck=&d=4.8" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} NCCAOM Directory</a>
+              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} NCBAHM Badge</a>
+              <a href="https://directory.ncbahm.org/FAP/PractitionerDetail?AgencyClientId=ssLe-Z5Nnck=&d=4.8" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} NCBAHM Directory</a>
               <a href="https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} NPI Verification</a>
               <a href="https://llr.sc.gov/med/" target="_blank" rel="noopener noreferrer" class="sidebar-link">${icons.externalLink} SC License Lookup</a>
             </div>
@@ -2452,7 +2452,7 @@ export function renderContact(): string {
               <a href="https://www.google.com/maps/place/Integrative+Health+Partners" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Google Business Profile</a>
               <a href="https://www.healthgrades.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Healthgrades</a>
               <a href="https://www.yelp.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Yelp</a>
-              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">NCCAOM Verification</a>
+              <a href="https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">NCBAHM Verification</a>
             </div>
           </div>
         </article>
@@ -2873,7 +2873,7 @@ export function renderFunctionalMedicineHub(): string {
     },
     {
       q: "Is Dr. Hendry a medical doctor?",
-      a: "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) — the doctoral-level credential in Oriental medicine — not an MD degree. He is NCCAOM board-certified (#114498) and practiced with hospital privileges at Prisma Health for nine years, where he participated in clinical research on needle-based alternatives to opioids in the Emergency Department. He applies functional medicine diagnostic principles alongside his Oriental medicine training, giving him a distinctly broad clinical perspective that most single-modality practitioners don't have."
+      a: "Dr. Hendry holds a Doctor of Acupuncture and Oriental Medicine (DAOM) — the doctoral-level credential in Oriental medicine — not an MD degree. He is NCBAHM board-certified (#114498) and practiced with hospital privileges at Prisma Health for nine years, where he participated in clinical research on needle-based alternatives to opioids in the Emergency Department. He applies functional medicine diagnostic principles alongside his Oriental medicine training, giving him a distinctly broad clinical perspective that most single-modality practitioners don't have."
     },
     {
       q: "What is the downside of functional medicine?",
@@ -2976,7 +2976,7 @@ export function renderFunctionalMedicineHub(): string {
 
           <section class="content-section">
             <h2>Dr. Hendry's Background in Integrative Medicine</h2>
-            <p>Dr. William Hendry holds the Doctor of Acupuncture and Oriental Medicine degree — the doctoral-level credential in the field — and is NCCAOM board-certified (#114498) with 25 years of clinical experience. He practiced with hospital privileges at Prisma Health for nine years, where he co-authored a landmark three-year study on needling techniques as alternatives to opioids in the Emergency Department. That research has been presented at national medical conferences and accumulated 52 citations in the clinical literature.</p>
+            <p>Dr. William Hendry holds the Doctor of Acupuncture and Oriental Medicine degree — the doctoral-level credential in the field — and is NCBAHM board-certified (#114498) with 25 years of clinical experience. He practiced with hospital privileges at Prisma Health for nine years, where he co-authored a landmark three-year study on needling techniques as alternatives to opioids in the Emergency Department. That research has been presented at national medical conferences and accumulated 52 citations in the clinical literature.</p>
             <p>His in-house herbal pharmacy is among the most complete in Upstate South Carolina — meaning patients receive same-day dispensing of professional-grade Chinese herbal formulas, not referrals to a health food store supplement aisle. His Injection Therapy certification allows him to administer high-dose nutrient injections as part of functional protocols — a service most integrative practices in the region don't offer.</p>
             <p>What this background produces is a clinician who can read the functional medicine literature critically, order and interpret advanced labs accurately, and build a treatment protocol that draws on the full spectrum of integrative medicine — acupuncture, Chinese herbs, targeted supplementation, and dietary intervention — rather than defaulting to a single tool.</p>
           </section>
@@ -3029,7 +3029,7 @@ export function renderFunctionalMedicineHub(): string {
             <p class="sidebar-card__title">Why Dr. Hendry?</p>
             <div class="check-list">
               <div class="check-item">${icons.check}<span>25+ years clinical experience</span></div>
-              <div class="check-item">${icons.check}<span>NCCAOM board-certified #114498</span></div>
+              <div class="check-item">${icons.check}<span>NCBAHM board-certified #114498</span></div>
               <div class="check-item">${icons.check}<span>Hospital privileges — Prisma Health (9 yrs)</span></div>
               <div class="check-item">${icons.check}<span>5 peer-reviewed research publications</span></div>
               <div class="check-item">${icons.check}<span>Full in-house herbal pharmacy</span></div>
