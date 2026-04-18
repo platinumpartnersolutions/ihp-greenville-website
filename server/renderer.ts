@@ -1,4 +1,4 @@
-import { categoryDefinitions, allServices, serviceMap, categoryMap, NAP, BASE_URL, getConditionCategorySEO, getConditionPageSEO, injectSEOIntoHTML } from "./seo";
+import { categoryDefinitions, allServices, serviceMap, categoryMap, NAP, BASE_URL, getConditionCategorySEO, getConditionPageSEO, injectSEOIntoHTML, coreServiceParents } from "./seo";
 import { conditions, conditionCategories, conditionMap, conditionCategoryMap } from "./conditions";
 import { serviceContentMap } from "./services-content";
 import { getBlogSiteLinks, getServiceBlogLinks, getConditionBlogLinks } from "./blog-crosslinks";
@@ -210,6 +210,7 @@ function renderNav(transparent = false): string {
       </div>
 
       <a href="/blog/" class="nav__link" role="listitem">Blog</a>
+      <a href="/contact/" class="nav__link" role="listitem">Contact</a>
     </div>
 
     <a href="tel:${NAP.phoneRaw}" class="nav__cta">${icons.phone} ${NAP.phone}</a>
@@ -305,6 +306,7 @@ function renderNav(transparent = false): string {
   <div class="nav__mobile-section">About</div>
   <a href="/about/" class="nav__mobile-sublink">About Integrative Health Partners</a>
   <a href="/dr-hendry/" class="nav__mobile-sublink">Dr. William Hendry, DAOM</a>
+  <a href="/contact/" class="nav__mobile-sublink">Contact &amp; Directions</a>
 
   <a href="tel:${NAP.phoneRaw}" class="nav__mobile-cta">${icons.phone} Call ${NAP.phone}</a>
 </div>`;
@@ -418,10 +420,25 @@ export function renderHome(): string {
   ];
 
   const testimonials = [
-    { text: "Dr. Hendry is so informative and truly listens to all of your concerns. Definitely steps away from normal western medicine. So excited to see where this journey takes me!", author: "C. Fanton" },
-    { text: "It's pretty amazing how you can get instant relief from chronic pains from Acupuncture. Doctor Hendry's knowledge of the human body never ceases to amaze me.", author: "R. McClaran" },
-    { text: "Dr Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds. After reading a book about natural salt I saw in his office, I have been using natural salt, it has eliminated my chronic headaches.", author: "K. Hill" },
-    { text: "I am so glad to find the peri-neural therapy here to help heal nerve damage. My pain level decreased significantly after my first treatment.", author: "L. Getty" },
+    { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal. I am working out at the gym everyday again. My Focus is so much better as well. Also all my back and neck pain is gone. His care truly feels like getting my life back. I strongly recommend Dr. Hendry and Integrative Health Partners.", author: "Danny Pyatt", date: "March 2026" },
+    { text: "Dr. Hendry spent a long time going over my particular medical situation and explaining his recommendations for getting my immune system back on track. I received acupuncture and supplements to start my treatment. I'm very excited about getting healthy again and have every confidence in Dr. Hendry's approach and treatment plan.", author: "Cam Norden", date: "July 2025" },
+    { text: "Dr Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds. After reading a book about natural salt I saw in his office, I have been using natural salt — it has eliminated my chronic headaches.", author: "Karen Hill", date: "April 2025" },
+    { text: "Dr. Hendry is so informative and truly listens to all of your concerns. Definitely steps away from normal western medicine. So excited to see where this journey takes me!", author: "Calla Fanton", date: "April 2025" },
+    { text: "Dr. Hendry really takes the time to listen to why I'm seeking his help. He explains and shows me what muscles and bones have been affected by my injury. I love his calm demeanor. He asks what seems to be working and what's not before each treatment!", author: "Diane Thoma", date: "April 2024" },
+    { text: "Getting acupuncture is the highlight of my week! I've learned more from Dr. Hendry than ANY medical professional. He is extremely knowledgeable at what he does! I could not recommend him and Integrative Health Partners more!", author: "Meagan McClaran", date: "April 2022" },
+    { text: "I have bad arthritis and bone spurs in my knees and was referred to them by one of my friends. I could hardly walk when I started seeing him and now I am back to running with no pain at all. He is very informative when explaining the treatment.", author: "Spencer Hughes", date: "April 2022" },
+    { text: "Dr. Hendry is the best, he has been the only one who has been able to help me alleviate my back pain.", author: "Gabriela Riveron", date: "April 2024" },
+    { text: "I am so glad to find the peri-neural therapy here to help heal nerve damage. My pain level decreased significantly after my first treatment.", author: "Laura Getty", date: "April 2023" },
+    { text: "It's pretty amazing how you can get instant relief from chronic pains from Acupuncture. Doctor Hendry's knowledge of the human body never ceases to amaze me.", author: "R. McClaran", date: "April 2023" },
+    { text: "I can't express how awesome Dr. Hendry is! He keeps me on the road running lots and lots of miles. He is a joy to visit every 3 weeks with his own personal touch. His office staff is also very pleasant to deal with. Recommend his services to anyone that has any type of physical issues! In reality, 5 stars are not enough.", author: "Brooks Smith", date: "April 2020" },
+    { text: "I was struggling with adductor and hamstring issues for years, stopping me from running. I tried this place as a last ditch effort and am glad I did. After a consultation it was decided to try a 'wet needling' therapy — it saved my running career.", author: "Corey Coll", date: "April 2022" },
+    { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+    { text: "I have to say that finding this clinic was a true miracle. At the beginning of 2019 I got to the low point of my health and landed in the ER. Medical doctors told me I just had a GI issue and should just take some meds for it. Dr. Hendry changed everything for me.", author: "Tat V", date: "April 2020" },
+    { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+    { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+    { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+    { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+    { text: "Great experience, will definitely come back again.", author: "Mike Lo", date: "April 2015" },
   ];
 
   const homeFAQs = [
@@ -466,7 +483,7 @@ export function renderHome(): string {
       <div class="hero__content">
         <p class="hero__eyebrow reveal">Serving Greenville, Spartanburg, Anderson &amp; Upstate SC</p>
         <h1 class="hero__h1 reveal reveal-delay-1 font-display">
-          Acupuncture &amp; <em>Functional Medicine</em><br>in Greenville, SC
+          Acupuncture &amp; <em>Functional Medicine</em> in Greenville, SC
         </h1>
         <p class="hero__subtitle reveal reveal-delay-2">
           Greenville's most credentialed integrative health practice — acupuncture, Chinese herbal medicine, and root-cause functional medicine. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
@@ -723,10 +740,10 @@ export function renderHome(): string {
 
           <div class="testimonials__carousel" aria-live="polite">
             ${testimonials.map((t, i) => `
-            <div class="testimonial${i === 0 ? " active" : ""}" role="article" aria-label="Testimonial from ${t.author}">
+            <div class="testimonial${i === 0 ? " active" : ""}" role="article" aria-label="Testimonial from ${t.author}" itemscope itemtype="https://schema.org/Review">
               <div class="testimonial__stars" aria-label="5 stars">${starRow()}</div>
-              <blockquote class="testimonial__text">"${t.text}"</blockquote>
-              <p class="testimonial__author">— ${t.author}</p>
+              <blockquote class="testimonial__text" itemprop="reviewBody">"${t.text}"</blockquote>
+              <p class="testimonial__author">— <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">${t.author}</span></span>${t.date ? ` &middot; <time>${t.date}</time>` : ""}</p>
             </div>`).join("")}
           </div>
 
@@ -1120,6 +1137,7 @@ export function renderService(svcSlug: string): string | null {
     <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
       ${renderBreadcrumbs([
         { name: `${cat.name} Services`, href: `/services/${cat.slug}` },
+        ...(coreServiceParents[baseSlug] ? [{ name: coreServiceParents[baseSlug].name, href: `/services/${coreServiceParents[baseSlug].slug}` }] : []),
         { name: service.name },
       ])}
 
@@ -2521,7 +2539,7 @@ export function renderServicesHub(): string {
     if (!servicesByCategory.has(svc.categorySlug)) servicesByCategory.set(svc.categorySlug, []);
     servicesByCategory.get(svc.categorySlug)!.push({ slug: svc.slug, name: svc.name });
   }
-  return `${renderHead("Services | Acupuncture & Functional Medicine | IHP Greenville")}
+  return `${renderHead("Acupuncture & Functional Medicine Services in Greenville, SC | IHP")}
 <body data-page="services-hub">
   ${renderNav(false)}
 

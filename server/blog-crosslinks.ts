@@ -429,8 +429,8 @@ const blogEntries: BlogEntry[] = [
   {
     blogSlug: "red-wine-for-health",
     blogTitle: "Red Wine for Health?",
-    serviceBaseSlugs: ["functional-medicine-consultation"],
-    conditionSlugs: ["chronic-illness"],
+    serviceBaseSlugs: ["functional-medicine-consultation", "ozone-therapy", "nutritional-counseling"],
+    conditionSlugs: ["chronic-illness", "heart-health"],
   },
   {
     blogSlug: "sugar-blues-highs-and-lows",

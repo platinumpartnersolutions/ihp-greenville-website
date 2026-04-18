@@ -49,6 +49,76 @@ const createSlug = (name: string): string => {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 };
 
+/* ============================================================
+   CORE SERVICE PARENT MAP
+   Defines which services are "children" of a core money page.
+   Used to build 4-level breadcrumbs: Home → Category → Core → Child
+   ============================================================ */
+export const coreServiceParents: Record<string, { slug: string; name: string }> = {
+  // Acupuncture Therapy → variants & specialty applications
+  "electroacupuncture":              { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "medical-acupuncture":             { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "auricular-acupuncture":           { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "ear-acupuncture":                 { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "scalp-acupuncture":               { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "cosmetic-acupuncture":            { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "facial-rejuvenation-acupuncture": { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "fertility-acupuncture":           { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "prenatal-acupuncture":            { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "pregnancy-acupuncture":           { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "acupuncture-for-anxiety":         { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "acupuncture-for-stress-relief":   { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "acupuncture-for-insomnia":        { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "acupuncture-for-migraines":       { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "acupuncture-for-headaches":       { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "non-needle-acupuncture":          { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "laser-acupuncture":               { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "acupressure-therapy":             { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "acupuncture-treatment":           { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "traditional-chinese-acupuncture": { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+  "electrical-stimulation-acupuncture": { slug: "acupuncture-therapy", name: "Acupuncture Therapy" },
+
+  // Dry Needling Therapy → variants
+  "trigger-point-dry-needling":      { slug: "dry-needling-therapy", name: "Dry Needling Therapy" },
+  "intramuscular-stimulation":       { slug: "dry-needling-therapy", name: "Dry Needling Therapy" },
+  "trigger-point-therapy":           { slug: "dry-needling-therapy", name: "Dry Needling Therapy" },
+
+  // Biopuncture Therapy → variants
+  "biopuncture-injections":          { slug: "biopuncture-therapy", name: "Biopuncture Therapy" },
+  "acupuncture-injection-therapy":   { slug: "biopuncture-therapy", name: "Biopuncture Therapy" },
+
+  // Chinese Herbal Medicine → variants
+  "chinese-herbal-formulas":         { slug: "chinese-herbal-medicine", name: "Chinese Herbal Medicine" },
+  "custom-herbal-formulations":      { slug: "chinese-herbal-medicine", name: "Chinese Herbal Medicine" },
+  "herbal-consultation":             { slug: "chinese-herbal-medicine", name: "Chinese Herbal Medicine" },
+  "herbal-supplements":              { slug: "chinese-herbal-medicine", name: "Chinese Herbal Medicine" },
+  "natural-medicine-consultation":   { slug: "chinese-herbal-medicine", name: "Chinese Herbal Medicine" },
+  "herb-drug-interaction-consultation": { slug: "chinese-herbal-medicine", name: "Chinese Herbal Medicine" },
+
+  // Cupping Therapy → variants
+  "chinese-cupping":                 { slug: "cupping-therapy", name: "Cupping Therapy" },
+  "fire-cupping":                    { slug: "cupping-therapy", name: "Cupping Therapy" },
+  "gua-sha-treatment":               { slug: "cupping-therapy", name: "Cupping Therapy" },
+  "gua-sha-therapy":                 { slug: "cupping-therapy", name: "Cupping Therapy" },
+  "moxibustion-therapy":             { slug: "cupping-therapy", name: "Cupping Therapy" },
+  "moxa-treatment":                  { slug: "cupping-therapy", name: "Cupping Therapy" },
+
+  // Functional Medicine Consultation → testing & related intake services
+  "functional-medicine-testing":     { slug: "functional-medicine-consultation", name: "Functional Medicine Consultation" },
+  "functional-blood-chemistry-analysis": { slug: "functional-medicine-consultation", name: "Functional Medicine Consultation" },
+  "comprehensive-blood-panel":       { slug: "functional-medicine-consultation", name: "Functional Medicine Consultation" },
+  "root-cause-analysis":             { slug: "functional-medicine-consultation", name: "Functional Medicine Consultation" },
+  "integrative-medicine-consultation": { slug: "functional-medicine-consultation", name: "Functional Medicine Consultation" },
+  "holistic-health-assessment":      { slug: "functional-medicine-consultation", name: "Functional Medicine Consultation" },
+
+  // Ozone Therapy → variants & delivery methods
+  "ozone-steam-sauna":               { slug: "ozone-therapy", name: "Ozone Therapy" },
+  "ozone-sauna-therapy":             { slug: "ozone-therapy", name: "Ozone Therapy" },
+  "medical-ozone-therapy":           { slug: "ozone-therapy", name: "Ozone Therapy" },
+  "ozone-detoxification":            { slug: "ozone-therapy", name: "Ozone Therapy" },
+  "infrared-sauna-therapy":          { slug: "ozone-therapy", name: "Ozone Therapy" },
+};
+
 const categoryDefinitions: CategoryData[] = [
   {
     slug: "acupuncturist-services",
@@ -212,6 +282,27 @@ function getHomeSEO(): PageSEO {
           "bestRating": "5",
           "worstRating": "1"
         },
+        "review": [
+          { "@type": "Review", "author": { "@type": "Person", "name": "Danny Pyatt" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2026-03", "reviewBody": "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal. I am working out at the gym everyday again. My Focus is so much better as well. Also all my back and neck pain is gone. His care truly feels like getting my life back. I strongly recommend Dr. Hendry and Integrative Health Partners." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Cam Norden" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2025-07", "reviewBody": "Dr. Hendry spent a long time going over my particular medical situation and explaining his recommendations for getting my immune system back on track. I received acupuncture and supplements to start my treatment. I'm very excited about getting healthy again and have every confidence in Dr. Hendry's approach and treatment plan." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Karen Hill" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2025-04", "reviewBody": "Dr Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds. After reading a book about natural salt I saw in his office, I have been using natural salt — it has eliminated my chronic headaches." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Calla Fanton" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2025-04", "reviewBody": "Dr. Hendry is so informative and truly listens to all of your concerns. Definitely steps away from normal western medicine. So excited to see where this journey takes me!" },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Diane Thoma" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2024-04", "reviewBody": "Dr. Hendry really takes the time to listen to why I'm seeking his help. He explains and shows me what muscles and bones have been affected by my injury. I love his calm demeanor. He asks what seems to be working and what's not before each treatment!" },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Gabriela Riveron" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2024-04", "reviewBody": "Dr. Hendry is the best, he has been the only one who has been able to help me alleviate my back pain." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Meagan McClaran" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2022-04", "reviewBody": "Getting acupuncture is the highlight of my week! I've learned more from Dr. Hendry than ANY medical professional. He is extremely knowledgeable at what he does! I could not recommend him and Integrative Health Partners more!" },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Spencer Hughes" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2022-04", "reviewBody": "I have bad arthritis and bone spurs in my knees and was referred to them by one of my friends. I could hardly walk when I started seeing him and now I am back to running with no pain at all. He is very informative when explaining the treatment." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Corey Coll" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2022-04", "reviewBody": "I was struggling with adductor and hamstring issues for years, stopping me from running. I tried this place as a last ditch effort and am glad I did. After a consultation it was decided to try a wet needling therapy — it saved my running career." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Katlyn Garcia" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2022-04", "reviewBody": "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I love the results." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "R. McClaran" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2023-04", "reviewBody": "It's pretty amazing how you can get instant relief from chronic pains from Acupuncture. Doctor Hendry's knowledge of the human body never ceases to amaze me." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Laura Getty" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2023-04", "reviewBody": "I am so glad to find the peri-neural therapy here to help heal nerve damage. My pain level decreased significantly after my first treatment." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Tat V" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2020-04", "reviewBody": "I have to say that finding this clinic was a true miracle. At the beginning of 2019 I got to the low point of my health and landed in the ER. Medical doctors told me I just had a GI issue and should just take some meds for it. Dr. Hendry changed everything for me." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Brooks Smith" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2020-04", "reviewBody": "I can't express how awesome Dr. Hendry is! He keeps me on the road running lots and lots of miles. He is a joy to visit every 3 weeks with his own personal touch. His office staff is also very pleasant to deal with. Recommend his services to anyone that has any type of physical issues! In reality, 5 stars are not enough." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Margie Halley" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2015-04", "reviewBody": "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Stuart M." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2015-04", "reviewBody": "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Catherine Hosack" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2015-04", "reviewBody": "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Michael F. McLeod" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2015-04", "reviewBody": "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Mike Lo" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "datePublished": "2015-04", "reviewBody": "Great experience, will definitely come back again." }
+        ],
         "employee": {
           "@type": "Person",
           "name": "Dr. William Hendry",
@@ -242,7 +333,9 @@ function getHomeSEO(): PageSEO {
         "sameAs": [
           "https://www.google.com/maps/place/Integrative+Health+Partners/",
           "https://www.facebook.com/ihpgreenville",
-          "https://www.yelp.com/biz/integrative-health-partners-greenville"
+          "https://www.yelp.com/biz/integrative-health-partners-greenville",
+          "https://npiregistry.cms.hhs.gov/provider-view/1417184045",
+          "https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx"
         ]
       },
       {
@@ -265,6 +358,12 @@ function getHomeSEO(): PageSEO {
           { "@type": "PropertyValue", "name": "NPI", "value": "1417184045" },
           { "@type": "PropertyValue", "name": "SC License", "value": "ACUP141" },
           { "@type": "PropertyValue", "name": "FL License", "value": "AP2646" }
+        ],
+        "sameAs": [
+          "https://npiregistry.cms.hhs.gov/provider-view/1417184045",
+          "https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx",
+          "https://www.nccaom.org",
+          "https://www.researchgate.net/profile/William-Hendry-4"
         ],
         "knowsAbout": ["Acupuncture","Functional Medicine","Chinese Herbal Medicine","Chronic Pain Treatment","Ozone Therapy","Injection Therapy"]
       },
@@ -399,15 +498,20 @@ function getServiceSEO(slug: string): PageSEO | null {
       "bodyLocation": "Varies by condition",
       "procedureType": "https://schema.org/NoninvasiveProcedure"
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
+    (() => {
+      const coreParent = coreServiceParents[baseSlug];
+      const breadcrumbItems: Record<string, unknown>[] = [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
         { "@type": "ListItem", "position": 2, "name": `${cat.name} Services`, "item": `${BASE_URL}/services/${cat.slug}/` },
-        { "@type": "ListItem", "position": 3, "name": service.name, "item": pageUrl }
-      ]
-    },
+      ];
+      if (coreParent) {
+        breadcrumbItems.push({ "@type": "ListItem", "position": 3, "name": coreParent.name, "item": `${BASE_URL}/services/${coreParent.slug}/` });
+        breadcrumbItems.push({ "@type": "ListItem", "position": 4, "name": service.name, "item": pageUrl });
+      } else {
+        breadcrumbItems.push({ "@type": "ListItem", "position": 3, "name": service.name, "item": pageUrl });
+      }
+      return { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": breadcrumbItems };
+    })(),
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
