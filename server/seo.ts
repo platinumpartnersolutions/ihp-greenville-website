@@ -178,7 +178,7 @@ const categoryDefinitions: CategoryData[] = [
     slug: "alternative-medicine-practitioner-services",
     name: "Alternative Medicine Practitioner",
     gbpCategory: "Alternative medicine practitioner",
-    metaTitle: "Alternative Medicine in Greenville, SC | IHP",
+    metaTitle: "Alternative Medicine Practitioner Services in Greenville, SC | IHP",
     metaDescription: "Trusted alternative medicine practitioner in Greenville, SC. Functional medicine, ozone therapy, detox & holistic health care. Call (864) 365-6156.",
     isPrimary: false,
     carePhrase: "functional medicine",
