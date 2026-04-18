@@ -144,6 +144,7 @@ function renderNav(transparent = false): string {
               <a href="/services/ozone-therapy/" class="nav__dropdown-item" role="menuitem">Ozone Therapy</a>
               <a href="/services/infrared-sauna-therapy/" class="nav__dropdown-item" role="menuitem">Infrared Sauna Therapy</a>
               <a href="/services/nutritional-counseling/" class="nav__dropdown-item" role="menuitem">Nutritional Counseling</a>
+              <a href="/services/body-contour/" class="nav__dropdown-item" role="menuitem">Body Contouring</a>
             </div>
           </div>
           <a href="/services/" class="nav__dropdown-item nav__dropdown-item--cta" role="menuitem" style="display:block;text-align:center;margin-top:0.25rem">→ View All Services</a>
@@ -565,7 +566,7 @@ export function renderHome(): string {
     </section>
 
     <!-- Philosophy / Approach Section -->
-    <section class="section section--botanical" aria-labelledby="approach-heading">
+    <section class="section section--botanical" aria-labelledby="approach-heading" style="background-image:linear-gradient(rgba(252,249,244,0.83),rgba(252,249,244,0.83)),url('/images/clinic/entrance-wide.jpg');background-size:cover;background-position:center">
       <!-- Botanical corner: drooping branch top-right -->
       <svg width="340" height="420" viewBox="0 0 340 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;top:0;right:0;pointer-events:none;opacity:0.09;z-index:0">
         <path d="M340 0 C300 30 260 55 220 90 C180 125 155 165 140 210 C125 255 128 300 122 380" stroke="#2F814A" stroke-width="1.5"/>
@@ -626,7 +627,7 @@ export function renderHome(): string {
     </section>
 
     <!-- Section 2: Conditions We Treat -->
-    <section class="section section--botanical" aria-labelledby="conditions-heading">
+    <section class="section section--botanical" aria-labelledby="conditions-heading" style="background-image:linear-gradient(rgba(252,249,244,0.83),rgba(252,249,244,0.83)),url('/images/clinic/treatment-room-2.jpg');background-size:cover;background-position:center">
       <!-- Botanical corner: rising branch bottom-left -->
       <svg width="310" height="400" viewBox="0 0 310 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;bottom:0;left:0;pointer-events:none;opacity:0.09;z-index:0">
         <path d="M0 400 C35 355 75 318 110 278 C145 238 172 195 195 150 C218 105 228 65 248 0" stroke="#2F814A" stroke-width="1.5"/>
@@ -742,7 +743,7 @@ export function renderHome(): string {
     </section>
 
     <!-- Section 4: Why Choose IHP -->
-    <section class="section section--primary" aria-labelledby="why-heading">
+    <section class="section section--primary" aria-labelledby="why-heading" style="background-image:linear-gradient(rgba(14,42,19,0.86),rgba(14,42,19,0.86)),url('/images/clinic/waiting-area.jpg');background-size:cover;background-position:center">
       <div class="container">
         <div style="max-width:56rem;margin-inline:auto;text-align:center">
           <span class="section-label section-label--white reveal">Why Integrative Health Partners?</span>

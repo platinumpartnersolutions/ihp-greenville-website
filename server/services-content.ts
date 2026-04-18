@@ -3700,6 +3700,53 @@ The injection itself uses a very fine gauge needle — much smaller than a stand
 
     relatedServiceSlugs: ["biopuncture-therapy", "biopuncture-injections", "acupuncture-therapy", "dry-needling-therapy", "trigger-point-dry-needling"],
   },
+
+  /* ============================================================
+     BODY CONTOURING
+     ============================================================ */
+  {
+    slug: "body-contour",
+    opening: `Non-invasive body contouring at Integrative Health Partners in Greenville, SC takes a different approach than a typical med spa. Rather than a one-size treatment applied to anyone who walks in, Dr. Hendry integrates body contouring into a comprehensive metabolic health plan — because stubborn fat that doesn't respond to diet and exercise is almost always a signal of an underlying imbalance, not a willpower problem.
+
+Hormonal dysregulation, thyroid dysfunction, insulin resistance, cortisol elevation, and poor lymphatic drainage are among the most common contributors to localized fat deposits and poor body composition. By identifying and addressing these root causes through functional medicine evaluation alongside targeted contouring treatments, IHP produces results that last — rather than temporary changes that reverse once treatment ends.
+
+Body contouring at IHP is not about chasing an aesthetic ideal. It is about helping your body express its healthiest composition when the metabolic obstacles have been removed and the right physical tools are applied to the areas where biology, not effort, has been holding progress back.`,
+    howItWorks: `Body contouring at IHP begins with a metabolic and functional medicine evaluation. Dr. Hendry reviews relevant lab markers — thyroid hormones (TSH, Free T3, Free T4, Reverse T3), cortisol, insulin, sex hormones, and inflammatory markers — to identify any underlying contributors to weight distribution challenges. If significant imbalances are present, addressing them first dramatically improves contouring outcomes.
+
+Physical contouring treatments at IHP may include electrical muscle stimulation (EMS) protocols that induce high-frequency involuntary muscle contractions, stimulating both muscle tone and local metabolic activity; targeted acupuncture-based techniques for lymphatic circulation and local tissue remodeling; and infrared sauna therapy to support circulation, detoxification, and skin quality. Nutritional and supplement protocols tailored to your metabolic profile complement the physical treatments.
+
+Treatment sessions typically run 30–50 minutes depending on the modality and area being addressed. Most patients complete an initial series of 6–12 sessions over 4–8 weeks, with measurable changes in targeted areas accompanied by broader improvements in energy, sleep, and metabolic markers.`,
+    howItWorksSteps: [
+      "Functional medicine intake and metabolic lab review — identify any hormonal, thyroid, or metabolic contributors",
+      "Personalized treatment plan combining contouring modalities with metabolic support",
+      "EMS or targeted acupuncture sessions for local tissue stimulation and lymphatic support",
+      "Infrared sauna sessions to enhance circulation, detoxification, and skin integrity",
+      "Nutritional and supplement protocol aligned with your metabolic findings",
+      "Progress evaluation at 4-week intervals; protocol adjusted based on objective response"
+    ],
+    conditionsTreated: [
+      { name: "Weight Issues", slug: "weight-issues" },
+      { name: "Hormone Imbalance", slug: "hormone-imbalance" },
+      { name: "Thyroid Issues", slug: "thyroid-issues" },
+      { name: "Adrenal Fatigue", slug: "adrenal-fatigue" },
+      { name: "Chronic Fatigue", slug: "chronic-fatigue" },
+      { name: "IBS & Gut Issues", slug: "ibs-gut-issues" },
+    ],
+    firstAppointment: `Your first body contouring appointment at IHP runs approximately 60–75 minutes. Dr. Hendry will begin with a detailed functional medicine intake covering your health history, prior weight management efforts, current symptoms, and any relevant labs you have had done. If labs are not current, he may recommend a targeted functional panel before beginning physical treatment. Come prepared to discuss what areas concern you, what you have already tried, and what your broader health goals are — body composition is rarely an isolated issue, and the intake is designed to understand the full picture. Wear comfortable, loose clothing appropriate for the treatment area being addressed.`,
+    whyDrHendry: `Most body contouring providers offer the treatment without any evaluation of why the body is holding fat in a particular pattern. Dr. Hendry's functional medicine background means he asks and answers that question before any physical treatment begins. His DAOM training and 25+ years of clinical experience with acupuncture-based tissue and lymphatic techniques, combined with functional medicine diagnostic tools for hormonal and metabolic assessment, allow him to apply body contouring in its most effective context — as part of a plan that removes the biological barriers to change rather than attempting to force change against them.`,
+    comparison: {
+      title: "Integrative Body Contouring vs. Med Spa-Only Approaches",
+      text: `A standard med spa body contouring session applies a technology — EMS, ultrasound, laser lipo, cryolipolysis — to a target area without any assessment of why fat is accumulating there. Results can be visible but are frequently temporary, because the metabolic drivers of the problem remain unaddressed. A patient with untreated hypothyroidism, for example, will see limited and short-lived results from any physical contouring modality until thyroid function is restored. A patient with elevated cortisol from chronic stress will continue accumulating abdominal visceral fat regardless of how many EMS sessions they complete. At IHP, the physical contouring work is preceded by — and supported by — functional medicine evaluation and treatment. When the hormonal and metabolic environment supports healthy body composition, physical contouring techniques work with the body rather than against it. The difference is not the technology; it is the context in which the technology is applied.`
+    },
+    faqs: [
+      { q: "What types of body contouring does IHP offer?", a: "Dr. Hendry uses non-invasive approaches including electrical muscle stimulation (EMS) for targeted muscle activation and local metabolic stimulation, acupuncture-based lymphatic and circulatory techniques, and infrared sauna therapy for circulation, detoxification, and skin quality support. These are integrated with a functional medicine approach that addresses any underlying metabolic contributors." },
+      { q: "Is body contouring the same as weight loss?", a: "No — they address different problems. Weight loss reduces overall body mass; body contouring targets the shape and composition of specific areas. Most contouring candidates are near their target weight but have localized fat deposits, reduced muscle tone, or skin quality concerns that don't respond to standard diet and exercise. For sustainable results, Dr. Hendry addresses both the targeted area and any underlying metabolic factors contributing to the pattern." },
+      { q: "Who is a good candidate for body contouring at IHP?", a: "Ideal candidates are individuals who are within a reasonable range of their target weight but have stubborn, localized fat or body composition concerns that persist despite consistent diet and exercise effort. Candidates with uncontrolled metabolic conditions (severe insulin resistance, active thyroid disease) will typically see better results after these are addressed first — which is why the functional medicine evaluation precedes the contouring protocol." },
+      { q: "How many sessions are needed?", a: "Most patients complete an initial series of 6–12 sessions over 4–8 weeks. Response varies based on the area being treated, the modality used, and the individual's metabolic baseline. Dr. Hendry evaluates progress at the 4-week mark and adjusts the protocol accordingly. Maintenance sessions after the initial series help sustain results, particularly if lifestyle factors are being optimized in parallel." },
+      { q: "Does body contouring require downtime?", a: "Non-invasive body contouring at IHP requires no downtime. EMS sessions, acupuncture-based treatments, and infrared sauna are all outpatient procedures with no recovery period. Minor muscle soreness following EMS — similar to post-workout soreness — is normal and resolves within 24–48 hours." },
+    ],
+    relatedServiceSlugs: ["weight-loss-support", "infrared-sauna-therapy", "functional-medicine-consultation", "hormone-testing", "thyroid-testing", "nutritional-counseling"],
+  },
 ];
 
 contents.forEach(c => serviceContentMap.set(c.slug, c));

@@ -288,7 +288,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background-repeat: repeat;
 }
 .section--dark { background: var(--color-foreground); color: white; }
-.section--primary { background: var(--color-primary); color: white; }
+.section--primary { background: var(--color-primary); color: white; background-size: cover; background-position: center; }
 /* Sections that host corner botanical decorations need overflow:hidden */
 .section--botanical { overflow: hidden; }
 
