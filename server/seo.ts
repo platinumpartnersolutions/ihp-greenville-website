@@ -785,7 +785,6 @@ function getFunctionalMedicineSEO(): PageSEO {
         "@type": "MedicalBusiness",
         "name": NAP.name,
         "description": "Functional and integrative medicine practice offering root-cause diagnostics, acupuncture, and herbal medicine in Greenville, SC.",
-        "medicalSpecialty": { "@id": "https://schema.org/IntegrativeAndComplementaryMedicine" },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": NAP.streetAddress,
