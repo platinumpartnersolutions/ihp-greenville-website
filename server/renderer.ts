@@ -484,10 +484,10 @@ export function renderHome(): string {
       </div>
       <div class="hero__content">
         <h1 class="hero__h1 reveal font-display">
-          Functional Medicine &amp; <em>Acupuncture</em> in Greenville, SC
+          Functional Medicine &amp; <a href="/services/acupuncture-therapy/" style="color:inherit;text-decoration:none"><em>Acupuncture</em></a> in Greenville, SC
         </h1>
         <p class="hero__subtitle reveal reveal-delay-2">
-          Greenville's most credentialed integrative health practice — acupuncture, Chinese herbal medicine, and root-cause functional medicine. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
+          Greenville's most credentialed integrative health practice — <a href="/services/acupuncture-therapy/" class="hero__text-link">acupuncture</a>, Chinese herbal medicine, and root-cause functional medicine. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
         </p>
         <div class="hero__stars reveal reveal-delay-3">
           <div class="hero__star-row" aria-label="5 star rating">${starRow()}</div>
@@ -547,7 +547,7 @@ export function renderHome(): string {
 
             <div style="display:flex;flex-direction:column;gap:0.875rem;margin:1.75rem 0 2rem">
               ${[
-                "25+ years clinical experience in acupuncture and integrative medicine",
+                `25+ years clinical experience in <a href="/services/acupuncture-therapy/" class="text-link">acupuncture</a> and integrative medicine`,
                 "5 peer-reviewed research publications, 52 citations",
                 "NCBAHM board-certified Diplomate of Oriental Medicine",
                 "Injection Therapy certified · AAOT member",
@@ -651,7 +651,7 @@ export function renderHome(): string {
           <span class="section-label reveal">What We Help With</span>
           <h2 class="section-title reveal reveal-delay-1" id="conditions-heading">Conditions We Treat in Greenville, SC</h2>
           <p class="section-sub reveal reveal-delay-2" style="max-width:44rem;margin-inline:auto">
-            Dr. Hendry uses acupuncture, functional medicine diagnostics, and Chinese herbal medicine to address 30+ conditions
+            Dr. Hendry uses <a href="/services/acupuncture-therapy/" class="text-link">acupuncture</a>, functional medicine diagnostics, and Chinese herbal medicine to address 30+ conditions
             across pain, neurological, hormonal, and digestive health — identifying and treating root causes rather than managing symptoms.
           </p>
         </div>
