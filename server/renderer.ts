@@ -491,7 +491,7 @@ export function renderHome(): string {
         </p>
         <div class="hero__stars reveal reveal-delay-3">
           <div class="hero__star-row" aria-label="5 star rating">${starRow()}</div>
-          <span class="hero__rating">5.0 Google Rating &middot; 19 Reviews</span>
+          <span class="hero__rating">5.0 Google Rating &middot; 20 Reviews</span>
         </div>
         <div class="reveal reveal-delay-3" style="display:flex;justify-content:center;">
           <a href="tel:${NAP.phoneRaw}" class="btn btn-white btn-lg">${icons.phone} Call (864) 365-6156</a>
