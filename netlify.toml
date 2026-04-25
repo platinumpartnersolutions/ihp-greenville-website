@@ -18,6 +18,232 @@
   status = 301
   force = true
 
+# ── Legacy WordPress URL redirects ──────────────────────────────────────────
+# 404s — old WP slugs with confirmed /blog/ equivalents
+[[redirects]]
+  from = "/food-for-thought-meat"
+  to = "/blog/food-for-thought-meat/"
+  status = 301
+
+[[redirects]]
+  from = "/magnesium-the-master-commander"
+  to = "/blog/magnesium-the-master-commander/"
+  status = 301
+
+[[redirects]]
+  from = "/laser-acupuncture-rejuvenation"
+  to = "/blog/laser-acupuncture-rejuvenation/"
+  status = 301
+
+[[redirects]]
+  from = "/what-is-dermal-needling"
+  to = "/blog/what-is-dermal-needling/"
+  status = 301
+
+[[redirects]]
+  from = "/berberine-and-the-metabolic-master-switch"
+  to = "/blog/berberine-and-the-metabolic-master-switch/"
+  status = 301
+
+[[redirects]]
+  from = "/meniscus-degeneration-and-preventive-maintenance-for-knee-health"
+  to = "/blog/meniscus-degeneration-and-preventive-maintenance-for-knee-health/"
+  status = 301
+
+[[redirects]]
+  from = "/prolotherapy-for-spinal-ligament-tightening-and-spondylolisthesis-reversal"
+  to = "/blog/prolotherapy-for-spinal-ligament-tightening-and-spondylolisthesis-reversal/"
+  status = 301
+
+[[redirects]]
+  from = "/what-is-prolotherapy-2"
+  to = "/blog/what-is-prolotherapy-2/"
+  status = 301
+
+[[redirects]]
+  from = "/us-military-using-acupuncture-to-reduce-stress-and-pain"
+  to = "/blog/us-military-using-acupuncture-to-reduce-stress-and-pain/"
+  status = 301
+
+# 404s — no exact match, send to closest relevant page
+[[redirects]]
+  from = "/tea-time"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/what-is-in-your-fish-oil"
+  to = "/blog/"
+  status = 301
+
+# 404s — old service URLs
+[[redirects]]
+  from = "/services/functional-medicine"
+  to = "/functional-medicine-greenville-sc/"
+  status = 301
+
+[[redirects]]
+  from = "/services/copy-of-body-contour"
+  to = "/services/body-contour/"
+  status = 301
+
+# Crawled-not-indexed — old WP slugs (no /blog/ prefix) with new equivalents
+[[redirects]]
+  from = "/berberine-for-gut-health"
+  to = "/blog/berberine-for-gut-health/"
+  status = 301
+
+[[redirects]]
+  from = "/what-is-prolotherapy"
+  to = "/blog/what-is-prolotherapy-2/"
+  status = 301
+
+[[redirects]]
+  from = "/acupuncture-for-coronary-artery-disease-cad"
+  to = "/blog/acupuncture-for-coronary-artery-disease-cad/"
+  status = 301
+
+[[redirects]]
+  from = "/b12-injections"
+  to = "/blog/b12-injections/"
+  status = 301
+
+[[redirects]]
+  from = "/chinese-herbs-viruses"
+  to = "/blog/chinese-herbs-viruses/"
+  status = 301
+
+[[redirects]]
+  from = "/dry-needling-and-acupuncture"
+  to = "/blog/dry-needling-and-acupuncture/"
+  status = 301
+
+[[redirects]]
+  from = "/ozone-therapy-demystified"
+  to = "/blog/ozone-therapy-demystified/"
+  status = 301
+
+[[redirects]]
+  from = "/paleo-caveman-diet"
+  to = "/blog/paleo-caveman-diet/"
+  status = 301
+
+[[redirects]]
+  from = "/collagen"
+  to = "/blog/collagen/"
+  status = 301
+
+[[redirects]]
+  from = "/sugar-blues-highs-and-lows"
+  to = "/blog/sugar-blues-highs-and-lows/"
+  status = 301
+
+[[redirects]]
+  from = "/gaba-for-relaxation"
+  to = "/blog/gaba-for-relaxation/"
+  status = 301
+
+[[redirects]]
+  from = "/cold-and-flu-season"
+  to = "/blog/cold-and-flu-season/"
+  status = 301
+
+[[redirects]]
+  from = "/caught-a-cold"
+  to = "/blog/caught-a-cold/"
+  status = 301
+
+[[redirects]]
+  from = "/nausea-wristband-uses-acupuncture-point"
+  to = "/blog/nausea-wristband-uses-acupuncture-point/"
+  status = 301
+
+[[redirects]]
+  from = "/is-fish-oil-alone-enough"
+  to = "/blog/is-fish-oil-alone-enough/"
+  status = 301
+
+[[redirects]]
+  from = "/how-is-your-vitamin-d-supplement-working-for-you"
+  to = "/blog/how-is-your-vitamin-d-supplement-working-for-you/"
+  status = 301
+
+[[redirects]]
+  from = "/most-important-supplement-fact"
+  to = "/blog/most-important-supplement-fact/"
+  status = 301
+
+# Crawled-not-indexed — no /blog/ match, send to blog index
+[[redirects]]
+  from = "/go-green"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/covid-and-vitamin-d"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/covid-gut-bacteria"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/give-your-immune-system-a-200-boost-in-just-20-minutes"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/is-detoxification-necessary"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/microbes-memory-aging"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/fish-in-a-bowl"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/dermal-needling-for-scars-and-signs-of-aging"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/get-out-more"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/what-tea-is-right-for-me"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/weekly-digestive-health-tips"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/weekly-digestive-health-tips-2"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/threat-perception-and-physical-health-managing-the-feedback-loop"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/threat-perception-and-physical-health-how-to-manage-the-feedback-loop"
+  to = "/blog/"
+  status = 301
+
 # Proxy /admin to Railway server (keeps URL as ihpgreenville.com/admin)
 [[redirects]]
   from = "/admin"
