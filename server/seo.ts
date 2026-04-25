@@ -24,6 +24,42 @@ const NAP = {
   longitude: "-82.382482"
 };
 
+// Reusable LocalBusiness schema — injected into every service and condition page
+// so Google sees the full NAP + geo entity on the ranking page itself, not just the homepage.
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["MedicalBusiness", "LocalBusiness"],
+  "@id": `${BASE_URL}/#business`,
+  "name": NAP.name,
+  "url": NAP.url,
+  "telephone": NAP.phoneRaw,
+  "email": NAP.email,
+  "image": `${BASE_URL}/images/dr-hendry.jpg`,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": NAP.streetAddress,
+    "addressLocality": NAP.city,
+    "addressRegion": NAP.state,
+    "postalCode": NAP.postalCode,
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": NAP.latitude,
+    "longitude": NAP.longitude
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "priceRange": "$$",
+  "medicalSpecialty": "IntegrativeAndComplementaryMedicine"
+};
+
 interface ServiceData {
   slug: string;
   name: string;
@@ -524,7 +560,8 @@ function getServiceSEO(slug: string): PageSEO | null {
           "text": faq.a
         }
       }))
-    }
+    },
+    localBusinessSchema
   ];
 
   return {
@@ -769,7 +806,8 @@ function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: 
           "name": faq.q,
           "acceptedAnswer": { "@type": "Answer", "text": faq.a }
         }))
-      }
+      },
+      localBusinessSchema
     ]
   };
 }
