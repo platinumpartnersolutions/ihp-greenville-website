@@ -484,7 +484,7 @@ export function renderHome(): string {
       </div>
       <div class="hero__content">
         <h1 class="hero__h1 reveal font-display">
-          Acupuncture &amp; <em>Functional Medicine</em> in Greenville, SC
+          Functional Medicine &amp; <em>Acupuncture</em> in Greenville, SC
         </h1>
         <p class="hero__subtitle reveal reveal-delay-2">
           Greenville's most credentialed integrative health practice — acupuncture, Chinese herbal medicine, and root-cause functional medicine. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
