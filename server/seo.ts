@@ -34,7 +34,7 @@ const localBusinessSchema = {
   "url": NAP.url,
   "telephone": NAP.phoneRaw,
   "email": NAP.email,
-  "image": `${BASE_URL}/images/dr-hendry.jpg`,
+  "image": `${BASE_URL}/images/dr-hendry.webp`,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": NAP.streetAddress,
@@ -45,8 +45,8 @@ const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": NAP.latitude,
-    "longitude": NAP.longitude
+    "latitude": parseFloat(NAP.latitude),
+    "longitude": parseFloat(NAP.longitude)
   },
   "openingHoursSpecification": [
     {
@@ -56,8 +56,7 @@ const localBusinessSchema = {
       "closes": "17:00"
     }
   ],
-  "priceRange": "$$",
-  "medicalSpecialty": "IntegrativeAndComplementaryMedicine"
+  "priceRange": "$$"
 };
 
 interface ServiceData {
