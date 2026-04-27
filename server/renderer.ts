@@ -45,9 +45,8 @@ function renderHead(title = "Integrative Health Partners | Greenville, SC", desc
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <title>${title}</title>
   <meta name="description" content="${desc}" />
   <link rel="canonical" href="${BASE_URL}" />
@@ -55,11 +54,11 @@ function renderHead(title = "Integrative Health Partners | Greenville, SC", desc
   <meta property="og:description" content="${desc}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${BASE_URL}" />
-  <meta property="og:image" content="${BASE_URL}/assets/ogImage.png" />
+  <meta property="og:image" content="${BASE_URL}/images/dr-hendry.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${desc}" />
-  <meta name="twitter:image" content="${BASE_URL}/assets/ogImage.png" />
+  <meta name="twitter:image" content="${BASE_URL}/images/dr-hendry.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="/css/style.css" fetchpriority="high" />
@@ -78,7 +77,7 @@ function renderNav(transparent = false): string {
   return `<nav id="main-nav" class="${navClass}" aria-label="Main navigation">
   <div class="nav__inner">
     <a href="/" class="nav__logo" aria-label="Integrative Health Partners — Home">
-      <img src="/assets/favicon.png" alt="IHP logo" class="nav__logo-img" width="44" height="44" />
+      <img src="/favicon.svg" alt="IHP logo" class="nav__logo-img" width="44" height="44" />
       <span class="nav__logo-name">Integrative Health Partners</span>
     </a>
 
@@ -349,7 +348,7 @@ function renderFooter(): string {
     <div class="footer__grid">
       <div>
         <div class="footer__logo">
-          <img src="/assets/favicon.png" alt="IHP logo" class="footer__logo-img" width="48" height="48" />
+          <img src="/favicon.svg" alt="IHP logo" class="footer__logo-img" width="48" height="48" />
           <span class="footer__logo-name">Integrative Health Partners</span>
         </div>
         <p class="footer__tagline">Trusted acupuncture &amp; functional medicine in Greenville, SC. Compassionate, evidence-based care for your whole health.</p>

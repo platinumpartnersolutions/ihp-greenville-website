@@ -453,7 +453,7 @@ function getCategorySEO(slug: string): PageSEO | null {
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
         "name": NAP.name,
-        "image": `${BASE_URL}/assets/favicon.png`,
+        "image": `${BASE_URL}/favicon.svg`,
         "description": `${cat.name} services in Greenville, SC.`,
         "address": {
           "@type": "PostalAddress",

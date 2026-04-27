@@ -39,7 +39,7 @@ const LINK_MAP: [RegExp, string][] = [
   [/\bherbal supplement\w*\b/gi,                 "/services/herbal-supplements"],
 
   // Prolotherapy / Biopuncture
-  [/\bprolotherapy\b/gi,                         "/services/biopuncture-therapy"],
+  [/\bprolotherapy\b/gi,                         "/services/prolotherapy"],
   [/\bbiopuncture injections?\b/gi,              "/services/biopuncture-injections"],
   [/\bbiopuncture\b/gi,                          "/services/biopuncture-therapy"],
   [/\bregenerative joint therapy\b/gi,           "/services/biopuncture-therapy"],
@@ -133,6 +133,13 @@ const LINK_MAP: [RegExp, string][] = [
 
   // Generic — acupuncture last (most likely to over-match)
   [/\bacupuncture\b/gi,                          "/services/acupuncture-therapy"],
+
+  /* ── BLOG POSTS — specific high-value posts ───────────────── */
+
+  [/\bresveratrol\b/gi,                           "/blog/red-wine-for-health"],
+  [/\bCIRS\b/g,                                   "/blog/how-to-treat-mold-illness-with-herbs-and-supplements"],
+  [/\bmold illness\b/gi,                          "/blog/how-to-treat-mold-illness-with-herbs-and-supplements"],
+  [/\bmycotoxin\w*\b/gi,                          "/blog/how-to-treat-mold-illness-with-herbs-and-supplements"],
 
   /* ── CONDITIONS — most specific first ─────────────────────── */
 
