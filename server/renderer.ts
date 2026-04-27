@@ -565,6 +565,40 @@ export function renderHome(): string {
       </div>
     </section>
 
+    <!-- Patient Stories Section -->
+    <section class="section section--card" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div style="max-width:48rem;margin-inline:auto">
+          <div class="text-center" style="margin-bottom:2rem">
+            <span class="section-label reveal">Patient Stories</span>
+            <h2 class="section-title reveal reveal-delay-1" id="testimonials-heading">What Greenville Patients Say</h2>
+            <p class="section-sub reveal reveal-delay-2" style="max-width:40rem;margin-inline:auto">Every review below is a verified Google review from a real patient.</p>
+          </div>
+          <div class="testimonials__carousel" aria-live="polite">
+            ${testimonials.map((t, i) => `
+            <div class="testimonial${i === 0 ? " active" : ""}" role="article" aria-label="Testimonial from ${t.author}" itemscope itemtype="https://schema.org/Review">
+              <div class="testimonial__stars" aria-label="5 stars">${starRow()}</div>
+              <blockquote class="testimonial__text" itemprop="reviewBody">"${t.text}"</blockquote>
+              <p class="testimonial__author">— <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">${t.author}</span></span>${t.date ? ` &middot; <time>${t.date}</time>` : ""}</p>
+            </div>`).join("")}
+          </div>
+          <div class="testimonials__controls" aria-label="Testimonial navigation">
+            <button id="tm-prev" class="tm-btn" aria-label="Previous testimonial">${icons.arrowLeft}</button>
+            <div class="tm-dots">
+              ${testimonials.map((_, i) => `<button class="tm-dot${i === 0 ? " active" : ""}" aria-label="Go to testimonial ${i + 1}"></button>`).join("")}
+            </div>
+            <button id="tm-next" class="tm-btn" aria-label="Next testimonial">${icons.arrowRight}</button>
+          </div>
+          <div class="text-center" style="margin-top:1.5rem">
+            <a href="https://share.google/TYarboIHpqlhU6odK" target="_blank" rel="noopener noreferrer"
+              style="display:inline-flex;align-items:center;gap:0.375rem;font-family:var(--font-heading);font-size:0.9375rem;font-weight:600;color:var(--color-primary);text-decoration:underline;text-underline-offset:3px">
+              See all reviews on Google ${icons.externalLink}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Philosophy / Approach Section -->
     <section class="section section--botanical" aria-labelledby="approach-heading" style="background-image:linear-gradient(rgba(252,249,244,0.83),rgba(252,249,244,0.83)),url('/images/clinic/entrance-wide.jpg');background-size:cover;background-position:center">
       <!-- Botanical corner: drooping branch top-right -->
@@ -769,34 +803,7 @@ export function renderHome(): string {
           </div>
         </div>
 
-        <!-- Testimonials -->
-        <div style="max-width:48rem;margin-inline:auto">
-          <h3 class="section-title section-title--white reveal" style="text-align:center;margin-bottom:0.5rem">Patient Stories</h3>
-          <p class="section-sub section-sub--white reveal" style="text-align:center;margin-bottom:2rem">Real outcomes from real Greenville patients.</p>
 
-          <div class="testimonials__carousel" aria-live="polite">
-            ${testimonials.map((t, i) => `
-            <div class="testimonial${i === 0 ? " active" : ""}" role="article" aria-label="Testimonial from ${t.author}" itemscope itemtype="https://schema.org/Review">
-              <div class="testimonial__stars" aria-label="5 stars">${starRow()}</div>
-              <blockquote class="testimonial__text" itemprop="reviewBody">"${t.text}"</blockquote>
-              <p class="testimonial__author">— <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">${t.author}</span></span>${t.date ? ` &middot; <time>${t.date}</time>` : ""}</p>
-            </div>`).join("")}
-          </div>
-
-          <div class="testimonials__controls" aria-label="Testimonial navigation">
-            <button id="tm-prev" class="tm-btn" aria-label="Previous testimonial">${icons.arrowLeft}</button>
-            <div class="tm-dots">
-              ${testimonials.map((_, i) => `<button class="tm-dot${i === 0 ? " active" : ""}" aria-label="Go to testimonial ${i + 1}"></button>`).join("")}
-            </div>
-            <button id="tm-next" class="tm-btn" aria-label="Next testimonial">${icons.arrowRight}</button>
-          </div>
-          <div class="text-center" style="margin-top:1.5rem">
-            <a href="https://share.google/TYarboIHpqlhU6odK" target="_blank" rel="noopener noreferrer"
-              style="font-family:var(--font-heading);font-size:0.9375rem;font-weight:600;color:rgba(255,255,255,0.85);text-decoration:underline;text-underline-offset:3px">
-              Check out more reviews on Google ${icons.externalLink}
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1046,6 +1053,162 @@ export function renderCategory(catSlug: string): string | null {
 }
 
 /* ============================================================
+   PER-PAGE REVIEW MAP
+   Maps service and condition slugs to a single matched patient review.
+   Renders as a testimonial block near the top of the page.
+   ============================================================ */
+const reviewMap: Record<string, { text: string; author: string; date: string }> = {
+  // Acupuncture
+  "acupuncture-therapy":            { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "acupuncture-treatment":          { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "medical-acupuncture":            { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "traditional-chinese-acupuncture":{ text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "electroacupuncture":             { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "dry-needling-therapy":           { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "trigger-point-dry-needling":     { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "acupuncture-for-anxiety":        { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "acupuncture-for-migraines":      { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "acupuncture-for-headaches":      { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "acupuncture-for-insomnia":       { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "acupuncture-for-stress-relief":  { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "fertility-acupuncture":          { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "cosmetic-acupuncture":           { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "facial-rejuvenation-acupuncture":{ text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "scalp-acupuncture":              { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "auricular-acupuncture":          { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "ear-acupuncture":                { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "laser-acupuncture":              { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "prenatal-acupuncture":           { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "pregnancy-acupuncture":          { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  // Pain
+  "neck-pain-treatment":            { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "back-pain-treatment":            { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "lower-back-pain-treatment":      { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "chronic-back-pain-treatment":    { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "upper-back-pain-treatment":      { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "sciatica-treatment":             { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "sciatic-nerve-pain-treatment":   { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "joint-pain-treatment":           { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "arthritis-pain-treatment":       { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "knee-pain-treatment":            { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "hip-pain-treatment":             { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "shoulder-pain-treatment":        { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "fibromyalgia-treatment":         { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "chronic-pain-management":        { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "muscle-pain-treatment":          { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "neuropathy-treatment":           { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "peripheral-neuropathy-treatment":{ text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "sports-injury-treatment":        { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "frozen-shoulder-treatment":      { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "carpal-tunnel-treatment":        { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "plantar-fasciitis-treatment":    { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "tmj-treatment":                  { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "tmj-pain-relief":                { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "trigger-point-therapy":          { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  // Gut / Digestive
+  "leaky-gut-treatment":            { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+  "ibs-treatment":                  { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+  "digestive-issues-treatment":     { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+  "digestive-health-treatment":     { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "gut-health-testing":             { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "acid-reflux-treatment":          { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+  "food-sensitivity-testing":       { text: "I have to say that finding this clinic was a true miracle. At the beginning of 2019 I got to the low point of my health and landed in the ER. Medical doctors told me I just had a GI issue and should just take some meds for it. Dr. Hendry changed everything for me.", author: "Tat V.", date: "April 2020" },
+  // Functional Medicine / Testing
+  "functional-medicine-consultation":      { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+  "functional-medicine-testing":           { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "integrative-medicine-consultation":     { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "holistic-health-assessment":            { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "natural-medicine-consultation":         { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "comprehensive-blood-panel":             { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "functional-blood-chemistry-analysis":   { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "root-cause-analysis":                   { text: "I have to say that finding this clinic was a true miracle. At the beginning of 2019 I got to the low point of my health and landed in the ER. Medical doctors told me I just had a GI issue and should just take some meds for it. Dr. Hendry changed everything for me.", author: "Tat V.", date: "April 2020" },
+  "nutritional-deficiency-testing":        { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "inflammatory-marker-testing":           { text: "Dr. Hendry spent a long time going over my particular medical situation and explaining his recommendations for getting my immune system back on track. I received acupuncture and supplements to start my treatment.", author: "Cam Norden", date: "July 2025" },
+  // Hormones / Women's Health
+  "hormone-testing":                { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "hormonal-imbalance-treatment":   { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "thyroid-testing":                { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "thyroid-disorder-treatment":     { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "adrenal-testing":                { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "adrenal-fatigue-treatment":      { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "menopause-treatment":            { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "hot-flash-treatment":            { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "pms-treatment":                  { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "menstrual-pain-treatment":       { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "fertility-treatment":            { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "infertility-treatment":          { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  // Immune / Chronic
+  "immune-system-support":          { text: "Dr. Hendry spent a long time going over my particular medical situation and explaining his recommendations for getting my immune system back on track. I received acupuncture and supplements to start my treatment. I'm very excited about getting healthy again.", author: "Cam Norden", date: "July 2025" },
+  "autoimmune-disease-treatment":   { text: "Dr. Hendry spent a long time going over my particular medical situation and explaining his recommendations for getting my immune system back on track. I received acupuncture and supplements to start my treatment. I'm very excited about getting healthy again.", author: "Cam Norden", date: "July 2025" },
+  "chronic-fatigue-treatment":      { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "fatigue-treatment":              { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "long-covid-treatment":           { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "post-covid-recovery":            { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "brain-fog-treatment":            { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  // Mental Health / Sleep
+  "natural-anxiety-treatment":      { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "insomnia-treatment":             { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "sleep-disorder-treatment":       { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "stress-management":              { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "natural-depression-treatment":   { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  // Weight / Blood Sugar
+  "weight-loss-support":            { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "blood-sugar-support":            { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "natural-diabetes-support":       { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "high-blood-pressure-support":    { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "metabolism-support":             { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  // Ozone / Detox
+  "ozone-therapy":                  { text: "I have to say that finding this clinic was a true miracle. At the beginning of 2019 I got to the low point of my health and landed in the ER. Medical doctors told me I just had a GI issue and should just take some meds for it. Dr. Hendry changed everything for me.", author: "Tat V.", date: "April 2020" },
+  "medical-ozone-therapy":          { text: "I have to say that finding this clinic was a true miracle. At the beginning of 2019 I got to the low point of my health and landed in the ER. Medical doctors told me I just had a GI issue and should just take some meds for it. Dr. Hendry changed everything for me.", author: "Tat V.", date: "April 2020" },
+  "detoxification-therapy":         { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "heavy-metal-detox":              { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  // Condition pages
+  "leaky-gut":          { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+  "ibs-gut-issues":     { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+  "chronic-fatigue":    { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "hormone-imbalance":  { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "thyroid-issues":     { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "hashimotos":         { text: "Dr. Hendry has been working with me to heal my GI tract. 100% improvement in how I feel, taking 1/4 of my blood pressure meds, and am no longer taking cholesterol meds.", author: "Karen Hill", date: "January 2025" },
+  "adrenal-fatigue":    { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "arthritis":          { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "back-pain":          { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "neck-pain":          { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "sciatica":           { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "knee-pain":          { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "shoulder-pain":      { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "hip-pain":           { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "fibromyalgia":       { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "neuropathy":         { text: "Having Cancer and the side effects of the Medicine has made it difficult with the Joint Pain. However by receiving the treatments it has made my outlook and pain tolerable with the help of Dr. Hendry. Highly recommend this practice.", author: "Margie Halley", date: "April 2015" },
+  "anxiety-stress":     { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "depression":         { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "insomnia":           { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "pcos":               { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "perimenopause":      { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "menopause":          { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "weight-issues":      { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "autoimmune-disease": { text: "Dr. Hendry spent a long time going over my particular medical situation and explaining his recommendations for getting my immune system back on track. I received acupuncture and supplements to start my treatment. I'm very excited about getting healthy again.", author: "Cam Norden", date: "July 2025" },
+  "brain-fog":          { text: "I have been going to Dr. Hendry for 2 months now, for Acupuncture and Supplements. After 2 months, this is the best I have felt in over 2 years. My energy is so much better, my gut and digestion is back to normal.", author: "Danny Pyatt", date: "March 2026" },
+  "food-sensitivities": { text: "I was referred to Dr. Will Hendry after spending thousands of dollars for medical doctors and procedures regarding a digestive issue. I will never forget the amount of time he spent with me on my first visit — something that had never happened with conventional medicine.", author: "Stuart M.", date: "April 2015" },
+  "headaches-migraines":{ text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "fertility":          { text: "I drive past his office every day, I'm so glad a trusted friend referred me! Dr. Hendry and I are working on hormone overall balance and possible estrogen dominance. I get acupuncture and love the results.", author: "Katlyn Garcia", date: "April 2022" },
+  "ptsd":               { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
+  "sports-injuries":    { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "chronic-illness":    { text: "I have to say that finding this clinic was a true miracle. At the beginning of 2019 I got to the low point of my health and landed in the ER. Medical doctors told me I just had a GI issue and should just take some meds for it. Dr. Hendry changed everything for me.", author: "Tat V.", date: "April 2020" },
+  "lyme-disease":       { text: "I have to say that finding this clinic was a true miracle. At the beginning of 2019 I got to the low point of my health and landed in the ER. Medical doctors told me I just had a GI issue and should just take some meds for it. Dr. Hendry changed everything for me.", author: "Tat V.", date: "April 2020" },
+};
+
+function renderPageReview(slug: string): string {
+  const review = reviewMap[slug];
+  if (!review) return "";
+  return `
+  <div class="reveal" style="background:var(--color-card);border-left:4px solid var(--color-primary);border-radius:0 0.5rem 0.5rem 0;padding:1.25rem 1.5rem;margin-bottom:2rem" itemscope itemtype="https://schema.org/Review">
+    <div style="color:#F4A61C;font-size:1rem;letter-spacing:0.1em;margin-bottom:0.5rem" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <blockquote style="margin:0;font-style:italic;color:var(--color-foreground);line-height:1.7;font-size:0.9375rem" itemprop="reviewBody">"${review.text}"</blockquote>
+    <p style="margin:0.75rem 0 0;font-size:0.875rem;font-weight:600;color:var(--color-primary)">— <span itemprop="author">${review.author}</span>${review.date ? ` &middot; ${review.date}` : ""} &middot; <span style="font-weight:400;color:var(--color-muted)">Google Review</span></p>
+  </div>`;
+}
+
+/* ============================================================
    SERVICE PAGE
    ============================================================ */
 export function renderService(svcSlug: string): string | null {
@@ -1185,6 +1348,7 @@ export function renderService(svcSlug: string): string | null {
             ${service.metaDescription}
           </p>
 
+          ${renderPageReview(baseSlug)}
           ${openingHtml}
           ${howItWorksHtml}
           ${conditionsLinksHtml}
@@ -1776,6 +1940,7 @@ export function renderCondition(condSlug: string): string | null {
             ${cond.metaDescription}
           </p>
 
+          ${renderPageReview(condSlug)}
           <!-- What is it? -->
           <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">What Is ${cond.name}?</h2>
           <p style="color:var(--color-muted);line-height:1.75;margin-bottom:2rem" class="reveal">${autoLink(cond.content.definition, `/conditions/${condSlug}`)}</p>
