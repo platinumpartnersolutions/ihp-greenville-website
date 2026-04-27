@@ -241,13 +241,13 @@ const categoryMap = new Map<string, CategoryData>();
 
 const svcDescTemplates: Record<string, (name: string) => string> = {
   "acupuncturist-services":
-    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — NCBAHM-certified, 25+ yrs experience, hospital-credentialed. Call (864) 365-6156.`,
+    (n) => `${n} at Integrative Health Partners Greenville. Dr. Hendry, DAOM — NCBAHM-certified, 25+ yrs, hospital-credentialed, functional medicine integrated. Call (864) 365-6156.`,
   "acupuncture-clinic-services":
-    (n) => `${n} at IHP Greenville — expert acupuncture for chronic pain and musculoskeletal issues. Dr. Hendry, DAOM. Call (864) 365-6156.`,
+    (n) => `${n} in Greenville, SC. Dr. Hendry integrates acupuncture with functional medicine to resolve chronic pain at the root cause. DAOM, NCBAHM-certified. Call (864) 365-6156.`,
   "chinese-medicine-clinic-services":
-    (n) => `${n} at IHP Greenville — authentic TCM, in-house herbal pharmacy. Dr. Hendry, DAOM, 25+ yrs experience. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville — authentic TCM, in-house herbal pharmacy, integrated with functional medicine. Dr. Hendry, DAOM. Call (864) 365-6156.`,
   "alternative-medicine-practitioner-services":
-    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — functional medicine, root-cause diagnostics, personalized care. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — functional medicine, root-cause diagnostics, acupuncture, and personalized care. Call (864) 365-6156.`,
 };
 
 for (const cat of categoryDefinitions) {
@@ -575,7 +575,7 @@ function getServiceSEO(slug: string): PageSEO | null {
 function getBlogSEO(): PageSEO {
   return {
     title: "Integrative Health Blog | Greenville SC | IHP",
-    description: "Health & wellness insights from IHP in Greenville, SC. Expert articles on acupuncture, functional medicine, Chinese herbs, and holistic health.",
+    description: "Health & wellness insights from Dr. Hendry in Greenville, SC. Root-cause medicine, functional testing, acupuncture, Chinese herbs — evidence-based articles.",
     canonical: `${BASE_URL}/blog/`,
     ogType: "website",
     schemas: [
@@ -661,7 +661,7 @@ function getBlogPostSEO(title: string, excerpt: string, slug: string, datePublis
 function getConditionsHubSEO(): PageSEO {
   return {
     title: "Conditions We Treat in Greenville, SC | IHP",
-    description: "Acupuncture & functional medicine for 30+ conditions in Greenville, SC — pain, hormonal, neurological, gut & immune. Dr. Hendry, DAOM. Call (864) 365-6156.",
+    description: "Functional & integrative medicine for 30+ conditions in Greenville, SC — pain, hormonal, neurological, gut & immune. Acupuncture + root-cause testing. Call (864) 365-6156.",
     canonical: `${BASE_URL}/conditions/`,
     ogType: "website",
     schemas: [
@@ -863,8 +863,8 @@ function getFunctionalMedicineSEO(): PageSEO {
 
 function getAboutSEO(): PageSEO {
   return {
-    title: "About IHP | Acupuncture & Functional Medicine Greenville SC",
-    description: "Integrative Health Partners — Greenville SC's root-cause health practice. Acupuncture, functional medicine, in-house herbal pharmacy. Call (864) 365-6156.",
+    title: "About IHP | Functional Medicine & Acupuncture Greenville SC",
+    description: "Integrative Health Partners — Greenville SC's root-cause health practice. Functional medicine, acupuncture, in-house herbal pharmacy. Call (864) 365-6156.",
     canonical: `${BASE_URL}/about/`,
     ogType: "website",
     schemas: [
@@ -910,8 +910,8 @@ function getAboutSEO(): PageSEO {
 
 function getDrHendrySEO(): PageSEO {
   return {
-    title: "Dr. William Hendry, DAOM | Acupuncturist Greenville SC | IHP",
-    description: "Dr. William Hendry, DAOM — NCBAHM #114498, 25+ yrs clinical exp. Co-author: Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.",
+    title: "Dr. William Hendry, DAOM | Integrative Medicine Greenville SC",
+    description: "Dr. William Hendry, DAOM — NCBAHM #114498, 25+ yrs clinical exp. Co-author: Prisma Health opioid alternative ER study. Greenville, SC integrative medicine.",
     canonical: `${BASE_URL}/dr-hendry/`,
     ogType: "profile",
     schemas: [
@@ -990,7 +990,7 @@ function getDrHendrySEO(): PageSEO {
 
 function getContactSEO(): PageSEO {
   return {
-    title: "Contact IHP | Acupuncture Appointment Greenville, SC",
+    title: "Contact IHP | Book an Appointment in Greenville, SC",
     description: "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.",
     canonical: `${BASE_URL}/contact/`,
     ogType: "website",
@@ -1119,8 +1119,8 @@ export function getSEOForUrl(url: string): PageSEO | null {
 
   if (path === '/services') {
     return {
-      title: "Services | Acupuncture & Functional Medicine | IHP Greenville",
-      description: "Explore our full range of acupuncture, Chinese medicine, and functional medicine services in Greenville, SC. New patients welcome. Call (864) 365-6156.",
+      title: "Services | Functional Medicine & Acupuncture | IHP Greenville",
+      description: "Functional medicine, acupuncture, Chinese herbs, and integrative therapies in Greenville, SC. Root-cause diagnostics and needle-based treatments. Call (864) 365-6156.",
       canonical: `${BASE_URL}/services/`,
       ogType: "website",
       schemas: [

@@ -1167,7 +1167,7 @@ export const conditionCategories: ConditionCategoryData[] = [
     name: "Pain & Musculoskeletal Conditions",
     shortName: "Pain & Musculoskeletal",
     metaTitle: "Pain & Musculoskeletal Conditions Treatment in Greenville, SC | Integrative Health Partners",
-    metaDescription: "Acupuncture and integrative medicine for pain and musculoskeletal conditions in Greenville, SC. Back pain, sciatica, fibromyalgia, arthritis, and more. Call (864) 365-6156.",
+    metaDescription: "Integrative medicine and acupuncture for pain and musculoskeletal conditions in Greenville, SC. Back pain, sciatica, fibromyalgia, arthritis, and more. Call (864) 365-6156.",
     openingParagraph: `Pain is the body's alarm system — a signal that something in the structural, neurological, or systemic environment needs attention. At Integrative Health Partners in Greenville, SC, Dr. William Hendry treats the full spectrum of musculoskeletal pain conditions with an integrative approach that goes beyond symptom management to identify and address root causes. Whether you're dealing with acute injury, chronic pain, or degenerative joint disease, our combination of acupuncture, dry needling, cupping, and functional medicine provides a comprehensive, evidence-based path to lasting relief. Dr. Hendry's background includes co-authored research on needling techniques as opioid alternatives at Prisma Health's Emergency Department — bringing a uniquely evidence-based and clinically seasoned perspective to pain treatment in the Upstate South Carolina region.`,
     conditionSlugs: ["back-pain", "sciatica", "neck-pain", "knee-pain", "hip-pain", "shoulder-pain", "headaches-migraines", "fibromyalgia", "neuropathy", "arthritis", "sports-injuries"],
   },

@@ -39,7 +39,7 @@ const icons = {
 /* ============================================================
    HTML Head (with SEO placeholders — injected by SEO middleware)
    ============================================================ */
-function renderHead(title = "Integrative Health Partners | Greenville, SC", desc = "Expert acupuncture and functional medicine in Greenville, SC. Call (864) 365-6156."): string {
+function renderHead(title = "Integrative Health Partners | Greenville, SC", desc = "Functional medicine & acupuncture in Greenville, SC. Root-cause testing, Chinese herbs, integrative care. Dr. Hendry, DAOM. Call (864) 365-6156."): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +77,7 @@ function renderNav(transparent = false): string {
   return `<nav id="main-nav" class="${navClass}" aria-label="Main navigation">
   <div class="nav__inner">
     <a href="/" class="nav__logo" aria-label="Integrative Health Partners — Home">
-      <img src="/favicon.svg" alt="IHP logo" class="nav__logo-img" width="44" height="44" />
+      <img src="/favicon.svg" alt="Integrative Health Partners logo" class="nav__logo-img" width="44" height="44" />
       <span class="nav__logo-name">Integrative Health Partners</span>
     </a>
 
@@ -348,7 +348,7 @@ function renderFooter(): string {
     <div class="footer__grid">
       <div>
         <div class="footer__logo">
-          <img src="/favicon.svg" alt="IHP logo" class="footer__logo-img" width="48" height="48" />
+          <img src="/favicon.svg" alt="Integrative Health Partners logo" class="footer__logo-img" width="48" height="48" />
           <span class="footer__logo-name">Integrative Health Partners</span>
         </div>
         <p class="footer__tagline">Trusted acupuncture &amp; functional medicine in Greenville, SC. Compassionate, evidence-based care for your whole health.</p>
@@ -1489,7 +1489,7 @@ function stripHtml(html: string): string {
 }
 
 export function renderBlogIndex(posts: BlogPost[]): string {
-  return `${renderHead("Health & Wellness Blog | Integrative Health Partners Greenville, SC", "Read the latest health and wellness insights from Integrative Health Partners in Greenville, SC. Expert articles on acupuncture, functional medicine, and holistic health.")}
+  return `${renderHead("Health & Wellness Blog | Integrative Health Partners Greenville, SC", "Root-cause medicine articles from Dr. Hendry in Greenville, SC. Functional testing, acupuncture, Chinese herbs, and holistic health — evidence-based insights.")}
 <body data-page="blog">
   ${renderNav(false)}
 
@@ -1645,7 +1645,7 @@ export function renderConditionsHub(): string {
     { q: "Is integrative medicine evidence-based?", a: "Yes. Dr. Hendry's approach draws on peer-reviewed research in acupuncture, functional medicine, and nutritional science. He holds 5 research publications and 52 citations, and his clinical protocols are informed by the best available evidence across both Eastern and Western medical traditions." },
   ];
 
-  return `${renderHead("Conditions We Treat | Integrative Health Partners Greenville, SC", "Integrative Health Partners treats 30+ conditions with acupuncture and functional medicine in Greenville, SC. Find your condition and learn how we can help.")}
+  return `${renderHead("Conditions We Treat | Integrative Health Partners Greenville, SC", "Functional & integrative medicine for 30+ conditions in Greenville, SC. Root-cause testing, acupuncture, Chinese herbs. Find your condition and how we can help.")}
 <body data-page="conditions-hub">
   ${renderNav(false)}
 
@@ -2115,7 +2115,7 @@ export function renderCondition(condSlug: string): string | null {
    ABOUT PAGE
    ============================================================ */
 export function renderAbout(): string {
-  const html = `${renderHead("About Integrative Health Partners | Acupuncture & Functional Medicine Greenville, SC", "Learn about Integrative Health Partners — Greenville SC's trusted integrative health practice. Root-cause functional medicine, acupuncture, and in-house herbal pharmacy. Call (864) 365-6156.")}
+  const html = `${renderHead("About IHP | Functional Medicine & Acupuncture Greenville SC", "Integrative Health Partners — Greenville SC's root-cause health practice. Functional medicine, acupuncture, in-house herbal pharmacy. Call (864) 365-6156.")}
 <body data-page="about">
   ${renderNav(false)}
 
@@ -2328,7 +2328,7 @@ export function renderDrHendry(): string {
     { label: "Research Publications", value: "5 peer-reviewed studies | 52 citations" },
   ];
 
-  const html = `${renderHead("Dr. William Hendry, DAOM | Integrative Health Partners Greenville, SC", "Dr. William Hendry — DAOM, NCBAHM #114498, NPI 1417184045, 25+ years clinical experience. Co-author of landmark Prisma Health opioid alternative ER study. Greenville, SC acupuncturist.")}
+  const html = `${renderHead("Dr. William Hendry, DAOM | Integrative Medicine Greenville SC", "Dr. William Hendry, DAOM — NCBAHM #114498, 25+ yrs clinical exp. Co-author: Prisma Health opioid alternative ER study. Greenville, SC integrative medicine.")}
 <body data-page="dr-hendry">
   ${renderNav(false)}
 
@@ -2534,7 +2534,7 @@ export function renderDrHendry(): string {
    CONTACT PAGE  (/contact)
    ============================================================ */
 export function renderContact(): string {
-  const html = `${renderHead("Contact IHP | Acupuncture Appointment Greenville, SC", "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.")}
+  const html = `${renderHead("Contact IHP | Book an Appointment in Greenville, SC", "Schedule an appointment with Integrative Health Partners. 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609. Call (864) 365-6156. Mon–Fri 9am–5pm.")}
 <body data-page="contact">
   ${renderNav(false)}
 
@@ -2752,7 +2752,7 @@ export function renderServicesHub(): string {
     if (!servicesByCategory.has(svc.categorySlug)) servicesByCategory.set(svc.categorySlug, []);
     servicesByCategory.get(svc.categorySlug)!.push({ slug: svc.slug, name: svc.name });
   }
-  return `${renderHead("Acupuncture & Functional Medicine Services in Greenville, SC | IHP")}
+  return `${renderHead("Services | Functional Medicine & Acupuncture | IHP Greenville", "Functional medicine, acupuncture, Chinese herbs, and integrative therapies in Greenville, SC. Root-cause diagnostics and needle-based treatments. Call (864) 365-6156.")}
 <body data-page="services-hub">
   ${renderNav(false)}
 
