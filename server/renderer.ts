@@ -577,13 +577,13 @@ export function renderHome(): string {
     </section>
 
     <!-- Patient Stories Section -->
-    <section class="section section--card" aria-labelledby="testimonials-heading">
+    <section class="section section--dark" aria-labelledby="testimonials-heading">
       <div class="container">
         <div style="max-width:48rem;margin-inline:auto">
           <div class="text-center" style="margin-bottom:2rem">
-            <span class="section-label reveal">Patient Stories</span>
-            <h2 class="section-title reveal reveal-delay-1" id="testimonials-heading">What Greenville Patients Say</h2>
-            <p class="section-sub reveal reveal-delay-2" style="max-width:40rem;margin-inline:auto">Every review below is a verified Google review from a real patient.</p>
+            <span class="section-label section-label--white reveal">Patient Stories</span>
+            <h2 class="section-title section-title--white reveal reveal-delay-1" id="testimonials-heading">What Greenville Patients Say</h2>
+            <p class="section-sub section-sub--white reveal reveal-delay-2" style="max-width:40rem;margin-inline:auto">Every review below is a verified Google review from a real patient.</p>
           </div>
           <div class="testimonials__carousel" aria-live="polite">
             ${testimonials.map((t, i) => `
@@ -602,7 +602,7 @@ export function renderHome(): string {
           </div>
           <div class="text-center" style="margin-top:1.5rem">
             <a href="https://share.google/TYarboIHpqlhU6odK" target="_blank" rel="noopener noreferrer"
-              style="display:inline-flex;align-items:center;gap:0.375rem;font-family:var(--font-heading);font-size:0.9375rem;font-weight:600;color:var(--color-primary);text-decoration:underline;text-underline-offset:3px">
+              style="display:inline-flex;align-items:center;gap:0.375rem;font-family:var(--font-heading);font-size:0.9375rem;font-weight:600;color:var(--color-secondary);text-decoration:underline;text-underline-offset:3px">
               See all reviews on Google ${icons.externalLink}
             </a>
           </div>
