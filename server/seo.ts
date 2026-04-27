@@ -241,13 +241,13 @@ const categoryMap = new Map<string, CategoryData>();
 
 const svcDescTemplates: Record<string, (name: string) => string> = {
   "acupuncturist-services":
-    (n) => `${n} at Integrative Health Partners Greenville. Dr. Hendry, DAOM — NCBAHM-certified, 25+ yrs, hospital-credentialed, functional medicine integrated. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — NCBAHM-certified, 25+ yrs experience, hospital-credentialed. Call (864) 365-6156.`,
   "acupuncture-clinic-services":
-    (n) => `${n} in Greenville, SC. Dr. Hendry integrates acupuncture with functional medicine to resolve chronic pain at the root cause. DAOM, NCBAHM-certified. Call (864) 365-6156.`,
+    (n) => `${n} in Greenville, SC. Root-cause acupuncture + functional medicine. Dr. Hendry, DAOM, NCBAHM-certified. Call (864) 365-6156.`,
   "chinese-medicine-clinic-services":
-    (n) => `${n} at IHP Greenville — authentic TCM, in-house herbal pharmacy, integrated with functional medicine. Dr. Hendry, DAOM. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville — TCM, in-house herbal pharmacy, functional medicine. Dr. Hendry, DAOM. Call (864) 365-6156.`,
   "alternative-medicine-practitioner-services":
-    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — functional medicine, root-cause diagnostics, acupuncture, and personalized care. Call (864) 365-6156.`,
+    (n) => `${n} at IHP Greenville. Dr. Hendry, DAOM — functional medicine, root-cause diagnostics, personalized care. Call (864) 365-6156.`,
 };
 
 for (const cat of categoryDefinitions) {
@@ -1120,7 +1120,7 @@ export function getSEOForUrl(url: string): PageSEO | null {
   if (path === '/services') {
     return {
       title: "Services | Functional Medicine & Acupuncture | IHP Greenville",
-      description: "Functional medicine, acupuncture, Chinese herbs, and integrative therapies in Greenville, SC. Root-cause diagnostics and needle-based treatments. Call (864) 365-6156.",
+      description: "Functional medicine, acupuncture, Chinese herbs, and integrative therapies in Greenville, SC. Root-cause diagnostics and needle treatments. Call (864) 365-6156.",
       canonical: `${BASE_URL}/services/`,
       ogType: "website",
       schemas: [
