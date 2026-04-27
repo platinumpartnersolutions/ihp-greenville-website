@@ -18,6 +18,33 @@
   status = 301
   force = true
 
+# Route integrativehealthpartnersgreenville.com → ihpgreenville.com (301 permanent)
+# NOTE: integrativehealthpartnersgreenville.com must also be added as a domain alias
+# in Netlify site settings > Domain management, and DNS pointed to Netlify's servers.
+[[redirects]]
+  from = "https://integrativehealthpartnersgreenville.com/*"
+  to = "https://www.ihpgreenville.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.integrativehealthpartnersgreenville.com/*"
+  to = "https://www.ihpgreenville.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://integrativehealthpartnersgreenville.com/*"
+  to = "https://www.ihpgreenville.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.integrativehealthpartnersgreenville.com/*"
+  to = "https://www.ihpgreenville.com/:splat"
+  status = 301
+  force = true
+
 # ── Legacy WordPress URL redirects ──────────────────────────────────────────
 # 404s — old WP slugs with confirmed /blog/ equivalents
 [[redirects]]

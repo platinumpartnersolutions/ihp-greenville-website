@@ -141,6 +141,11 @@ function renderNav(transparent = false): string {
               <a href="/services/gut-health-testing/" class="nav__dropdown-item" role="menuitem">Gut Health Testing</a>
               <a href="/services/food-sensitivity-testing/" class="nav__dropdown-item" role="menuitem">Food Sensitivity Testing</a>
               <a href="/services/leaky-gut-treatment/" class="nav__dropdown-item" role="menuitem">Leaky Gut Treatment</a>
+              <a href="/services/functional-medicine-testing/" class="nav__dropdown-item" role="menuitem">Functional Medicine Testing</a>
+              <a href="/services/weight-loss-support/" class="nav__dropdown-item" role="menuitem">Weight Loss Support</a>
+              <a href="/services/long-covid-treatment/" class="nav__dropdown-item" role="menuitem">Long COVID Treatment</a>
+              <a href="/services/chronic-fatigue-treatment/" class="nav__dropdown-item" role="menuitem">Chronic Fatigue Treatment</a>
+              <a href="/services/autoimmune-disease-treatment/" class="nav__dropdown-item" role="menuitem">Autoimmune Disease Treatment</a>
               <a href="/services/ozone-therapy/" class="nav__dropdown-item" role="menuitem">Ozone Therapy</a>
               <a href="/services/infrared-sauna-therapy/" class="nav__dropdown-item" role="menuitem">Infrared Sauna Therapy</a>
               <a href="/services/nutritional-counseling/" class="nav__dropdown-item" role="menuitem">Nutritional Counseling</a>
@@ -266,6 +271,11 @@ function renderNav(transparent = false): string {
   <a href="/services/gut-health-testing/" class="nav__mobile-sublink">Gut Health Testing</a>
   <a href="/services/food-sensitivity-testing/" class="nav__mobile-sublink">Food Sensitivity Testing</a>
   <a href="/services/leaky-gut-treatment/" class="nav__mobile-sublink">Leaky Gut Treatment</a>
+  <a href="/services/functional-medicine-testing/" class="nav__mobile-sublink">Functional Medicine Testing</a>
+  <a href="/services/weight-loss-support/" class="nav__mobile-sublink">Weight Loss Support</a>
+  <a href="/services/long-covid-treatment/" class="nav__mobile-sublink">Long COVID Treatment</a>
+  <a href="/services/chronic-fatigue-treatment/" class="nav__mobile-sublink">Chronic Fatigue Treatment</a>
+  <a href="/services/autoimmune-disease-treatment/" class="nav__mobile-sublink">Autoimmune Disease Treatment</a>
   <a href="/services/ozone-therapy/" class="nav__mobile-sublink">Ozone Therapy</a>
   <a href="/services/infrared-sauna-therapy/" class="nav__mobile-sublink">Infrared Sauna Therapy</a>
   <a href="/services/nutritional-counseling/" class="nav__mobile-sublink">Nutritional Counseling</a>
