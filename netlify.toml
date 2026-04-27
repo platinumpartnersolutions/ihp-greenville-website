@@ -110,6 +110,16 @@
   status = 301
 
 [[redirects]]
+  from = "/services/functional-medicine-greenville-sc"
+  to = "/functional-medicine-greenville-sc/"
+  status = 301
+
+[[redirects]]
+  from = "/services/functional-medicine-greenville-sc/"
+  to = "/functional-medicine-greenville-sc/"
+  status = 301
+
+[[redirects]]
   from = "/services/copy-of-body-contour"
   to = "/services/body-contour/"
   status = 301
