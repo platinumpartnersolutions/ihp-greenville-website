@@ -5,6 +5,21 @@ import { getBlogSiteLinks, getServiceBlogLinks, getConditionBlogLinks } from "./
 import { BLOG_301S, BLOG_410S } from "./blog-redirects";
 import { autoLink } from "./auto-linker";
 import type { BlogPost } from "@shared/schema";
+import { createHash } from "crypto";
+import { readFileSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+/* Cache-bust: embed MD5 of style.css so browsers re-fetch on every deploy */
+const __dirname_esm = dirname(fileURLToPath(import.meta.url));
+const CSS_HASH = (() => {
+  try {
+    const css = readFileSync(join(__dirname_esm, "../public/css/style.css"));
+    return createHash("md5").update(css).digest("hex").slice(0, 8);
+  } catch {
+    return Date.now().toString(36);
+  }
+})();
 
 const createSlug = (name: string): string =>
   name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -61,8 +76,8 @@ function renderHead(title = "Integrative Health Partners | Greenville, SC", desc
   <meta name="twitter:image" content="${BASE_URL}/images/dr-hendry.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="/css/style.css" fetchpriority="high" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preload" as="style" href="/css/style.css?v=${CSS_HASH}" fetchpriority="high" />
+  <link rel="stylesheet" href="/css/style.css?v=${CSS_HASH}" />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" /></noscript>
