@@ -7,14 +7,13 @@ import { autoLink } from "./auto-linker";
 import type { BlogPost } from "@shared/schema";
 import { createHash } from "crypto";
 import { readFileSync } from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 
-/* Cache-bust: embed MD5 of style.css so browsers re-fetch on every deploy */
-const __dirname_esm = dirname(fileURLToPath(import.meta.url));
+/* Cache-bust: embed MD5 of style.css so browsers re-fetch on every deploy.
+   Uses process.cwd() — works in both ESM and CommonJS (Railway CJS bundle). */
 const CSS_HASH = (() => {
   try {
-    const css = readFileSync(join(__dirname_esm, "../public/css/style.css"));
+    const css = readFileSync(join(process.cwd(), "public/css/style.css"));
     return createHash("md5").update(css).digest("hex").slice(0, 8);
   } catch {
     return Date.now().toString(36);
