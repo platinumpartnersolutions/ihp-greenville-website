@@ -92,6 +92,22 @@
   to = "/blog/us-military-using-acupuncture-to-reduce-stress-and-pain/"
   status = 301
 
+# 404s — old WP slugs currently 404ing (no /blog/ redirect was set — high impression pages)
+[[redirects]]
+  from = "/how-to-treat-mold-illness-with-herbs-and-supplements"
+  to = "/blog/how-to-treat-mold-illness-with-herbs-and-supplements/"
+  status = 301
+
+[[redirects]]
+  from = "/monograph-black-seed-oil-nigella-sativa"
+  to = "/blog/monograph-black-seed-oil-nigella-sativa/"
+  status = 301
+
+[[redirects]]
+  from = "/vitamin-ks-many-benefits"
+  to = "/blog/vitamin-ks-many-benefits/"
+  status = 301
+
 # 404s — no exact match, send to closest relevant page
 [[redirects]]
   from = "/tea-time"
