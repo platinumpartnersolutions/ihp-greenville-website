@@ -170,7 +170,7 @@ const categoryDefinitions: CategoryData[] = [
       "Prenatal Acupuncture","Pregnancy Acupuncture","Acupuncture for Anxiety","Acupuncture for Stress Relief",
       "Acupuncture for Insomnia","Acupuncture for Migraines","Acupuncture for Headaches","Non-Needle Acupuncture",
       "Laser Acupuncture","Acupressure Therapy","Dry Needling Therapy","Trigger Point Dry Needling",
-      "Intramuscular Stimulation","Biopuncture Therapy","Biopuncture Injections","Acupuncture Injection Therapy"
+      "Intramuscular Stimulation","Biopuncture Therapy","Biopuncture Injections","Acupuncture Injection Therapy","Prolotherapy"
     ]
   },
   {

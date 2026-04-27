@@ -104,6 +104,7 @@ function renderNav(transparent = false): string {
               <a href="/services/acupuncture-for-anxiety/" class="nav__dropdown-item" role="menuitem">Acupuncture for Anxiety</a>
               <a href="/services/acupuncture-for-migraines/" class="nav__dropdown-item" role="menuitem">Acupuncture for Migraines</a>
               <a href="/services/biopuncture-therapy/" class="nav__dropdown-item" role="menuitem">Biopuncture Therapy</a>
+              <a href="/services/prolotherapy/" class="nav__dropdown-item" role="menuitem">Prolotherapy</a>
             </div>
             <div class="nav__dropdown-col nav__dropdown-col--divider">
               <span class="nav__dropdown-col-label">Body &amp; Pain</span>
@@ -243,6 +244,7 @@ function renderNav(transparent = false): string {
   <a href="/services/acupuncture-for-anxiety/" class="nav__mobile-sublink">Acupuncture for Anxiety</a>
   <a href="/services/acupuncture-for-migraines/" class="nav__mobile-sublink">Acupuncture for Migraines</a>
   <a href="/services/biopuncture-therapy/" class="nav__mobile-sublink">Biopuncture Therapy</a>
+  <a href="/services/prolotherapy/" class="nav__mobile-sublink">Prolotherapy</a>
   <a href="/services/back-pain-treatment/" class="nav__mobile-sublink">Back Pain Treatment</a>
   <a href="/services/neck-pain-treatment/" class="nav__mobile-sublink">Neck Pain Treatment</a>
   <a href="/services/knee-pain-treatment/" class="nav__mobile-sublink">Knee Pain Treatment</a>
@@ -1076,6 +1078,7 @@ const reviewMap: Record<string, { text: string; author: string; date: string }> 
   "electroacupuncture":             { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
   "dry-needling-therapy":           { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
   "trigger-point-dry-needling":     { text: "Excellent. I was a skeptic and informed Dr. Hendry of such. I have a broken neck from a racing accident over 40 plus years ago. The results have been remarkable and I am a believer in acupuncture.", author: "Michael F. McLeod", date: "April 2015" },
+  "prolotherapy":                   { text: "I was struggling with adductor and hamstring issues for years, stopping me from running. I tried this place as a last ditch effort and am glad I did. After a consultation it was decided to try a 'wet needling' therapy — it saved my running career.", author: "Corey Coll", date: "April 2022" },
   "acupuncture-for-anxiety":        { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
   "acupuncture-for-migraines":      { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
   "acupuncture-for-headaches":      { text: "I can't say enough good things about Dr. Hendry. He really listens to your experience and what you need to share about your situation, is patient, and takes the time to explain clearly what acupuncture is about.", author: "Catherine Hosack", date: "April 2015" },
