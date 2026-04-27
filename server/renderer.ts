@@ -480,7 +480,7 @@ export function renderHome(): string {
     { name: "Thyroid Issues", slug: "thyroid-issues", cat: "Digestive & Immune" },
   ];
 
-  return `${renderHead("Acupuncture & Functional Medicine in Greenville, SC | IHP", "Integrative Health Partners — acupuncture, functional medicine & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges. Call (864) 365-6156.")}
+  return `${renderHead("Functional Medicine & Acupuncture in Greenville, SC | IHP", "Integrative Health Partners — functional medicine, acupuncture & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges. Call (864) 365-6156.")}
 <body data-page="home">
   ${renderNav(true)}
 

@@ -279,8 +279,8 @@ interface PageSEO {
 
 function getHomeSEO(): PageSEO {
   return {
-    title: "Acupuncture & Functional Medicine in Greenville, SC | IHP",
-    description: "Acupuncture & functional medicine in Greenville, SC. Dr. Hendry, DAOM — 25+ years, Prisma Health privileges. Root-cause care. New patients welcome.",
+    title: "Functional Medicine & Acupuncture in Greenville, SC | IHP",
+    description: "Functional & integrative medicine in Greenville, SC. Dr. Hendry, DAOM — acupuncture, root-cause testing, herbal medicine. 25+ years. New patients welcome.",
     canonical: BASE_URL,
     ogType: "website",
     schemas: [
