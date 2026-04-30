@@ -148,7 +148,7 @@
 
 [[redirects]]
   from = "/what-is-prolotherapy"
-  to = "/blog/what-is-prolotherapy-2/"
+  to = "/blog/what-is-prolotherapy-and-why-does-it-work/"
   status = 301
 
 [[redirects]]
@@ -218,7 +218,7 @@
 
 [[redirects]]
   from = "/how-is-your-vitamin-d-supplement-working-for-you"
-  to = "/blog/how-is-your-vitamin-d-supplement-working-for-you/"
+  to = "/blog/vitamin-d/"
   status = 301
 
 [[redirects]]
@@ -289,12 +289,12 @@
 
 [[redirects]]
   from = "/threat-perception-and-physical-health-managing-the-feedback-loop"
-  to = "/blog/"
+  to = "/blog/threat-perception-and-physical-health-how-to-manage-the-feedback-loop/"
   status = 301
 
 [[redirects]]
   from = "/threat-perception-and-physical-health-how-to-manage-the-feedback-loop"
-  to = "/blog/"
+  to = "/blog/threat-perception-and-physical-health-how-to-manage-the-feedback-loop/"
   status = 301
 
 # Proxy /admin to Railway server (keeps URL as ihpgreenville.com/admin)

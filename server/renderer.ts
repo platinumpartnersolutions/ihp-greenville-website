@@ -2993,7 +2993,9 @@ export function renderSitemapHtml(blogPosts: { title: string; slug: string }[] =
     { name: "Digestive & Immune", href: "/conditions/digestive-immune/" },
   ];
 
-  return `${renderHead("Site Map | Integrative Health Partners Greenville, SC", "Complete site map for Integrative Health Partners — all services, conditions, and pages.")}
+  const head = renderHead("Site Map | Integrative Health Partners Greenville, SC", "Complete site map for Integrative Health Partners — all services, conditions, and pages.")
+    .replace("</head>", `  <meta name="robots" content="noindex,nofollow" />\n</head>`);
+  return `${head}
 <body data-page="sitemap">
   ${renderNav(false)}
 

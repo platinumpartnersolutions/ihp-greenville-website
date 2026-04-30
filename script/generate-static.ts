@@ -15,7 +15,7 @@ import {
   getSEOForUrl, injectSEOIntoHTML, getBlogPostSEO, generateRobotsTxt,
 } from "../server/seo";
 import { conditions, conditionCategories } from "../server/conditions";
-import { BLOG_410S } from "../server/blog-redirects";
+import { BLOG_410S, BLOG_301S } from "../server/blog-redirects";
 import type { BlogPost } from "../shared/schema";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -111,7 +111,9 @@ if (existsSync(DIST)) rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
 
 const allBlogPosts = loadBlogPosts();
-const liveBlogPosts = allBlogPosts.filter(p => !BLOG_410S.has(`/blog/${p.slug}`));
+const liveBlogPosts = allBlogPosts.filter(p =>
+  !BLOG_410S.has(`/blog/${p.slug}`) && !(`/blog/${p.slug}` in BLOG_301S)
+);
 console.log(`\nLoaded ${allBlogPosts.length} blog posts (${liveBlogPosts.length} live)\n`);
 
 /* ─── STATIC PAGES ─────────────────────────────────────────────────────────── */
@@ -438,11 +440,18 @@ redirectLines.push("");
 redirectLines.push("# 301 redirect — dsnews.co.uk guest post links to wrong path for FM hub");
 redirectLines.push("/services/functional-medicine-greenville-sc  /functional-medicine-greenville-sc/  301");
 redirectLines.push("");
+redirectLines.push("# 301 redirects — consolidated duplicate blog posts");
+for (const [from, to] of Object.entries(BLOG_301S)) {
+  redirectLines.push(`${from}  ${to}  301`);
+  redirectLines.push(`${from}/  ${to}  301`);
+}
+redirectLines.push("");
 redirectLines.push("# 301 redirects — old root-level URLs to canonical /blog/ paths");
 redirectLines.push("# These rank in GSC but Google indexed them without the /blog/ prefix");
 redirectLines.push("/monograph-black-seed-oil-nigella-sativa  /blog/monograph-black-seed-oil-nigella-sativa/  301");
 redirectLines.push("/how-to-treat-mold-illness-with-herbs-and-supplements  /blog/how-to-treat-mold-illness-with-herbs-and-supplements/  301");
-redirectLines.push("/what-is-prolotherapy-2  /blog/what-is-prolotherapy-2/  301");
+// was pointing to retired /what-is-prolotherapy-2 — now points to canonical
+redirectLines.push("/what-is-prolotherapy-2  /blog/what-is-prolotherapy-and-why-does-it-work/  301");
 redirectLines.push("");
 redirectLines.push("# 301 trailing-slash redirects — consolidate no-slash/slash duplicate pairs in Google index");
 redirectLines.push("# Canonical tags already point to slash versions; these 301s accelerate deduplication");

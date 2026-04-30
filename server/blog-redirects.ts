@@ -1,4 +1,23 @@
-export const BLOG_301S: Record<string, string> = {};
+/**
+ * Duplicate blog posts to consolidate.
+ * Key  = canonical-less slug path (e.g. "/blog/old-slug")
+ * Value = destination URL WITH trailing slash
+ *
+ * These slugs are filtered out of the static build and receive 301 redirects.
+ */
+export const BLOG_301S: Record<string, string> = {
+  // Prolotherapy — two thin duplicate posts → longer authoritative version
+  "/blog/what-is-prolotherapy":   "/blog/what-is-prolotherapy-and-why-does-it-work/",
+  "/blog/what-is-prolotherapy-2": "/blog/what-is-prolotherapy-and-why-does-it-work/",
+
+  // Vitamin D — two thin duplicates → original full-length post
+  "/blog/vitamin-d-for-health":                            "/blog/vitamin-d/",
+  "/blog/how-is-your-vitamin-d-supplement-working-for-you": "/blog/vitamin-d/",
+
+  // Threat perception — same article published twice with near-identical slugs
+  "/blog/threat-perception-and-physical-health-managing-the-feedback-loop":
+    "/blog/threat-perception-and-physical-health-how-to-manage-the-feedback-loop/",
+};
 
 export const BLOG_410S = new Set<string>([
   "/blog/weekly-digestive-health-tips",
