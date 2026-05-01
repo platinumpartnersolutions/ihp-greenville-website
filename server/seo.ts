@@ -269,6 +269,22 @@ for (const cat of categoryDefinitions) {
   }
 }
 
+/* ─── Per-service SEO overrides ─────────────────────────────────────────────
+ * Applied after the category loop to differentiate pages that would otherwise
+ * target identical keyword intent (cannibalization fix).
+ * ─────────────────────────────────────────────────────────────────────────── */
+{
+  const holistic = serviceMap.get("holistic-health-assessment");
+  if (holistic) {
+    // Conflict Group 3 fix: differentiate from functional-medicine-consultation.
+    // Old description said "functional medicine, root-cause diagnostics" — identical
+    // phrasing to the consultation page. New description leads with TCM/constitutional
+    // framing so Google clearly distinguishes the two intake options.
+    holistic.metaTitle = "Holistic Health Assessment | Chinese Medical Evaluation — IHP Greenville";
+    holistic.metaDescription = "Whole-person health evaluation using Chinese medical diagnosis (tongue, pulse, pattern analysis) with Dr. Hendry, DAOM. Greenville, SC. Call (864) 365-6156.";
+  }
+}
+
 interface PageSEO {
   title: string;
   description: string;
@@ -279,8 +295,8 @@ interface PageSEO {
 
 function getHomeSEO(): PageSEO {
   return {
-    title: "Functional Medicine & Acupuncture in Greenville, SC | IHP",
-    description: "Functional & integrative medicine in Greenville, SC. Dr. Hendry, DAOM — acupuncture, root-cause testing, herbal medicine. 25+ years. New patients welcome.",
+    title: "Integrative Health Partners — Dr. William Hendry, DAOM | Greenville, SC",
+    description: "Acupuncture, Chinese herbal medicine, ozone therapy, and functional medicine in Greenville, SC. Dr. Hendry, DAOM — 25 years experience. New patients welcome.",
     canonical: BASE_URL,
     ogType: "website",
     schemas: [

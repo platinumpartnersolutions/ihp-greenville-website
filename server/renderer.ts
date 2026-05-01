@@ -509,10 +509,10 @@ export function renderHome(): string {
       </div>
       <div class="hero__content">
         <h1 class="hero__h1 reveal font-display">
-          Functional Medicine &amp; <a href="/services/acupuncture-therapy/" style="color:inherit;text-decoration:none"><em>Acupuncture</em></a> in Greenville, SC
+          <a href="/services/acupuncture-therapy/" style="color:inherit;text-decoration:none"><em>Acupuncture</em></a> &amp; Integrative Health in Greenville, SC
         </h1>
         <p class="hero__subtitle reveal reveal-delay-2">
-          Greenville's most credentialed integrative health practice — <a href="/services/acupuncture-therapy/" class="hero__text-link">acupuncture</a>, Chinese herbal medicine, and root-cause functional medicine. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
+          Greenville's most credentialed integrative health practice — <a href="/services/acupuncture-therapy/" class="hero__text-link">acupuncture</a>, Chinese herbal medicine, and <a href="/services/functional-medicine-consultation/" class="hero__text-link">root-cause functional medicine</a>. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
         </p>
         <div class="hero__stars reveal reveal-delay-3">
           <div class="hero__star-row" aria-label="5 star rating">${starRow()}</div>
@@ -1516,6 +1516,9 @@ export function renderBlogIndex(posts: BlogPost[]): string {
         <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-top:1rem" class="reveal reveal-delay-1">
           Insights on acupuncture, functional medicine, and natural health from Dr. William Hendry
           and the team at Integrative Health Partners in Greenville, SC.
+        </p>
+        <p style="font-size:0.9375rem;margin-top:0.875rem;color:var(--color-text)" class="reveal reveal-delay-2">
+          Looking for care rather than reading? <a href="/services/functional-medicine-consultation/" style="color:var(--color-primary);font-weight:600;text-decoration:underline;text-underline-offset:3px">Book a Functional Medicine Consultation →</a>
         </p>
       </div>
 
