@@ -1,4 +1,4 @@
-CONTENT = {
+﻿CONTENT = {
     "trigger-point-dry-needling": {
         "research": (
             "Myofascial trigger points are discrete, hyperirritable foci within a taut band of skeletal muscle. "
@@ -6,7 +6,7 @@ CONTENT = {
             "points harbor a measurably acidic microenvironment with elevated concentrations of substance P, "
             "calcitonin gene-related peptide, bradykinin, serotonin, and tumor necrosis factor-alpha. This "
             "inflammatory milieu perpetuates the ATP energy crisis described in Travell and Simons' trigger point "
-            "manual (1983/1992) — sarcomere contracture without nerve input. Dry needling mechanically disrupts "
+            "manual (1983/1992) â€” sarcomere contracture without nerve input. Dry needling mechanically disrupts "
             "this contracture, eliciting a local twitch response that resets the dysfunctional motor endplate. "
             "The needle penetration also stimulates a controlled inflammatory response, recruiting fibroblasts "
             "and promoting tissue remodeling at the site. Dommerholt and Huijbregts (2011) summarize the "
@@ -253,7 +253,7 @@ CONTENT = {
             "of evidence demonstrating tolerance, opioid-induced hyperalgesia, hormonal suppression, "
             "and the absence of long-term functional improvement in most patients. Dr. Hendry's "
             "landmark three-year study at Prisma Health on needling as an opioid alternative in "
-            "the emergency department, resulting in five publications with 52 citations, directly "
+            "the emergency department, resulting in five publications with 54 citations, directly "
             "addresses this gap. Opioids modulate pain signal transmission but do not repair the "
             "ligamentous laxity, disc degeneration, or myofascial contracture generating the "
             "signal. Patients on long-term opioids frequently plateau or deteriorate structurally "
@@ -703,7 +703,7 @@ CONTENT = {
             "neuroinflammation. Dr. Hendry's three-year clinical study at Prisma Health "
             "directly addressed the need for non-opioid pain management approaches that "
             "engage these neurological mechanisms, producing five peer-reviewed publications "
-            "with 52 citations. Vickers AJ et al. (J Pain, 2018) provided the definitive "
+            "with 54 citations. Vickers AJ et al. (J Pain, 2018) provided the definitive "
             "evidence base demonstrating that acupuncture produces effects on chronic pain "
             "that are not only statistically significant but clinically meaningful at one "
             "year. Our chronic pain management framework identifies the specific neurological, "

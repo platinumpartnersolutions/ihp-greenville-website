@@ -63,8 +63,8 @@ export default function CategoryPage() {
         return `Greenville's Premier Acupuncture Clinic`;
       case "chinese-medicine-clinic-greenville-sc":
         return `Authentic Chinese Medicine Clinic in Greenville`;
-      case "alternative-medicine-practitioner-greenville-sc":
-        return `Experienced Alternative Medicine Practitioner in Greenville, SC`;
+      case "functional-medicine-greenville-sc":
+        return `Functional Medicine Practitioner in Greenville, SC`;
       default:
         return `${category.name} in Greenville, SC`;
     }
@@ -79,8 +79,8 @@ export default function CategoryPage() {
         return `Our acupuncture clinic in Greenville specializes in treating pain conditions, injuries, and musculoskeletal issues. Whether you're dealing with chronic back pain or recovering from a sports injury, we provide targeted treatments that address the root cause.`;
       case "chinese-medicine-clinic-greenville-sc":
         return `Experience authentic Traditional Chinese Medicine in Greenville. From cupping and gua sha to custom herbal formulations, our Chinese medicine clinic offers time-tested therapies backed by modern understanding.`;
-      case "alternative-medicine-practitioner-greenville-sc":
-        return `As a trusted alternative medicine practitioner in Greenville, Dr. Hendry combines functional medicine testing with natural therapies to uncover the root causes of your health concerns and create personalized treatment plans.`;
+      case "functional-medicine-greenville-sc":
+        return `As a functional medicine practitioner in Greenville, Dr. Hendry uses advanced lab diagnostics to identify the root causes of chronic illness, hormone imbalance, digestive disorders, and fatigue — then builds personalized treatment plans that actually resolve the underlying problem.`;
       default:
         return `Discover our comprehensive ${category.name.toLowerCase()} services in Greenville, SC.`;
     }

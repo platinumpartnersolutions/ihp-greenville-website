@@ -35,8 +35,13 @@ export function OrganizationSchema({}: OrganizationSchemaProps) {
       }
     ],
     "sameAs": [
-      "https://facebook.com/ihpgreenville",
-      "https://instagram.com/integrativehealthpartners"
+      "https://www.google.com/maps/place/Integrative+Health+Partners/",
+      "https://www.facebook.com/ihpgreenville",
+      "https://www.instagram.com/integrativehealthpartners",
+      "https://www.yelp.com/biz/integrative-health-partners-greenville",
+      "https://www.ratemds.com/doctor-ratings/3158719/WILLIAM+M.-HENDRY-Greenville-SC.html/",
+      "https://npiregistry.cms.hhs.gov/provider-view/1417184045",
+      "https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx"
     ]
   };
 
@@ -101,8 +106,13 @@ export function LocalBusinessSchema({ aggregateRating }: LocalBusinessSchemaProp
       }
     ],
     "sameAs": [
-      "https://facebook.com/ihpgreenville",
-      "https://instagram.com/integrativehealthpartners"
+      "https://www.google.com/maps/place/Integrative+Health+Partners/",
+      "https://www.facebook.com/ihpgreenville",
+      "https://www.instagram.com/integrativehealthpartners",
+      "https://www.yelp.com/biz/integrative-health-partners-greenville",
+      "https://www.ratemds.com/doctor-ratings/3158719/WILLIAM+M.-HENDRY-Greenville-SC.html/",
+      "https://npiregistry.cms.hhs.gov/provider-view/1417184045",
+      "https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx"
     ]
   };
 
@@ -209,7 +219,9 @@ export function PhysicianSchema({}: PhysicianSchemaProps) {
     "@type": "Physician",
     "name": "Dr. William Hendry",
     "honorificPrefix": "Dr.",
+    "honorificSuffix": "DAOM, Dipl. O.M. (NCBAHM)®",
     "jobTitle": "Doctor of Acupuncture and Oriental Medicine",
+    "description": "Dr. William Hendry is a board-certified functional medicine and injection therapy practitioner in Greenville, SC with 25+ years of clinical experience, hospital privileges at Prisma Health, and 5 peer-reviewed research publications.",
     "worksFor": {
       "@type": "MedicalBusiness",
       "name": NAP.name
@@ -217,18 +229,47 @@ export function PhysicianSchema({}: PhysicianSchemaProps) {
     "medicalSpecialty": [
       "Acupuncture",
       "Oriental Medicine",
-      "Functional Medicine"
-    ],
-    "memberOf": {
-      "@type": "Organization",
-      "name": "Prisma Health"
-    },
-    "knowsAbout": [
-      "Acupuncture",
       "Functional Medicine",
+      "Injection Therapy"
+    ],
+    "memberOf": [
+      { "@type": "Organization", "name": "Prisma Health" },
+      { "@type": "Organization", "name": "American Academy of Ozone Therapy (AAOT)" }
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Doctor of Acupuncture and Oriental Medicine (DAOM)",
+        "recognizedBy": { "@type": "Organization", "name": "East West College of Natural Medicine" }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Diplomate of Oriental Medicine",
+        "identifier": "114498",
+        "recognizedBy": { "@type": "Organization", "name": "NCBAHM" }
+      }
+    ],
+    "identifier": [
+      { "@type": "PropertyValue", "name": "NPI", "value": "1417184045" },
+      { "@type": "PropertyValue", "name": "SC License", "value": "ACUP141" }
+    ],
+    "knowsAbout": [
+      "Functional Medicine",
+      "Injection Therapy",
+      "Prolotherapy",
+      "Biopuncture",
+      "Acupuncture",
       "Chinese Herbal Medicine",
+      "Ozone Therapy",
       "Chronic Pain Treatment",
       "Digestive Health"
+    ],
+    "sameAs": [
+      "https://npiregistry.cms.hhs.gov/provider-view/1417184045",
+      "https://npidb.org/doctors/other_service/acupuncturist_171100000x/1417184045.aspx",
+      "https://digitalbadge.ncbahm.org/DiplomateBadgeProfile/LuHp7SJvVWPt5Uc3pVf6LQ==",
+      "https://www.ratemds.com/doctor-ratings/3158719/WILLIAM+M.-HENDRY-Greenville-SC.html/",
+      "https://www.researchgate.net/profile/William-Hendry-4"
     ]
   };
 

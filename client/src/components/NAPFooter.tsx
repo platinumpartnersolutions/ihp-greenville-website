@@ -58,8 +58,8 @@ export function NAPFooter() {
               <Link href="/services/chinese-medicine-clinic-greenville-sc" className="block hover:text-white transition-colors py-1.5 min-h-[44px] flex items-center">
                 Chinese Medicine
               </Link>
-              <Link href="/services/alternative-medicine-practitioner-greenville-sc" className="block hover:text-white transition-colors py-1.5 min-h-[44px] flex items-center">
-                Alternative Medicine
+              <Link href="/services/functional-medicine-greenville-sc" className="block hover:text-white transition-colors py-1.5 min-h-[44px] flex items-center">
+                Functional Medicine
               </Link>
             </div>
           </div>

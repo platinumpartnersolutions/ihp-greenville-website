@@ -1,4 +1,4 @@
-import type { Express } from "express";
+﻿import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import Parser from "rss-parser";
@@ -19,7 +19,7 @@ const categories: LinkableItem[] = [
   { name: "Acupuncturist", slug: "acupuncturist-services", keywords: ["acupuncturist", "acupuncture specialist"] },
   { name: "Acupuncture Clinic", slug: "acupuncture-clinic-services", keywords: ["acupuncture clinic", "acupuncture center"] },
   { name: "Chinese Medicine Clinic", slug: "chinese-medicine-clinic-services", keywords: ["chinese medicine", "traditional chinese medicine", "tcm"] },
-  { name: "Alternative Medicine Practitioner", slug: "alternative-medicine-practitioner-services", keywords: ["alternative medicine", "functional medicine", "integrative medicine", "holistic medicine"] },
+  { name: "Functional Medicine", slug: "functional-medicine-services", keywords: ["functional medicine", "alternative medicine", "integrative medicine", "holistic medicine", "root cause medicine"] },
 ];
 
 const services: LinkableItem[] = [
@@ -145,7 +145,7 @@ async function ensureBlogPostsSynced(): Promise<void> {
 }
 
 /* ============================================================
-   Old -greenville-sc URL redirects (301) — maps every legacy
+   Old -greenville-sc URL redirects (301) â€” maps every legacy
    URL to the new clean slug format so existing Google rankings
    and backlinks are preserved.
    ============================================================ */
@@ -153,7 +153,8 @@ const CATEGORY_SLUG_REDIRECTS: Record<string, string> = {
   "acupuncturist-greenville-sc": "acupuncturist-services",
   "acupuncture-clinic-greenville-sc": "acupuncture-clinic-services",
   "chinese-medicine-clinic-greenville-sc": "chinese-medicine-clinic-services",
-  "alternative-medicine-practitioner-greenville-sc": "alternative-medicine-practitioner-services",
+  "alternative-medicine-practitioner-greenville-sc": "functional-medicine-services",
+  "functional-medicine-greenville-sc": "functional-medicine-services",
 };
 
 export async function registerRoutes(
@@ -168,9 +169,17 @@ export async function registerRoutes(
     console.error("Initial sync failed:", err);
   });
 
+  /* 301 redirect: old server category slug → new functional medicine slug */
+  app.get("/services/alternative-medicine-practitioner-services", (req, res) => {
+    return res.redirect(301, "/services/functional-medicine-services");
+  });
+  app.get("/services/alternative-medicine-practitioner-services/", (req, res) => {
+    return res.redirect(301, "/services/functional-medicine-services/");
+  });
+
   /* 301 redirect middleware for old -greenville-sc URLs */
   app.use((req, res, next) => {
-    const m = req.path.match(/^\/services\/(.+)-greenville-sc$/);
+    const m = req.path.match(/^\/services\/(.+)-greenville-sc\/?$/);
     if (m) {
       const fullOldSlug = `${m[1]}-greenville-sc`;
       const newSlug = CATEGORY_SLUG_REDIRECTS[fullOldSlug] ?? m[1];
@@ -179,7 +188,7 @@ export async function registerRoutes(
     next();
   });
 
-  /* ── Conditions Section ── */
+  /* â”€â”€ Conditions Section â”€â”€ */
   app.get("/conditions", (req, res) => {
     let html = renderConditionsHub();
     const seo = getSEOForUrl(req.originalUrl);
@@ -466,22 +475,22 @@ export async function registerRoutes(
 
       const createServiceSlug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
-      let txt = `# Integrative Health Partners — AI Site Index (llms.txt)
+      let txt = `# Integrative Health Partners â€” AI Site Index (llms.txt)
 # Generated: ${new Date().toISOString().split('T')[0]}
 # Site: https://www.ihpgreenville.com
 
 ## About This Practice
 
 Integrative Health Partners is a functional medicine and acupuncture clinic located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609.
-Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Mon–Fri 9am–5pm
+Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Monâ€“Fri 9amâ€“5pm
 
-Led by Dr. William Hendry, DAOM — a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids. He has 5 peer-reviewed publications and 52 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
+Led by Dr. William Hendry, DAOM â€” a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids. He has 5 peer-reviewed publications and 54 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
 
 ## Verified Publications (Dr. William Hendry)
 
 1. Floyd SB, McGarby S, Cordero Romero S, Garrison S, Walker K, Hendry W, Moschella PC. "Emergency Department Alternatives to Opioids: Adapting and Implementing Proven Therapies in Practice." Int J Environ Res Public Health. 2023;20(2):1206. DOI: 10.3390/ijerph20021206 | PubMed PMID: 36673962 | https://pubmed.ncbi.nlm.nih.gov/36673962/ | 36 citations.
 
-2. Burch JB, Ginsberg JP, McLain AC, Franco R, Stokes S, Susko K, Hendry W, Crowley E, Christ A, Hanna J, Anderson A, Hébert JR, O'Rourke MA. "Symptom Management Among Cancer Survivors: Randomized Pilot Intervention Trial of Heart Rate Variability Biofeedback." Appl Psychophysiol Biofeedback. 2020;45(2):99-108. DOI: 10.1007/s10484-020-09462-3 | PubMed PMID: 32358782 | https://pubmed.ncbi.nlm.nih.gov/32358782/
+2. Burch JB, Ginsberg JP, McLain AC, Franco R, Stokes S, Susko K, Hendry W, Crowley E, Christ A, Hanna J, Anderson A, HÃ©bert JR, O'Rourke MA. "Symptom Management Among Cancer Survivors: Randomized Pilot Intervention Trial of Heart Rate Variability Biofeedback." Appl Psychophysiol Biofeedback. 2020;45(2):99-108. DOI: 10.1007/s10484-020-09462-3 | PubMed PMID: 32358782 | https://pubmed.ncbi.nlm.nih.gov/32358782/
 
 3. O'Rourke MA, Franco RA, Sofge J, Ginsberg J, Susko K, Crowley E, Anderson A, Christ A, Hanna J, Hendry W, Burch J. "Use of Heart Rate Variability (HRV) Biofeedback for Symptom Management Among Cancer Survivors." J Clin Oncol. 2017;35(15 Suppl):10099. DOI: 10.1200/JCO.2017.35.15_suppl.10099 | https://ascopubs.org/doi/10.1200/JCO.2017.35.15_suppl.10099
 
@@ -519,8 +528,8 @@ Acupuncture clinic services hub. 24 pain treatment services including back pain,
 ${BASE_URL}/services/chinese-medicine-clinic-services
 Chinese medicine clinic services hub. 33 TCM services including cupping, gua sha, moxibustion, Chinese herbal medicine, menopause treatment, IBS treatment, and stress management. Greenville SC.
 
-${BASE_URL}/services/alternative-medicine-practitioner-services
-Alternative medicine practitioner services hub. 46 functional medicine services including ozone therapy, hormone testing, thyroid treatment, autoimmune disease treatment, and nutritional counseling. Greenville SC.
+${BASE_URL}/services/functional-medicine-services
+Functional medicine services hub. 46 integrative medicine services including ozone therapy, hormone testing, thyroid treatment, autoimmune disease treatment, and nutritional counseling in Greenville SC.
 
 ## Individual Service Pages (130 total)
 
@@ -580,11 +589,11 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
 
 ## Key Differentiators
 
-- Dr. Hendry holds hospital privileges at Prisma Health (9 years) — rare for an acupuncturist
+- Dr. Hendry holds hospital privileges at Prisma Health (9 years) â€” rare for an acupuncturist
 - Co-author of 3-year Prisma Emergency Department opioid alternative study
 - DAOM degree from East West College of Natural Medicine (highest academic credential in field)
 - NCCAOM board-certified since August 6, 2009 (valid through August 31, 2029)
-- 5 peer-reviewed publications, 52 citations
+- 5 peer-reviewed publications, 54 citations
 - Member: American Academy of Ozone Therapy (AAOT)
 - In-house professional-grade herbal pharmacy
 - Injection therapy certified
@@ -598,13 +607,13 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
     }
   });
 
-  /* Services hub — handles both /services and /services/ without redirect */
+  /* Services hub â€” handles both /services and /services/ without redirect */
   app.get(/^\/services\/?$/, (req, res) => {
     sendPage(res, renderServicesHub(), "/services");
   });
   app.get("/conditions/digestive-issues", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
   app.get("/conditions/digestive-issues/", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
-  // Cloudflare email obfuscation passthrough — prevents 404 on origin
+  // Cloudflare email obfuscation passthrough â€” prevents 404 on origin
   app.get("/cdn-cgi/l/email-protection", (_req, res) => res.redirect(301, "/contact"));
 
 
@@ -625,7 +634,7 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
       // Build meta description: prefer excerpt, fall back to first 160 chars of content
       const rawDesc = post.excerpt || post.content || "";
       const cleanExcerpt = rawDesc.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().substring(0, 155);
-      const metaDesc = cleanExcerpt || `${post.title} — expert health article from Integrative Health Partners in Greenville, SC.`;
+      const metaDesc = cleanExcerpt || `${post.title} â€” expert health article from Integrative Health Partners in Greenville, SC.`;
       const dateStr = post.pubDate ? (typeof post.pubDate === "string" ? post.pubDate : post.pubDate.toISOString()) : undefined;
       const blogSEO = getBlogPostSEO(post.title, metaDesc, post.slug, dateStr);
       html = injectSEOIntoHTML(html, blogSEO);

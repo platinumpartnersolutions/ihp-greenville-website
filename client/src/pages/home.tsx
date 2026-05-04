@@ -20,12 +20,12 @@ const stagger = {
 };
 
 const homeServices = [
-  { icon: Leaf, title: "Acupuncture", link: "/services/acupuncturist-greenville-sc", description: "25 years of expertise combining traditional Chinese methods with modern understanding for lasting relief." },
-  { icon: Heart, title: "Pain Treatment", link: "/services/acupuncture-clinic-greenville-sc", description: "Specialized care for back pain, sciatica, sports injuries, and chronic pain conditions." },
-  { icon: Zap, title: "Chinese Medicine", link: "/services/chinese-medicine-clinic-greenville-sc", description: "Cupping, herbal formulas, moxibustion, and traditional TCM therapies." },
-  { icon: Sparkles, title: "Functional Medicine", link: "/services/alternative-medicine-practitioner-greenville-sc", description: "Root cause analysis, advanced testing, and personalized treatment plans." },
-  { icon: Droplets, title: "Detox Therapies", link: "/services/ozone-therapy-greenville-sc", description: "Ozone sauna, infrared therapy, and natural detoxification protocols." },
-  { icon: Flame, title: "Holistic Wellness", link: "/services/holistic-health-assessment-greenville-sc", description: "Comprehensive health assessments and integrative treatment approaches." }
+  { icon: Sparkles, title: "Functional Medicine", link: "/services/functional-medicine-greenville-sc", description: "Root cause diagnostics with advanced lab testing and 90-minute initial consultations. Find out why your body isn't functioning — not just what to mask." },
+  { icon: Zap, title: "Injection Therapy", link: "/services/biopuncture-therapy-greenville-sc", description: "Prolotherapy and biopuncture for joint pain, ligament injuries, and chronic musculoskeletal conditions. Regenerative, non-surgical alternatives." },
+  { icon: Leaf, title: "Acupuncture", link: "/services/acupuncture-therapy-greenville-sc", description: "25+ years of expertise combining traditional Chinese acupuncture with modern evidence-based practice for pain, stress, and systemic conditions." },
+  { icon: Heart, title: "Pain Treatment", link: "/services/acupuncture-clinic-greenville-sc", description: "Integrative care for back pain, sciatica, sports injuries, and chronic pain — using acupuncture, dry needling, and injection therapy together." },
+  { icon: Flame, title: "Chinese Medicine", link: "/services/chinese-medicine-clinic-greenville-sc", description: "Cupping, Chinese herbal formulas, moxibustion, and traditional TCM therapies." },
+  { icon: Droplets, title: "Ozone & Detox", link: "/services/ozone-therapy-greenville-sc", description: "Ozone therapy, infrared sauna, and natural detoxification protocols supporting immune and metabolic health." }
 ];
 
 const testimonials = [
@@ -36,16 +36,16 @@ const testimonials = [
 
 const homeFaqs = [
   {
-    question: "What services does your Greenville acupuncture clinic offer?",
-    answer: "We offer comprehensive acupuncture services, Chinese medicine treatments including cupping and herbal formulas, pain management, and functional medicine testing. Dr. Hendry has 25+ years of experience treating chronic pain, fatigue, digestive issues, and more."
+    question: "What is functional medicine and how is it different from conventional medicine?",
+    answer: "Functional medicine identifies the root cause of your symptoms rather than just treating them. Dr. Hendry uses advanced lab testing — hormones, gut microbiome, inflammatory markers, nutrient panels — to build a complete picture of why your body is struggling. Initial consultations are 90 minutes to allow for thorough evaluation."
   },
   {
-    question: "How do I schedule an appointment with Dr. Hendry?",
-    answer: `Call us at ${NAP.phone} to schedule your consultation. We're located at ${NAP.streetAddress}, ${NAP.city}, ${NAP.state} ${NAP.postalCode}, with ample free parking.`
+    question: "What conditions does injection therapy (prolotherapy and biopuncture) treat?",
+    answer: "Prolotherapy and biopuncture treat chronic joint pain, ligament laxity, tendon injuries, low back pain, knee pain, shoulder injuries, and sports injuries. Prolotherapy uses dextrose injections to stimulate connective tissue repair. Biopuncture uses homeopathic injectables for localized anti-inflammatory effects. Both are non-surgical and performed by Dr. Hendry, who holds Injection Therapy certification."
   },
   {
-    question: "Is acupuncture safe?",
-    answer: "Yes, acupuncture is very safe when performed by a qualified practitioner. Dr. Hendry is board-certified, maintains hospital privileges at Prisma Health, and uses sterile, single-use needles following strict safety protocols."
+    question: "How do I schedule a consultation with Dr. Hendry in Greenville, SC?",
+    answer: `Call us at ${NAP.phone} to schedule your consultation. We're located at ${NAP.streetAddress}, ${NAP.city}, ${NAP.state} ${NAP.postalCode}, with ample free parking just east of downtown Greenville. Dr. Hendry sees patients Monday through Friday.`
   }
 ];
 
@@ -67,7 +67,7 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden" itemScope itemType="https://schema.org/MedicalBusiness">
-      <LocalBusinessSchema aggregateRating={{ ratingValue: "5.0", reviewCount: "100" }} />
+      <LocalBusinessSchema aggregateRating={{ ratingValue: "5.0", reviewCount: "19" }} />
       <PhysicianSchema />
       <FAQSchema faqs={homeFaqs} />
       <CredentialSchema />
@@ -103,7 +103,7 @@ export default function Home() {
               className="font-heading text-white text-lg md:text-xl tracking-wide"
               itemProp="name"
             >
-              Acupuncturist serving Greenville, SC and the Upstate
+              Functional Medicine &amp; Injection Therapy in Greenville, SC
             </motion.h1>
 
             <motion.h2
@@ -212,7 +212,7 @@ export default function Home() {
                     {category.slug === "acupuncturist-greenville-sc" && "Needle-based treatments, traditional and modern acupuncture techniques"}
                     {category.slug === "acupuncture-clinic-greenville-sc" && "Pain conditions, injuries, and musculoskeletal treatments"}
                     {category.slug === "chinese-medicine-clinic-greenville-sc" && "TCM modalities, herbal medicine, and holistic therapies"}
-                    {category.slug === "alternative-medicine-practitioner-greenville-sc" && "Functional medicine, diagnostics, and natural therapies"}
+                    {category.slug === "functional-medicine-greenville-sc" && "Functional medicine, injection therapy, and integrative diagnostics"}
                   </p>
                 </Link>
               </motion.div>
@@ -244,28 +244,25 @@ export default function Home() {
                 this idea is gaining ground in the West as Functional Medicine.
               </p>
               <p className="font-sans text-muted-foreground text-lg leading-relaxed">
-                At our{" "}
-                <Link href="/services/acupuncturist-greenville-sc" className="text-primary hover:underline">
-                  Greenville acupuncture clinic
-                </Link>, we integrate the best of science and tradition. Whether you need{" "}
-                <Link href="/services/acupuncture-clinic-greenville-sc" className="text-primary hover:underline">
-                  pain treatment
-                </Link>,{" "}
-                <Link href="/services/chinese-medicine-clinic-greenville-sc" className="text-primary hover:underline">
-                  Chinese medicine therapies
-                </Link>, or{" "}
-                <Link href="/services/alternative-medicine-practitioner-greenville-sc" className="text-primary hover:underline">
+                At Integrative Health Partners, we integrate the best of science and tradition. Whether you need{" "}
+                <a href="/services/functional-medicine-consultation/" className="text-primary hover:underline">
                   functional medicine testing
-                </Link>, Dr. Hendry's personalized approach helps you restore and maintain optimum health.
+                </a>,{" "}
+                <a href="/services/prolotherapy/" className="text-primary hover:underline">
+                  injection therapy for joint pain
+                </a>, or{" "}
+                <a href="/services/acupuncture-therapy/" className="text-primary hover:underline">
+                  acupuncture for chronic conditions
+                </a>, Dr. Hendry's personalized approach helps you restore and maintain optimum health.
               </p>
-              <Link
-                href="/services/acupuncturist-greenville-sc"
+              <a
+                href="/services/functional-medicine-consultation/"
                 className="font-heading text-primary font-semibold flex items-center gap-2 group"
                 data-testid="button-explore-services"
               >
-                Explore our acupuncture services
+                Explore functional medicine &amp; injection therapy
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="relative">
@@ -309,7 +306,7 @@ export default function Home() {
               What We Offer
             </motion.p>
             <motion.h2 id="services-heading" variants={fadeInUp} className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground">
-              Acupuncture & Wellness Services in Greenville
+              Integrative Medicine & Wellness Services in Greenville
             </motion.h2>
           </motion.div>
 
@@ -364,6 +361,55 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Quality Nodes — Deep Topical Authority Links */}
+      <section className="py-12 md:py-16 bg-background border-t border-border" aria-label="Conditions and conditions we treat">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-8"
+          >
+            <motion.p variants={fadeInUp} className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-3">
+              Conditions We Treat
+            </motion.p>
+            <motion.h2 variants={fadeInUp} className="font-display text-2xl md:text-3xl text-foreground">
+              Integrative Care for Complex Health Challenges
+            </motion.h2>
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          >
+            {[
+              { label: "Pain & Musculoskeletal Conditions", sub: "Back pain, sciatica, fibromyalgia, arthritis", href: "/conditions/pain-and-musculoskeletal/" },
+              { label: "Neurological & Mental Health", sub: "Anxiety, depression, brain fog, insomnia, PTSD", href: "/conditions/neurological-mental-health/" },
+              { label: "Hormonal & Women's Health", sub: "PCOS, fertility, menopause, hormone imbalance", href: "/conditions/hormonal-womens-health/" },
+              { label: "Digestive & Immune Health", sub: "IBS, Crohn's, leaky gut, chronic infections", href: "/conditions/digestive-immune/" },
+            ].map((node) => (
+              <motion.div key={node.href} variants={fadeInUp}>
+                <a
+                  href={node.href}
+                  className="block bg-card rounded-xl p-5 hover:shadow-md transition-all duration-300 border border-transparent hover:border-primary/20 group h-full"
+                >
+                  <h3 className="font-heading text-sm font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
+                    {node.label}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{node.sub}</p>
+                  <span className="inline-flex items-center gap-1 text-xs text-primary font-heading font-medium mt-3 group-hover:underline">
+                    Learn more <ArrowRight className="w-3 h-3" />
+                  </span>
+                </a>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Provider Section */}
       <section id="provider" className="py-16 md:py-24 lg:py-32 bg-background" aria-labelledby="provider-heading" itemScope itemType="https://schema.org/Physician">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -375,7 +421,7 @@ export default function Home() {
             className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
           >
             <motion.div variants={fadeInUp} className="order-2 md:order-1">
-              <p className="font-heading text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 md:mb-4">Your Greenville Acupuncturist</p>
+              <p className="font-heading text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 md:mb-4">Functional Medicine &amp; Integrative Health, Greenville SC</p>
               <h2 id="provider-heading" className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground mb-4 md:mb-6" itemProp="name">
                 Dr. William Hendry
               </h2>
@@ -385,19 +431,16 @@ export default function Home() {
                   is nationally board-certified, and maintains active hospital privileges at <span itemProp="memberOf">Prisma Health</span>.
                 </p>
                 <p>
-                  With over 25 years of experience in Chinese medicine and functional medicine training, 
-                  he provides Greenville patients with trusted, straightforward care for pain, sports 
-                  injuries, fatigue, and digestive health.
+                  With over 25 years of clinical experience, Dr. Hendry specializes in{" "}
+                  <a href="/services/functional-medicine-consultation/" className="text-primary hover:underline">
+                    functional medicine
+                  </a>{" "}and{" "}
+                  <a href="/services/prolotherapy/" className="text-primary hover:underline">
+                    injection therapy
+                  </a>{" "}— identifying the root cause of chronic illness and pain through advanced diagnostics and regenerative treatments.
                 </p>
                 <p>
-                  As a leading{" "}
-                  <Link href="/services/acupuncturist-greenville-sc" className="text-primary hover:underline">
-                    acupuncturist in Greenville
-                  </Link>, Dr. Hendry combines traditional wisdom with modern diagnostic techniques to 
-                  deliver comprehensive care at our{" "}
-                  <Link href="/services/chinese-medicine-clinic-greenville-sc" className="text-primary hover:underline">
-                    Chinese medicine clinic
-                  </Link>.
+                  He also brings 25+ years of acupuncture and Chinese medicine expertise, making Integrative Health Partners uniquely positioned to address complex, multi-system health problems that conventional medicine hasn't resolved.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 mt-8">
@@ -531,7 +574,7 @@ export default function Home() {
               <div>
                 <p className="font-heading text-primary text-sm tracking-[0.2em] uppercase mb-4">Get In Touch</p>
                 <h2 id="contact-heading" className="font-display text-4xl md:text-5xl text-foreground mb-6">
-                  Visit Our Greenville Acupuncture Clinic
+                  Visit Our Greenville Integrative Health Clinic
                 </h2>
                 <p className="font-sans text-muted-foreground text-lg leading-relaxed">
                   Centrally located with ample free parking. We're just a few minutes east of downtown, 

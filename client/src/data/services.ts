@@ -211,13 +211,13 @@ export const categories: Category[] = [
     services: buildServices(chineseMedicineServices, "Chinese Medicine Clinic", "chinese-medicine-clinic-greenville-sc")
   },
   {
-    slug: "alternative-medicine-practitioner-greenville-sc",
-    name: "Alternative Medicine Practitioner",
-    gbpCategory: "Alternative medicine practitioner",
-    metaTitle: "Alternative Medicine Practitioner in Greenville, SC | Functional Medicine",
-    metaDescription: "Trusted alternative medicine practitioner in Greenville, SC. Dr. Hendry offers functional medicine, ozone therapy, detox treatments, and holistic health care. Call (864) 365-6156.",
+    slug: "functional-medicine-greenville-sc",
+    name: "Functional Medicine",
+    gbpCategory: "Holistic medicine practitioner",
+    metaTitle: "Functional Medicine in Greenville, SC | Integrative Health Partners",
+    metaDescription: "Functional medicine in Greenville, SC. Dr. Hendry uses advanced diagnostics to find the root cause of chronic illness, hormone imbalance, fatigue, and digestive issues. Call (864) 365-6156.",
     isPrimary: false,
-    services: buildServices(alternativeMedicineServices, "Alternative Medicine Practitioner", "alternative-medicine-practitioner-greenville-sc")
+    services: buildServices(alternativeMedicineServices, "Functional Medicine", "functional-medicine-greenville-sc")
   }
 ];
 

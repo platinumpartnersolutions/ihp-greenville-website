@@ -64,7 +64,7 @@ const achievements = {
   },
   research: {
     publicationCount: 5,
-    citations: 52,
+    citations: 54,
     institution: "Prisma Health System",
     researchGateUrl: "https://www.researchgate.net/profile/William-Hendry-4",
     highlights: [
