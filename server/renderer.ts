@@ -438,12 +438,12 @@ function starRow(n = 5): string {
    ============================================================ */
 export function renderHome(): string {
   const featuredServices = [
-    { name: "Acupuncture Therapy", slug: "acupuncture-therapy", icon: icons.leaf, text: "Precise needle placement guided by Dr. Hendry's 25 years of expertise in traditional Chinese diagnostic methods to relieve acute and chronic pain, restore nervous system balance, and address root causes rather than symptoms alone." },
-    { name: "Dry Needling Therapy", slug: "dry-needling-therapy", icon: icons.activity, text: "Dr. Hendry targets specific trigger points with specialized needles to release chronic muscle tension and restore normal movement patterns. This technique addresses muscle memory problems that cause persistent pain and stiffness â€” without medications." },
-    { name: "Chinese Herbal Medicine", slug: "chinese-herbal-medicine", icon: icons.leaf, text: "Customized herbal protocols combining traditional Chinese formulas with standardized Western botanical extracts. All herbs are third-party tested for purity and potency â€” dispensed from our in-house pharmacy, same day." },
-    { name: "Integrative Functional Medicine", slug: "functional-medicine-consultation", icon: icons.activity, text: "Advanced testing â€” nutrient levels, hormones, food reactions â€” to uncover what traditional labs miss. No one-size-fits-all plans. Dr. Hendry starts by listening to your whole health story, then builds a step-by-step plan unique to your body." },
-    { name: "Ozone Sauna Therapy", slug: "ozone-therapy", icon: icons.shield, text: "Medical-grade ozone protocols delivered through infrared saunas that boost immune function, enhance detoxification, increase cellular energy production, and accelerate recovery from chronic fatigue, fibromyalgia, and immune disorders." },
-    { name: "Electroacupuncture", slug: "electroacupuncture", icon: icons.activity, text: "Dr. Hendry adds therapeutic electrical frequencies to acupuncture points to accelerate healing and block pain signals more effectively â€” stimulating nerve regeneration for conditions like neuropathy and chronic pain." },
+    { name: “Functional Medicine”, slug: “functional-medicine-consultation”, icon: icons.activity, text: “Advanced testing — nutrient levels, hormones, food reactions — to uncover what traditional labs miss. No one-size-fits-all plans. Dr. Hendry starts by listening to your whole health story, then builds a step-by-step plan unique to your body.” },
+    { name: “Injection Therapy”, slug: “prolotherapy”, icon: icons.shield, text: “Prolotherapy, biopuncture, and perineural injection therapy to stimulate natural tissue repair in damaged joints, ligaments, and tendons. An evidence-based alternative to surgery or long-term pain medications for musculoskeletal conditions.” },
+    { name: “Acupuncture Therapy”, slug: “acupuncture-therapy”, icon: icons.leaf, text: “Precise needle placement guided by Dr. Hendry's 25 years of expertise in traditional Chinese diagnostic methods to relieve acute and chronic pain, restore nervous system balance, and address root causes rather than symptoms alone.” },
+    { name: “Chinese Herbal Medicine”, slug: “chinese-herbal-medicine”, icon: icons.leaf, text: “Customized herbal protocols combining traditional Chinese formulas with standardized Western botanical extracts. All herbs are third-party tested for purity and potency — dispensed from our in-house pharmacy, same day.” },
+    { name: “Ozone Sauna Therapy”, slug: “ozone-therapy”, icon: icons.globe, text: “Medical-grade ozone protocols delivered through infrared saunas that boost immune function, enhance detoxification, increase cellular energy production, and accelerate recovery from chronic fatigue, fibromyalgia, and immune disorders.” },
+    { name: “Electroacupuncture”, slug: “electroacupuncture”, icon: icons.activity, text: “Dr. Hendry adds therapeutic electrical frequencies to acupuncture points to accelerate healing and block pain signals more effectively — stimulating nerve regeneration for conditions like neuropathy and chronic pain.” },
   ];
 
   const testimonials = [
@@ -494,7 +494,7 @@ export function renderHome(): string {
     { name: "Thyroid Issues", slug: "thyroid-issues", cat: "Digestive & Immune" },
   ];
 
-  return `${renderHead("Functional Medicine & Acupuncture in Greenville, SC | IHP", "Integrative Health Partners â€” functional medicine, acupuncture & Chinese medicine in Greenville, SC. Dr. William Hendry, DAOM: 25+ years, Prisma Health hospital privileges. Call (864) 365-6156.")}
+  return `${renderHead(“Functional Medicine & Injection Therapy Greenville, SC | Integrative Health Partners”, “Functional medicine, injection therapy & acupuncture in Greenville, SC. Root-cause testing, prolotherapy, Chinese medicine. Dr. William Hendry, DAOM, Prisma Health. Call (864) 365-6156.”)}
 <body data-page="home">
   ${renderNav(true)}
 
@@ -508,15 +508,15 @@ export function renderHome(): string {
         <div class="hero__overlay" aria-hidden="true"></div>
       </div>
       <div class="hero__content">
-        <h1 class="hero__h1 reveal font-display">
-          <a href="/services/acupuncture-therapy/" style="color:inherit;text-decoration:none"><em>Acupuncture</em></a> &amp; Integrative Health in Greenville, SC
+        <h1 class=”hero__h1 reveal font-display”>
+          <a href=”/services/functional-medicine-consultation/” style=”color:inherit;text-decoration:none”><em>Functional Medicine</em></a> &amp; Injection Therapy in Greenville, SC
         </h1>
-        <p class="hero__subtitle reveal reveal-delay-2">
-          Greenville's most credentialed integrative health practice â€” <a href="/services/acupuncture-therapy/" class="hero__text-link">acupuncture</a>, Chinese herbal medicine, and <a href="/services/functional-medicine-consultation/" class="hero__text-link">root-cause functional medicine</a>. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
+        <p class=”hero__subtitle reveal reveal-delay-2”>
+          Greenville's most credentialed integrative health practice — <a href=”/services/functional-medicine-consultation/” class=”hero__text-link”>functional medicine</a>, <a href=”/services/prolotherapy/” class=”hero__text-link”>injection therapy</a>, and <a href=”/services/acupuncture-therapy/” class=”hero__text-link”>acupuncture</a>. Led by Dr. William Hendry, DAOM, with hospital privileges at Prisma Health and 5 peer-reviewed publications.
         </p>
-        <div class="hero__stars reveal reveal-delay-3">
-          <div class="hero__star-row" aria-label="5 star rating">${starRow()}</div>
-          <span class="hero__rating">5.0 Google Rating &middot; 20 Reviews</span>
+        <div class=”hero__stars reveal reveal-delay-3”>
+          <div class=”hero__star-row” aria-label=”5 star rating”>${starRow()}</div>
+          <span class=”hero__rating”>5.0 Google Rating &middot; 19 Reviews</span>
         </div>
         <div class="reveal reveal-delay-3" style="display:flex;justify-content:center;">
           <a href="tel:${NAP.phoneRaw}" class="btn btn-white btn-lg">${icons.phone} Call (864) 365-6156</a>
