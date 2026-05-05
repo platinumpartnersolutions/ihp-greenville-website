@@ -145,7 +145,7 @@ async function ensureBlogPostsSynced(): Promise<void> {
 }
 
 /* ============================================================
-   Old -greenville-sc URL redirects (301) â€” maps every legacy
+   Old -greenville-sc URL redirects (301) â€" maps every legacy
    URL to the new clean slug format so existing Google rankings
    and backlinks are preserved.
    ============================================================ */
@@ -188,7 +188,7 @@ export async function registerRoutes(
     next();
   });
 
-  /* â”€â”€ Conditions Section â”€â”€ */
+  /* â"€â"€ Conditions Section â"€â"€ */
   app.get("/conditions", (req, res) => {
     let html = renderConditionsHub();
     const seo = getSEOForUrl(req.originalUrl);
@@ -475,16 +475,16 @@ export async function registerRoutes(
 
       const createServiceSlug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
-      let txt = `# Integrative Health Partners â€” AI Site Index (llms.txt)
+      let txt = `# Integrative Health Partners â€" AI Site Index (llms.txt)
 # Generated: ${new Date().toISOString().split('T')[0]}
 # Site: https://www.ihpgreenville.com
 
 ## About This Practice
 
 Integrative Health Partners is a functional medicine and acupuncture clinic located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609.
-Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Monâ€“Fri 9amâ€“5pm
+Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Monâ€"Fri 9amâ€"5pm
 
-Led by Dr. William Hendry, DAOM â€” a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids. He has 5 peer-reviewed publications and 54 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
+Led by Dr. William Hendry, DAOM â€" a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids. He has 5 peer-reviewed publications and 54 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
 
 ## Verified Publications (Dr. William Hendry)
 
@@ -589,7 +589,7 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
 
 ## Key Differentiators
 
-- Dr. Hendry holds hospital privileges at Prisma Health (9 years) â€” rare for an acupuncturist
+- Dr. Hendry holds hospital privileges at Prisma Health (9 years) â€" rare for an acupuncturist
 - Co-author of 3-year Prisma Emergency Department opioid alternative study
 - DAOM degree from East West College of Natural Medicine (highest academic credential in field)
 - NCCAOM board-certified since August 6, 2009 (valid through August 31, 2029)
@@ -607,13 +607,13 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
     }
   });
 
-  /* Services hub â€” handles both /services and /services/ without redirect */
+  /* Services hub â€" handles both /services and /services/ without redirect */
   app.get(/^\/services\/?$/, (req, res) => {
     sendPage(res, renderServicesHub(), "/services");
   });
   app.get("/conditions/digestive-issues", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
   app.get("/conditions/digestive-issues/", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
-  // Cloudflare email obfuscation passthrough â€” prevents 404 on origin
+  // Cloudflare email obfuscation passthrough â€" prevents 404 on origin
   app.get("/cdn-cgi/l/email-protection", (_req, res) => res.redirect(301, "/contact"));
 
 
@@ -634,7 +634,7 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
       // Build meta description: prefer excerpt, fall back to first 160 chars of content
       const rawDesc = post.excerpt || post.content || "";
       const cleanExcerpt = rawDesc.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().substring(0, 155);
-      const metaDesc = cleanExcerpt || `${post.title} â€” expert health article from Integrative Health Partners in Greenville, SC.`;
+      const metaDesc = cleanExcerpt || `${post.title} â€" expert health article from Integrative Health Partners in Greenville, SC.`;
       const dateStr = post.pubDate ? (typeof post.pubDate === "string" ? post.pubDate : post.pubDate.toISOString()) : undefined;
       const blogSEO = getBlogPostSEO(post.title, metaDesc, post.slug, dateStr);
       html = injectSEOIntoHTML(html, blogSEO);
