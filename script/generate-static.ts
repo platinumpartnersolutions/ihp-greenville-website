@@ -118,7 +118,7 @@ console.log(`\nLoaded ${allBlogPosts.length} blog posts (${liveBlogPosts.length}
 
 /* â"€â"€â"€ STATIC PAGES â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("â"€â"€ Core pages â"€â"€");
+console.log("â"€â"€ Core pages â"€â"—);
 buildPage("/",           renderHome());
 buildPage("/functional-medicine-greenville-sc", renderFunctionalMedicineHub());
 buildPage("/about",      renderAbout());
@@ -136,7 +136,7 @@ buildPage("/blog",       (() => {
 
 /* â"€â"€â"€ SERVICE CATEGORIES â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ Service category hubs â"€â"€");
+console.log("\nâ"€â"€ Service category hubs â"€â"—);
 for (const cat of categoryDefinitions) {
   const raw = renderCategory(cat.slug);
   if (raw) buildPage(`/services/${cat.slug}`, raw);
@@ -145,7 +145,7 @@ for (const cat of categoryDefinitions) {
 
 /* â"€â"€â"€ 130 SERVICE PAGES â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ Service pages â"€â"€");
+console.log("\nâ"€â"€ Service pages â"€â"—);
 let svcOk = 0; let svcFail = 0;
 for (const svc of allServices) {
   const raw = renderService(svc.slug);
@@ -156,7 +156,7 @@ console.log(`  â†’ ${svcOk} service pages OK, ${svcFail} warnings`);
 
 /* â"€â"€â"€ CONDITION CATEGORY HUBS â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ Condition category hubs â"€â"€");
+console.log("\nâ"€â"€ Condition category hubs â"€â"—);
 for (const cat of conditionCategories) {
   const raw = renderConditionCategory(cat.slug);
   if (raw) buildPage(`/conditions/${cat.slug}`, raw);
@@ -165,7 +165,7 @@ for (const cat of conditionCategories) {
 
 /* â"€â"€â"€ 35 CONDITION PAGES â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ Condition pages â"€â"€");
+console.log("\nâ"€â"€ Condition pages â"€â"—);
 let condOk = 0; let condFail = 0;
 for (const cond of conditions) {
   const raw = renderCondition(cond.slug);
@@ -176,13 +176,13 @@ console.log(`  â†’ ${condOk} condition pages OK, ${condFail} warnings`);
 
 /* â"€â"€â"€ BLOG POSTS â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ Blog posts â"€â"€");
+console.log("\nâ"€â"€ Blog posts â"€â"—);
 let blogOk = 0;
 for (const post of liveBlogPosts) {
   let raw         = renderBlogPost(post);
   const rawDesc   = (post as any).metaDescription || post.excerpt || post.content || "";
   const cleanExc  = rawDesc.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().substring(0, 155)
-                    || `${post.title} â€" expert health article from Integrative Health Partners in Greenville, SC.`;
+                    || `${post.title} — expert health article from Integrative Health Partners in Greenville, SC.`;
   const dateStr   = post.pubDate instanceof Date ? post.pubDate.toISOString() : String(post.pubDate);
   const blogSEO   = getBlogPostSEO(post.title, cleanExc, post.slug, dateStr);
   if (!blogSEO.canonical.endsWith("/")) blogSEO.canonical += "/";
@@ -196,7 +196,7 @@ console.log(`  â†’ ${blogOk} blog posts written`);
 
 /* â"€â"€â"€ HTML Sitemap â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ HTML Sitemap â"€â"€");
+console.log("\nâ"€â"€ HTML Sitemap â"€â"—);
 {
   const sitemapHtml = renderSitemapHtml(liveBlogPosts.map(p => ({ title: p.title, slug: p.slug })));
   const sitemapSeo = getSEOForUrl("/sitemap.html");
@@ -207,7 +207,7 @@ console.log("\nâ"€â"€ HTML Sitemap â"€â"€");
 
 /* â"€â"€â"€ 404 / 410 pages â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ Error pages â"€â"€");
+console.log("\nâ"€â"€ Error pages â"€â"—);
 writeFileSync(path.join(DIST, "404.html"), render404(), "utf8");
 console.log("  âœ" 404.html");
 
@@ -239,7 +239,7 @@ console.log("  âœ" 410.html");
 
 /* â"€â"€â"€ SITEMAP.XML â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ sitemap.xml â"€â"€");
+console.log("\nâ"€â"€ sitemap.xml â"€â"—);
 const today = new Date().toISOString().split("T")[0];
 
 const sitemapUrls: Array<{ loc: string; priority: string; changefreq: string; lastmod?: string }> = [
@@ -310,16 +310,16 @@ const svcCatContext: Record<string, string> = {
   "Moxibustion Therapy":            "Heat applied via burning moxa warms meridians, supports immune function, and addresses cold-type conditions including menstrual pain and digestive weakness.",
 };
 
-let llms = `# Integrative Health Partners â€" AI Site Index (llms.txt)
+let llms = `# Integrative Health Partners — AI Site Index (llms.txt)
 # Generated: ${today}
 # Site: ${BASE_URL}
 
 ## About This Practice
 
 Integrative Health Partners is a functional medicine and acupuncture clinic located at 319 Wade Hampton Blvd, Ste A, Greenville, SC 29609.
-Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Monâ€"Fri 9amâ€"5pm
+Phone: (864) 365-6156 | Email: info@ihpgreenville.com | Hours: Mon—Fri 9am—5pm
 
-Led by Dr. William Hendry, DAOM â€" a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids ("Alternatives to Opiates"). He has 5 peer-reviewed publications and 54 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
+Led by Dr. William Hendry, DAOM — a board-certified acupuncturist with 25+ years of clinical experience, NCCAOM Diplomate of Oriental Medicine (Cert. #114498), NPI 1417184045, SC License ACUP141. Dr. Hendry holds hospital privileges at Prisma Health (9 years) and is co-author of a landmark 3-year Prisma Health Emergency Department study on needle-based alternatives to opioids ("Alternatives to Opiates"). He has 5 peer-reviewed publications and 54 citations. ResearchGate: https://www.researchgate.net/profile/William-Hendry-4
 
 Services include acupuncture, cupping, gua sha, moxibustion, Chinese herbal medicine, dry needling, electroacupuncture, functional medicine, ozone therapy, injection therapy, and nutritional counseling. In-house professional herbal pharmacy on site.
 
@@ -399,7 +399,7 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
 
 ## Key Differentiators
 
-- Dr. Hendry holds hospital privileges at Prisma Health (9 years) â€" rare for an acupuncturist
+- Dr. Hendry holds hospital privileges at Prisma Health (9 years) — rare for an acupuncturist
 - Co-author of 3-year Prisma Emergency Department opioid alternative study
 - DAOM degree from East West College of Natural Medicine (highest academic credential in field)
 - NCCAOM board-certified since August 6, 2009 (valid through August 31, 2029)
@@ -416,44 +416,44 @@ console.log("  âœ" llms.txt");
 /* â"€â"€â"€ _REDIRECTS (Netlify) â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
 const redirectLines: string[] = [
-  "# Proxy /admin to Railway server (must be first â€" before catch-all)",
+  "# Proxy /admin to Railway server (must be first — before catch-all)",
   "/admin  https://ihp-greenville-website-production.up.railway.app/admin  200",
   "/admin/*  https://ihp-greenville-website-production.up.railway.app/admin/:splat  200",
   "",
-  "# 410 Gone â€" permanently retired blog posts",
+  "# 410 Gone — permanently retired blog posts",
 ];
 for (const slug of BLOG_410S) {
   redirectLines.push(`${slug}  /410.html  410`);
 }
 redirectLines.push("");
-redirectLines.push("# 301 redirect â€" digestive-issues â†’ ibs-gut-issues");
+redirectLines.push("# 301 redirect — digestive-issues â†’ ibs-gut-issues");
 redirectLines.push("/conditions/digestive-issues  /conditions/ibs-gut-issues  301");
 redirectLines.push("");
-redirectLines.push("# 301 redirects â€" foundational link campaign anchor URLs (Mar 2026)");
-redirectLines.push("# Backlinks were built to old/wrong slugs â€" redirect to correct pages to recover link equity");
+redirectLines.push("# 301 redirects — foundational link campaign anchor URLs (Mar 2026)");
+redirectLines.push("# Backlinks were built to old/wrong slugs — redirect to correct pages to recover link equity");
 redirectLines.push("/services/acupuncture  /services/acupuncture-therapy  301");
 redirectLines.push("/services/dry-needling  /services/dry-needling-therapy  301");
 redirectLines.push("/services/integrative-functional-medicine  /services/integrative-medicine-consultation  301");
 redirectLines.push("# NOTE: /services/body-contour and /services/acupuncture-injection-therapy");
-redirectLines.push("# are real service pages â€" served as static files, no redirect needed");
+redirectLines.push("# are real service pages — served as static files, no redirect needed");
 redirectLines.push("");
-redirectLines.push("# 301 redirect â€" dsnews.co.uk guest post links to wrong path for FM hub");
+redirectLines.push("# 301 redirect — dsnews.co.uk guest post links to wrong path for FM hub");
 redirectLines.push("/services/functional-medicine-greenville-sc  /functional-medicine-greenville-sc/  301");
 redirectLines.push("");
-redirectLines.push("# 301 redirects â€" consolidated duplicate blog posts");
+redirectLines.push("# 301 redirects — consolidated duplicate blog posts");
 for (const [from, to] of Object.entries(BLOG_301S)) {
   redirectLines.push(`${from}  ${to}  301`);
   redirectLines.push(`${from}/  ${to}  301`);
 }
 redirectLines.push("");
-redirectLines.push("# 301 redirects â€" old root-level URLs to canonical /blog/ paths");
+redirectLines.push("# 301 redirects — old root-level URLs to canonical /blog/ paths");
 redirectLines.push("# These rank in GSC but Google indexed them without the /blog/ prefix");
 redirectLines.push("/monograph-black-seed-oil-nigella-sativa  /blog/monograph-black-seed-oil-nigella-sativa/  301");
 redirectLines.push("/how-to-treat-mold-illness-with-herbs-and-supplements  /blog/how-to-treat-mold-illness-with-herbs-and-supplements/  301");
-// was pointing to retired /what-is-prolotherapy-2 â€" now points to canonical
+// was pointing to retired /what-is-prolotherapy-2 — now points to canonical
 redirectLines.push("/what-is-prolotherapy-2  /blog/what-is-prolotherapy-and-why-does-it-work/  301");
 redirectLines.push("");
-redirectLines.push("# 301 trailing-slash redirects â€" consolidate no-slash/slash duplicate pairs in Google index");
+redirectLines.push("# 301 trailing-slash redirects — consolidate no-slash/slash duplicate pairs in Google index");
 redirectLines.push("# Canonical tags already point to slash versions; these 301s accelerate deduplication");
 redirectLines.push("/about  /about/  301");
 redirectLines.push("/dr-hendry  /dr-hendry/  301");
@@ -471,7 +471,7 @@ console.log("  âœ" _redirects");
 
 /* â"€â"€â"€ COPY STATIC ASSETS â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ Static assets â"€â"€");
+console.log("\nâ"€â"€ Static assets â"€â"—);
 cpSync(PUBLIC, DIST, { recursive: true, force: true });
 console.log("  âœ" public/ â†’ dist/");
 
@@ -484,7 +484,7 @@ if (existsSync(ASSETS)) {
 
 /* â"€â"€â"€ WEBP IMAGE OPTIMIZATION â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
-console.log("\nâ"€â"€ WebP image optimization â"€â"€");
+console.log("\nâ"€â"€ WebP image optimization â"€â"—);
 for (const jpg of WEBP_IMAGES) {
   const src  = path.join(DIST, jpg);
   const dest = path.join(DIST, jpg.replace(".jpg", ".webp"));
@@ -509,6 +509,6 @@ function countFiles(dir: string): number {
   return count;
 }
 const total = countFiles(DIST);
-console.log(`\n${"â"€".repeat(50)}`);
-console.log(`âœ… Build complete â€" ${total} files in dist/`);
-console.log(`${"â"€".repeat(50)}\n`);
+console.log(`\n${"â"—.repeat(50)}`);
+console.log(`âœ… Build complete — ${total} files in dist/`);
+console.log(`${"â"—.repeat(50)}\n`);
