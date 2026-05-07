@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, getBlogPostSEO, BASE_URL } from "./seo";
-import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub, renderPrivacy, renderDisclaimer, renderSitemapHtml } from "./renderer";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub, renderPrivacy, renderDisclaimer, renderSitemapHtml, renderFunctionalMedicineHub } from "./renderer";
 import { BLOG_301S, BLOG_410S } from "./blog-redirects";
 import { conditions, conditionCategories } from "./conditions";
 
@@ -358,6 +358,10 @@ export async function registerRoutes(
   app.get("/services/:slug", (req, res) => {
     try {
       const { slug } = req.params;
+      // Functional medicine hub: rich topical authority page instead of generic listing
+      if (slug === "functional-medicine-services" || slug === "functional-medicine-services/") {
+        return sendPage(res, renderFunctionalMedicineHub(), req.originalUrl);
+      }
       const catHtml = renderCategory(slug);
       if (catHtml) return sendPage(res, catHtml, req.originalUrl);
       const svcHtml = renderService(slug);

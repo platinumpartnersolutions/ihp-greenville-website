@@ -1369,7 +1369,7 @@ export function renderService(svcSlug: string): string | null {
       <div class="main-sidebar">
         <article>
           <a href="/services/${cat.slug}/" class="tag tag--link" style="margin-bottom:1rem;display:inline-block">${cat.name} Services</a>
-          <h1 class="section-title reveal" style="margin-bottom:1.25rem">${service.name} in Greenville, SC</h1>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">${baseSlug === "functional-medicine-consultation" ? "Functional Medicine" : service.name} in Greenville, SC</h1>
           <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2rem" class="reveal reveal-delay-1">
             ${service.metaDescription}
           </p>

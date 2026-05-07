@@ -213,8 +213,8 @@ const categoryDefinitions: CategoryData[] = [
     slug: "functional-medicine-services",
     name: "Functional Medicine",
     gbpCategory: "Holistic medicine practitioner",
-    metaTitle: "Functional Medicine Services in Greenville, SC | Integrative Health Partners",
-    metaDescription: "Functional medicine, injection therapy, ozone therapy, and integrative diagnostics in Greenville, SC. Dr. Hendry identifies root causes — not just symptoms. Call (864) 365-6156.",
+    metaTitle: "Functional Medicine in Greenville, SC | Integrative Health Partners",
+    metaDescription: "Functional medicine in Greenville, SC — root-cause lab testing, personalized protocols, and injection therapy. Dr. William Hendry, DAOM, identifies what standard medicine misses. Call (864) 365-6156.",
     isPrimary: false,
     carePhrase: "functional medicine",
     serviceNames: [
@@ -282,6 +282,16 @@ for (const cat of categoryDefinitions) {
     // framing so Google clearly distinguishes the two intake options.
     holistic.metaTitle = "Holistic Health Assessment | Chinese Medical Evaluation — IHP Greenville";
     holistic.metaDescription = "Whole-person health evaluation using Chinese medical diagnosis (tongue, pulse, pattern analysis) with Dr. Hendry, DAOM. Greenville, SC. Call (864) 365-6156.";
+  }
+}
+{
+  /* Money-page SEO: strip "Consultation" from title/H1 so the page targets
+     the broad commercial query "functional medicine greenville sc" rather than
+     the narrow informational sub-query "functional medicine consultation". */
+  const funcMed = serviceMap.get("functional-medicine-consultation");
+  if (funcMed) {
+    funcMed.metaTitle = "Functional Medicine in Greenville, SC | Dr. Hendry, DAOM | IHP";
+    funcMed.metaDescription = "Functional medicine in Greenville, SC at Integrative Health Partners — root-cause lab testing, personalized protocols, and injection therapy led by Dr. William Hendry, DAOM. Call (864) 365-6156.";
   }
 }
 
