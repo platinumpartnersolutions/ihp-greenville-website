@@ -280,7 +280,7 @@ for (const cat of categoryDefinitions) {
     // Old description said "functional medicine, root-cause diagnostics" — identical
     // phrasing to the consultation page. New description leads with TCM/constitutional
     // framing so Google clearly distinguishes the two intake options.
-    holistic.metaTitle = "Holistic Health Assessment | Chinese Medical Evaluation — IHP Greenville";
+    holistic.metaTitle = "Holistic Health Assessment | Chinese Medicine — IHP Greenville";
     holistic.metaDescription = "Whole-person health evaluation using Chinese medical diagnosis (tongue, pulse, pattern analysis) with Dr. Hendry, DAOM. Greenville, SC. Call (864) 365-6156.";
   }
 }
@@ -305,7 +305,7 @@ interface PageSEO {
 
 function getHomeSEO(): PageSEO {
   return {
-    title: "Functional Medicine & Injection Therapy Greenville, SC | Integrative Health Partners",
+    title: "Functional Medicine & Injection Therapy | IHP Greenville SC",
     description: "Functional medicine, injection therapy & acupuncture in Greenville, SC. Dr. William Hendry, DAOM — board-certified, Prisma Health privileges, 25+ years experience. Call (864) 365-6156.",
     canonical: BASE_URL,
     ogType: "website",
@@ -801,10 +801,12 @@ function getConditionCategorySEO(slug: string, name: string, desc: string): Page
   };
 }
 
-function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: string, catName: string, faqs: { q: string; a: string }[]): PageSEO {
+function getConditionPageSEO(slug: string, name: string, desc: string, catSlug: string, catName: string, faqs: { q: string; a: string }[], metaTitleOverride?: string): PageSEO {
   const pageUrl = `${BASE_URL}/conditions/${slug}/`;
+  const autoTitle = `${name}: Causes & Care | IHP Greenville`;
+  const title = (metaTitleOverride && metaTitleOverride.length <= 65) ? metaTitleOverride : autoTitle;
   return {
-    title: `${name}: Causes & Care | IHP Greenville`,
+    title,
     description: trim160(desc),
     canonical: pageUrl,
     ogType: "website",
@@ -1213,7 +1215,7 @@ export function getSEOForUrl(url: string): PageSEO | null {
     const condData = conditions.find(c => c.slug === slug);
     if (condData) {
       const parentCat = conditionCategories.find(cc => cc.conditionSlugs.includes(slug));
-      return getConditionPageSEO(slug, condData.name, condData.metaDescription, parentCat?.slug || "", parentCat?.name || "", condData.content.faqs);
+      return getConditionPageSEO(slug, condData.name, condData.metaDescription, parentCat?.slug || "", parentCat?.name || "", condData.content.faqs, condData.metaTitle);
     }
   }
 
