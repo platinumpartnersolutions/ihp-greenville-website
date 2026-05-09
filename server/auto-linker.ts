@@ -183,15 +183,34 @@ const LINK_MAP: [RegExp, string][] = [
   [/\binfertility\b/gi,                          "/conditions/fertility"],
 ];
 
-/**
- * Processes an HTML string and injects contextual anchor links.
- * @param html        Raw HTML content to process.
- * @param currentUrl  The current page's URL path — prevents self-linking.
- * @returns           HTML with inline links injected.
- */
-export function autoLink(html: string, currentUrl = ""): string {
-  if (!html) return html;
+/* ============================================================
+   MEMOIZATION CACHE
+   Content strings are static — the same field value is passed
+   on every request for a given page.  We run the 184-pattern
+   pass exactly ONCE per unique input string, cache the result,
+   then do a single cheap regex to strip the self-link for the
+   current page URL.
+   ============================================================ */
 
+/** Fully-linked HTML with NO self-link filtering (all URLs injected). */
+const _linkedCache = new Map<string, string>();
+
+/**
+ * Strips any prose-link anchors whose href matches `url`.
+ * One regex pass — replaces <a href="url" ...>text</a> with just text.
+ */
+function stripSelfLinks(html: string, url: string): string {
+  if (!url) return html;
+  // Escape special regex chars in the URL path (handles slashes, hyphens, etc.)
+  const esc = url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return html.replace(
+    new RegExp(`<a\\s+href="${esc}"[^>]*>([^<]*)<\\/a>`, "g"),
+    "$1"
+  );
+}
+
+/** Core link-injection logic — runs all 184 patterns, no URL filtering. */
+function _processLinks(html: string): string {
   const used = new Set<string>();
   let insideAnchor = 0;
 
@@ -208,9 +227,7 @@ export function autoLink(html: string, currentUrl = ""): string {
       let result = text;
       for (const [pattern, url] of LINK_MAP) {
         if (used.has(url)) continue;
-        if (url === currentUrl) continue;
         let linked = false;
-        // Apply pattern only to text nodes within result — never inside HTML tags or attributes
         result = result.replace(/(<[^>]+>)|([^<]+)/g, (m, tag, txt) => {
           if (tag !== undefined) return tag;
           if (!txt) return m;
@@ -225,4 +242,27 @@ export function autoLink(html: string, currentUrl = ""): string {
       return result;
     }
   );
+}
+
+/**
+ * Processes an HTML string and injects contextual anchor links.
+ *
+ * First call for any given `html` string runs the full 184-pattern pass
+ * and caches the result.  Every subsequent call is a cache hit + one
+ * cheap regex to remove the self-link for the current page.
+ *
+ * @param html        Raw HTML content to process.
+ * @param currentUrl  The current page's URL path — prevents self-linking.
+ * @returns           HTML with inline links injected.
+ */
+export function autoLink(html: string, currentUrl = ""): string {
+  if (!html) return html;
+
+  let linked = _linkedCache.get(html);
+  if (!linked) {
+    linked = _processLinks(html);
+    _linkedCache.set(html, linked);
+  }
+
+  return currentUrl ? stripSelfLinks(linked, currentUrl) : linked;
 }
