@@ -13,13 +13,13 @@ export const BLOG_301S: Record<string, string> = {
   // Vitamin D — two thin duplicates → original full-length post
   "/blog/vitamin-d-for-health":                            "/blog/vitamin-d/",
   "/blog/how-is-your-vitamin-d-supplement-working-for-you": "/blog/vitamin-d/",
-
-  // Threat perception — same article published twice with near-identical slugs
-  "/blog/threat-perception-and-physical-health-managing-the-feedback-loop":
-    "/blog/threat-perception-and-physical-health-how-to-manage-the-feedback-loop/",
 };
 
 export const BLOG_410S = new Set<string>([
+  // AI-generated posts — low contentEffort, no clinical voice, placeholder citations
+  "/blog/prolotherapy-for-spinal-ligament-tightening-and-spondylolisthesis-reversal",
+  "/blog/threat-perception-and-physical-health-how-to-manage-the-feedback-loop",
+  "/blog/threat-perception-and-physical-health-managing-the-feedback-loop",
   "/blog/weekly-digestive-health-tips",
   "/blog/weekly-digestive-health-tips-dietary-fiber",
   "/blog/weekly-digestive-health-tips-stress",

@@ -1277,6 +1277,24 @@ export function injectSEOIntoHTML(html: string, seo: PageSEO): string {
   return html;
 }
 
+/* ============================================================
+   SITEMAP — only index core money pages.
+   The 121 standard service pages 301 to these targets; listing
+   them in the sitemap would re-signal their existence to Google
+   and undermine the consolidation.
+   ============================================================ */
+const SITEMAP_MONEY_SLUGS = [
+  "acupuncture-therapy",
+  "dry-needling-therapy",
+  "electroacupuncture",
+  "prolotherapy",
+  "functional-medicine-consultation",
+  "chinese-herbal-medicine",
+  "ozone-therapy",
+  "biopuncture-therapy",
+  "cupping-therapy",
+];
+
 export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSlugs: string[] = []): string {
   const today = new Date().toISOString().split('T')[0];
 
@@ -1305,13 +1323,13 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   </url>`;
   }
 
-  for (const service of allServices) {
+  for (const slug of SITEMAP_MONEY_SLUGS) {
     xml += `
   <url>
-    <loc>${BASE_URL}/services/${service.slug}/</loc>
+    <loc>${BASE_URL}/services/${slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>`;
   }
 

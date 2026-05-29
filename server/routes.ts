@@ -145,6 +145,164 @@ async function ensureBlogPostsSynced(): Promise<void> {
 }
 
 /* ============================================================
+   CONTENT CONSOLIDATION REDIRECTS (301)
+   121 standard service pages → their core money page parent.
+
+   Why: Google's contentEffort classifier scores the whole domain.
+   Templated thin pages suppress ranking of the excellent core pages.
+   Every slug here 301s to a page that fully covers the intent.
+
+   Money pages kept live (redirect TARGETS, never sources):
+     acupuncture-therapy, dry-needling-therapy, electroacupuncture,
+     prolotherapy, functional-medicine-consultation, chinese-herbal-medicine,
+     ozone-therapy, biopuncture-therapy, cupping-therapy
+   ============================================================ */
+const CONSOLIDATION_REDIRECTS: Record<string, string> = {
+
+  // ── Acupuncture variants ─────────────────────────────────
+  "acupuncture-treatment":               "/services/acupuncture-therapy",
+  "traditional-chinese-acupuncture":     "/services/acupuncture-therapy",
+  "electrical-stimulation-acupuncture":  "/services/acupuncture-therapy",
+  "medical-acupuncture":                 "/services/acupuncture-therapy",
+  "auricular-acupuncture":               "/services/acupuncture-therapy",
+  "ear-acupuncture":                     "/services/acupuncture-therapy",
+  "scalp-acupuncture":                   "/services/acupuncture-therapy",
+  "cosmetic-acupuncture":                "/services/acupuncture-therapy",
+  "facial-rejuvenation-acupuncture":     "/services/acupuncture-therapy",
+  "fertility-acupuncture":               "/services/acupuncture-therapy",
+  "prenatal-acupuncture":                "/services/acupuncture-therapy",
+  "pregnancy-acupuncture":               "/services/acupuncture-therapy",
+  "acupuncture-for-anxiety":             "/services/acupuncture-therapy",
+  "acupuncture-for-stress-relief":       "/services/acupuncture-therapy",
+  "acupuncture-for-insomnia":            "/services/acupuncture-therapy",
+  "acupuncture-for-migraines":           "/services/acupuncture-therapy",
+  "acupuncture-for-headaches":           "/services/acupuncture-therapy",
+  "non-needle-acupuncture":              "/services/acupuncture-therapy",
+  "laser-acupuncture":                   "/services/acupuncture-therapy",
+  "acupressure-therapy":                 "/services/acupuncture-therapy",
+  "menstrual-pain-treatment":            "/services/acupuncture-therapy",
+  "pms-treatment":                       "/services/acupuncture-therapy",
+  "menopause-treatment":                 "/services/acupuncture-therapy",
+  "hot-flash-treatment":                 "/services/acupuncture-therapy",
+  "fertility-treatment":                 "/services/acupuncture-therapy",
+  "infertility-treatment":               "/services/acupuncture-therapy",
+  "allergy-treatment":                   "/services/acupuncture-therapy",
+  "sinus-treatment":                     "/services/acupuncture-therapy",
+  "insomnia-treatment":                  "/services/acupuncture-therapy",
+  "sleep-disorder-treatment":            "/services/acupuncture-therapy",
+  "natural-anxiety-treatment":           "/services/acupuncture-therapy",
+  "natural-depression-treatment":        "/services/acupuncture-therapy",
+  "stress-management":                   "/services/acupuncture-therapy",
+  "fibromyalgia-treatment":              "/services/acupuncture-therapy",
+  "chronic-pain-management":             "/services/acupuncture-therapy",
+
+  // ── Dry Needling variants ─────────────────────────────────
+  "trigger-point-dry-needling":          "/services/dry-needling-therapy",
+  "intramuscular-stimulation":           "/services/dry-needling-therapy",
+  "trigger-point-therapy":               "/services/dry-needling-therapy",
+  "muscle-pain-treatment":               "/services/dry-needling-therapy",
+  "back-pain-treatment":                 "/services/dry-needling-therapy",
+  "lower-back-pain-treatment":           "/services/dry-needling-therapy",
+  "upper-back-pain-treatment":           "/services/dry-needling-therapy",
+  "chronic-back-pain-treatment":         "/services/dry-needling-therapy",
+  "sciatica-treatment":                  "/services/dry-needling-therapy",
+  "sciatic-nerve-pain-treatment":        "/services/dry-needling-therapy",
+  "neck-pain-treatment":                 "/services/dry-needling-therapy",
+  "frozen-shoulder-treatment":           "/services/dry-needling-therapy",
+  "plantar-fasciitis-treatment":         "/services/dry-needling-therapy",
+  "carpal-tunnel-treatment":             "/services/dry-needling-therapy",
+  "tmj-treatment":                       "/services/dry-needling-therapy",
+  "tmj-pain-relief":                     "/services/dry-needling-therapy",
+
+  // ── Prolotherapy (structural/joint) variants ──────────────
+  "shoulder-pain-treatment":             "/services/prolotherapy",
+  "knee-pain-treatment":                 "/services/prolotherapy",
+  "hip-pain-treatment":                  "/services/prolotherapy",
+  "joint-pain-treatment":                "/services/prolotherapy",
+  "arthritis-pain-treatment":            "/services/prolotherapy",
+  "sports-injury-treatment":             "/services/prolotherapy",
+
+  // ── Electroacupuncture (nerve/neuropathy) variants ────────
+  "neuropathy-treatment":                "/services/electroacupuncture",
+  "peripheral-neuropathy-treatment":     "/services/electroacupuncture",
+
+  // ── Biopuncture variants ──────────────────────────────────
+  "biopuncture-injections":              "/services/biopuncture-therapy",
+  "acupuncture-injection-therapy":       "/services/biopuncture-therapy",
+
+  // ── Chinese Herbal Medicine variants ─────────────────────
+  "chinese-herbal-formulas":             "/services/chinese-herbal-medicine",
+  "custom-herbal-formulations":          "/services/chinese-herbal-medicine",
+  "herbal-consultation":                 "/services/chinese-herbal-medicine",
+  "herbal-supplements":                  "/services/chinese-herbal-medicine",
+  "natural-medicine-consultation":       "/services/chinese-herbal-medicine",
+  "herb-drug-interaction-consultation":  "/services/chinese-herbal-medicine",
+  "digestive-issues-treatment":          "/services/chinese-herbal-medicine",
+  "ibs-treatment":                       "/services/chinese-herbal-medicine",
+  "acid-reflux-treatment":               "/services/chinese-herbal-medicine",
+
+  // ── Cupping / TCM modality variants ──────────────────────
+  "chinese-cupping":                     "/services/cupping-therapy",
+  "fire-cupping":                        "/services/cupping-therapy",
+  "gua-sha-treatment":                   "/services/cupping-therapy",
+  "gua-sha-therapy":                     "/services/cupping-therapy",
+  "moxibustion-therapy":                 "/services/cupping-therapy",
+  "moxa-treatment":                      "/services/cupping-therapy",
+
+  // ── Ozone / Sauna / Detox variants ───────────────────────
+  "ozone-steam-sauna":                   "/services/ozone-therapy",
+  "ozone-sauna-therapy":                 "/services/ozone-therapy",
+  "medical-ozone-therapy":               "/services/ozone-therapy",
+  "ozone-detoxification":                "/services/ozone-therapy",
+  "infrared-sauna-therapy":              "/services/ozone-therapy",
+  "detoxification-therapy":              "/services/ozone-therapy",
+  "heavy-metal-detox":                   "/services/ozone-therapy",
+
+  // ── Functional Medicine / Testing variants ────────────────
+  "functional-medicine-testing":         "/services/functional-medicine-consultation",
+  "functional-blood-chemistry-analysis": "/services/functional-medicine-consultation",
+  "comprehensive-blood-panel":           "/services/functional-medicine-consultation",
+  "root-cause-analysis":                 "/services/functional-medicine-consultation",
+  "integrative-medicine-consultation":   "/services/functional-medicine-consultation",
+  "holistic-health-assessment":          "/services/functional-medicine-consultation",
+  "hormone-testing":                     "/services/functional-medicine-consultation",
+  "hormonal-imbalance-treatment":        "/services/functional-medicine-consultation",
+  "thyroid-testing":                     "/services/functional-medicine-consultation",
+  "thyroid-disorder-treatment":          "/services/functional-medicine-consultation",
+  "adrenal-fatigue-treatment":           "/services/functional-medicine-consultation",
+  "adrenal-testing":                     "/services/functional-medicine-consultation",
+  "inflammatory-marker-testing":         "/services/functional-medicine-consultation",
+  "food-sensitivity-testing":            "/services/functional-medicine-consultation",
+  "nutritional-deficiency-testing":      "/services/functional-medicine-consultation",
+  "gut-health-testing":                  "/services/functional-medicine-consultation",
+  "leaky-gut-treatment":                 "/services/functional-medicine-consultation",
+  "digestive-health-treatment":          "/services/functional-medicine-consultation",
+  "autoimmune-disease-treatment":        "/services/functional-medicine-consultation",
+  "brain-fog-treatment":                 "/services/functional-medicine-consultation",
+  "weight-loss-support":                 "/services/functional-medicine-consultation",
+  "metabolism-support":                  "/services/functional-medicine-consultation",
+  "high-blood-pressure-support":         "/services/functional-medicine-consultation",
+  "blood-sugar-support":                 "/services/functional-medicine-consultation",
+  "natural-diabetes-support":            "/services/functional-medicine-consultation",
+  "long-covid-treatment":                "/services/functional-medicine-consultation",
+  "post-covid-recovery":                 "/services/functional-medicine-consultation",
+  "immune-system-support":               "/services/functional-medicine-consultation",
+  "fatigue-treatment":                   "/services/functional-medicine-consultation",
+  "chronic-fatigue-treatment":           "/services/functional-medicine-consultation",
+  "vitamin-therapy":                     "/services/functional-medicine-consultation",
+  "vitamin-supplementation":             "/services/functional-medicine-consultation",
+  "mineral-supplementation":             "/services/functional-medicine-consultation",
+  "supplement-recommendations":          "/services/functional-medicine-consultation",
+  "whole-food-supplements":              "/services/functional-medicine-consultation",
+  "professional-grade-vitamins":         "/services/functional-medicine-consultation",
+  "nutritional-supplements":             "/services/functional-medicine-consultation",
+  "nutritional-counseling":              "/services/functional-medicine-consultation",
+  "nutrition-therapy":                   "/services/functional-medicine-consultation",
+  "whole-food-nutrition-counseling":     "/services/functional-medicine-consultation",
+  "body-contour":                        "/services/functional-medicine-consultation",
+};
+
+/* ============================================================
    Old -greenville-sc URL redirects (301) — maps every legacy
    URL to the new clean slug format so existing Google rankings
    and backlinks are preserved.
@@ -357,9 +515,14 @@ export async function registerRoutes(
 
   app.get("/services/:slug", (req, res) => {
     try {
-      const { slug } = req.params;
+      const slug = req.params.slug.replace(/\/$/, ""); // strip trailing slash
+
+      // Content consolidation: 121 standard pages → core money page (301)
+      const consolidationTarget = CONSOLIDATION_REDIRECTS[slug];
+      if (consolidationTarget) return res.redirect(301, consolidationTarget);
+
       // Functional medicine hub: rich topical authority page instead of generic listing
-      if (slug === "functional-medicine-services" || slug === "functional-medicine-services/") {
+      if (slug === "functional-medicine-services") {
         return sendPage(res, renderFunctionalMedicineHub(), req.originalUrl);
       }
       const catHtml = renderCategory(slug);
