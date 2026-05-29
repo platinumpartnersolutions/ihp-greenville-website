@@ -709,13 +709,16 @@ function getConditionsHubSEO(): PageSEO {
       {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "Conditions Treated at Integrative Health Partners",
-        "itemListElement": conditions.map((c, i) => ({
-          "@type": "ListItem",
-          "position": i + 1,
-          "name": c.name,
-          "item": `${BASE_URL}/conditions/${c.slug}/`
-        }))
+        "name": "Condition Hubs at Integrative Health Partners",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Back & Spine Pain",              "item": `${BASE_URL}/conditions/back-and-spine-pain/` },
+          { "@type": "ListItem", "position": 2, "name": "Joint & Muscle Pain",             "item": `${BASE_URL}/conditions/joint-and-muscle-pain/` },
+          { "@type": "ListItem", "position": 3, "name": "Hormonal & Thyroid Health",       "item": `${BASE_URL}/conditions/hormonal-and-thyroid-health/` },
+          { "@type": "ListItem", "position": 4, "name": "Gut & Digestive Health",          "item": `${BASE_URL}/conditions/gut-and-digestive-health/` },
+          { "@type": "ListItem", "position": 5, "name": "Fatigue, Brain & Nervous System", "item": `${BASE_URL}/conditions/fatigue-brain-nervous-system/` },
+          { "@type": "ListItem", "position": 6, "name": "Fertility & Women's Health",      "item": `${BASE_URL}/conditions/fertility-and-womens-health/` },
+          { "@type": "ListItem", "position": 7, "name": "Autoimmune & Chronic Illness",    "item": `${BASE_URL}/conditions/autoimmune-and-chronic-illness/` },
+        ]
       }
     ]
   };

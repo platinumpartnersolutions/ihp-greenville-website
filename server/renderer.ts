@@ -53,7 +53,9 @@ const icons = {
 /* ============================================================
    HTML Head (with SEO placeholders — injected by SEO middleware)
    ============================================================ */
-function renderHead(title = "Integrative Health Partners | Greenville, SC", desc = "Functional medicine & acupuncture in Greenville, SC. Root-cause testing, Chinese herbs, integrative care. Dr. Hendry, DAOM. Call (864) 365-6156."): string {
+function renderHead(title = "Integrative Health Partners | Greenville, SC", desc = "Functional medicine & acupuncture in Greenville, SC. Root-cause testing, Chinese herbs, integrative care. Dr. Hendry, DAOM. Call (864) 365-6156.", canonicalUrl?: string, extraSchemas?: object[]): string {
+  const canonicalHref = canonicalUrl ?? BASE_URL;
+  const schemaScripts = extraSchemas?.map(s => `  <script type="application/ld+json">${JSON.stringify(s)}</script>`).join("\n") ?? "";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,11 +65,11 @@ function renderHead(title = "Integrative Health Partners | Greenville, SC", desc
   <link rel="apple-touch-icon" href="/favicon.svg" />
   <title>${title}</title>
   <meta name="description" content="${desc}" />
-  <link rel="canonical" href="${BASE_URL}" />
+  <link rel="canonical" href="${canonicalHref}" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="${BASE_URL}" />
+  <meta property="og:url" content="${canonicalHref}" />
   <meta property="og:image" content="${BASE_URL}/images/dr-hendry.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
@@ -79,7 +81,7 @@ function renderHead(title = "Integrative Health Partners | Greenville, SC", desc
   <link rel="stylesheet" href="/css/style.css?v=${CSS_HASH}" />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" /></noscript>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" /></noscript>${schemaScripts ? "\n" + schemaScripts : ""}
 </head>`;
 }
 
@@ -1654,7 +1656,15 @@ export function renderBlogPost(post: BlogPost): string {
    CONDITIONS HUB PAGE  (/conditions/)
    ============================================================ */
 export function renderConditionsHub(): string {
-  const allConditions = conditions;
+  const conditionHubs = [
+    { slug: "back-and-spine-pain",          name: "Back &amp; Spine Pain",              count: 2, desc: "Chronic back pain, sciatica, disc herniation, and lumbar dysfunction — acupuncture, dry needling, and central sensitization resolution." },
+    { slug: "joint-and-muscle-pain",         name: "Joint &amp; Muscle Pain",             count: 7, desc: "Neck pain, knee pain, hip pain, shoulder pain, arthritis, headaches, and sports injuries — kinetic chain assessment and multi-modal needling." },
+    { slug: "hormonal-and-thyroid-health",   name: "Hormonal &amp; Thyroid Health",       count: 7, desc: "Hashimoto's, thyroid dysfunction, adrenal fatigue, PCOS, menopause, perimenopause, and hormone imbalance — comprehensive functional hormone panels." },
+    { slug: "gut-and-digestive-health",      name: "Gut &amp; Digestive Health",          count: 3, desc: "IBS, leaky gut, and food sensitivities — SIBO testing, microbiome analysis, gut-healing protocols, and enteric nervous system support." },
+    { slug: "fatigue-brain-nervous-system",  name: "Fatigue, Brain &amp; Nervous System", count: 8, desc: "Chronic fatigue, brain fog, anxiety, depression, insomnia, PTSD, neuropathy, and cognitive decline — HPA axis regulation and neurological support." },
+    { slug: "fertility-and-womens-health",   name: "Fertility &amp; Women's Health",      count: 2, desc: "Fertility support, IVF enhancement, and PCOS from the reproductive angle — HPO axis regulation, cycle optimization, and evidence-based acupuncture." },
+    { slug: "autoimmune-and-chronic-illness",name: "Autoimmune &amp; Chronic Illness",    count: 5, desc: "Autoimmune disease, fibromyalgia, Lyme disease, chronic illness, and weight dysfunction — root-cause immune modulation and central sensitization." },
+  ];
   const hubFAQs = [
     { q: "What conditions does acupuncture treat?", a: "Acupuncture has demonstrated clinical efficacy for a broad range of conditions including chronic pain, anxiety, insomnia, digestive disorders, hormonal imbalances, and more. At Integrative Health Partners, Dr. Hendry uses acupuncture as part of a comprehensive integrative protocol tailored to each patient's unique presentation." },
     { q: "How is functional medicine different from conventional medicine for chronic conditions?", a: "Functional medicine seeks to identify and address the root biological causes of chronic conditions — gut dysbiosis, hormonal imbalances, nutritional deficiencies, systemic inflammation — rather than managing symptoms with medication. This approach often produces more durable results for complex, multi-system chronic conditions." },
@@ -1662,7 +1672,7 @@ export function renderConditionsHub(): string {
     { q: "Is integrative medicine evidence-based?", a: "Yes. Dr. Hendry's approach draws on peer-reviewed research in acupuncture, functional medicine, and nutritional science. He holds 5 research publications and 54 citations, and his clinical protocols are informed by the best available evidence across both Eastern and Western medical traditions." },
   ];
 
-  return `${renderHead("Conditions We Treat | Integrative Health Partners Greenville, SC", "Functional & integrative medicine for 30+ conditions in Greenville, SC. Root-cause testing, acupuncture, Chinese herbs. Find your condition and how we can help.")}
+  return `${renderHead("Conditions We Treat | Integrative Health Partners Greenville, SC", "Functional & integrative medicine for 30+ conditions in Greenville, SC. Root-cause testing, acupuncture, Chinese herbs. Find your condition and how we can help.", `${BASE_URL}/conditions/`)}
 <body data-page="conditions-hub">
   ${renderNav(false)}
 
@@ -1677,43 +1687,26 @@ export function renderConditionsHub(): string {
             Comprehensive Condition Treatment in Greenville, SC
           </h1>
           <p style="color:var(--color-muted);line-height:1.75;margin-top:1.25rem;font-size:1.0625rem" class="reveal reveal-delay-2">
-            At Integrative Health Partners, Dr. William Hendry treats more than 30 conditions using a combination of
-            acupuncture, functional medicine, and Traditional Chinese Medicine. Rather than managing symptoms in isolation,
-            we identify and address the root causes of your health challenges — creating lasting improvement across
-            pain, neurological, hormonal, and digestive health.
+            At Integrative Health Partners, Dr. William Hendry uses acupuncture, functional medicine, and Traditional Chinese
+            Medicine to address the root causes of 30+ conditions across 7 clinical areas. Each hub below brings together
+            every relevant treatment approach, clinical evidence, and Dr. Hendry's first-person clinical perspective.
           </p>
         </div>
 
-        <!-- Category Cards -->
-        <div class="grid-auto md:grid-2 lg:grid-4" style="margin-bottom:4rem">
-          ${conditionCategories.map((cat, i) => `
-          <div class="reveal" style="transition-delay:${i * 0.08}s">
-            <a href="/conditions/${cat.slug}/" class="cat-card">
+        <!-- Condition Hub Cards -->
+        <div class="grid-auto md:grid-2 lg:grid-3" style="margin-bottom:4rem">
+          ${conditionHubs.map((hub, i) => `
+          <div class="reveal" style="transition-delay:${i * 0.07}s">
+            <a href="/conditions/${hub.slug}/" class="cat-card">
               <div class="cat-card__header">
                 <span class="cat-card__badge cat-card__badge--secondary">Conditions</span>
                 <span class="cat-card__arrow">${icons.arrowRight}</span>
               </div>
-              <h2 class="cat-card__title">${cat.shortName}</h2>
-              <p class="cat-card__count">${cat.conditionSlugs.length} conditions</p>
-              <p class="cat-card__desc">${cat.metaDescription.substring(0, 100)}â€¦</p>
+              <h2 class="cat-card__title">${hub.name}</h2>
+              <p class="cat-card__count">${hub.count} condition${hub.count !== 1 ? "s" : ""}</p>
+              <p class="cat-card__desc">${hub.desc}</p>
             </a>
           </div>`).join("")}
-        </div>
-
-        <!-- All Conditions List -->
-        <div style="margin-bottom:4rem">
-          <h2 class="section-title reveal" style="margin-bottom:2rem">All Conditions We Treat</h2>
-          <div class="grid-auto sm:grid-2 md:grid-3 lg:grid-4">
-            ${allConditions.map((cond, i) => `
-            <div class="reveal" style="transition-delay:${Math.min(i * 0.03, 0.5)}s">
-              <a href="/conditions/${cond.slug}/" class="svc-list-link">
-                <div class="svc-list-link__inner">
-                  <span class="svc-list-link__name">${cond.name}</span>
-                  <span class="svc-list-link__arrow">${icons.arrowRight}</span>
-                </div>
-              </a>
-            </div>`).join("")}
-          </div>
         </div>
 
         <!-- Why IHP -->
@@ -3311,11 +3304,7 @@ export function renderBackSpineHub(): string {
     ]
   };
 
-  return `${renderHead(title, desc)}
-<head>
-  <link rel="canonical" href="${canonical}" />
-  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
-</head>
+  return `${renderHead(title, desc, canonical, [faqSchema])}
 <body data-page="condition-hub">
   ${renderNav(false)}
 
@@ -3494,11 +3483,7 @@ export function renderJointMuscleHub(): string {
     { q: "Can sports injuries be prevented, not just treated?", a: "Yes, and preventive assessment is an important part of what I do. Identifying muscle imbalances, connective tissue deficiencies, and training load issues before they cause injury is the most effective strategy. Athletes with recurrent injuries at the same site almost always have a systemic or biomechanical contributing factor that standard treatment never addresses." },
   ];
 
-  return `${renderHead(title, desc)}
-<head>
-  <link rel="canonical" href="${canonical}" />
-  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
-</head>
+  return `${renderHead(title, desc, canonical, [faqSchema])}
 <body data-page="condition-hub">
   ${renderNav(false)}
   <main class="page-top">
@@ -3636,11 +3621,7 @@ export function renderHormonalThyroidHub(): string {
     { q: "Can PCOS be treated without birth control pills?", a: "Yes. Birth control pills suppress the hormonal cycle externally but don't address the insulin resistance driving androgen excess in most PCOS cases. My protocol corrects insulin resistance through dietary change, myo-inositol supplementation, and acupuncture — restoring ovulation naturally, particularly important for women trying to conceive." },
   ];
 
-  return `${renderHead(title, desc)}
-<head>
-  <link rel="canonical" href="${canonical}" />
-  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
-</head>
+  return `${renderHead(title, desc, canonical, [faqSchema])}
 <body data-page="condition-hub">
   ${renderNav(false)}
   <main class="page-top">
@@ -3776,11 +3757,7 @@ export function renderGutDigestiveHub(): string {
     { q: "Can acupuncture help IBS and gut issues?", a: "Yes. Multiple systematic reviews confirm acupuncture significantly improves abdominal pain, bloating, and bowel habit regularity in IBS. The mechanisms include enteric nervous system regulation, reduction of visceral hypersensitivity, gut-brain axis modulation, and direct effects on gut motility. Most patients notice improvement in pain and bloating from their first few sessions." },
   ];
 
-  return `${renderHead(title, desc)}
-<head>
-  <link rel="canonical" href="${canonical}" />
-  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
-</head>
+  return `${renderHead(title, desc, canonical, [faqSchema])}
 <body data-page="condition-hub">
   ${renderNav(false)}
   <main class="page-top">
@@ -3921,11 +3898,7 @@ export function renderFatigueBrainHub(): string {
     { q: "How early should I address cognitive decline risk?", a: "The biology of Alzheimer's begins 15–20 years before symptoms appear. Most modifiable drivers — insulin resistance, sleep apnea, B12 deficiency, thyroid dysfunction, heavy metal burden — are identifiable and correctable now. The highest-impact intervention window is in your 40s through 60s. If you're noticing cognitive symptoms — even subtle ones — evaluation makes sense immediately." },
   ];
 
-  return `${renderHead(title, desc)}
-<head>
-  <link rel="canonical" href="${canonical}" />
-  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
-</head>
+  return `${renderHead(title, desc, canonical, [faqSchema])}
 <body data-page="condition-hub">
   ${renderNav(false)}
   <main class="page-top">
@@ -4055,11 +4028,7 @@ export function renderFertilityWomensHub(): string {
     { q: "What supplements support egg quality?", a: "CoQ10 (600–800mg/day) is the most evidence-backed egg quality supplement — it supports mitochondrial energy production in oocytes, and egg quality is substantially determined by mitochondrial function. DHEA supplementation has evidence for improving ovarian reserve markers in poor responders. Methylfolate, vitamin D, omega-3s, and vitamin C round out the core egg quality protocol." },
   ];
 
-  return `${renderHead(title, desc)}
-<head>
-  <link rel="canonical" href="${canonical}" />
-  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
-</head>
+  return `${renderHead(title, desc, canonical, [faqSchema])}
 <body data-page="condition-hub">
   ${renderNav(false)}
   <main class="page-top">
@@ -4201,11 +4170,7 @@ export function renderAutoimmuneChronic(): string {
     { q: "What herbal antimicrobials do you use for Lyme?", a: "My herbal Lyme protocols draw from published in vitro research: Japanese knotweed (resveratrol and stilbenes with documented anti-Borrelia activity), cat's claw (immunomodulatory and antimicrobial), cryptolepis (active against both Borrelia and Babesia), and andrographis (anti-inflammatory and antimicrobial). These are prescribed as structured protocols from my in-house herbal pharmacy, combined with biofilm-disrupting agents and rotation strategies." },
   ];
 
-  return `${renderHead(title, desc)}
-<head>
-  <link rel="canonical" href="${canonical}" />
-  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
-</head>
+  return `${renderHead(title, desc, canonical, [faqSchema])}
 <body data-page="condition-hub">
   ${renderNav(false)}
   <main class="page-top">

@@ -362,6 +362,11 @@ const CONDITION_HUB_REDIRECTS: Record<string, string> = {
   "chronic-illness":     "/conditions/autoimmune-and-chronic-illness/",
   "weight-issues":       "/conditions/autoimmune-and-chronic-illness/",
   "lyme-disease":        "/conditions/autoimmune-and-chronic-illness/",
+  // Old condition category listing pages — superseded by hub pages
+  "pain-and-musculoskeletal":   "/conditions/",
+  "neurological-mental-health": "/conditions/",
+  "hormonal-womens-health":     "/conditions/",
+  "digestive-immune":           "/conditions/",
 };
 
 export async function registerRoutes(
@@ -854,8 +859,15 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
     sendPage(res, renderAutoimmuneChronic(), req.originalUrl);
   });
 
-  app.get("/conditions/digestive-issues", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
-  app.get("/conditions/digestive-issues/", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
+  app.get("/conditions/digestive-issues", (req, res) => res.redirect(301, "/conditions/gut-and-digestive-health/"));
+  app.get("/conditions/digestive-issues/", (req, res) => res.redirect(301, "/conditions/gut-and-digestive-health/"));
+
+  /* ── Old condition category pages → /conditions/ (301) ──────── */
+  /* These 4 listing pages are superseded by the 7 deep hub pages. */
+  app.get(["/conditions/pain-and-musculoskeletal",    "/conditions/pain-and-musculoskeletal/"],    (req, res) => res.redirect(301, "/conditions/"));
+  app.get(["/conditions/neurological-mental-health",  "/conditions/neurological-mental-health/"],  (req, res) => res.redirect(301, "/conditions/"));
+  app.get(["/conditions/hormonal-womens-health",      "/conditions/hormonal-womens-health/"],      (req, res) => res.redirect(301, "/conditions/"));
+  app.get(["/conditions/digestive-immune",            "/conditions/digestive-immune/"],            (req, res) => res.redirect(301, "/conditions/"));
   // Cloudflare email obfuscation passthrough — prevents 404 on origin
   app.get("/cdn-cgi/l/email-protection", (_req, res) => res.redirect(301, "/contact"));
 
