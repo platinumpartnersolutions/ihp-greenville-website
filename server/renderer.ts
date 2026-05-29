@@ -3287,3 +3287,177 @@ export function renderFunctionalMedicineHub(): string {
 </body>
 </html>`;
 }
+
+/* ============================================================
+   CONDITION HUB PAGE 1: BACK & SPINE PAIN
+   Consolidates: /conditions/back-pain, /conditions/sciatica
+   URL: /conditions/back-and-spine-pain
+   ============================================================ */
+export function renderBackSpineHub(): string {
+  const title = "Back Pain & Sciatica Treatment in Greenville, SC | IHP";
+  const desc = "Acupuncture, dry needling, and functional medicine for back pain and sciatica in Greenville, SC. Dr. William Hendry, DAOM — 25+ years, Prisma Health credentials, evidence-based needle therapy. Call (864) 365-6156.";
+  const canonical = `${BASE_URL}/conditions/back-and-spine-pain/`;
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can acupuncture actually help chronic back pain?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with strong evidence behind it. The American College of Physicians recommends acupuncture as a first-line treatment for chronic low back pain — before prescription medications. The Acupuncture Trialists' Collaboration pooled data from 39 randomized trials (20,827 patients) and found acupuncture significantly outperforms sham treatment and no treatment for chronic back pain, with outcomes that hold at 12-month follow-up." } },
+      { "@type": "Question", "name": "How many sessions will I need for back pain?", "acceptedAnswer": { "@type": "Answer", "text": "Acute back pain (under 6 weeks) typically responds in 4–6 sessions. Chronic back pain lasting more than 12 weeks usually requires 8–12 sessions for lasting improvement. Many patients continue monthly maintenance sessions. Dr. Hendry gives a realistic timeline estimate at the first appointment based on your specific presentation." } },
+      { "@type": "Question", "name": "What causes sciatica and how is it different from back pain?", "acceptedAnswer": { "@type": "Answer", "text": "Sciatica is compression or irritation of the sciatic nerve — most often from a herniated disc at L4/L5 or L5/S1, spinal stenosis, or piriformis syndrome. The defining feature is radiating pain that travels from the lower back down through the buttock and leg, sometimes to the foot. Back pain without that radiation pattern typically originates in muscles, ligaments, or facet joints rather than nerve roots." } },
+      { "@type": "Question", "name": "I've already had physical therapy and it didn't work — what's different here?", "acceptedAnswer": { "@type": "Answer", "text": "Physical therapy works on the structural contributors to back pain. Acupuncture addresses central sensitization — the neurological state in which the spinal cord and brain have amplified their pain response, generating pain even when the original structural injury has healed. Central sensitization is measurable and reversible, but it doesn't respond to manual therapy alone. Many patients who plateaued with PT see significant improvement with acupuncture because it targets the neurological driver of chronic pain." } },
+      { "@type": "Question", "name": "How do you know if someone needs surgery vs. conservative care?", "acceptedAnswer": { "@type": "Answer", "text": "Red flags that require urgent surgical referral: progressive leg weakness, loss of bladder or bowel control, saddle anesthesia (numbness in the inner thighs and perineum), or foot drop. In the absence of those, conservative care — acupuncture, dry needling, functional medicine — is the appropriate first-line approach and succeeds in the majority of cases. Dr. Hendry performs a thorough assessment at every initial visit and refers when the clinical picture warrants it." } },
+      { "@type": "Question", "name": "What is piriformis syndrome and how does it cause sciatica?", "acceptedAnswer": { "@type": "Answer", "text": "The piriformis muscle sits deep in the buttock, directly adjacent to the sciatic nerve. In piriformis syndrome, the muscle goes into sustained spasm — typically from prolonged sitting, overuse, or prior trauma — and presses on the nerve, mimicking disc herniation sciatica. It's frequently misdiagnosed. Dry needling into the piriformis is one of the most effective treatments for piriformis-related sciatica, often producing rapid, significant relief." } },
+    ]
+  };
+
+  return `${renderHead(title, desc)}
+<head>
+  <link rel="canonical" href="${canonical}" />
+  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
+</head>
+<body data-page="condition-hub">
+  ${renderNav(false)}
+
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Conditions We Treat", href: "/conditions" },
+        { name: "Back & Spine Pain" },
+      ])}
+
+      <div class="main-sidebar">
+        <article>
+
+          <!-- Hero -->
+          <span class="tag" style="margin-bottom:1rem;display:inline-block">Pain &amp; Musculoskeletal</span>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">Back Pain &amp; Sciatica Treatment in Greenville, SC</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2.5rem" class="reveal reveal-delay-1">
+            Acupuncture, dry needling, and functional medicine for chronic back pain and sciatic nerve pain — treating the structural injury, the neurological driver, and the systemic factors keeping you from healing. Led by Dr. William Hendry, DAOM, with 25+ years of clinical experience and 5 peer-reviewed publications on needle-based pain management.
+          </p>
+
+          <!-- Dr. Hendry's opening — first person -->
+          <div class="cta-subtle reveal" style="margin-bottom:2.5rem">
+            <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} A Note From Dr. Hendry</h2>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">Most back pain patients who find their way to my clinic have already done the standard route: ibuprofen, physical therapy, maybe a cortisone injection. Some have had MRIs and been told their spine shows "degenerative changes" — a finding so common in adults over 40 that it's practically universal and nearly useless as a diagnosis. The imaging shows what's there. It doesn't explain why you're in pain when someone with identical imaging findings isn't.</p>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">I spent nine years on staff at Prisma Health, where I co-led a three-year Emergency Department study on needle-based alternatives to opioids for acute pain management — back pain was the primary presenting complaint. Five peer-reviewed publications, 54 citations. What that research confirmed, and what 25 years of clinical practice has reinforced, is that chronic back pain is almost never purely structural — and treating it as if it is produces exactly the outcomes most of these patients have already experienced.</p>
+            <p style="color:var(--color-muted);line-height:1.8">The question I care about answering isn't where your back hurts. It's why it hasn't healed.</p>
+          </div>
+
+          <!-- Why chronic back pain persists -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Why Chronic Back Pain Doesn't Resolve on Its Own</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">The lumbar spine is designed to carry load and transmit force between the upper and lower body — five vertebrae stacked above the sacrum, cushioned by discs, stabilized by ligaments, and supported by a muscular system that coordinates across the entire lumbopelvic complex with every movement. When something in that system fails, pain-signaling nociceptors in the affected tissue fire. In an acute injury, that's appropriate and time-limited.</p>
+            <p style="margin-bottom:1rem">The problem in chronic pain is central sensitization. After roughly three to six months of persistent pain signals, the spinal cord and brain begin to upregulate their sensitivity — a well-documented neuroplastic process in which the central nervous system essentially "turns up the volume" on incoming pain signals. A sensitized nervous system generates pain responses to stimuli that would normally be innocuous. An MRI cannot show central sensitization. Physical therapy does not reverse it. This is why so many chronic back pain patients plateau with conventional care: the treatment is aimed at the structure, but the driver of persistent pain has become neurological.</p>
+            <p style="margin-bottom:1rem">Acupuncture directly addresses central sensitization. Needle insertion at specific anatomical points activates descending inhibitory pathways from the periaqueductal gray — the brain's endogenous pain-suppression system — releasing endorphins, serotonin, and norepinephrine into the dorsal horn of the spinal cord. This is not theoretical. The Acupuncture Trialists' Collaboration pooled individual patient data from 39 randomized trials representing 20,827 patients and concluded that acupuncture significantly outperforms both sham acupuncture and no-treatment controls for chronic low back pain, with effect sizes that hold at 12-month follow-up. The American College of Physicians now recommends acupuncture as a first-line treatment for chronic low back pain — before prescription medications.</p>
+          </div>
+
+          <!-- Sciatica section -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Sciatica: Nerve Compression vs. Nerve Sensitization</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">Sciatica is back pain's most recognizable presentation — that sharp, radiating pain that travels from the lower back through the buttock and down the leg, sometimes all the way to the foot. It follows the sciatic nerve, the longest in the body, originating at lumbar roots L4 through S3 and running through the buttock and down the posterior leg.</p>
+            <p style="margin-bottom:1rem">The compression source matters clinically, and getting it right determines the treatment. A herniated disc at L5/S1 compresses the S1 nerve root and produces calf pain and weakness when standing on tiptoe. Piriformis syndrome — where the piriformis muscle, which sits directly adjacent to the sciatic nerve in the buttock, goes into sustained spasm — mimics disc herniation exactly but doesn't require the same treatment at all. Spinal stenosis, the narrowing of the spinal canal that compresses multiple roots simultaneously, produces a different picture: pain that worsens with walking and improves with sitting and forward flexion. These require orthopedic examination to distinguish, not just an MRI report.</p>
+            <p style="margin-bottom:1rem">I screen every sciatic patient for red flags before proceeding with conservative care: progressive leg weakness, bladder or bowel changes, saddle anesthesia (numbness in the inner thighs and groin), foot drop. When those are present, this is not a situation for acupuncture — it's a surgical consult. When they're absent, which is the overwhelming majority of presentations, conservative care is not just appropriate — it's what the evidence supports as first-line treatment, and surgery is the option of last resort.</p>
+            <p>I've had patients avoid sciatic surgery with the right combination of trigger point dry needling and acupuncture. I've also referred patients who didn't improve after an appropriate course of treatment — because nine years of hospital-level practice teaches you when conservative care has reached its ceiling. Knowing the difference is the clinical skill that matters.</p>
+          </div>
+
+          <!-- How IHP treats it -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">How We Treat Back Pain &amp; Sciatica at IHP</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Acupuncture</strong> — Precise point selection based on classical Bladder and Gallbladder channel pathways, which anatomically correspond to the paraspinal musculature and sciatic nerve distribution. Reduces central sensitization via descending inhibitory pathway activation. Most patients notice meaningful improvement within 4–6 sessions.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Dry Needling</strong> — Targeted deactivation of myofascial trigger points in the lumbar paraspinals, quadratus lumborum, piriformis, gluteus medius, and psoas major. These trigger points are a primary, frequently overlooked source of both back pain and sciatic radiation. A local twitch response confirms deactivation — many patients feel the referred pain pattern change during the session itself.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Electroacupuncture</strong> — For disc herniation cases with nerve root compression and for patients with significant central sensitization, I use frequency-specific electrical stimulation through the needles. Two Hz stimulates beta-endorphin release; higher frequencies modulate dynorphin and enkephalin. This is a pharmacological decision, not a setting I apply routinely — it's selected based on the neurological picture.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Cupping Therapy</strong> — Along the lumbar and sacral region, cupping decompresses tight fascial layers, improves circulation in hypoxic paraspinal tissue, and reduces the soft-tissue stiffness that limits spinal mobility. Particularly effective for patients who describe their back as feeling "locked" after sleeping or sitting.</p>
+            <p><strong style="color:var(--color-text)">Prolotherapy</strong> — For patients with ligamentous laxity contributing to chronic instability — spondylolisthesis, recurring lumbar sprains that never fully resolve, SI joint hypermobility — prolotherapy injections of hypertonic dextrose into the affected ligament insertions stimulate collagen synthesis and structural tightening. This addresses a source of back pain that needling alone cannot resolve: mechanically unstable connective tissue.</p>
+          </div>
+
+          <!-- Functional medicine angle -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">The Systemic Factors Most Back Pain Clinics Miss</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">When a patient has had back pain for years and hasn't responded to every structural intervention, the question becomes: what's preventing the tissue from healing? The answer is usually systemic, and usually involves several of the following.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Chronic cortisol elevation</strong> from ongoing psychological stress directly suppresses tissue repair by downregulating growth factors and promoting a catabolic hormonal environment. A patient managing significant life stress isn't going to heal optimally no matter how good the manual care is.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Magnesium deficiency</strong> — present in over 50% of Americans — maintains elevated resting muscle tension and prevents the nervous system from down-regulating chronic pain signals. It's one of the most correctable factors in chronic pain, and one of the most consistently overlooked.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Gut dysbiosis and intestinal permeability</strong> generate systemic inflammatory cytokines — IL-6, TNF-alpha, IL-1beta — that sensitize pain pathways throughout the body, including in the spine. The gut-back pain connection is real, measurable, and underappreciated. Some of the most dramatic back pain recoveries I've seen came from patients who finally addressed their gut health.</p>
+            <p>When appropriate, I order a comprehensive functional panel: inflammatory markers (hs-CRP, ESR, homocysteine), nutrient levels (magnesium, vitamin D, B12, omega-3 index), hormones (cortisol, DHEA, thyroid). Addressing what we find changes the healing environment — and then the acupuncture and dry needling can do what they're designed to do.</p>
+          </div>
+
+          <!-- What to expect -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">What to Expect at Your First Visit</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">Your first appointment runs 75–90 minutes. After a comprehensive intake covering your full health history — not just your back — Dr. Hendry performs an orthopedic assessment: range of motion, palpation of spinal segments and trigger points, neurological screening (reflexes, dermatomal sensation, straight leg raise). From this, he identifies which structures are generating your pain and which systemic factors are maintaining it.</p>
+            <p style="margin-bottom:1rem">Treatment begins at the first appointment. Most acute presentations improve within 4–6 sessions. Chronic back pain or complex sciatica typically follows an 8–12 session arc, with measurable improvement at each interval. Dr. Hendry reassesses at sessions 4 and 8, adjusting the protocol based on your tissue response — this is not a fixed script.</p>
+            <p>Bring any imaging you have (MRI, X-ray). It's useful context, but it's not required — many patients with "abnormal" findings on imaging do very well, and treatment decisions are based on clinical examination, not imaging alone.</p>
+          </div>
+
+          <!-- FAQ -->
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
+          <div style="margin-bottom:2.5rem">
+            ${[
+              { q: "Can acupuncture actually help chronic back pain?", a: "Yes, and with strong evidence. The American College of Physicians recommends acupuncture as a first-line treatment for chronic low back pain before prescription medications. The Acupuncture Trialists' Collaboration pooled data from 39 randomized trials (20,827 patients) and found acupuncture significantly outperforms sham treatment and no-treatment controls — with outcomes maintained at 12-month follow-up." },
+              { q: "How many sessions will I need?", a: "Acute back pain (under 6 weeks): 4–6 sessions. Chronic back pain (over 12 weeks): 8–12 sessions for lasting improvement, with monthly maintenance afterward. Sciatica from disc herniation typically requires 8–10 sessions; piriformis-related sciatica often resolves faster. Dr. Hendry gives a specific estimate at your first visit." },
+              { q: "I've already had physical therapy and it didn't work — what's different here?", a: "Physical therapy addresses structural contributors. Acupuncture addresses central sensitization — the state in which the nervous system has amplified its pain response independently of the original injury. Central sensitization doesn't respond to manual therapy alone. Many patients who plateaued with PT see significant improvement with acupuncture and dry needling because the treatment is targeting a different mechanism." },
+              { q: "What is piriformis syndrome and how is it diagnosed?", a: "Piriformis syndrome occurs when the piriformis muscle in the buttock compresses the adjacent sciatic nerve, producing sciatic-pattern pain that's indistinguishable by symptoms alone from disc herniation. The distinction requires orthopedic examination — specific provocation tests and palpation. Dry needling into the piriformis is one of the fastest and most effective treatments when piriformis syndrome is the correct diagnosis." },
+              { q: "How do you know if someone needs surgery instead of conservative care?", a: "Red flags that require immediate surgical referral: progressive lower extremity weakness, loss of bladder or bowel control, saddle anesthesia, or foot drop. In the absence of those findings — which describes the vast majority of back pain and sciatica presentations — conservative care is the evidence-supported first-line approach. Dr. Hendry performs a thorough assessment at every new patient visit and refers promptly when the clinical picture warrants it." },
+              { q: "Does prolotherapy help chronic back pain?", a: "For back pain driven by ligamentous laxity — spondylolisthesis, sacroiliac hypermobility, recurring sprains that never fully stabilize — prolotherapy addresses the structural instability that needling alone cannot resolve. Hypertonic dextrose injected into the affected ligament insertions stimulates collagen synthesis and tightening of the supporting structures. Not every back pain patient needs prolotherapy, but for the right clinical presentation, it produces outcomes that other conservative treatments don't." },
+            ].map(faq => `
+            <div class="faq-item reveal" style="border-bottom:1px solid var(--color-border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+              <h3 class="font-heading" style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--color-text)">${faq.q}</h3>
+              <p style="color:var(--color-muted);line-height:1.75;margin:0">${faq.a}</p>
+            </div>`).join("")}
+          </div>
+
+          <!-- Related Services -->
+          <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">Treatments We Use for Back Pain &amp; Sciatica</h2>
+          <div class="grid-auto sm:grid-2" style="margin-bottom:2.5rem">
+            ${[
+              ["Acupuncture Therapy", "acupuncture-therapy"],
+              ["Dry Needling Therapy", "dry-needling-therapy"],
+              ["Electroacupuncture", "electroacupuncture"],
+              ["Prolotherapy", "prolotherapy"],
+              ["Cupping Therapy", "cupping-therapy"],
+              ["Functional Medicine Consultation", "functional-medicine-consultation"],
+            ].map(([name, slug]) => `
+            <a href="/services/${slug}/" class="related-card reveal">
+              <div class="related-card__inner">
+                <span class="related-card__name">${name}</span>
+                <span class="related-card__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>`).join("")}
+          </div>
+
+          ${renderBookingCTA()}
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-card--primary">
+            <p class="sidebar-card__title">Schedule a Consultation</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem">Call or email to book your first appointment with Dr. Hendry.</p>
+            <a href="tel:+18643656156" class="btn btn--primary" style="width:100%;margin-bottom:0.75rem;text-align:center">${icons.phone} (864) 365-6156</a>
+            <a href="mailto:info@ihpgreenville.com" class="btn btn--outline" style="width:100%;text-align:center">${icons.mail} Email Us</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Dr. Hendry's Credentials</p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              ${["DAOM — East West College of Natural Medicine", "NCBAHM Board Certified (Dipl. O.M. #114498)", "9 Years Hospital Privileges — Prisma Health", "5 Peer-Reviewed Publications | 54 Citations", "Co-Investigator, ED Opioid Alternative Study", "25+ Years Clinical Experience"].map(c => `<div class="check-item" style="font-size:0.875rem">${icons.checkCircle}<span style="color:var(--color-muted)">${c}</span></div>`).join("")}
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Related Conditions</p>
+            ${[["Neck Pain", "neck-pain"], ["Hip Pain", "hip-pain"], ["Fibromyalgia", "fibromyalgia"], ["Neuropathy", "neuropathy"], ["Sports Injuries", "sports-injuries"]].map(([n, s]) => `<a href="/conditions/${s}/" class="sidebar-link">${n}</a>`).join("")}
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem">${NAP.streetAddress}<br>${NAP.city}, ${NAP.state} ${NAP.postalCode}</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem">Mon—Fri, 9am—5pm</p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">Get Directions ${icons.externalLink}</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}

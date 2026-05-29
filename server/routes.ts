@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, getBlogPostSEO, BASE_URL } from "./seo";
-import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub, renderPrivacy, renderDisclaimer, renderSitemapHtml, renderFunctionalMedicineHub } from "./renderer";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub, renderPrivacy, renderDisclaimer, renderSitemapHtml, renderFunctionalMedicineHub, renderBackSpineHub } from "./renderer";
 import { BLOG_301S, BLOG_410S } from "./blog-redirects";
 import { conditions, conditionCategories } from "./conditions";
 
@@ -778,6 +778,15 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
   app.get(/^\/services\/?$/, (req, res) => {
     sendPage(res, renderServicesHub(), "/services");
   });
+  /* ── Condition Hub Pages ─────────────────────────────────── */
+  app.get(["/conditions/back-and-spine-pain", "/conditions/back-and-spine-pain/"], (req, res) => {
+    sendPage(res, renderBackSpineHub(), req.originalUrl);
+  });
+
+  /* ── Condition consolidation 301s → hub pages ────────────── */
+  app.get(["/conditions/back-pain", "/conditions/back-pain/"],     (req, res) => res.redirect(301, "/conditions/back-and-spine-pain/"));
+  app.get(["/conditions/sciatica", "/conditions/sciatica/"],       (req, res) => res.redirect(301, "/conditions/back-and-spine-pain/"));
+
   app.get("/conditions/digestive-issues", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
   app.get("/conditions/digestive-issues/", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
   // Cloudflare email obfuscation passthrough — prevents 404 on origin

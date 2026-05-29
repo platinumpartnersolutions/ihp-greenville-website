@@ -1333,6 +1333,14 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   </url>`;
   }
 
+  /* Condition hub pages — consolidated replacements for individual condition pages */
+  const CONDITION_HUB_SLUGS = [
+    "back-and-spine-pain",
+    // future hubs added here as they are built
+  ];
+  /* Individual condition pages consolidated into hubs (301'd — exclude from sitemap) */
+  const CONSOLIDATED_CONDITIONS = new Set(["back-pain", "sciatica"]);
+
   xml += `
   <url>
     <loc>${BASE_URL}/conditions/</loc>
@@ -1340,6 +1348,16 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`;
+
+  for (const slug of CONDITION_HUB_SLUGS) {
+    xml += `
+  <url>
+    <loc>${BASE_URL}/conditions/${slug}/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>`;
+  }
 
   for (const slug of conditionCatSlugs) {
     xml += `
@@ -1352,6 +1370,7 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   }
 
   for (const slug of conditionSlugs) {
+    if (CONSOLIDATED_CONDITIONS.has(slug)) continue; // now a 301 — exclude from sitemap
     xml += `
   <url>
     <loc>${BASE_URL}/conditions/${slug}/</loc>
