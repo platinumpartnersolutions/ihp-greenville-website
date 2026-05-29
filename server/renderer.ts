@@ -3461,3 +3461,855 @@ export function renderBackSpineHub(): string {
 </body>
 </html>`;
 }
+
+/* ============================================================
+   CONDITION HUB 2: JOINT & MUSCLE PAIN
+   Consolidates: neck-pain, knee-pain, hip-pain, shoulder-pain,
+                 headaches-migraines, arthritis, sports-injuries
+   URL: /conditions/joint-and-muscle-pain
+   ============================================================ */
+export function renderJointMuscleHub(): string {
+  const title = "Joint & Muscle Pain Treatment in Greenville, SC | IHP";
+  const desc = "Acupuncture, dry needling, and functional medicine for neck pain, knee pain, hip pain, shoulder pain, arthritis, headaches, and sports injuries. Dr. William Hendry, DAOM. Call (864) 365-6156.";
+  const canonical = `${BASE_URL}/conditions/joint-and-muscle-pain/`;
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can acupuncture help with osteoarthritis of the knee or hip?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with strong clinical evidence. Multiple randomized trials and systematic reviews confirm acupuncture provides significant pain reduction and functional improvement in knee and hip osteoarthritis — endorsed by major rheumatology organizations. It reduces synovial inflammation, improves joint lubrication factors, and addresses the central sensitization that makes arthritic joints hurt at rest." } },
+      { "@type": "Question", "name": "What causes headaches to come from the neck?", "acceptedAnswer": { "@type": "Answer", "text": "Cervicogenic headaches originate in the cervical spine and suboccipital muscles. A tight suboccipital muscle can compress the greater occipital nerve and generate headaches that radiate from the base of the skull forward over the scalp. These are frequently misdiagnosed as tension or migraine headaches, and they respond dramatically to acupuncture and dry needling aimed at the cervical source rather than headache medications." } },
+      { "@type": "Question", "name": "How many sessions does it take to see improvement in joint pain?", "acceptedAnswer": { "@type": "Answer", "text": "Acute joint injuries typically respond in 3–6 sessions. Chronic conditions like osteoarthritis or frozen shoulder usually require 8–12 sessions for lasting improvement. Dr. Hendry gives a specific timeline estimate at the first visit based on your presentation." } },
+      { "@type": "Question", "name": "Is dry needling the same as acupuncture?", "acceptedAnswer": { "@type": "Answer", "text": "They use similar tools but different frameworks. Dry needling targets myofascial trigger points using a Western anatomical model. Acupuncture uses a Chinese medicine framework of channels, points, and systemic regulation. Dr. Hendry is trained in both and integrates them — using each where the clinical evidence is strongest." } },
+      { "@type": "Question", "name": "Can frozen shoulder be treated without surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Acupuncture is one of the most effective conservative treatments for frozen shoulder (adhesive capsulitis). Multiple clinical trials confirm it significantly speeds recovery compared to physical therapy alone. The natural untreated course is 18–24 months; patients treated with acupuncture often regain full mobility in 3–6 months without surgery." } },
+      { "@type": "Question", "name": "What sports injuries respond best to acupuncture and dry needling?", "acceptedAnswer": { "@type": "Answer", "text": "Tendinopathies (Achilles, patellar, rotator cuff), hamstring and groin strains, ITB syndrome, plantar fasciitis, and chronic overuse conditions respond particularly well. Dry needling of trigger points that develop after injury provides rapid pain relief and restores normal movement patterns. Cupping accelerates recovery between training sessions." } },
+    ]
+  };
+
+  const faqs = [
+    { q: "Can acupuncture slow arthritis progression?", a: "For osteoarthritis, reducing systemic inflammation through diet, targeted supplementation, and acupuncture can slow cartilage degradation. For rheumatoid arthritis, functional medicine approaches that modulate the immune response — gut healing, elimination of dietary triggers, vitamin D optimization — may reduce long-term joint damage alongside conventional DMARD therapy." },
+    { q: "What is the connection between neck pain and headaches?", a: "Cervicogenic headaches are extremely common and frequently misdiagnosed as tension headaches or migraines. Suboccipital muscle tightness compresses the greater occipital nerve; trigger points in the upper trapezius and sternocleidomastoid generate referred pain over the skull. Treating the neck directly often resolves headaches that haven't responded to any headache-specific treatment." },
+    { q: "How do you treat frozen shoulder?", a: "I use a combination of acupuncture along Eight Extra Meridian protocols that dramatically speed adhesive capsulitis recovery, trigger point dry needling of the subscapularis and infraspinatus, and cupping along the upper back and posterior shoulder. Multiple clinical trials confirm acupuncture speeds frozen shoulder resolution from the natural 18–24 month course to 3–6 months in most patients." },
+    { q: "Does acupuncture help migraine prevention?", a: "Yes. The Cochrane review on acupuncture for migraines (2016) concluded it is at least as effective as prophylactic drug treatments for reducing migraine frequency — with fewer side effects. Beyond acupuncture, I evaluate functional drivers: magnesium deficiency (present in the majority of migraine sufferers), mitochondrial CoQ10 deficiency, hormonal triggers, food sensitivities, and histamine intolerance." },
+    { q: "Can sports injuries be prevented, not just treated?", a: "Yes, and preventive assessment is an important part of what I do. Identifying muscle imbalances, connective tissue deficiencies, and training load issues before they cause injury is the most effective strategy. Athletes with recurrent injuries at the same site almost always have a systemic or biomechanical contributing factor that standard treatment never addresses." },
+  ];
+
+  return `${renderHead(title, desc)}
+<head>
+  <link rel="canonical" href="${canonical}" />
+  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
+</head>
+<body data-page="condition-hub">
+  ${renderNav(false)}
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Conditions We Treat", href: "/conditions" },
+        { name: "Joint & Muscle Pain" },
+      ])}
+      <div class="main-sidebar">
+        <article>
+          <span class="tag" style="margin-bottom:1rem;display:inline-block">Pain &amp; Musculoskeletal</span>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">Joint &amp; Muscle Pain Treatment in Greenville, SC</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2.5rem" class="reveal reveal-delay-1">
+            Acupuncture, dry needling, and functional medicine for neck pain, knee pain, hip pain, shoulder pain, arthritis, headaches, and sports injuries — treating the mechanical source, the neurological driver, and the systemic factors determining recovery. Led by Dr. William Hendry, DAOM, with 25+ years of clinical experience and published research in needle-based pain management.
+          </p>
+
+          <div class="cta-subtle reveal" style="margin-bottom:2.5rem">
+            <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} A Note From Dr. Hendry</h2>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">Every joint in the body is a mechanical problem sitting inside a biochemical environment. The mechanics — which structure is loaded, how it moves, where the dysfunction lives in the kinetic chain — matter enormously. But so does the biochemical environment the joint heals in: the inflammatory burden driven by diet and gut health, the cortisol pattern from chronic stress, the magnesium and vitamin D levels that determine whether connective tissue can repair between treatment sessions.</p>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">I don't treat the knee in isolation. I don't treat the shoulder without evaluating the thoracic spine and cervical nerve roots. When a patient comes in with frozen shoulder and I find they have poorly controlled diabetes, those two facts are not unrelated — frozen shoulder is four times more common in diabetics, and the joint won't recover well until the metabolic environment is addressed alongside the local treatment.</p>
+            <p style="color:var(--color-muted);line-height:1.8">My Prisma Health research was on needle-based alternatives to opioids for acute pain — back and joint pain were the primary presentations. What I learned from three years of emergency medicine data is that the mechanical picture and the neurological picture are almost never separable, and that needle therapy addresses both simultaneously in a way that nothing else does.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Conditions Treated at This Hub</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Neck Pain</strong> — The neck carries a 12-pound head through hundreds of movements per hour. Most chronic neck pain is maintained by a combination of postural pattern, suboccipital trigger points, and cervical disc or facet dysfunction that generates referral into the upper trapezius and produces occipital headaches. Acupuncture at local cervical points plus distal points, cupping along the upper back, and trigger point dry needling into the suboccipitals and levator scapulae resolves most presentations. Cervical disc herniations causing radiculopathy into the arm respond well to electroacupuncture.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Knee Pain</strong> — The knee fails in the context of what's above and below it. Weak hip abductors allow valgus collapse. Overpronating feet increase tibial internal rotation. Tight hip flexors load the patellofemoral joint. I assess the full kinetic chain, then treat with acupuncture targeting synovial inflammation, cupping for swelling and stiffness, and dry needling of the quadriceps and ITB trigger points that compress the joint. For osteoarthritis, I combine local treatment with functional medicine evaluation of the systemic inflammatory drivers accelerating cartilage breakdown.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Hip Pain</strong> — True hip joint pain is felt in the groin. Pain on the outer hip is usually trochanteric bursitis or gluteus medius dysfunction. Buttock pain is often piriformis or SI joint. Getting the source right determines the treatment. Acupuncture along the Gallbladder and Liver channels, dry needling of the piriformis and gluteals, and cupping over the lateral hip address the musculoskeletal picture. Clinical trials in hip osteoarthritis confirm meaningful pain reduction and functional improvement.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Shoulder Pain</strong> — Rotator cuff tendinopathy, frozen shoulder (adhesive capsulitis), and subacromial bursitis make up the majority of shoulder presentations. Frozen shoulder responds remarkably well to acupuncture — the natural 18–24 month recovery course shortens to 3–6 months with appropriate needle therapy. For rotator cuff tendinopathy, electroacupuncture stimulates collagen synthesis and reduces the chronic tendon inflammation that manual therapy alone doesn't adequately address.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Headaches &amp; Migraines</strong> — Migraines are a disorder of central sensitization — the brain's threshold for triggering neuroinflammatory cascades has been lowered by nutrient deficiencies (magnesium in the majority of sufferers), mitochondrial energy deficits, hormonal fluctuations, or gut-derived histamine. Acupuncture for migraine prevention is validated in multiple Cochrane reviews as equivalent to prophylactic medication without side effects. Cervicogenic headaches — originating in the suboccipitals — require treatment at the neck, not headache medication.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Arthritis</strong> — Osteoarthritis is not simply wear and tear. It's cartilage degrading faster than it can repair, driven substantially by systemic inflammatory load. Visceral fat and gut dysbiosis produce cytokines that directly accelerate cartilage breakdown. Diet, metabolic function, and gut health are as important as local treatment. For rheumatoid arthritis, I work alongside rheumatologists addressing the gut-immune axis and dietary triggers that drive autoimmune activity.</p>
+            <p><strong style="color:var(--color-text)">Sports Injuries</strong> — Acute injuries and overuse syndromes respond extremely well to acupuncture, dry needling of trigger points developed around the injury, and cupping for local circulation. What distinguishes athletes who recover quickly from those who don't is usually systemic: sleep, nutrition, inflammatory burden, and training load management. I evaluate and address the full picture.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">The Systemic Dimension of Joint Pain</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Magnesium deficiency</strong> — present in over 50% of Americans — maintains elevated resting muscle tension and prevents the nervous system from down-regulating chronic pain signals. One of the most correctable and most consistently overlooked factors in musculoskeletal care.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Chronic inflammation</strong> from gut dysbiosis, dietary load, or metabolic dysfunction generates cytokines (IL-6, TNF-alpha) that sensitize pain pathways, suppress tissue repair, and accelerate joint degeneration. Addressing the inflammatory source — not just the pain it produces — is what changes long-term outcomes.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Vitamin D deficiency</strong> impairs muscle function, reduces immune regulation, and is independently associated with increased pain sensitivity. Correcting to optimal levels (60–80 ng/mL) is one of the simplest high-impact interventions in musculoskeletal care.</p>
+            <p>When appropriate, I add functional medicine testing to the local treatment protocol: inflammatory markers, nutrient status, cortisol rhythm, thyroid function. Addressing what we find changes the healing environment — and then the acupuncture and dry needling can do what they're designed to do.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
+          <div style="margin-bottom:2.5rem">
+            ${faqs.map(faq => `
+            <div class="faq-item reveal" style="border-bottom:1px solid var(--color-border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+              <h3 class="font-heading" style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--color-text)">${faq.q}</h3>
+              <p style="color:var(--color-muted);line-height:1.75;margin:0">${faq.a}</p>
+            </div>`).join("")}
+          </div>
+
+          <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">Treatments We Use for Joint &amp; Muscle Pain</h2>
+          <div class="grid-auto sm:grid-2" style="margin-bottom:2.5rem">
+            ${[
+              ["Acupuncture Therapy", "acupuncture-therapy"],
+              ["Dry Needling Therapy", "dry-needling-therapy"],
+              ["Electroacupuncture", "electroacupuncture"],
+              ["Cupping Therapy", "cupping-therapy"],
+              ["Prolotherapy", "prolotherapy"],
+              ["Functional Medicine Consultation", "functional-medicine-consultation"],
+            ].map(([name, slug]) => `
+            <a href="/services/${slug}/" class="related-card reveal">
+              <div class="related-card__inner">
+                <span class="related-card__name">${name}</span>
+                <span class="related-card__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>`).join("")}
+          </div>
+
+          ${renderBookingCTA()}
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-card--primary">
+            <p class="sidebar-card__title">Schedule a Consultation</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem">Call or email to book your first appointment with Dr. Hendry.</p>
+            <a href="tel:+18643656156" class="btn btn--primary" style="width:100%;margin-bottom:0.75rem;text-align:center">${icons.phone} (864) 365-6156</a>
+            <a href="mailto:info@ihpgreenville.com" class="btn btn--outline" style="width:100%;text-align:center">${icons.mail} Email Us</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Dr. Hendry's Credentials</p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              ${["DAOM — East West College of Natural Medicine", "NCBAHM Board Certified (Dipl. O.M. #114498)", "9 Years Hospital Privileges — Prisma Health", "5 Peer-Reviewed Publications | 54 Citations", "Co-Investigator, ED Opioid Alternative Study", "25+ Years Clinical Experience"].map(c => `<div class="check-item" style="font-size:0.875rem">${icons.checkCircle}<span style="color:var(--color-muted)">${c}</span></div>`).join("")}
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Related Conditions</p>
+            ${[["Back & Spine Pain", "back-and-spine-pain"], ["Fibromyalgia", "fibromyalgia"], ["Autoimmune & Chronic Illness", "autoimmune-and-chronic-illness"], ["Fatigue, Brain & Nervous System", "fatigue-brain-nervous-system"]].map(([n, s]) => `<a href="/conditions/${s}/" class="sidebar-link">${n}</a>`).join("")}
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem">${NAP.streetAddress}<br>${NAP.city}, ${NAP.state} ${NAP.postalCode}</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem">Mon—Fri, 9am—5pm</p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">Get Directions ${icons.externalLink}</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   CONDITION HUB 3: HORMONAL & THYROID HEALTH
+   Consolidates: hashimotos, thyroid-issues, adrenal-fatigue,
+                 pcos, menopause, perimenopause, hormone-imbalance
+   URL: /conditions/hormonal-and-thyroid-health
+   ============================================================ */
+export function renderHormonalThyroidHub(): string {
+  const title = "Hormonal & Thyroid Health in Greenville, SC | IHP";
+  const desc = "Functional medicine for Hashimoto's, thyroid dysfunction, adrenal fatigue, PCOS, menopause, perimenopause, and hormone imbalance. Dr. William Hendry, DAOM. Call (864) 365-6156.";
+  const canonical = `${BASE_URL}/conditions/hormonal-and-thyroid-health/`;
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why do I still have symptoms when my TSH is normal?", "acceptedAnswer": { "@type": "Answer", "text": "TSH tells you the pituitary's signaling — not what the thyroid is actually producing, how efficiently T4 converts to active T3, or whether antibodies are silently destroying thyroid tissue. Many patients feel well only when TSH is between 1.0–2.0 and free T3 is in the upper third of its range. Standard testing misses this. Dr. Hendry runs a complete thyroid panel: TSH, free T3, free T4, reverse T3, TPO antibodies, and thyroglobulin antibodies." } },
+      { "@type": "Question", "name": "Can Hashimoto's antibodies be reduced?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Strict gluten elimination, selenium supplementation (200mcg/day — multiple RCTs show 21–40% TPO antibody reduction), vitamin D optimization, and gut healing can significantly reduce TPO and thyroglobulin antibodies. Some patients achieve complete antibody normalization, protecting remaining thyroid tissue from further autoimmune destruction." } },
+      { "@type": "Question", "name": "What drives PCOS if I'm not overweight?", "acceptedAnswer": { "@type": "Answer", "text": "Insulin resistance is the primary driver of PCOS in the majority of cases — including lean women. Elevated insulin stimulates the ovaries to produce excess testosterone and disrupts follicle maturation. Fasting insulin and HOMA-IR testing identify insulin resistance even when weight is normal. Treating the insulin resistance is what changes the underlying hormonal pattern." } },
+      { "@type": "Question", "name": "Why is my mood so different in perimenopause?", "acceptedAnswer": { "@type": "Answer", "text": "Progesterone often declines a decade before estrogen does — quietly, while cycles are still regular. Low progesterone reduces GABA receptor sensitivity, producing anxiety, insomnia, and irritability with a clear hormonal explanation. This pattern is consistently missed because standard labs don't test progesterone outside of fertility workups." } },
+      { "@type": "Question", "name": "What is the four-point cortisol test and why is it more useful than blood cortisol?", "acceptedAnswer": { "@type": "Answer", "text": "The four-point salivary cortisol test measures cortisol at waking, morning, afternoon, and evening — capturing the full diurnal curve. Single-point blood cortisol detects only extreme pathology (Addison's, Cushing's) and misses the dysregulated rhythm that produces HPA axis dysfunction. The curve reveals whether the problem is low morning cortisol, high evening cortisol, or both — each requiring different treatment." } },
+      { "@type": "Question", "name": "Can acupuncture help with hot flashes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multiple randomized controlled trials confirm acupuncture significantly reduces hot flash frequency and severity by regulating hypothalamic thermoregulation through beta-endorphin pathways. It is particularly valuable for women who prefer not to use hormone therapy. Effects are sustained beyond the treatment period in most clinical trials." } },
+    ]
+  };
+
+  const faqs = [
+    { q: "What panel does Dr. Hendry run for thyroid evaluation?", a: "TSH, free T3, free T4, reverse T3, TPO antibodies, and thyroglobulin antibodies. TSH alone misses poor T4-T3 conversion, subclinical Hashimoto's before significant antibody accumulation, and the clinical state in which free T3 is inadequate despite a 'normal' TSH. I interpret against clinical optimal ranges — TSH 1.0–2.0, free T3 in the upper third — not population-derived lab reference ranges." },
+    { q: "Should I avoid iodine with Hashimoto's?", a: "High-dose iodine supplementation can exacerbate Hashimoto's autoimmunity. Normal dietary iodine from food sources is generally fine. Selenium supplementation (200mcg/day) counterbalances iodine's potentially pro-inflammatory effects and is among the most evidence-backed interventions in integrative thyroid care." },
+    { q: "What does adrenal testing actually involve?", a: "Four-point salivary cortisol, measured at waking, morning, afternoon, and evening — capturing the full diurnal curve that a single morning blood draw misses entirely. I also test DHEA-S, which reveals adrenal reserve that cortisol alone doesn't show. The pattern of the curve — not just absolute values — is the clinically informative finding." },
+    { q: "How long does hormone balancing typically take?", a: "Hormonal systems recalibrate slowly. Most patients notice symptom improvement within 4–8 weeks, with hormones more fully optimized at 3–6 months. For Hashimoto's, antibody reduction requires 3–6 months of strict protocol adherence. Adrenal recovery from significant HPA dysregulation can take 6–12 months depending on severity." },
+    { q: "Can PCOS be treated without birth control pills?", a: "Yes. Birth control pills suppress the hormonal cycle externally but don't address the insulin resistance driving androgen excess in most PCOS cases. My protocol corrects insulin resistance through dietary change, myo-inositol supplementation, and acupuncture — restoring ovulation naturally, particularly important for women trying to conceive." },
+  ];
+
+  return `${renderHead(title, desc)}
+<head>
+  <link rel="canonical" href="${canonical}" />
+  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
+</head>
+<body data-page="condition-hub">
+  ${renderNav(false)}
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Conditions We Treat", href: "/conditions" },
+        { name: "Hormonal & Thyroid Health" },
+      ])}
+      <div class="main-sidebar">
+        <article>
+          <span class="tag" style="margin-bottom:1rem;display:inline-block">Hormonal &amp; Women's Health</span>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">Hormonal &amp; Thyroid Health in Greenville, SC</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2.5rem" class="reveal reveal-delay-1">
+            Comprehensive functional medicine evaluation and treatment for Hashimoto's thyroiditis, thyroid dysfunction, adrenal fatigue, PCOS, menopause, perimenopause, and hormonal imbalance. The evaluations most patients have never had. The testing that actually answers the clinical question.
+          </p>
+
+          <div class="cta-subtle reveal" style="margin-bottom:2.5rem">
+            <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} A Note From Dr. Hendry</h2>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">The most common sentence I hear from new hormonal patients is: "My doctor told me everything looks normal." TSH in range. Estradiol within normal limits. Cortisol came back fine on that one morning blood draw. Nothing actionable.</p>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">Those results aren't inaccurate — they're incomplete. TSH tells me the pituitary's signaling, not what the thyroid is producing or how efficiently T4 is converting to active T3. A single morning blood cortisol detects only extreme Addison's or Cushing's — it misses the dysregulated diurnal cortisol pattern that explains fatigue, insomnia, and poor stress tolerance in the majority of my adrenal patients.</p>
+            <p style="color:var(--color-muted);line-height:1.8">My evaluation begins where the standard workup ends. The tests I order answer the actual clinical question — not just the easiest version of it.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">The Hormonal Conditions I Treat</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Hashimoto's Thyroiditis</strong> — The most common autoimmune disease in the developed world, affecting an estimated 14 million Americans. The immune system produces antibodies that progressively destroy thyroid tissue. Standard treatment replaces the hormone. It doesn't ask why the immune system is attacking the gland. My protocol addresses both: strict gluten elimination (reduces TPO antibodies in multiple RCTs), selenium supplementation at 200mcg/day, gut healing to remove the autoimmune trigger, and thyroid hormone optimization based on free T3.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Thyroid Dysfunction</strong> — TSH tells you the pituitary's request. Free T3 tells you what cells are actually receiving. Free T4 tells you what the thyroid is producing. Reverse T3 tells you if there's a conversion block. T4-to-T3 conversion requires selenium, zinc, and iron — and is impaired by chronic stress, gut dysbiosis, and low-calorie dieting. 'Normal' TSH misses all of this.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Adrenal Fatigue / HPA Axis Dysregulation</strong> — A signaling problem, not organ failure. The four-point salivary cortisol curve reveals whether someone has low morning cortisol causing fatigue, high evening cortisol disrupting sleep, or both. Adaptogens (ashwagandha, rhodiola, licorice root) are selected based on the specific cortisol pattern. Blood sugar stabilization removes the hypoglycemic cortisol spikes that perpetuate the cycle.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">PCOS</strong> — Affects 8–13% of reproductive-age women. In the majority of cases, including lean women, insulin resistance stimulates ovarian androgen excess and disrupts follicle maturation. A landmark Swedish study showed electroacupuncture normalizes LH levels and reduces testosterone in PCOS patients. My protocol uses myo-inositol (multiple RCTs), dietary modification, and acupuncture to correct the underlying physiology — not suppress symptoms with oral contraceptives.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Menopause &amp; Perimenopause</strong> — Perimenopause begins with progesterone decline, often a decade before estrogen follows — and that early progesterone deficiency explains the anxiety, worsening PMS, and sleep disruption that arrives years before hot flashes. Acupuncture reduces hot flash frequency and severity through hypothalamic thermoregulation. I discuss bioidentical hormone therapy candidly with every patient and coordinate with gynecologists when HRT is appropriate.</p>
+            <p><strong style="color:var(--color-text)">Hormonal Imbalance</strong> — The hormonal system is deeply interconnected. Cortisol depletes progesterone precursors. Insulin resistance drives androgen excess in women and reduces testosterone in men. Gut dysbiosis impairs estrogen metabolism. My evaluation traces the upstream driver rather than simply adding hormones without asking why they dropped.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">What Comprehensive Hormonal Testing Looks Like</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:0.75rem"><strong style="color:var(--color-text)">Full thyroid panel:</strong> TSH, free T3, free T4, reverse T3, TPO and thyroglobulin antibodies — against clinical optimal ranges, not just lab reference ranges.</p>
+            <p style="margin-bottom:0.75rem"><strong style="color:var(--color-text)">Sex hormones:</strong> Estradiol, progesterone (at cycle-appropriate timing), free and total testosterone, DHEA-S, SHBG — providing the full reproductive hormone picture.</p>
+            <p style="margin-bottom:0.75rem"><strong style="color:var(--color-text)">Adrenal function:</strong> Four-point salivary cortisol capturing the full diurnal curve — the only method that identifies dysregulated patterns missed by single-point blood testing.</p>
+            <p><strong style="color:var(--color-text)">Metabolic hormones:</strong> Fasting insulin, HOMA-IR, HbA1c — identifying insulin resistance before diabetes develops, relevant to PCOS and general hormonal complaints.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
+          <div style="margin-bottom:2.5rem">
+            ${faqs.map(faq => `
+            <div class="faq-item reveal" style="border-bottom:1px solid var(--color-border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+              <h3 class="font-heading" style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--color-text)">${faq.q}</h3>
+              <p style="color:var(--color-muted);line-height:1.75;margin:0">${faq.a}</p>
+            </div>`).join("")}
+          </div>
+
+          <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">Services for Hormonal &amp; Thyroid Health</h2>
+          <div class="grid-auto sm:grid-2" style="margin-bottom:2.5rem">
+            ${[
+              ["Functional Medicine Consultation", "functional-medicine-consultation"],
+              ["Acupuncture Therapy", "acupuncture-therapy"],
+              ["Chinese Herbal Medicine", "chinese-herbal-medicine"],
+              ["Dry Needling Therapy", "dry-needling-therapy"],
+              ["Electroacupuncture", "electroacupuncture"],
+              ["Ozone Therapy", "ozone-therapy"],
+            ].map(([name, slug]) => `
+            <a href="/services/${slug}/" class="related-card reveal">
+              <div class="related-card__inner">
+                <span class="related-card__name">${name}</span>
+                <span class="related-card__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>`).join("")}
+          </div>
+
+          ${renderBookingCTA()}
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-card--primary">
+            <p class="sidebar-card__title">Schedule a Consultation</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem">Call or email to book your first appointment with Dr. Hendry.</p>
+            <a href="tel:+18643656156" class="btn btn--primary" style="width:100%;margin-bottom:0.75rem;text-align:center">${icons.phone} (864) 365-6156</a>
+            <a href="mailto:info@ihpgreenville.com" class="btn btn--outline" style="width:100%;text-align:center">${icons.mail} Email Us</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Dr. Hendry's Credentials</p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              ${["DAOM — East West College of Natural Medicine", "NCBAHM Board Certified (Dipl. O.M. #114498)", "9 Years Hospital Privileges — Prisma Health", "5 Peer-Reviewed Publications | 54 Citations", "25+ Years Clinical Experience"].map(c => `<div class="check-item" style="font-size:0.875rem">${icons.checkCircle}<span style="color:var(--color-muted)">${c}</span></div>`).join("")}
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Related Conditions</p>
+            ${[["Gut & Digestive Health", "gut-and-digestive-health"], ["Fertility & Women's Health", "fertility-and-womens-health"], ["Autoimmune & Chronic Illness", "autoimmune-and-chronic-illness"], ["Fatigue, Brain & Nervous System", "fatigue-brain-nervous-system"]].map(([n, s]) => `<a href="/conditions/${s}/" class="sidebar-link">${n}</a>`).join("")}
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem">${NAP.streetAddress}<br>${NAP.city}, ${NAP.state} ${NAP.postalCode}</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem">Mon—Fri, 9am—5pm</p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">Get Directions ${icons.externalLink}</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   CONDITION HUB 4: GUT & DIGESTIVE HEALTH
+   Consolidates: ibs-gut-issues, leaky-gut, food-sensitivities
+   URL: /conditions/gut-and-digestive-health
+   ============================================================ */
+export function renderGutDigestiveHub(): string {
+  const title = "IBS, Leaky Gut & Food Sensitivities in Greenville, SC | IHP";
+  const desc = "Functional medicine for IBS, leaky gut, and food sensitivities in Greenville, SC. Dr. Hendry identifies SIBO, intestinal permeability, and dietary triggers with precision testing. Call (864) 365-6156.";
+  const canonical = `${BASE_URL}/conditions/gut-and-digestive-health/`;
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is SIBO and how does it cause IBS symptoms?", "acceptedAnswer": { "@type": "Answer", "text": "Small intestinal bacterial overgrowth (SIBO) occurs when bacteria from the colon colonize the small intestine. These bacteria ferment food and produce hydrogen and methane gas — directly causing the bloating, abdominal pain, and altered bowel habits that define IBS. Research finds SIBO in up to 78% of IBS patients. It's diagnosed with a hydrogen/methane breath test and is highly treatable with herbal antimicrobials or targeted antibiotics." } },
+      { "@type": "Question", "name": "Is leaky gut a real medical condition?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Intestinal permeability is documented in the peer-reviewed literature in celiac disease, IBD, IBS, type 1 diabetes, multiple sclerosis, and virtually every autoimmune condition studied. The underlying pathophysiology — loss of tight junction integrity allowing bacterial antigens and food proteins into the bloodstream — is scientifically well-established and measurable." } },
+      { "@type": "Question", "name": "How is food sensitivity different from a food allergy?", "acceptedAnswer": { "@type": "Answer", "text": "Food allergies are immediate (minutes after eating), IgE-mediated, and can cause anaphylaxis. Food sensitivities are delayed (hours to days), IgG-mediated or permeability-driven, and cause chronic inflammatory symptoms — bloating, brain fog, joint pain — rather than acute reactions. Standard allergy tests don't detect food sensitivities." } },
+      { "@type": "Question", "name": "What is the 5R gut restoration protocol?", "acceptedAnswer": { "@type": "Answer", "text": "The 5R protocol systematically addresses intestinal dysfunction: Remove offending foods and pathogens (including SIBO treatment); Replace digestive enzymes where deficient; Reinoculate with beneficial bacteria; Repair the gut lining with glutamine, zinc carnosine, collagen, and vitamin A; and Rebalance lifestyle factors including stress, sleep, and diet." } },
+      { "@type": "Question", "name": "Can gut problems cause symptoms outside the digestive system?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — and this is one of the most clinically important points in functional medicine. Brain fog, joint pain, skin conditions (eczema, psoriasis, acne), anxiety, depression, autoimmune flares, and fatigue are all documented downstream manifestations of intestinal permeability and gut dysbiosis. The gut houses 70% of the immune system — when it's dysregulated, the effects are felt throughout the body." } },
+      { "@type": "Question", "name": "How long does it take to heal leaky gut?", "acceptedAnswer": { "@type": "Answer", "text": "Mild to moderate intestinal permeability typically improves significantly within 8–12 weeks of a comprehensive gut healing protocol. Severe or long-standing permeability may take 6–12 months. Dr. Hendry uses zonulin and lactulose/mannitol testing to establish an objective baseline and track healing progress." } },
+    ]
+  };
+
+  const faqs = [
+    { q: "What testing does Dr. Hendry use for digestive conditions?", a: "SIBO hydrogen/methane breath test (run on essentially every IBS patient given the 78% prevalence data), intestinal permeability markers (zonulin and lactulose/mannitol ratio), IgG food sensitivity panel to guide the elimination protocol, comprehensive stool microbiome analysis, and inflammatory markers (hsCRP, calprotectin for IBD differentiation). This identifies the specific dysfunction driving each patient's presentation." },
+    { q: "Is the low-FODMAP diet a long-term solution?", a: "No — it's a diagnostic and symptomatic tool, not a permanent diet. The low-FODMAP elimination phase identifies specific fermentable carbohydrate triggers. Systematic reintroduction clarifies which specific FODMAPs are problematic. Long-term FODMAP restriction impoverishes the gut microbiome and is not appropriate as an ongoing dietary pattern." },
+    { q: "Can stress cause IBS flares?", a: "Yes, through the gut-brain axis. Psychological stress directly affects gut motility, permeability, and pain sensitivity via the enteric nervous system and vagus nerve. Acupuncture is clinically effective for IBS partly because it addresses the neural regulation of the gut alongside the structural gut dysfunction. Addressing both dimensions is required for lasting improvement." },
+    { q: "What foods actually help heal the gut lining?", a: "Bone broth and collagen (glycine and proline support enterocyte repair), fermented foods (beneficial bacteria and short-chain fatty acids strengthen the mucosal lining), cooked vegetables (butyrate-producing fiber feeds colonocytes), and omega-3 fatty acids (reduce gut mucosal inflammation). Equally important: removing gluten, alcohol, NSAIDs, and excess sugar that directly damage the gut barrier." },
+    { q: "Can acupuncture help IBS and gut issues?", a: "Yes. Multiple systematic reviews confirm acupuncture significantly improves abdominal pain, bloating, and bowel habit regularity in IBS. The mechanisms include enteric nervous system regulation, reduction of visceral hypersensitivity, gut-brain axis modulation, and direct effects on gut motility. Most patients notice improvement in pain and bloating from their first few sessions." },
+  ];
+
+  return `${renderHead(title, desc)}
+<head>
+  <link rel="canonical" href="${canonical}" />
+  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
+</head>
+<body data-page="condition-hub">
+  ${renderNav(false)}
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Conditions We Treat", href: "/conditions" },
+        { name: "Gut & Digestive Health" },
+      ])}
+      <div class="main-sidebar">
+        <article>
+          <span class="tag" style="margin-bottom:1rem;display:inline-block">Digestive &amp; Immune Health</span>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">IBS, Leaky Gut &amp; Food Sensitivities in Greenville, SC</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2.5rem" class="reveal reveal-delay-1">
+            Functional medicine and acupuncture for IBS, intestinal permeability, and food sensitivities — using precision testing to identify SIBO, gut dysbiosis, and specific dietary triggers, then addressing root causes with a systematic protocol. Not another generic fiber recommendation.
+          </p>
+
+          <div class="cta-subtle reveal" style="margin-bottom:2.5rem">
+            <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} A Note From Dr. Hendry</h2>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">I run a SIBO breath test on essentially every IBS patient who comes through my door. The published research puts SIBO prevalence at up to 78% in IBS patients — too high to skip the test and go straight to a generic dietary recommendation. What I find shapes the entire protocol: methane-dominant SIBO is treated differently than hydrogen-dominant, and both require gut restoration after bacterial overgrowth is cleared.</p>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">The most frustrating clinical scenario in GI is a patient who's been told: "Your colonoscopy was normal, so it's IBS." SIBO doesn't show up on a colonoscopy. Intestinal permeability doesn't. Food sensitivities don't. None of the functional pathology that explains the majority of IBS presentations is visible on standard endoscopy. Functional testing is what answers the question.</p>
+            <p style="color:var(--color-muted);line-height:1.8">The gut is also never a local problem. It's the source of 70% of the immune system. Gut dysbiosis drives neuroinflammation. Intestinal permeability underlies virtually every autoimmune condition. When I treat gut dysfunction, I'm also addressing the systemic conditions downstream — and that's where the most dramatic improvements often happen for patients who thought their brain fog, joint pain, or skin problems had nothing to do with their gut.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">IBS &amp; Gut Dysfunction: What the Colonoscopy Misses</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">IBS is 'functional' dysfunction — neurological and microbial, not structural — and it requires functional testing to identify. The relevant pathology doesn't appear on standard endoscopy.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">SIBO</strong> — Found in up to 78% of IBS patients. Hydrogen-dominant SIBO produces diarrhea-predominant IBS; methane-dominant SIBO (Intestinal Methanogen Overgrowth) produces constipation-predominant IBS. I use herbal antimicrobial protocols (berberine, oregano, allicin-based formulas) that are highly effective and gentler on the microbiome than rifaximin for most patients.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Gut dysbiosis</strong> — An imbalanced microbiome with insufficient beneficial species alters gut motility, intestinal permeability, and visceral pain sensitivity. Comprehensive stool analysis identifies dysbiotic patterns, pathogenic bacteria, and markers of gut inflammation.</p>
+            <p><strong style="color:var(--color-text)">Post-infectious IBS</strong> — Developing after a GI infection, this involves enteric nervous system damage to the migrating motor complex that creates the conditions for SIBO. Many patients trace their IBS to a specific illness — which has specific treatment implications.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Leaky Gut: The Root of Systemic Inflammation</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">The gut wall is one cell layer thick in places, controlled by tight junction proteins. When those junctions open — triggered by gliadin (a gluten protein that directly activates zonulin), chronic NSAID use, alcohol, chronic stress, or gut infections — bacteria, toxins, and food proteins cross into circulation. The immune system responds.</p>
+            <p style="margin-bottom:1rem">The result isn't always digestive. Brain fog. Joint pain. Skin conditions. Autoimmune flares. These are downstream presentations of intestinal permeability in organs with no obvious connection to the gut — driven by systemic immune activation. Intestinal permeability is documented in virtually every autoimmune condition studied.</p>
+            <p>Dr. Hendry tests intestinal permeability with validated markers — zonulin and the lactulose/mannitol ratio — to establish objective baseline and track healing. The 5R gut restoration protocol addresses it systematically: Remove offending foods and pathogens, Replace digestive factors, Reinoculate the microbiome, Repair the lining with glutamine and zinc carnosine, and Rebalance lifestyle factors.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Food Sensitivities: The 72-Hour Delay</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">The 72-hour delay between eating a trigger food and its consequences is what makes food sensitivities so difficult to self-identify. Unlike food allergies — immediate IgE responses — food sensitivities are slow, IgG-mediated reactions that show up as bloating the next day, brain fog the day after, a headache two days later. Without systematic elimination and reintroduction, most patients never connect the dots.</p>
+            <p style="margin-bottom:1rem">The most common triggers: gluten, dairy, eggs, soy, corn, nightshades. Gluten sensitivity distinct from celiac disease — non-celiac gluten sensitivity — is increasingly recognized as a real condition capable of causing neurological, gastrointestinal, and systemic symptoms through intestinal permeability and neuroinflammation.</p>
+            <p>I use IgG food sensitivity testing as a map for the initial elimination phase, then walk patients through systematic reintroduction — one food every three days, tracking symptoms carefully. The elimination-reintroduction protocol is the gold standard. The goal is healing the underlying gut barrier — not permanent dietary restriction.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
+          <div style="margin-bottom:2.5rem">
+            ${faqs.map(faq => `
+            <div class="faq-item reveal" style="border-bottom:1px solid var(--color-border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+              <h3 class="font-heading" style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--color-text)">${faq.q}</h3>
+              <p style="color:var(--color-muted);line-height:1.75;margin:0">${faq.a}</p>
+            </div>`).join("")}
+          </div>
+
+          <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">Services for Gut &amp; Digestive Health</h2>
+          <div class="grid-auto sm:grid-2" style="margin-bottom:2.5rem">
+            ${[
+              ["Functional Medicine Consultation", "functional-medicine-consultation"],
+              ["Acupuncture Therapy", "acupuncture-therapy"],
+              ["Chinese Herbal Medicine", "chinese-herbal-medicine"],
+              ["Biopuncture Therapy", "biopuncture-therapy"],
+              ["Ozone Therapy", "ozone-therapy"],
+              ["Dry Needling Therapy", "dry-needling-therapy"],
+            ].map(([name, slug]) => `
+            <a href="/services/${slug}/" class="related-card reveal">
+              <div class="related-card__inner">
+                <span class="related-card__name">${name}</span>
+                <span class="related-card__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>`).join("")}
+          </div>
+
+          ${renderBookingCTA()}
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-card--primary">
+            <p class="sidebar-card__title">Schedule a Consultation</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem">Call or email to book your first appointment with Dr. Hendry.</p>
+            <a href="tel:+18643656156" class="btn btn--primary" style="width:100%;margin-bottom:0.75rem;text-align:center">${icons.phone} (864) 365-6156</a>
+            <a href="mailto:info@ihpgreenville.com" class="btn btn--outline" style="width:100%;text-align:center">${icons.mail} Email Us</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Dr. Hendry's Credentials</p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              ${["DAOM — East West College of Natural Medicine", "NCBAHM Board Certified (Dipl. O.M. #114498)", "9 Years Hospital Privileges — Prisma Health", "5 Peer-Reviewed Publications | 54 Citations", "25+ Years Clinical Experience"].map(c => `<div class="check-item" style="font-size:0.875rem">${icons.checkCircle}<span style="color:var(--color-muted)">${c}</span></div>`).join("")}
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Related Conditions</p>
+            ${[["Autoimmune & Chronic Illness", "autoimmune-and-chronic-illness"], ["Hormonal & Thyroid Health", "hormonal-and-thyroid-health"], ["Fatigue, Brain & Nervous System", "fatigue-brain-nervous-system"], ["Back & Spine Pain", "back-and-spine-pain"]].map(([n, s]) => `<a href="/conditions/${s}/" class="sidebar-link">${n}</a>`).join("")}
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem">${NAP.streetAddress}<br>${NAP.city}, ${NAP.state} ${NAP.postalCode}</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem">Mon—Fri, 9am—5pm</p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">Get Directions ${icons.externalLink}</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   CONDITION HUB 5: FATIGUE, BRAIN & NERVOUS SYSTEM
+   Consolidates: chronic-fatigue, brain-fog, anxiety-stress,
+                 depression, insomnia, ptsd, neuropathy, cognitive-decline
+   URL: /conditions/fatigue-brain-nervous-system
+   ============================================================ */
+export function renderFatigueBrainHub(): string {
+  const title = "Fatigue, Brain & Nervous System Conditions | Greenville, SC | IHP";
+  const desc = "Functional medicine and acupuncture for chronic fatigue, brain fog, anxiety, depression, insomnia, PTSD, neuropathy, and cognitive decline. Dr. William Hendry, DAOM. Call (864) 365-6156.";
+  const canonical = `${BASE_URL}/conditions/fatigue-brain-nervous-system/`;
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is post-exertional malaise and why does it matter?", "acceptedAnswer": { "@type": "Answer", "text": "Post-exertional malaise (PEM) is the hallmark of ME/CFS: a worsening of all symptoms 12–48 hours after even mild physical or cognitive exertion. It reflects abnormal cellular energy metabolism — mitochondria cannot meet the energy demand. This has a critical treatment implication: conventional graded exercise therapy is harmful in true ME/CFS because it repeatedly triggers PEM. Dr. Hendry uses a pacing-based approach that works within the current energy envelope." } },
+      { "@type": "Question", "name": "Can Long COVID cause chronic fatigue?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Long COVID fatigue shares nearly identical features with ME/CFS — post-exertional malaise, unrefreshing sleep, brain fog, and orthostatic intolerance. It is driven by neuroinflammation, mitochondrial damage, gut microbiome disruption, and autonomic dysfunction. Dr. Hendry has developed specific Long COVID recovery protocols addressing each of these mechanisms." } },
+      { "@type": "Question", "name": "Can acupuncture help with anxiety and panic attacks?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A 2018 meta-analysis confirmed acupuncture significantly reduces anxiety compared to no treatment, medications, and psychotherapy. Acupuncture modulates amygdala fear-processing activity, increases GABA and serotonin availability, reduces cortisol, and activates the parasympathetic nervous system. Panic attack frequency and severity typically decrease significantly within 6–8 sessions." } },
+      { "@type": "Question", "name": "What is Battlefield Acupuncture and how does it help PTSD?", "acceptedAnswer": { "@type": "Answer", "text": "Battlefield Acupuncture (BFA) is an auricular protocol using five specific ear points shown to rapidly reduce pain and stress. Developed by a U.S. Air Force physician and validated in military PTSD populations, it's incorporated into VA programs at multiple medical centers. Dr. Hendry combines BFA with body acupuncture targeting amygdala-calming points to reduce sympathetic hyperarousal without requiring verbal trauma processing." } },
+      { "@type": "Question", "name": "Can acupuncture help neuropathy and nerve pain?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dr. Hendry co-authored research on acupuncture for taxane-induced peripheral neuropathy at Prisma Health. Electroacupuncture improves nerve conduction velocity, reduces pain scores, and promotes nerve regeneration by increasing nerve growth factor expression and improving microcirculation in peripheral nerves." } },
+      { "@type": "Question", "name": "What drives cognitive decline and can it be addressed?", "acceptedAnswer": { "@type": "Answer", "text": "Alzheimer's and most dementias are driven by multiple converging biological factors: insulin resistance in the brain, neuroinflammation, hormonal decline, nutritional deficiencies (especially B12 and homocysteine from MTHFR variants), heavy metal burden, and sleep disruption impairing the glymphatic system. These are identifiable and addressable. The highest-leverage intervention window is in your 40s–60s, before structural changes are established." } },
+    ]
+  };
+
+  const faqs = [
+    { q: "What tests does Dr. Hendry run for unexplained fatigue?", a: "Beyond standard blood work: four-point salivary cortisol, comprehensive thyroid panel, B12/methylmalonic acid (functional B12 status), iron studies, vitamin D, organic acids (mitochondrial function), inflammatory markers (hsCRP, homocysteine), viral titers (EBV, CMV, HHV-6), and gut microbiome assessment. Standard CBC and metabolic panels miss the drivers of the majority of chronic fatigue cases." },
+    { q: "What is causing my 2–3am waking?", a: "Early morning waking (2–4am) is most commonly associated with blood sugar drops triggering a cortisol response, or low progesterone in perimenopausal women (progesterone supports GABA-mediated sleep and is lowest in the early morning hours). High evening cortisol from HPA axis dysregulation also keeps the nervous system activated into the early morning. The cortisol rhythm, glucose regulation, and hormonal status together identify which mechanism is active." },
+    { q: "Can depression have a physical cause?", a: "Very commonly. Hypothyroidism mimics depression and is one of the most commonly missed reversible causes. B12, omega-3, folate, iron, zinc, and vitamin D deficiencies are each independently associated with depressive symptoms. Neuroinflammation from gut dysbiosis disrupts serotonin synthesis and reduces BDNF. Testing and correcting these factors can resolve depression that hasn't responded to antidepressants." },
+    { q: "Can neuropathy be reversed?", a: "Peripheral nerves regenerate slowly — approximately 1–2mm per day. The degree of recovery depends on type, mechanism, and severity of damage. Diabetic neuropathy requires blood sugar optimization alongside nerve support; B12 deficiency neuropathy resolves with repletion; chemotherapy-induced neuropathy responds to electroacupuncture. Early intervention gives the best prognosis." },
+    { q: "How early should I address cognitive decline risk?", a: "The biology of Alzheimer's begins 15–20 years before symptoms appear. Most modifiable drivers — insulin resistance, sleep apnea, B12 deficiency, thyroid dysfunction, heavy metal burden — are identifiable and correctable now. The highest-impact intervention window is in your 40s through 60s. If you're noticing cognitive symptoms — even subtle ones — evaluation makes sense immediately." },
+  ];
+
+  return `${renderHead(title, desc)}
+<head>
+  <link rel="canonical" href="${canonical}" />
+  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
+</head>
+<body data-page="condition-hub">
+  ${renderNav(false)}
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Conditions We Treat", href: "/conditions" },
+        { name: "Fatigue, Brain & Nervous System" },
+      ])}
+      <div class="main-sidebar">
+        <article>
+          <span class="tag" style="margin-bottom:1rem;display:inline-block">Neurological &amp; Mental Health</span>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">Fatigue, Brain &amp; Nervous System Conditions</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2.5rem" class="reveal reveal-delay-1">
+            Functional medicine and acupuncture for chronic fatigue syndrome, Long COVID, brain fog, anxiety, depression, insomnia, PTSD, peripheral neuropathy, and cognitive decline. Comprehensive neurological and biological evaluation — with published research in heart rate variability biofeedback and needle-based neurological therapies behind the clinical protocols.
+          </p>
+
+          <div class="cta-subtle reveal" style="margin-bottom:2.5rem">
+            <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} A Note From Dr. Hendry</h2>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">The brain and nervous system operate at the intersection of every other body system — hormonal, immunological, gut-based, mitochondrial. When neurological and fatigue conditions haven't responded to conventional treatment, it's almost always because the evaluation stopped too early. Standard labs found nothing. Nobody checked the cortisol rhythm, the mitochondrial function markers, the gut microbiome, or the viral titers. The biology that explains these conditions is real and measurable — it just requires looking for it.</p>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">My published research includes heart rate variability biofeedback for symptom management — which means I work with autonomic nervous system regulation as a clinical variable, not just a theoretical concept. HRV is a direct window into the balance between sympathetic activation and parasympathetic recovery — and it's measurably disrupted in anxiety, PTSD, chronic fatigue, and fibromyalgia. I use it as an objective treatment monitoring tool.</p>
+            <p style="color:var(--color-muted);line-height:1.8">I co-authored research on acupuncture for taxane-induced peripheral neuropathy at Prisma Health. When a neuropathy patient comes in, I'm applying a research-developed protocol — not working from general principles.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Conditions Covered at This Hub</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Chronic Fatigue Syndrome / ME-CFS</strong> — Post-exertional malaise defines this condition: not tiredness, but a worsening of all symptoms 12–48 hours after even mild exertion. This reflects mitochondrial dysfunction, HPA axis dysregulation, NK cell impairment, neuroinflammation, and gut dysbiosis. Standard panels miss all of it. Organic acids, four-point cortisol, viral titers, and microbiome analysis identify the actual drivers. Pacing is fundamental; conventional graded exercise therapy is contraindicated.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Brain Fog</strong> — A symptom with many roots: neuroinflammation from gut dysbiosis or post-viral effects, thyroid dysfunction, blood sugar dysregulation, hormonal imbalance, B12 or iron deficiency, or mitochondrial impairment. Most brain fog has identifiable biological drivers — they appear on targeted testing. Post-COVID brain fog involves active neuroinflammation, endothelial dysfunction, and mitochondrial damage.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Anxiety &amp; Stress</strong> — Anxiety has a biology. HPA axis dysregulation, magnesium deficiency (in up to 70% of Americans), gut dysbiosis reducing GABA production, and thyroid dysfunction generate anxiety independently. Acupuncture modulates amygdala activity, increases GABA, reduces cortisol — results confirmed in multiple meta-analyses. I identify the physiological drivers rather than treating anxiety as a purely psychological condition.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Depression</strong> — Neuroinflammation is a central mechanism — inflammatory cytokines disrupt serotonin synthesis and reduce BDNF. The 'chemical imbalance' model has led generations of patients to antidepressants without checking their B12, vitamin D, thyroid, or inflammatory markers. I coordinate with psychiatrists, contributing biological substrate correction that makes the brain more responsive to all treatment.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Insomnia</strong> — Sleep requires specific physiology: declining cortisol, rising melatonin, parasympathetic dominance, stable blood sugar. My HRV research gives me an objective window into autonomic state — whether the sympathetic nervous system is still dominant at bedtime. Low progesterone, high evening cortisol, and nocturnal hypoglycemia explain most insomnia that doesn't respond to sleep hygiene.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">PTSD</strong> — A neurological state. The amygdala is hyperactivated; the prefrontal cortex can't reliably override it. Battlefield Acupuncture and body acupuncture reduce sympathetic hyperarousal at the physiological level — complementing psychological treatment by making the nervous system more accessible to therapeutic work. I work with trauma-informed awareness and adjust technique for touch-sensitive patients.</p>
+            <p style="margin-bottom:1rem"><strong style="color:var(--color-text)">Peripheral Neuropathy</strong> — I co-authored research on taxane-induced peripheral neuropathy at Prisma Health. Electroacupuncture improves nerve conduction velocity and promotes nerve regeneration through NGF expression. For diabetic neuropathy, functional medicine addresses blood sugar optimization, mitochondrial support, and nutritional deficiencies (B12 in metformin users, alpha-lipoic acid, acetyl-L-carnitine).</p>
+            <p><strong style="color:var(--color-text)">Cognitive Decline &amp; Alzheimer's Prevention</strong> — The biology of Alzheimer's begins 15–20 years before symptoms. Insulin resistance in the brain, neuroinflammation, hormonal decline, elevated homocysteine, heavy metals, and sleep disruption impairing glymphatic clearance are all identifiable and modifiable. My comprehensive evaluation identifies them specifically. Scalp acupuncture targeting the memory cortex has the most specific clinical evidence base for cognitive support.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
+          <div style="margin-bottom:2.5rem">
+            ${faqs.map(faq => `
+            <div class="faq-item reveal" style="border-bottom:1px solid var(--color-border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+              <h3 class="font-heading" style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--color-text)">${faq.q}</h3>
+              <p style="color:var(--color-muted);line-height:1.75;margin:0">${faq.a}</p>
+            </div>`).join("")}
+          </div>
+
+          <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">Services for Neurological &amp; Fatigue Conditions</h2>
+          <div class="grid-auto sm:grid-2" style="margin-bottom:2.5rem">
+            ${[
+              ["Acupuncture Therapy", "acupuncture-therapy"],
+              ["Electroacupuncture", "electroacupuncture"],
+              ["Functional Medicine Consultation", "functional-medicine-consultation"],
+              ["Chinese Herbal Medicine", "chinese-herbal-medicine"],
+              ["Dry Needling Therapy", "dry-needling-therapy"],
+              ["Ozone Therapy", "ozone-therapy"],
+            ].map(([name, slug]) => `
+            <a href="/services/${slug}/" class="related-card reveal">
+              <div class="related-card__inner">
+                <span class="related-card__name">${name}</span>
+                <span class="related-card__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>`).join("")}
+          </div>
+
+          ${renderBookingCTA()}
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-card--primary">
+            <p class="sidebar-card__title">Schedule a Consultation</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem">Call or email to book your first appointment with Dr. Hendry.</p>
+            <a href="tel:+18643656156" class="btn btn--primary" style="width:100%;margin-bottom:0.75rem;text-align:center">${icons.phone} (864) 365-6156</a>
+            <a href="mailto:info@ihpgreenville.com" class="btn btn--outline" style="width:100%;text-align:center">${icons.mail} Email Us</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Dr. Hendry's Credentials</p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              ${["DAOM — East West College of Natural Medicine", "NCBAHM Board Certified (Dipl. O.M. #114498)", "Published Research — HRV Biofeedback", "Research — Taxane-Induced Neuropathy (Prisma)", "9 Years Hospital Privileges — Prisma Health", "25+ Years Clinical Experience"].map(c => `<div class="check-item" style="font-size:0.875rem">${icons.checkCircle}<span style="color:var(--color-muted)">${c}</span></div>`).join("")}
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Related Conditions</p>
+            ${[["Hormonal & Thyroid Health", "hormonal-and-thyroid-health"], ["Gut & Digestive Health", "gut-and-digestive-health"], ["Autoimmune & Chronic Illness", "autoimmune-and-chronic-illness"], ["Back & Spine Pain", "back-and-spine-pain"]].map(([n, s]) => `<a href="/conditions/${s}/" class="sidebar-link">${n}</a>`).join("")}
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem">${NAP.streetAddress}<br>${NAP.city}, ${NAP.state} ${NAP.postalCode}</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem">Mon—Fri, 9am—5pm</p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">Get Directions ${icons.externalLink}</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   CONDITION HUB 6: FERTILITY & WOMEN'S HEALTH
+   Consolidates: fertility, pcos
+   URL: /conditions/fertility-and-womens-health
+   ============================================================ */
+export function renderFertilityWomensHub(): string {
+  const title = "Fertility Support & PCOS Treatment in Greenville, SC | IHP";
+  const desc = "Acupuncture and functional medicine for fertility support and PCOS in Greenville, SC. Dr. Hendry improves IVF outcomes, restores ovulation, and addresses hormonal root causes. Call (864) 365-6156.";
+  const canonical = `${BASE_URL}/conditions/fertility-and-womens-health/`;
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Does acupuncture improve IVF success rates?", "acceptedAnswer": { "@type": "Answer", "text": "Multiple randomized trials show acupuncture performed on the day of embryo transfer increases implantation and live birth rates. The data on acupuncture throughout the IVF cycle — during ovarian stimulation and retrieval phases — is even more promising. Dr. Hendry is experienced working alongside fertility clinics to time treatment appropriately within IVF protocols." } },
+      { "@type": "Question", "name": "What is causing my PCOS if I'm not overweight?", "acceptedAnswer": { "@type": "Answer", "text": "Insulin resistance is the primary driver of PCOS in the majority of cases — including lean women. Elevated insulin stimulates the ovaries to produce excess testosterone and disrupts follicle maturation. Fasting insulin and HOMA-IR testing identify insulin resistance before weight changes appear." } },
+      { "@type": "Question", "name": "How early before trying to conceive should I start acupuncture?", "acceptedAnswer": { "@type": "Answer", "text": "Ideally 3–6 months before your target conception window. This allows time to optimize egg quality (a 90-day maturation process), regulate cycles, balance hormones, and address nutritional deficiencies that affect embryo viability. Acupuncture and functional medicine are beneficial at any stage of the fertility journey." } },
+      { "@type": "Question", "name": "What does unexplained infertility actually mean?", "acceptedAnswer": { "@type": "Answer", "text": "Unexplained infertility means nothing actionable was found by the standard workup — not that nothing is wrong. Subclinical thyroid dysfunction (TSH above 2.5 is associated with reduced implantation), CoQ10 deficiency affecting oocyte mitochondrial energy, uterine inflammation from food sensitivities, and undertreated male factor are common findings in functional medicine evaluation." } },
+      { "@type": "Question", "name": "Can PCOS be treated without birth control pills?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Birth control pills suppress the hormonal cycle externally but don't address the insulin resistance driving androgen excess in most PCOS cases. Dr. Hendry's protocol uses myo-inositol, berberine, dietary modification, and acupuncture to correct the insulin resistance and restore ovulation naturally." } },
+      { "@type": "Question", "name": "Can you treat male factor infertility?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Male factor is involved in 40–50% of infertility cases, yet it's frequently undertreated. Acupuncture, Chinese herbal medicine, and targeted supplementation (CoQ10, vitamin C, zinc, selenium, carnitine) significantly improve sperm count, motility, and morphology. Dr. Hendry evaluates male factor as a standard component of every fertility consultation." } },
+    ]
+  };
+
+  const faqs = [
+    { q: "What tests does Dr. Hendry run for fertility evaluation?", a: "Beyond standard reproductive labs: thyroid function (TSH above 2.5 is independently associated with reduced implantation — yet most labs flag only values above 4–5 as abnormal), fasting insulin and HOMA-IR, vitamin D, CoQ10 markers, full hormone panel, and inflammatory markers. For PCOS: DHEA-S, free testosterone, SHBG, LH:FSH ratio, and fasting insulin." },
+    { q: "Is acupuncture safe during the two-week wait after IVF?", a: "Yes, with specific point protocols. Dr. Hendry uses a conservative and evidence-informed approach during the two-week wait — supporting uterine circulation and reducing cortisol while avoiding points contraindicated in early pregnancy. Acupuncture in the days following embryo transfer has been shown to improve implantation rates in multiple clinical trials." },
+    { q: "Can Chinese herbal medicine help fertility?", a: "Yes. Chinese herbal medicine has been used for menstrual regulation and fertility support for centuries, and contemporary research confirms specific formula components modulate the HPO axis, improve endometrial receptivity, and support ovarian function. Dr. Hendry's in-house herbal pharmacy formulates custom prescriptions based on each patient's TCM pattern and laboratory findings." },
+    { q: "How does PCOS affect fertility and what can be done?", a: "PCOS is the leading cause of ovulatory infertility. Insulin resistance and androgen excess disrupt follicle maturation and prevent ovulation. Restoring ovulation is the primary fertility goal — achieved through insulin resistance correction (myo-inositol, dietary change, berberine), HPO axis regulation with acupuncture, and Chinese herbal medicine for cycle normalization. Many PCOS patients who haven't ovulated in years achieve natural conception with consistent treatment." },
+    { q: "What supplements support egg quality?", a: "CoQ10 (600–800mg/day) is the most evidence-backed egg quality supplement — it supports mitochondrial energy production in oocytes, and egg quality is substantially determined by mitochondrial function. DHEA supplementation has evidence for improving ovarian reserve markers in poor responders. Methylfolate, vitamin D, omega-3s, and vitamin C round out the core egg quality protocol." },
+  ];
+
+  return `${renderHead(title, desc)}
+<head>
+  <link rel="canonical" href="${canonical}" />
+  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
+</head>
+<body data-page="condition-hub">
+  ${renderNav(false)}
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Conditions We Treat", href: "/conditions" },
+        { name: "Fertility & Women's Health" },
+      ])}
+      <div class="main-sidebar">
+        <article>
+          <span class="tag" style="margin-bottom:1rem;display:inline-block">Hormonal &amp; Women's Health</span>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">Fertility Support &amp; PCOS Treatment in Greenville, SC</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2.5rem" class="reveal reveal-delay-1">
+            Acupuncture and functional medicine for fertility support, IVF optimization, and PCOS treatment — addressing the hormonal, metabolic, and nutritional factors that determine fertility outcomes with precision testing and clinical depth.
+          </p>
+
+          <div class="cta-subtle reveal" style="margin-bottom:2.5rem">
+            <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} A Note From Dr. Hendry</h2>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">Fertility consultations are some of the most complex and emotionally weighted appointments in my practice. The timeline pressure is real. The failed cycles carry their own weight. When someone comes in after two unsuccessful IVF attempts and an 'unexplained infertility' diagnosis, the clinical question I'm asking is: what did the standard workup not look for?</p>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">The answer is often the thyroid. A TSH of 3.0 is 'normal' by most lab standards but associated with significantly reduced implantation rates in fertility research — and I target 1.0–2.0 for patients trying to conceive. Or CoQ10 deficiency affecting oocyte mitochondrial energy. Or subclinical insulin resistance in a woman who isn't overweight and whose PCOS was never diagnosed. Standard fertility workups aren't designed to find these. Functional medicine evaluation is.</p>
+            <p style="color:var(--color-muted);line-height:1.8">I've worked with couples who achieved pregnancy after two failed IVF cycles once the underlying thyroid dysfunction or nutritional deficiency was identified and addressed. That specificity is what makes the difference.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Fertility Support: What Standard Testing Misses</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:0.75rem"><strong style="color:var(--color-text)">Thyroid optimization:</strong> TSH above 2.5 mIU/L is associated with reduced conception rates and increased miscarriage risk — yet most labs flag only values above 4.5 as abnormal. I target TSH 1.0–2.0 for fertility patients and run free T3, free T4, and antibodies alongside TSH.</p>
+            <p style="margin-bottom:0.75rem"><strong style="color:var(--color-text)">Egg quality:</strong> CoQ10 (600–800mg/day) supports mitochondrial energy production in maturing oocytes — and egg quality is substantially determined by mitochondrial function. DHEA improves ovarian reserve markers in poor responders. These require the 90-day egg maturation window, ideally started 3–4 months before retrieval.</p>
+            <p style="margin-bottom:0.75rem"><strong style="color:var(--color-text)">Insulin resistance:</strong> Impairs ovulatory function in normal-weight women and is the primary driver of PCOS in most cases. Fasting insulin and HOMA-IR identify it before weight changes appear.</p>
+            <p style="margin-bottom:0.75rem"><strong style="color:var(--color-text)">Uterine environment:</strong> Systemic inflammation from food sensitivities or gut dysbiosis impairs endometrial receptivity. Vitamin D deficiency — strongly associated with implantation failure — is correctable and commonly missed.</p>
+            <p><strong style="color:var(--color-text)">Male factor:</strong> Involved in 40–50% of infertility cases. Sperm quality responds highly to CoQ10, vitamin C, zinc, selenium, and carnitine supplementation — and to addressing oxidative stress from poor sleep, smoking, and inflammatory diet.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Acupuncture for Fertility &amp; IVF</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">Acupuncture regulates the HPO axis, improves ovarian blood flow and follicular development, reduces uterine artery resistance to improve endometrial blood supply, and reduces stress hormones that suppress reproductive function.</p>
+            <p style="margin-bottom:1rem">For IVF patients, my protocol includes sessions during ovarian stimulation, around egg retrieval, and on the day of embryo transfer — where multiple randomized trials show improved implantation and live birth rates. I coordinate timing precisely with the fertility clinic's protocol.</p>
+            <p>Chinese herbal medicine formulas custom-prescribed for each patient's TCM pattern regulate the menstrual cycle, improve endometrial lining quality, and support luteal phase progesterone.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">PCOS: Addressing the Root Cause</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">PCOS affects 8–13% of reproductive-age women and is the leading cause of ovulatory infertility. In the majority of cases — including lean women — it's driven by insulin resistance: elevated insulin stimulates ovarian androgen production, disrupts follicle maturation, and creates the characteristic ultrasound appearance.</p>
+            <p style="margin-bottom:1rem">The standard approach — birth control pills — regulates cycles by suppressing the hormonal system entirely. It doesn't address the insulin resistance driving androgen excess. When the pill is stopped, the pattern resumes.</p>
+            <p>A landmark Swedish research program (led by Elisabet Stener-Victorin) found that repeated electroacupuncture normalized LH levels, improved menstrual regularity, and reduced testosterone in PCOS patients. I use this evidence base alongside myo-inositol and D-chiro-inositol (multiple RCTs supporting ovulation restoration), dietary modification, and berberine for metabolic PCOS.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
+          <div style="margin-bottom:2.5rem">
+            ${faqs.map(faq => `
+            <div class="faq-item reveal" style="border-bottom:1px solid var(--color-border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+              <h3 class="font-heading" style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--color-text)">${faq.q}</h3>
+              <p style="color:var(--color-muted);line-height:1.75;margin:0">${faq.a}</p>
+            </div>`).join("")}
+          </div>
+
+          <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">Services for Fertility &amp; Women's Health</h2>
+          <div class="grid-auto sm:grid-2" style="margin-bottom:2.5rem">
+            ${[
+              ["Acupuncture Therapy", "acupuncture-therapy"],
+              ["Chinese Herbal Medicine", "chinese-herbal-medicine"],
+              ["Functional Medicine Consultation", "functional-medicine-consultation"],
+              ["Electroacupuncture", "electroacupuncture"],
+              ["Dry Needling Therapy", "dry-needling-therapy"],
+              ["Biopuncture Therapy", "biopuncture-therapy"],
+            ].map(([name, slug]) => `
+            <a href="/services/${slug}/" class="related-card reveal">
+              <div class="related-card__inner">
+                <span class="related-card__name">${name}</span>
+                <span class="related-card__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>`).join("")}
+          </div>
+
+          ${renderBookingCTA()}
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-card--primary">
+            <p class="sidebar-card__title">Schedule a Consultation</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem">Call or email to book your first appointment with Dr. Hendry.</p>
+            <a href="tel:+18643656156" class="btn btn--primary" style="width:100%;margin-bottom:0.75rem;text-align:center">${icons.phone} (864) 365-6156</a>
+            <a href="mailto:info@ihpgreenville.com" class="btn btn--outline" style="width:100%;text-align:center">${icons.mail} Email Us</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Dr. Hendry's Credentials</p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              ${["DAOM — East West College of Natural Medicine", "NCBAHM Board Certified (Dipl. O.M. #114498)", "9 Years Hospital Privileges — Prisma Health", "5 Peer-Reviewed Publications | 54 Citations", "25+ Years Clinical Experience"].map(c => `<div class="check-item" style="font-size:0.875rem">${icons.checkCircle}<span style="color:var(--color-muted)">${c}</span></div>`).join("")}
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Related Conditions</p>
+            ${[["Hormonal & Thyroid Health", "hormonal-and-thyroid-health"], ["Gut & Digestive Health", "gut-and-digestive-health"], ["Autoimmune & Chronic Illness", "autoimmune-and-chronic-illness"], ["Fatigue, Brain & Nervous System", "fatigue-brain-nervous-system"]].map(([n, s]) => `<a href="/conditions/${s}/" class="sidebar-link">${n}</a>`).join("")}
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem">${NAP.streetAddress}<br>${NAP.city}, ${NAP.state} ${NAP.postalCode}</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem">Mon—Fri, 9am—5pm</p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">Get Directions ${icons.externalLink}</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+/* ============================================================
+   CONDITION HUB 7: AUTOIMMUNE & CHRONIC ILLNESS
+   Consolidates: autoimmune-disease, fibromyalgia, chronic-illness,
+                 weight-issues, lyme-disease
+   URL: /conditions/autoimmune-and-chronic-illness
+   ============================================================ */
+export function renderAutoimmuneChronic(): string {
+  const title = "Autoimmune Disease, Fibromyalgia & Chronic Illness | Greenville, SC | IHP";
+  const desc = "Functional medicine and acupuncture for autoimmune disease, fibromyalgia, chronic illness, weight dysfunction, and Lyme disease in Greenville, SC. Dr. William Hendry, DAOM. Call (864) 365-6156.";
+  const canonical = `${BASE_URL}/conditions/autoimmune-and-chronic-illness/`;
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is the connection between leaky gut and autoimmune disease?", "acceptedAnswer": { "@type": "Answer", "text": "Intestinal permeability is found in virtually every autoimmune condition studied. When the gut barrier is compromised, bacterial antigens and food proteins (particularly gliadin) enter the bloodstream. The immune response generated can cross-react with structurally similar self-tissues — molecular mimicry. Healing the gut lining removes the most consistent autoimmune trigger in the body." } },
+      { "@type": "Question", "name": "Is fibromyalgia a real condition?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Fibromyalgia is a disorder of central sensitization — the spinal cord and brain have recalibrated their pain-processing threshold downward, amplifying normal sensory input into pain signals. This is measurable on functional MRI and in substance P levels. Dr. Hendry uses HRV monitoring as an objective marker of nervous system recalibration during treatment." } },
+      { "@type": "Question", "name": "Can autoimmune disease go into remission?", "acceptedAnswer": { "@type": "Answer", "text": "Some autoimmune conditions can achieve remission — minimal or undetectable disease activity. For Hashimoto's, complete antibody normalization is achievable. For rheumatoid arthritis, significant reduction in disease activity is common when gut healing and dietary triggers are addressed alongside DMARD therapy." } },
+      { "@type": "Question", "name": "What causes unexplained weight gain?", "acceptedAnswer": { "@type": "Answer", "text": "Insulin resistance is the most common metabolic barrier — elevated insulin is the body's primary fat-storage signal. Thyroid dysfunction slows resting metabolism. Cortisol from chronic stress drives central adiposity. Gut dysbiosis produces metabolic endotoxemia. Testing fasting insulin, HOMA-IR, and a full thyroid panel almost always identifies at least one specific, addressable driver." } },
+      { "@type": "Question", "name": "Can functional medicine help when antibiotics haven't resolved Lyme symptoms?", "acceptedAnswer": { "@type": "Answer", "text": "When standard antibiotics haven't resolved symptoms, functional medicine investigates what they didn't address: co-infections (Babesia, Bartonella), biofilm communities, immune dysregulation, gut disruption from the antibiotics, and mitochondrial impairment. Herbal antimicrobials (Japanese knotweed, cat's claw, cryptolepis) have documented activity against Borrelia including persister cell forms." } },
+      { "@type": "Question", "name": "Is vitamin D deficiency linked to autoimmune disease?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, significantly. Vitamin D deficiency is a major modifiable risk factor — autoimmune disease is more prevalent at higher latitudes. Vitamin D regulates T regulatory cell function that suppresses autoimmune reactivity. Maintaining optimal 25-OH vitamin D levels (60–80 ng/mL) is a core component of every autoimmune protocol at IHP." } },
+    ]
+  };
+
+  const faqs = [
+    { q: "I've seen multiple specialists and nobody has found what's wrong — can functional medicine help?", a: "This is among the most common presentations I see. Functional medicine asks different questions and uses different tests. The biological dysfunction driving most complex chronic illness — mitochondrial impairment, gut dysbiosis, HPA axis dysregulation, nutritional depletion, environmental toxin burden — doesn't appear on standard specialty panels. The evaluation that misses it is the one that doesn't look for it." },
+    { q: "Do you work alongside conventional specialists?", a: "Yes, always. A rheumatoid arthritis patient on methotrexate still benefits enormously from gut healing, anti-inflammatory nutrition, and vitamin D optimization — those don't interfere with conventional treatment and often improve its effectiveness. I communicate with the patient's other providers and coordinate care explicitly." },
+    { q: "How do you approach fibromyalgia treatment?", a: "I treat fibromyalgia as central sensitization — a real biological state with measurable neurological mechanisms, not a diagnosis handed out when nothing else fits. Electroacupuncture is particularly effective for modulating the CNS pathways disrupted in fibromyalgia. I use HRV monitoring as an objective treatment tracking tool. Mitochondrial support, sleep optimization, thyroid evaluation, gut restoration, and anti-inflammatory diet work synergistically with acupuncture." },
+    { q: "What is the connection between weight gain and insulin resistance?", a: "Insulin resistance means cells stop responding to insulin's signal, causing the pancreas to produce excess insulin. High circulating insulin is the body's primary fat-storage signal and blocks lipolysis. No amount of caloric restriction fully overrides this mechanism. Berberine and inositol correct insulin resistance pharmacologically; a low-glycemic dietary pattern removes the substrate perpetuating it." },
+    { q: "What herbal antimicrobials do you use for Lyme?", a: "My herbal Lyme protocols draw from published in vitro research: Japanese knotweed (resveratrol and stilbenes with documented anti-Borrelia activity), cat's claw (immunomodulatory and antimicrobial), cryptolepis (active against both Borrelia and Babesia), and andrographis (anti-inflammatory and antimicrobial). These are prescribed as structured protocols from my in-house herbal pharmacy, combined with biofilm-disrupting agents and rotation strategies." },
+  ];
+
+  return `${renderHead(title, desc)}
+<head>
+  <link rel="canonical" href="${canonical}" />
+  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
+</head>
+<body data-page="condition-hub">
+  ${renderNav(false)}
+  <main class="page-top">
+    <div class="container" style="padding-top:1.5rem;padding-bottom:4rem">
+      ${renderBreadcrumbs([
+        { name: "Conditions We Treat", href: "/conditions" },
+        { name: "Autoimmune & Chronic Illness" },
+      ])}
+      <div class="main-sidebar">
+        <article>
+          <span class="tag" style="margin-bottom:1rem;display:inline-block">Digestive &amp; Immune Health</span>
+          <h1 class="section-title reveal" style="margin-bottom:1.25rem">Autoimmune Disease, Fibromyalgia &amp; Chronic Illness in Greenville, SC</h1>
+          <p style="color:var(--color-muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2.5rem" class="reveal reveal-delay-1">
+            Functional medicine and acupuncture for autoimmune conditions, fibromyalgia, complex chronic illness, metabolic dysfunction, and Lyme disease. Addressing the biological drivers conventional medicine isn't designed to look for — with clinical depth from 25 years of integrative practice and published research.
+          </p>
+
+          <div class="cta-subtle reveal" style="margin-bottom:2.5rem">
+            <h2 class="font-display" style="font-size:1.5rem;margin-bottom:0.875rem">${icons.award} A Note From Dr. Hendry</h2>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">The patients I see with autoimmune disease and complex chronic illness have usually been through the specialist circuit. Rheumatology found early indicators but nothing meeting diagnostic criteria. Gastroenterology diagnosed IBS and recommended fiber. Each specialist saw their piece. Nobody saw the whole thing — because the whole thing isn't organized by organ system.</p>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1rem">Chronic illness typically doesn't fit single-organ specialty medicine because it isn't a single-organ condition. It's the downstream result of overlapping biological failures: gut dysbiosis driving systemic inflammation, mitochondrial dysfunction impairing cellular energy, HPA axis dysregulation undermining stress resilience, accumulated nutrient depletion. These systems interact. Correcting them requires a framework that sees their interaction.</p>
+            <p style="color:var(--color-muted);line-height:1.8">I work with rheumatologists and gastroenterologists, not around them. The immunology I address is the layer that the specialist isn't designed to address: why is this immune system activated? What's the gut permeability status? What's the vitamin D? These questions have answers that sometimes change everything.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">The Leaky Gut — Autoimmune Cascade</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">Twenty-three million Americans have an autoimmune disease. Most received a diagnosis, a prescription for an immunosuppressant, and an implicit message that management is the best they can hope for. The functional medicine question is different: why is the immune system attacking its own tissue? Not philosophically — clinically. Because there are identifiable, addressable biological drivers that conventional treatment is not designed to look for.</p>
+            <p style="margin-bottom:1rem">Intestinal permeability is found in virtually every autoimmune condition studied — Hashimoto's, lupus, rheumatoid arthritis, type 1 diabetes, multiple sclerosis. When the gut barrier is compromised, bacterial antigens trigger immune responses that cross-react with structurally similar self-tissues through molecular mimicry. Healing the gut lining removes the most consistent autoimmune trigger in the body.</p>
+            <p style="margin-bottom:1rem">Vitamin D deficiency reduces regulatory T-cell activity that holds autoimmune reactivity in check. EBV reactivation is firmly linked to multiple sclerosis, lupus, and Hashimoto's onset. Gliadin from gluten triggers intestinal permeability and serves as a molecular mimicry antigen for thyroid tissue. These are the drivers. Identifying and addressing them is what changes trajectory rather than just managing symptoms of a progressive disease.</p>
+            <p>My 5R gut restoration protocol addresses intestinal permeability systematically: Remove offending foods and gut pathogens, Replace digestive factors, Reinoculate with targeted probiotic strains, Repair the gut lining with glutamine, zinc carnosine, and collagen, and Rebalance lifestyle factors. The autoimmune protocol builds on this foundation.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Fibromyalgia: Central Sensitization, Not Imagination</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">Fibromyalgia is a disorder of central sensitization — a measurable neuroplastic state in which the spinal cord and brain have recalibrated their pain-processing threshold downward. Normal sensory input is amplified into pain signals. This is documented on functional MRI, in cerebrospinal fluid substance P levels, and in functional studies of pain-processing networks.</p>
+            <p style="margin-bottom:1rem">My published research includes work on heart rate variability biofeedback — direct investigation of autonomic nervous system regulation, measurably disrupted in fibromyalgia. I use HRV monitoring as an objective treatment tracking tool alongside subjective pain reporting. Patients receive education about the central sensitization mechanism — understanding the neuroscience consistently improves treatment engagement and outcomes.</p>
+            <p>Electroacupuncture is particularly effective for fibromyalgia — modulating the CNS pathways disrupted in this condition by reducing substance P, improving sleep architecture, and normalizing autonomic balance. Combined with functional medicine protocols targeting the mitochondrial, hormonal, and gut factors that perpetuate the sensitized state, treatment produces meaningful, sustained improvement in most patients.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1rem">Weight Dysfunction: The Biological Barriers</h2>
+          <div style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem" class="reveal">
+            <p style="margin-bottom:1rem">The patients who come in unable to lose weight have tried that. Some have tried it repeatedly over years. The issue is that the body's weight regulation system isn't a simple calorie equation — it's a complex hormonal and metabolic system with multiple failure points.</p>
+            <p style="margin-bottom:1rem">Insulin resistance keeps circulating insulin chronically elevated — the body's primary fat-storage signal, blocking fat release. No sustained caloric restriction overrides this. Thyroid dysfunction slows resting metabolic rate. Cortisol from chronic stress drives central adiposity. Gut dysbiosis alters energy extraction from food and produces metabolic endotoxemia that worsens insulin resistance.</p>
+            <p>My metabolic evaluation: fasting insulin, HOMA-IR, HbA1c, comprehensive thyroid panel, cortisol rhythm, sex hormones, gut microbiome, and inflammatory markers. One or more of these almost always reveals the specific barrier. Berberine and inositol for insulin resistance. Thyroid optimization when T4-to-T3 conversion is impaired. Adaptogenic herbs for cortisol dysregulation. The correction of underlying physiology often produces weight movement where years of dieting have not.</p>
+          </div>
+
+          <h2 class="font-display reveal" style="font-size:1.75rem;margin-bottom:1.5rem">Frequently Asked Questions</h2>
+          <div style="margin-bottom:2.5rem">
+            ${faqs.map(faq => `
+            <div class="faq-item reveal" style="border-bottom:1px solid var(--color-border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+              <h3 class="font-heading" style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--color-text)">${faq.q}</h3>
+              <p style="color:var(--color-muted);line-height:1.75;margin:0">${faq.a}</p>
+            </div>`).join("")}
+          </div>
+
+          <h2 class="font-heading reveal" style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">Services for Autoimmune &amp; Chronic Illness</h2>
+          <div class="grid-auto sm:grid-2" style="margin-bottom:2.5rem">
+            ${[
+              ["Functional Medicine Consultation", "functional-medicine-consultation"],
+              ["Acupuncture Therapy", "acupuncture-therapy"],
+              ["Chinese Herbal Medicine", "chinese-herbal-medicine"],
+              ["Ozone Therapy", "ozone-therapy"],
+              ["Electroacupuncture", "electroacupuncture"],
+              ["Biopuncture Therapy", "biopuncture-therapy"],
+            ].map(([name, slug]) => `
+            <a href="/services/${slug}/" class="related-card reveal">
+              <div class="related-card__inner">
+                <span class="related-card__name">${name}</span>
+                <span class="related-card__arrow">${icons.arrowRight}</span>
+              </div>
+            </a>`).join("")}
+          </div>
+
+          ${renderBookingCTA()}
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-card--primary">
+            <p class="sidebar-card__title">Schedule a Consultation</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem">Call or email to book your first appointment with Dr. Hendry.</p>
+            <a href="tel:+18643656156" class="btn btn--primary" style="width:100%;margin-bottom:0.75rem;text-align:center">${icons.phone} (864) 365-6156</a>
+            <a href="mailto:info@ihpgreenville.com" class="btn btn--outline" style="width:100%;text-align:center">${icons.mail} Email Us</a>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Dr. Hendry's Credentials</p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              ${["DAOM — East West College of Natural Medicine", "NCBAHM Board Certified (Dipl. O.M. #114498)", "Published Research — HRV Biofeedback", "9 Years Hospital Privileges — Prisma Health", "5 Peer-Reviewed Publications | 54 Citations", "25+ Years Clinical Experience"].map(c => `<div class="check-item" style="font-size:0.875rem">${icons.checkCircle}<span style="color:var(--color-muted)">${c}</span></div>`).join("")}
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Related Conditions</p>
+            ${[["Gut & Digestive Health", "gut-and-digestive-health"], ["Hormonal & Thyroid Health", "hormonal-and-thyroid-health"], ["Fatigue, Brain & Nervous System", "fatigue-brain-nervous-system"], ["Back & Spine Pain", "back-and-spine-pain"]].map(([n, s]) => `<a href="/conditions/${s}/" class="sidebar-link">${n}</a>`).join("")}
+          </div>
+          <div class="sidebar-card">
+            <p class="sidebar-card__title">Our Location</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem">${NAP.streetAddress}<br>${NAP.city}, ${NAP.state} ${NAP.postalCode}</p>
+            <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem">Mon—Fri, 9am—5pm</p>
+            <a href="https://maps.google.com/maps?q=319+Wade+Hampton+Blvd+Greenville+SC" target="_blank" rel="noopener noreferrer" class="sidebar-link">Get Directions ${icons.externalLink}</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  ${renderFooter()}
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+}

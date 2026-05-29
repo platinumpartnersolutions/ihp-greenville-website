@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import Parser from "rss-parser";
 import type { InsertBlogPost } from "@shared/schema";
 import { getSEOForUrl, injectSEOIntoHTML, generateSitemapXML, generateRobotsTxt, getBlogPostSEO, BASE_URL } from "./seo";
-import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub, renderPrivacy, renderDisclaimer, renderSitemapHtml, renderFunctionalMedicineHub, renderBackSpineHub } from "./renderer";
+import { renderHome, renderCategory, renderService, renderBlogIndex, renderBlogPost, render404, renderConditionsHub, renderConditionCategory, renderCondition, renderAbout, renderDrHendry, renderContact, renderServicesHub, renderPrivacy, renderDisclaimer, renderSitemapHtml, renderFunctionalMedicineHub, renderBackSpineHub, renderJointMuscleHub, renderHormonalThyroidHub, renderGutDigestiveHub, renderFatigueBrainHub, renderFertilityWomensHub, renderAutoimmuneChronic } from "./renderer";
 import { BLOG_301S, BLOG_410S } from "./blog-redirects";
 import { conditions, conditionCategories } from "./conditions";
 
@@ -315,6 +315,55 @@ const CATEGORY_SLUG_REDIRECTS: Record<string, string> = {
   "functional-medicine-greenville-sc": "functional-medicine-services",
 };
 
+/* ============================================================
+   CONDITION HUB REDIRECTS (301)
+   Thin individual condition pages → consolidated hub pages.
+   Checked at the top of the /conditions/:slug handler so the
+   301 fires even while the condition still exists in conditions.ts.
+   ============================================================ */
+const CONDITION_HUB_REDIRECTS: Record<string, string> = {
+  // Hub 1: back-and-spine-pain
+  "back-pain":           "/conditions/back-and-spine-pain/",
+  "sciatica":            "/conditions/back-and-spine-pain/",
+  // Hub 2: joint-and-muscle-pain
+  "neck-pain":           "/conditions/joint-and-muscle-pain/",
+  "knee-pain":           "/conditions/joint-and-muscle-pain/",
+  "hip-pain":            "/conditions/joint-and-muscle-pain/",
+  "shoulder-pain":       "/conditions/joint-and-muscle-pain/",
+  "headaches-migraines": "/conditions/joint-and-muscle-pain/",
+  "arthritis":           "/conditions/joint-and-muscle-pain/",
+  "sports-injuries":     "/conditions/joint-and-muscle-pain/",
+  // Hub 3: hormonal-and-thyroid-health
+  "hashimotos":          "/conditions/hormonal-and-thyroid-health/",
+  "thyroid-issues":      "/conditions/hormonal-and-thyroid-health/",
+  "adrenal-fatigue":     "/conditions/hormonal-and-thyroid-health/",
+  "pcos":                "/conditions/hormonal-and-thyroid-health/",
+  "menopause":           "/conditions/hormonal-and-thyroid-health/",
+  "perimenopause":       "/conditions/hormonal-and-thyroid-health/",
+  "hormone-imbalance":   "/conditions/hormonal-and-thyroid-health/",
+  // Hub 4: gut-and-digestive-health
+  "ibs-gut-issues":      "/conditions/gut-and-digestive-health/",
+  "leaky-gut":           "/conditions/gut-and-digestive-health/",
+  "food-sensitivities":  "/conditions/gut-and-digestive-health/",
+  // Hub 5: fatigue-brain-nervous-system
+  "chronic-fatigue":     "/conditions/fatigue-brain-nervous-system/",
+  "brain-fog":           "/conditions/fatigue-brain-nervous-system/",
+  "anxiety-stress":      "/conditions/fatigue-brain-nervous-system/",
+  "depression":          "/conditions/fatigue-brain-nervous-system/",
+  "insomnia":            "/conditions/fatigue-brain-nervous-system/",
+  "ptsd":                "/conditions/fatigue-brain-nervous-system/",
+  "neuropathy":          "/conditions/fatigue-brain-nervous-system/",
+  "cognitive-decline":   "/conditions/fatigue-brain-nervous-system/",
+  // Hub 6: fertility-and-womens-health
+  "fertility":           "/conditions/fertility-and-womens-health/",
+  // Hub 7: autoimmune-and-chronic-illness
+  "autoimmune-disease":  "/conditions/autoimmune-and-chronic-illness/",
+  "fibromyalgia":        "/conditions/autoimmune-and-chronic-illness/",
+  "chronic-illness":     "/conditions/autoimmune-and-chronic-illness/",
+  "weight-issues":       "/conditions/autoimmune-and-chronic-illness/",
+  "lyme-disease":        "/conditions/autoimmune-and-chronic-illness/",
+};
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
@@ -356,6 +405,10 @@ export async function registerRoutes(
 
   app.get("/conditions/:slug", (req, res, next) => {
     const { slug } = req.params;
+
+    // Consolidated individual conditions → hub pages (301)
+    const hubTarget = CONDITION_HUB_REDIRECTS[slug.replace(/\/$/, "")];
+    if (hubTarget) return res.redirect(301, hubTarget);
 
     const catHtml = renderConditionCategory(slug);
     if (catHtml) {
@@ -782,10 +835,24 @@ Service area: Greenville, Taylors, Travelers Rest, Mauldin, Simpsonville, Greer,
   app.get(["/conditions/back-and-spine-pain", "/conditions/back-and-spine-pain/"], (req, res) => {
     sendPage(res, renderBackSpineHub(), req.originalUrl);
   });
-
-  /* ── Condition consolidation 301s → hub pages ────────────── */
-  app.get(["/conditions/back-pain", "/conditions/back-pain/"],     (req, res) => res.redirect(301, "/conditions/back-and-spine-pain/"));
-  app.get(["/conditions/sciatica", "/conditions/sciatica/"],       (req, res) => res.redirect(301, "/conditions/back-and-spine-pain/"));
+  app.get(["/conditions/joint-and-muscle-pain", "/conditions/joint-and-muscle-pain/"], (req, res) => {
+    sendPage(res, renderJointMuscleHub(), req.originalUrl);
+  });
+  app.get(["/conditions/hormonal-and-thyroid-health", "/conditions/hormonal-and-thyroid-health/"], (req, res) => {
+    sendPage(res, renderHormonalThyroidHub(), req.originalUrl);
+  });
+  app.get(["/conditions/gut-and-digestive-health", "/conditions/gut-and-digestive-health/"], (req, res) => {
+    sendPage(res, renderGutDigestiveHub(), req.originalUrl);
+  });
+  app.get(["/conditions/fatigue-brain-nervous-system", "/conditions/fatigue-brain-nervous-system/"], (req, res) => {
+    sendPage(res, renderFatigueBrainHub(), req.originalUrl);
+  });
+  app.get(["/conditions/fertility-and-womens-health", "/conditions/fertility-and-womens-health/"], (req, res) => {
+    sendPage(res, renderFertilityWomensHub(), req.originalUrl);
+  });
+  app.get(["/conditions/autoimmune-and-chronic-illness", "/conditions/autoimmune-and-chronic-illness/"], (req, res) => {
+    sendPage(res, renderAutoimmuneChronic(), req.originalUrl);
+  });
 
   app.get("/conditions/digestive-issues", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));
   app.get("/conditions/digestive-issues/", (req, res) => res.redirect(301, "/conditions/ibs-gut-issues"));

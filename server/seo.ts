@@ -1336,10 +1336,23 @@ export function generateSitemapXML(conditionSlugs: string[] = [], conditionCatSl
   /* Condition hub pages — consolidated replacements for individual condition pages */
   const CONDITION_HUB_SLUGS = [
     "back-and-spine-pain",
-    // future hubs added here as they are built
+    "joint-and-muscle-pain",
+    "hormonal-and-thyroid-health",
+    "gut-and-digestive-health",
+    "fatigue-brain-nervous-system",
+    "fertility-and-womens-health",
+    "autoimmune-and-chronic-illness",
   ];
   /* Individual condition pages consolidated into hubs (301'd — exclude from sitemap) */
-  const CONSOLIDATED_CONDITIONS = new Set(["back-pain", "sciatica"]);
+  const CONSOLIDATED_CONDITIONS = new Set([
+    "back-pain", "sciatica",
+    "neck-pain", "knee-pain", "hip-pain", "shoulder-pain", "headaches-migraines", "arthritis", "sports-injuries",
+    "hashimotos", "thyroid-issues", "adrenal-fatigue", "pcos", "menopause", "perimenopause", "hormone-imbalance",
+    "ibs-gut-issues", "leaky-gut", "food-sensitivities",
+    "chronic-fatigue", "brain-fog", "anxiety-stress", "depression", "insomnia", "ptsd", "neuropathy", "cognitive-decline",
+    "fertility",
+    "autoimmune-disease", "fibromyalgia", "chronic-illness", "weight-issues", "lyme-disease",
+  ]);
 
   xml += `
   <url>
