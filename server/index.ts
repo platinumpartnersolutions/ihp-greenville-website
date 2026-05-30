@@ -112,7 +112,11 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  await ensureSchema();
+  try {
+    await ensureSchema();
+  } catch (err) {
+    console.error("[startup] Database unavailable — blog/session features degraded:", err);
+  }
 
   serveStatic(app);
 
